@@ -14,6 +14,12 @@
             "command": "python3 \"/Users/xiangxin/survey paper/review/check_supplement.py\" --json 2>/dev/null || true",
             "timeout": 20,
             "statusMessage": "Checking supplement table integrity"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"/Users/xiangxin/survey paper/review/check_j28.py\" --json 2>/dev/null || true",
+            "timeout": 30,
+            "statusMessage": "Checking Julia's 09-28 items"
           }
         ]
       }

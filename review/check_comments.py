@@ -71,7 +71,7 @@ ITEMS = [
  ("4", "'quantitative synthesis' removed",         "main", r"quantitative synthesis", 1),
  ("4", "comparator strength per study",            "supp", r"\\textbf\{Comparators\}", 0),
  ("4", "metrics stated as not comparable",         "main", r"not comparable across rows", 0),
- ("4", "studies grouped into task groups",         "main", r"\\multicolumn\{7\}\{l\}\{\\emph\{", 0),
+ ("4", "studies grouped into task groups",         "main", r"\\multicolumn\{6\}\{l\}\{\\emph\{", 0),
  ("5", "sampling rate and duration",               "supp", r"Sampling rate; record duration", 0),
  ("5", "missing-data handling",                    "supp", r"Missingness, as handled", 0),
  ("5", "external validation, calibration, uncertainty", "supp", r"\\textbf\{Calibration; uncertainty\}", 0),
@@ -81,10 +81,10 @@ ITEMS = [
  ("6", "section evidence for every mark",          "supp", r"\\label\{tab:surveyevidence\}", 0),
  ("6", "how the compared surveys were selected",   "main", r"chosen by the authors to span the five", 0),
  ("6", "contribution in two or three points",      "main", r"Three things here are ours", 0),
- ("7", "quality-assessment table",                 "supp", r"\\label\{tab:quality\}", 0),
+ ("7", "quality-assessment table",                 "supp", r"\\label\{tab:S3a\}", 0),
  ("7", "'within-cohort' defined",                  "main", r"\\emph\{Within-cohort\}", 0),
  ("7", "adjusted cohort not called external",      "main", r"not an untouched external test", 0),
- ("8", "dataset table",                            "supp", r"\\label\{tab:datasets\}", 0),
+ ("8", "dataset table",                            "supp", r"\\label\{tab:S2a\}", 0),
  ("8", "device, multisite, twin suitability",      "supp", r"supports device-level or edge evaluation", 0),
  ("8", "no full-pipeline benchmark stated",        "main", r"no established benchmark evaluates the complete", 0),
  ("9", "protocols compared",                       "supp", r"\\label\{tab:protocols\}", 0),
@@ -102,7 +102,7 @@ ITEMS = [
  ("10", "'privacy preserving' hyphenated",         "main", r"privacy preserving", 1),
  ("10", "'world model based' hyphenated",          "main", r"world model based", 1),
  ("10", "British spellings removed",               "main", r"organis|modelling", 1),
- ("10", "Figure 1 readable and consistent",         "main", r"Hand check of 60: precision 62", 0),
+ ("10", "Figure 1 readable and consistent",         "main", r"Hand check of 60 PubMed records: precision 62", 0),
 ]
 
 

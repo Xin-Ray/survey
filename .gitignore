@@ -43,3 +43,14 @@ review/email-to-fred-draft.md
 
 # Requirements register: derived from internal review correspondence, kept local
 REQUIREMENTS.md
+
+# ---- IEEE Xplore record dumps: publisher abstracts, not ours to redistribute ----
+# The 1,209 records of the two arms carry IEEE-copyrighted abstracts, fetched only so the
+# same three screening rules could be applied to them. The scripts that fetch and screen
+# them, and the derived counts in ieee_screen.json, are published; the abstracts are not.
+# (review/search/ieee_b.csv was committed in an earlier round and still carries 274 of them.)
+review/search/ieee_a.csv
+review/search/ieee_a_raw.json
+review/search/ieee_b_raw.json
+review/search/ieee_a_abstracts.json
+review/search/ieee_b_abstracts.json

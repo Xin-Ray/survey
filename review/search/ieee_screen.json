@@ -1,0 +1,1893 @@
+{
+ "run_date": "2026-09-29",
+ "method": "records paged from the Xplore search endpoint that the results page itself calls; the same three recovered rules as the PubMed arm, applied to title plus abstract",
+ "rule_source": "replicate_rules.py (regexes recovered verbatim 2026-09-22)",
+ "arm_a": {
+  "records": 932,
+  "total_reported": 932,
+  "excluded_non_article": 1,
+  "excluded_no_abstract": 0,
+  "excluded_ii_not_human_health": 109,
+  "excluded_i_no_spacetime_structure": 5,
+  "excluded_iii_no_quantitative_comparison": 533,
+  "eligible": 284,
+  "abstracts_shorter_than_450_chars": 0,
+  "screened_on_title_abstract": 931
+ },
+ "arm_b": {
+  "records": 277,
+  "total_reported": 277,
+  "excluded_non_article": 10,
+  "excluded_no_abstract": 0,
+  "excluded_ii_not_human_health": 82,
+  "excluded_i_no_spacetime_structure": 153,
+  "excluded_iii_no_quantitative_comparison": 25,
+  "eligible": 7,
+  "abstracts_shorter_than_450_chars": 0,
+  "screened_on_title_abstract": 267
+ },
+ "eligible_before_dedup": 291,
+ "duplicates_within_ieee": 5,
+ "eligible_unique_within_ieee": 286,
+ "deduplicated_against_pubmed": {
+  "pubmed_comparison_set": 1456,
+  "pubmed_counts": {
+   "main": 1180,
+   "dtwm": 279
+  },
+  "pubmed_overlap_between_arms": 3,
+  "also_in_pubmed": 55,
+  "ieee_only": 231
+ },
+ "ieee_only_records": [
+  {
+   "title": "Multi-channel Time-series Transformer for Wearable Monitoring of Rigidity in Parkinson\u2019s Disease",
+   "doi": "10.1109/COINS65080.2025.11125736",
+   "year": "2025",
+   "venue": "2025 IEEE International Conference on Omni-layer Intelligent Systems (COINS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "MDC-STGformer: Multi-scale Dilated Convolution Enhanced Spatio-Temporal Graph Transformer for PM2.5 Concentration Prediction",
+   "doi": "10.1109/ICMLCA66850.2025.11336538",
+   "year": "2025",
+   "venue": "2025 6th International Conference on Machine Learning and Computer Application (ICMLCA)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Self-Supervised Transformer Analysis of Spatiotemporal Coupling between Photoreceptor Metabolic Load and Inflammatory Cell Activation",
+   "doi": "10.1109/BDIMed67722.2025.11309319",
+   "year": "2025",
+   "venue": "2025 International Conference on Big Data and Intelligent Medicine (BDIMed)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Spatiotemporal Graph Neural Network for Dynamic Monitoring of College Students' Mental Health",
+   "doi": "10.1109/ICISE-IE68873.2025.11378948",
+   "year": "2025",
+   "venue": "2025 6th International Conference on Information Science and Education (ICISE-IE)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Post-Traumatic Stress Disorder Detection Through Video Sequences: A Transformer-Based Approach for e-Health Application",
+   "doi": "10.1109/EHB64556.2024.10805702",
+   "year": "2024",
+   "venue": "2024 E-Health and Bioengineering Conference (EHB)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Eeg Emotion Recognition: A 64-Channel Dynamic Graph Attention Spatio-Temporal Transformer Method",
+   "doi": "10.1109/CVIDL70130.2026.11637919",
+   "year": "2026",
+   "venue": "2026 7th International Conference on Computer Vision, Image and Deep Learning (CVIDL)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Spatiotemporal Uncertainty-Aware Mamba-Transformer Synergy: Breast Cancer Detection in ABUS",
+   "doi": "10.1109/BIBM66473.2025.11357197",
+   "year": "2025",
+   "venue": "2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "A Spatiotemporal Posterior Graph Convolutional Neural Network Based on Multihead Attention With Squeeze-and-Excitation Module for Patient-Specific Epileptic Seizure Prediction",
+   "doi": "10.1109/TIM.2025.3551573",
+   "year": "2025",
+   "venue": "IEEE Transactions on Instrumentation and Measurement",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Reinforcement Learning and Spatio-Temporal Graph Neural Networks for Alzheimer's Disease Progression Prediction with Variational Autoencoder-Based Data Imputation",
+   "doi": "10.1109/ICETETSIP64213.2025.11156631",
+   "year": "2025",
+   "venue": "2025 12th International Conference on Emerging Trends in Engineering & Technology - Signal and Information Processing (ICETET - SIP)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "OcuFabric: A Multimodal Spatiotemporal Graph Neural Network for Ocular Surface and Meibomian Gland Analysis",
+   "doi": "10.1109/ACCESS.2026.3711492",
+   "year": "2026",
+   "venue": "IEEE Access",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Multimodal Spatiotemporal Feature-Based Human Motion Pattern Recognition With CNN-Transformer-Attention Framework",
+   "doi": "10.1109/JIOT.2025.3599403",
+   "year": "2025",
+   "venue": "IEEE Internet of Things Journal",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "A Hybrid Channel-Temporal Attention CNN for Wearable-Based Gait Activity Recognition",
+   "doi": "10.1109/CCDC69976.2026.11560759",
+   "year": "2026",
+   "venue": "2026 38th Chinese Control and Decision Conference (CCDC)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Transformer Based Brain to Text Communication System for Locked-In Syndrome Patients",
+   "doi": "10.1109/ICIPTM69057.2026.11465389",
+   "year": "2026",
+   "venue": "2026 5th International Conference on Innovative Practices in Technology and Management (ICIPTM)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Skeleton-Based Action Recognition Using Global Spatiotemporal Convolutional Neural Network",
+   "doi": "10.1109/AIBDF67964.2025.11440710",
+   "year": "2025",
+   "venue": "2025 5th International Symposium on Artificial Intelligence and Big Data (AIBDF)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Blockchain-Enabled Secure Transformer\u2013CNN Hybrid Framework for Privacy-Preserving Epileptic Seizure Prediction using EEG Signals",
+   "doi": "10.1109/ICICT68280.2026.11510817",
+   "year": "2026",
+   "venue": "2026 9th International Conference on Inventive Computation Technologies (ICICT)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "PST-Mamba: Parallel Spatio-Temporal Mamba With Adaptive Multi-Band Transformer Fusion for EEG-Based Schizophrenia Diagnosis",
+   "doi": "10.1109/ACCESS.2026.3717222",
+   "year": "2026",
+   "venue": "IEEE Access",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Spatio-Temporal Attention Graph Neural Network for Remaining Useful Life Prediction",
+   "doi": "10.1109/CSCI62032.2023.00022",
+   "year": "2023",
+   "venue": "2023 International Conference on Computational Science and Computational Intelligence (CSCI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "CHRONICLES IN MOTION : Spatiotemporal Activity Detection with Deep Learning",
+   "doi": "10.1109/ICICI65870.2025.11069844",
+   "year": "2025",
+   "venue": "2025 3rd International Conference on Inventive Computing and Informatics (ICICI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Blood Pressure Value Prediction in Hemodialysis Patients Using the CNN+GRU Network Architecture",
+   "doi": "10.1109/ICOT54518.2021.9680659",
+   "year": "2021",
+   "venue": "2021 9th International Conference on Orange Technology (ICOT)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "High-Resolution Seamless Mapping of the Leaf Area Index via Multisource Data and the Transformer Deep Learning Model",
+   "doi": "10.1109/TGRS.2025.3561326",
+   "year": "2025",
+   "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "A Network Structure for Rehabilitation Training Evaluation Based on Transformer",
+   "doi": "10.1109/ICSP58490.2023.10248214",
+   "year": "2023",
+   "venue": "2023 8th International Conference on Intelligent Computing and Signal Processing (ICSP)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Spatio-Temporal Graph Neural Networks Versus LSTM Networks for Lyme Disease Progression Tracking",
+   "doi": "10.1109/IACIS65746.2025.11211229",
+   "year": "2025",
+   "venue": "2025 2nd International Conference on Intelligent Algorithms for Computational Intelligence Systems (IACIS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Serialised Pulmonary Lesion Segmentation with Spatiotemporal Transformer",
+   "doi": "10.1109/COMPSAC65507.2025.00037",
+   "year": "2025",
+   "venue": "2025 IEEE 49th Annual Computers, Software, and Applications Conference (COMPSAC)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Research on ECG Classification Based on Graph Neural Networks",
+   "doi": "10.1109/AINIT65432.2025.11035987",
+   "year": "2025",
+   "venue": "2025 IEEE 6th International Seminar on Artificial Intelligence, Networking and Information Technology (AINIT)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "CMDNet: A Cross-Modality Spatiotemporal Graph Network for Enhanced Air Pollution Prediction With High-Resolution Satellite Data",
+   "doi": "10.1109/TGRS.2025.3569594",
+   "year": "2025",
+   "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "GraphConvLSTM: Spatiotemporal Learning for Activity Recognition with Wearable Sensors",
+   "doi": "10.1109/GLOBECOM38437.2019.9013934",
+   "year": "2019",
+   "venue": "2019 IEEE Global Communications Conference (GLOBECOM)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Spatiotemporal Graph Transformer Network Based on Adversarial Training for AD Diagnosis",
+   "doi": "10.1109/ICC45041.2023.10279559",
+   "year": "2023",
+   "venue": "ICC 2023 - IEEE International Conference on Communications",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Dual-Branch Spatiotemporal Contrastive Transformer for Parkinson\u2019s Disease Prediction from Multi-Modal Brain Imaging",
+   "doi": "10.1109/ICSCSS64956.2025.11501106",
+   "year": "2025",
+   "venue": "2025 3rd International Conference on Sustainable Computing and Smart Systems (ICSCSS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Accurate Identification of Gait Asymmetry in LLD Based on Wearable Sensors and Deep Learning",
+   "doi": "10.1109/CISP-BMEI60920.2023.10373315",
+   "year": "2023",
+   "venue": "2023 16th International Congress on Image and Signal Processing, BioMedical Engineering and Informatics (CISP-BMEI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "A Novel Spatial-Temporal Graph Neural Network for Major Depressive Disorder Detection Based on Resting State EEG Signals",
+   "doi": "10.1109/JSEN.2026.3657750",
+   "year": "2026",
+   "venue": "IEEE Sensors Journal",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Deep Learning for Volumetric Segmentation in Spatio-Temporal Data: Application to Segmentation of Prostate in DCE-MRI",
+   "doi": "10.1109/ISBI.2019.8759314",
+   "year": "2019",
+   "venue": "2019 IEEE 16th International Symposium on Biomedical Imaging (ISBI 2019)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "A 9.5ms-Latency 6.2\u00b5J/Inference Spiking CNN for Patient-Specific Seizure Detection",
+   "doi": "10.1109/BioCAS58349.2023.10388869",
+   "year": "2023",
+   "venue": "2023 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "A Neuromorphic Processing System for Low-Power Wearable ECG Classification",
+   "doi": "10.1109/BioCAS49922.2021.9644939",
+   "year": "2021",
+   "venue": "2021 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Spatio-Temporal Hybrid Attentive Graph Network for Diagnosis of Mental Disorders on fMRI Time-Series Data",
+   "doi": "10.1109/TETCI.2024.3386612",
+   "year": "2024",
+   "venue": "IEEE Transactions on Emerging Topics in Computational Intelligence",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "IoT-Driven Environmental Monitoring and Pollution Source Attribution Using TimesNet and Spatio-Temporal Graph Neural Networks (ST-GCN)",
+   "doi": "10.1109/ETCOM66606.2025.11437051",
+   "year": "2025",
+   "venue": "2025 IEEE International Conference on Emerging Trends in Computing and Communication (ETCOM)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "MST-AFF: A Multi-Modal Spatio-Temporal Transformer with Adaptive Feature Fusion for Pain Intensity Estimation",
+   "doi": "10.1109/ICMI68585.2026.11539759",
+   "year": "2026",
+   "venue": "2026 IEEE 5th International Conference on Computing and Machine Intelligence (ICMI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "FUSTT: Forecasting Using Spatio-Temporal Transformers for Predicting Marine Stressors of Blue-Carbon Ecosystems",
+   "doi": "10.1109/JSTARS.2025.3634525",
+   "year": "2026",
+   "venue": "IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Exploring Video Vision Transformers for Autism Spectrum Disorder Detection Using Spatiotemporal Behavioral Dynamics",
+   "doi": "10.1109/QPAIN69676.2026.11545983",
+   "year": "2026",
+   "venue": "2026 IEEE 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Knowledge Graph Transformer Network for Health Status Assessment",
+   "doi": "10.1109/TIM.2025.3612660",
+   "year": "2025",
+   "venue": "IEEE Transactions on Instrumentation and Measurement",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Multimodal Hybrid Deep Learning for Fetal Health Prognosis: Integrating CTG Signals and Clinical Records",
+   "doi": "10.1109/ICOECA68095.2026.11485268",
+   "year": "2026",
+   "venue": "2026 6th International Conference on Expert Clouds and Applications (ICOECA)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Spatio-temporal deep learning for epileptic seizure detection in clinical EEG data",
+   "doi": "10.1109/AISP68263.2025.11396284",
+   "year": "2025",
+   "venue": "2025 5th International Conference on Artificial Intelligence and Signal Processing (AISP)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Domain Adaptive Learning model for Patient Independent Seizure Prediction using EEG signals",
+   "doi": "10.1109/CSPA68262.2026.11517773",
+   "year": "2026",
+   "venue": "2026 22nd IEEE International Colloquium on Signal Processing & Its Applications (CSPA)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Qualitative&Quantitative Meta Graph Transformer for Marine Diesel Engine Health Monitoring",
+   "doi": "10.1109/ICPHM69567.2026.11585410",
+   "year": "2026",
+   "venue": "2026 IEEE International Conference on Prognostics and Health Management (ICPHM)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Spatio-Temporal Graph Neural Network for Water Quality Index Prediction in Autonomous Aquatic Monitoring Systems",
+   "doi": "10.1109/ACCESS.2026.3703655",
+   "year": "2026",
+   "venue": "IEEE Access",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Multi-module Recurrent Convolutional Neural Network with Transformer Encoder for ECG Arrhythmia Classification",
+   "doi": "10.1109/BHI50953.2021.9508527",
+   "year": "2021",
+   "venue": "2021 IEEE EMBS International Conference on Biomedical and Health Informatics (BHI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Neuromorphic Edge Computing Architecture for Real-Time Cognitive Signal Processing in Wearables",
+   "doi": "10.1109/ICSCAI68849.2026.11648989",
+   "year": "2026",
+   "venue": "2026 2nd International Conference on Sustainable Computing and Integrated Communication in Changing Landscape of AI (ICSCAI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "HiHAR: A Hierarchical Hybrid Deep Learning Architecture for Wearable Sensor-Based Human Activity Recognition",
+   "doi": "10.1109/ACCESS.2021.3122298",
+   "year": "2021",
+   "venue": "IEEE Access",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Denoise and Attend: An AE-Transformer Approach to EEG Emotion Recognition",
+   "doi": "10.1109/IC2ECT66838.2025.11291002",
+   "year": "2025",
+   "venue": "2025 5th International Conference on Electrical Engineering and Computer Technology (IC2ECT)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Human Activity Recognition Using STFT and Attention-Enhanced 2D-CNN on Smartphone and Wearable Sensors",
+   "doi": "10.1109/ICCECE65250.2025.10984588",
+   "year": "2025",
+   "venue": "2025 5th International Conference on Consumer Electronics and Computer Engineering (ICCECE)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Spatio-temporal analysis of EEG signal during consciousness using convolutional neural network",
+   "doi": "10.1109/IWW-BCI.2018.8311489",
+   "year": "2018",
+   "venue": "2018 6th International Conference on Brain-Computer Interface (BCI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "MSMFT: Multi-Stream Multimodal Factorized Transformer for Human Activity Recognition",
+   "doi": "10.1109/JSEN.2025.3529889",
+   "year": "2025",
+   "venue": "IEEE Sensors Journal",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "CST-GCNN: Spatio-Temporal Connectome Graph Network for Schizophrenia Classification",
+   "doi": "10.1109/ACCESS.2026.3691604",
+   "year": "2026",
+   "venue": "IEEE Access",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Spatio-Temporal Feature Fusion via Lightweight Hybrid CNN-Transformers for Atrial Fibrillation Detection",
+   "doi": "10.1109/ICCE70609.2026.11658442",
+   "year": "2026",
+   "venue": "2026 Eleventh International Conference on Communications and Electronics (ICCE)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Prediction Algorithm of Remaining Service Life of Turbofan Engine Based on Temporal Context Enhancement Transformer",
+   "doi": "10.1109/ICMTIM69588.2026.11525483",
+   "year": "2026",
+   "venue": "2026 7th International Conference on Mechatronics Technology and Intelligent Manufacturing (ICMTIM)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Pain Detection Using Deep Networks and Visual Transformers",
+   "doi": "10.1109/ICPRS66293.2025.11302853",
+   "year": "2025",
+   "venue": "2025 15th IEEE International Conference on Pattern Recognition Systems (ICPRS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Attention-Driven Spatiotemporal Deep Learning for Sensor-Based Human Activity Recognition Using Multi-IMU Data",
+   "doi": "10.1109/JSEN.2026.3713819",
+   "year": "2026",
+   "venue": "IEEE Sensors Journal",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "HSST-EEG: A Hybrid State-Space and Transformer Architecture for EEG Decoding",
+   "doi": "10.1109/ACCESS.2026.3695589",
+   "year": "2026",
+   "venue": "IEEE Access",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "MoViSense: Multiview Spatiotemporal Transformer for 3-D Human Kinematics Sensing",
+   "doi": "10.1109/JSEN.2026.3682936",
+   "year": "2026",
+   "venue": "IEEE Sensors Journal",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "ST-LCNet: A Dual-Stream Transformer for Interpretable EEG-Based Anxiety Diagnosis",
+   "doi": "10.1109/IJCNN64981.2025.11228965",
+   "year": "2025",
+   "venue": "2025 International Joint Conference on Neural Networks (IJCNN)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Skeleton-Based Action Recognition for Complex Dance Motion Using Graph Neural Networks",
+   "doi": "10.1109/ISAEECE70502.2026.11635428",
+   "year": "2026",
+   "venue": "2026 11th International Symposium on Advances in Electrical, Electronics and Computer Engineering (ISAEECE)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Machine Learning Models for Fall Risk Assessment Using Wearable-Derived Gait Features",
+   "doi": "10.1109/DLCV65218.2025.11088839",
+   "year": "2025",
+   "venue": "2025 IEEE 2nd International Conference on Deep Learning and Computer Vision (DLCV)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "EEG-Based Epileptic Seizure Detection Using CNN-LSTM\u2013Transformer with Explainable AI",
+   "doi": "10.1109/PAIS69842.2026.11605304",
+   "year": "2026",
+   "venue": "2026 8th International Conference on Pattern Analysis and Intelligent Systems (PAIS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "CarbonLaw-Net: A Legal-Tech Deep Learning Framework for Analyzing the Public Health Impacts of Corporate Emissions",
+   "doi": "10.1109/ICAFT66710.2025.11452653",
+   "year": "2025",
+   "venue": "2025 1st International Conference on Advancement in Futuristic Technologies (ICAFT)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "A Spatio-Temporal Decoupled Deep Neural Network for Seizure Prediction",
+   "doi": "10.1109/ISCTech63666.2024.10845239",
+   "year": "2024",
+   "venue": "2024 12th International Conference on Information Systems and Computing Technology (ISCTech)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Graph Neural Network Methods for Depression Recognition in Facial Videos",
+   "doi": "10.1109/AICSIP65423.2025.11427217",
+   "year": "2025",
+   "venue": "2025 IEEE 7th International Conference on Artificial Intelligence, Computer Science, and Information Processing (AICSIP)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Geo-STO3Net: A Deep Neural Network Integrating Geographical Spatiotemporal Information for Surface Ozone Estimation",
+   "doi": "10.1109/TGRS.2024.3358397",
+   "year": "2024",
+   "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "A Self-Supervised Transformer-Based EEG Model for Alzheimer\u2019s Disease Classification",
+   "doi": "10.1109/GCON69192.2026.11648370",
+   "year": "2026",
+   "venue": "2026 IEEE Guwahati Subsection Conference (GCON)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Hybrid CNN-LSTM Framework for Upper-Limb Motion Recognition Using Wearable IMU Sensors",
+   "doi": "10.1109/InterSys69825.2026.11565250",
+   "year": "2026",
+   "venue": "2026 International Conference on Interactive Systems & Information Society Technologies (InterSys)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Spatial-Temporal Digital Twin for Crop Disease Prediction: A Hybrid ConvLSTM-Graph Neural Network Approach",
+   "doi": "10.1109/ICoICI65217.2025.11253080",
+   "year": "2025",
+   "venue": "2025 3rd International Conference on Intelligent Cyber Physical Systems and Internet of Things (ICoICI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Biosignals Based Automated Driver Cognitive Load Assessment Using a Pre-Trained Transformer",
+   "doi": "10.1109/TIV.2024.3501016",
+   "year": "2025",
+   "venue": "IEEE Transactions on Intelligent Vehicles",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "A Comparative Study of Spatio-Temporal Deep Learning Architectures for Eeg-Based Alcohol Use Disorder Classification",
+   "doi": "10.1109/QPAIN69676.2026.11545957",
+   "year": "2026",
+   "venue": "2026 IEEE 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Enhancing Dengue Forecasting with Information Theoretic Directional Features in Graph Neural Networks",
+   "doi": "10.1109/ICSEC67360.2025.11298112",
+   "year": "2025",
+   "venue": "2025 29th International Computer Science and Engineering Conference (ICSEC)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Federated Graph-Transformer Synergy for Early Alzheimer's Detection: A Dual-Modal Approach",
+   "doi": "10.1109/QPAIN69676.2026.11545834",
+   "year": "2026",
+   "venue": "2026 IEEE 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Self-Supervised RGB-NIR Fusion Video Vision Transformer Framework for rPPG Estimation",
+   "doi": "10.1109/TIM.2022.3217867",
+   "year": "2022",
+   "venue": "IEEE Transactions on Instrumentation and Measurement",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "EEG-Based Seizure Detection and Type Classification with Structured State Space Modeling and Graph Neural Networks",
+   "doi": "10.1109/BIBM66473.2025.11356959",
+   "year": "2025",
+   "venue": "2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Beyond Falls: A Hybrid CNN\u2013LSTM\u2013Attention Framework for Pre-, Transition-, and Post-Fall Detection With Wearable Inertial Sensors",
+   "doi": "10.1109/ACCESS.2025.3641198",
+   "year": "2025",
+   "venue": "IEEE Access",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "NeuroScope:A Transformer-Based Explainable EEG Diagnostic Framework for ADHD Detection in Children",
+   "doi": "10.1109/ICOIICS67115.2025.11390130",
+   "year": "2025",
+   "venue": "2025 International Conference on Intelligent Computing, Information and Control Systems (ICOIICS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "CARTMAN: Complex Activity Recognition Using Topic Models for Feature Generation from Wearable Sensor Data",
+   "doi": "10.1109/SMARTCOMP52413.2021.00026",
+   "year": "2021",
+   "venue": "2021 IEEE International Conference on Smart Computing (SMARTCOMP)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Multi-STMT: Multi-Level Network for Human Activity Recognition Based on Wearable Sensors",
+   "doi": "10.1109/TIM.2024.3365155",
+   "year": "2024",
+   "venue": "IEEE Transactions on Instrumentation and Measurement",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Identification of Ablation Sites in Persistent Atrial Fibrillation Based on Spatiotemporal Dispersion of Electrograms Using Machine Learning",
+   "doi": "10.22489/CinC.2020.221",
+   "year": "2020",
+   "venue": "2020 Computing in Cardiology",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "ST-GCN: A Spatiotemporal Graph Convolution Neural Network for EEG Motor Imagery Signal Decoding",
+   "doi": "10.1109/ISPA63168.2024.00133",
+   "year": "2024",
+   "venue": "2024 IEEE International Symposium on Parallel and Distributed Processing with Applications (ISPA)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "MFTSGNet: A Dual-Branch Spatio-Temporal Network for Robust Seizure Detection",
+   "doi": "10.1109/BHI67747.2025.11269544",
+   "year": "2025",
+   "venue": "2025 IEEE EMBS International Conference on Biomedical and Health Informatics (BHI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Privacy-Preserving Autism Detection Using Federated CNN-LSTM Networks: A Spatiotemporal Deep Learning Framework for Decentralized Behavioural Diagnosis",
+   "doi": "10.1109/SENNET64220.2025.11135972",
+   "year": "2025",
+   "venue": "2025 International Conference on Sensors and Related Networks (SENNET) Special Focus on Digital Healthcare(64220)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "MMFformer: Multimodal Fusion Transformer Network for Depression Detection",
+   "doi": "10.1109/SMC58881.2025.11342694",
+   "year": "2025",
+   "venue": "2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "CGM-EEG: Cross-Gated Mamba for Spatio-Temporal Eeg Representation Learning",
+   "doi": "10.1109/ISBI61048.2026.11515471",
+   "year": "2026",
+   "venue": "2026 IEEE 23rd International Symposium on Biomedical Imaging (ISBI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Early Alzheimer's Disease Prediction Using Spatio-Temporal Optimized Grasshopper Optimization Model",
+   "doi": "10.1109/ICDCA69396.2026.11620339",
+   "year": "2026",
+   "venue": "2026 International Conference on Data Science for Cyber-Physical Systems Resilience using Advanced Applications (ICDCA)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Quantitative Perfusion Maps Using a Novelty Spatiotemporal Convolutional Neural Network",
+   "doi": "10.1109/ISBI56570.2024.10635136",
+   "year": "2024",
+   "venue": "2024 IEEE International Symposium on Biomedical Imaging (ISBI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "STT-SSCAF: Transformer-Based Infant Pain Estimation with Self-Supervised Learning and Multimodal Fusion",
+   "doi": "10.1109/ICMI68585.2026.11539902",
+   "year": "2026",
+   "venue": "2026 IEEE 5th International Conference on Computing and Machine Intelligence (ICMI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Attention Augmented Convolutional Neural Network for EEG-Based Epileptic Seizure Prediction",
+   "doi": "10.1109/ICIICS67880.2026.11483525",
+   "year": "2026",
+   "venue": "2026 3rd International Conference on Integrated Intelligence and Communication Systems (ICIICS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "FNIRNet: A Spatiotemporal Statistical Feature-Based Convolutional Neural Network for Low-Channel fNIRS Brain Function Classification",
+   "doi": "10.1109/TCDS.2026.3684377",
+   "year": "2026",
+   "venue": "IEEE Transactions on Cognitive and Developmental Systems",
+   "contentType": "IEEE Early Access Articles",
+   "arm": "a"
+  },
+  {
+   "title": "An Efficient Gastrointestinal Cancer Classification Using Capsnet and Swin Transformer Model With Hybrid Classifiers",
+   "doi": "10.23919/INDIACom66777.2025.11115489",
+   "year": "2025",
+   "venue": "2025 12th International Conference on Computing for Sustainable Global Development (INDIACom)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "BAMS: Binary Sequence-Augmented Spectrogram with Self-Attention Deep Learning for Human Activity Recognition",
+   "doi": "10.1109/BSN63547.2024.10780593",
+   "year": "2024",
+   "venue": "2024 IEEE 20th International Conference on Body Sensor Networks (BSN)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "3D Cardiac MRI Segmentation Using Spatio-Temporal Convolutional Neural Networks with Shape-Aware Loss Functions",
+   "doi": "10.1109/ICCR67387.2025.11292565",
+   "year": "2025",
+   "venue": "2025 3rd International Conference on Cyber Resilience (ICCR)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Deep Spatio-Temporal Multiplex Graph Learning for Cardiac Imaging Classification",
+   "doi": "10.1109/ICASSP49357.2023.10096712",
+   "year": "2023",
+   "venue": "ICASSP 2023 - 2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "GSpatio-Temporal Deep Learning for Predictive Analysis of Cardiac Arrhythmias from Ultrasound Video Sequences",
+   "doi": "10.1109/ICCTWC68241.2026.11583528",
+   "year": "2026",
+   "venue": "2026 International Conference on Computing Theory and Wireless Communications (ICCTWC)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Adaptive Wavelet Convolution Stochastic Analysis Graph Neural Network for Remaining Useful Life Prediction",
+   "doi": "10.1109/JSEN.2025.3560066",
+   "year": "2025",
+   "venue": "IEEE Sensors Journal",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "LIDB-CA: Human Activity Semantic Modeling via Multi-IMU Fusion and Cross Transformer With Long-Range Denoising",
+   "doi": "10.1109/TIM.2026.3664558",
+   "year": "2026",
+   "venue": "IEEE Transactions on Instrumentation and Measurement",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "TinyViT-HAR: Human Activity Recognition via WiFi CSI Signals by Lightweight Vision Transformers",
+   "doi": "10.1109/RAAICON69033.2025.11502402",
+   "year": "2025",
+   "venue": "2025 IEEE 4th International Conference on Robotics, Automation, Artificial-Intelligence and Internet-of-Things (RAAICON)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Deep Learning Based Spatiotemporal Human Action Recognition and Localization System",
+   "doi": "10.1109/ICAICTA53211.2021.9640274",
+   "year": "2021",
+   "venue": "2021 8th International Conference on Advanced Informatics: Concepts, Theory and Applications (ICAICTA)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "A CNN-Transformer Hybrid Network for Hand Gesture Classification based on High-Density sEMG",
+   "doi": "10.1109/i-CREATe62067.2024.10776082",
+   "year": "2024",
+   "venue": "2024 17th International Convention on Rehabilitation Engineering and Assistive Technology (i-CREATe)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Intent-Based Medical Transport Classification Using Transformer Networks for Intelligent Transportation Systems",
+   "doi": "10.1109/JIOT.2025.3645360",
+   "year": "2026",
+   "venue": "IEEE Internet of Things Journal",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "RhythmSense-DSTNet: A Dual-Stream Spatiotemporal Learning Framework with Selective Attention for Robust ECG Arrhythmia Detection",
+   "doi": "10.1109/ICoECIT68303.2026.11497425",
+   "year": "2026",
+   "venue": "2026 IEEE International Conference on Emerging Computing and Intelligent Technologies (ICoECIT)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "CBAM-Net: Decoding Mood Disorders via Deep Learning Analysis of Local Field Potential",
+   "doi": "10.1109/JSEN.2025.3630147",
+   "year": "2026",
+   "venue": "IEEE Sensors Journal",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "PM2.5 Forecasting in Almaty: A Benchmarking of Advanced Deep Learning and Hybrid Models",
+   "doi": "10.1109/ICINT69379.2026.11549939",
+   "year": "2026",
+   "venue": "2026 11th International Conference on Information and Network Technologies (ICINT)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "STELLAR: Pacemaker Recognition Using 12-Lead ECG and Spatio-Temporal Harmonic Mechanism",
+   "doi": "10.1109/BIBM66473.2025.11356782",
+   "year": "2025",
+   "venue": "2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Aging-Informed Dynamic Graph Network for Aero-Engine RUL Prediction",
+   "doi": "10.1109/TII.2026.3694202",
+   "year": "2026",
+   "venue": "IEEE Transactions on Industrial Informatics",
+   "contentType": "IEEE Early Access Articles",
+   "arm": "a"
+  },
+  {
+   "title": "Meteo-DGN: A Meteorology Dynamic Graph Network for Urban-Scale Downscaling",
+   "doi": "10.1109/BigData66926.2025.11401536",
+   "year": "2025",
+   "venue": "2025 IEEE International Conference on Big Data (BigData)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Data Processing Algorithm for Bridge Structure Health Monitoring Based on Deep Learning",
+   "doi": "10.1109/IICSPI66775.2025.11438182",
+   "year": "2025",
+   "venue": "2025 IEEE 4th International Conference of Safe Production and Informatization (IICSPI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "A Video Perspective on Electrocardiograms: Attention-Based Spatiotemporal Modeling",
+   "doi": "10.1109/ICASSP55912.2026.11460566",
+   "year": "2026",
+   "venue": "ICASSP 2026 - 2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Efficient Spatiotemporal-Structural Masking for Dynamic Human Activity Recognition With Optimized Computation",
+   "doi": "10.1109/JIOT.2025.3555985",
+   "year": "2025",
+   "venue": "IEEE Internet of Things Journal",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "SMI-DSNet: Spatio-Temporal Matrix Imaging and Dual-Stream Networks for Enhanced Heart Sound Signal Classification",
+   "doi": "10.1109/JSEN.2025.3624221",
+   "year": "2025",
+   "venue": "IEEE Sensors Journal",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Multi-Resolution Differential Spatio-Temporal Spotted Hyena Graph Learning Convolutional Attention Network for Automated Breast Cancer Detection from Ultrasound Images",
+   "doi": "10.1109/CMSS69636.2026.11688934",
+   "year": "2026",
+   "venue": "2026 International Conference on Modern Sustainable Systems (CMSS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Research on Multi Perspective Horse Behavior Recognition and Liming Detection Method Based on Deep Learning",
+   "doi": "10.1109/CVIDL65390.2025.11085433",
+   "year": "2025",
+   "venue": "2025 6th International Conference on Computer Vision, Image and Deep Learning (CVIDL)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Spatiotemporal Variation of Near-Surface NO2 in Northeast Asia Under Extreme Scenarios: A Comparative Analysis of China and South Korea for the Pre-, Co-, and Post-COVID-19 Pandemic",
+   "doi": "10.1109/TGRS.2026.3724664",
+   "year": "2026",
+   "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "A Method of Psychological Stress Recognition Based on Pulse Rate Variability Signals and Deep Learning Technology",
+   "doi": "10.1109/CISAT66811.2025.11181724",
+   "year": "2025",
+   "venue": "2025 8th International Conference on Computer Information Science and Application Technology (CISAT)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "A Human Pose Estimation and Deep Learning Approach for Fall Detection in Healthcare Applications",
+   "doi": "10.1109/ICECET63943.2025.11472147",
+   "year": "2025",
+   "venue": "2025 5th International Conference on Electrical, Computer and Energy Technologies (ICECET)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "LCOV-NET: A Lightweight Neural Network For COVID-19 Pneumonia Lesion Segmentation From 3D CT Images",
+   "doi": "10.1109/ISBI48211.2021.9434023",
+   "year": "2021",
+   "venue": "2021 IEEE 18th International Symposium on Biomedical Imaging (ISBI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "A Hybrid Method Combining Variational Mode Decomposition and Deep Neural Networks for Predicting PM2.5 Concentration in China",
+   "doi": "10.1109/ACCESS.2025.3552229",
+   "year": "2025",
+   "venue": "IEEE Access",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Deep Learning for Ground Reaction Force Data Analysis: Application to Wide-Area Floor Sensing",
+   "doi": "10.1109/ISIE.2019.8781511",
+   "year": "2019",
+   "venue": "2019 IEEE 28th International Symposium on Industrial Electronics (ISIE)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Hybrid Graph Construction and Spatiotemporal Modeling for PM2.5 Forecasting Across Urban Networks",
+   "doi": "10.1109/FTCS68006.2025.11405778",
+   "year": "2025",
+   "venue": "2025 International Conference on Frontiers Technology in Circuits and Systems (FTCS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Research on Epilepsy Warning Based on Multimodal Feature Fusion and Adaptive Deep Learning",
+   "doi": "10.1109/ICAIDE69370.2026.11604488",
+   "year": "2026",
+   "venue": "2026 2nd International Conference on Artificial Intelligence and Digital Ethics (ICAIDE)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Deep Learning for Disease Outbreak Monitoring",
+   "doi": "10.1109/AESPC67542.2025.11326827",
+   "year": "2025",
+   "venue": "2025 5th IEEE International Conference on Applied Electromagnetics, Signal Processing, & Communication (AESPC)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Spatio-Temporal Graph Convolutional Networks for Daily Asthma Symptom Prediction Using Passive Monitoring of Environmental Data",
+   "doi": "10.1109/SKIMA66621.2025.11155276",
+   "year": "2025",
+   "venue": "2025 International Conference on Software, Knowledge, Information Management & Applications (SKIMA)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Comparison of 2D and 3D Gait Kinematics in Gender Classification Using Principal Component Analysis and Convolutional Neural Networks",
+   "doi": "10.1109/ICBME51989.2020.9319442",
+   "year": "2020",
+   "venue": "2020 27th National and 5th International Iranian Conference on Biomedical Engineering (ICBME)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Deep Spatio-Temporal Modeling for Faller Identification in Geriatric Populations Using Foot-Mounted Inertial Sensors",
+   "doi": "10.1109/IATMSI68868.2026.11465911",
+   "year": "2026",
+   "venue": "2026 IEEE International Conference on Interdisciplinary Approaches in Technology and Management for Social Innovation (IATMSI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Full Coverage Estimation of the PM Concentration Across China Based on an Adaptive Spatiotemporal Approach",
+   "doi": "10.1109/TGRS.2022.3213797",
+   "year": "2022",
+   "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "A Hybrid CNN-BiLSTM Neural Network Architecture for Early Prediction of Parkinson's Disease",
+   "doi": "10.1109/iSES63344.2024.00071",
+   "year": "2024",
+   "venue": "2024 IEEE International Symposium on Smart Electronic Systems (iSES)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Gesture Recognition Based on Flexible Data Glove Using Deep Learning Algorithms",
+   "doi": "10.1109/AINIT59027.2023.10212923",
+   "year": "2023",
+   "venue": "2023 4th International Seminar on Artificial Intelligence, Networking and Information Technology (AINIT)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "DAGFormer-DMLPH: Advancing Aero-Engine Performance Prediction through Spatiotemporal Decoupling and Gated Attention",
+   "doi": "10.1109/PHM-Xian66756.2025.11427605",
+   "year": "2025",
+   "venue": "2025 Global Reliability and Prognostics and Health Management Conference (PHM-Xian)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Multiclass Brain Tissue Segmentation in 4D CT Using Convolutional Neural Networks",
+   "doi": "10.1109/ACCESS.2019.2910348",
+   "year": "2019",
+   "venue": "IEEE Access",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Early Brain Tumour Detection Via Self-Supervised 3D Multi-Task Learning With Spatio-Temporal Modelling",
+   "doi": "10.1109/GCAT66372.2025.11368442",
+   "year": "2025",
+   "venue": "2025 IEEE 6th Global Conference for Advancement in Technology (GCAT)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "NLCTCN: A Non-Local Temporal Convolutional Framework for Spatiotemporal Modeling in Multichannel EEG",
+   "doi": "10.1109/BIBM66473.2025.11356971",
+   "year": "2025",
+   "venue": "2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "LEADNet: Detection of Alzheimer\u2019s Disease Using Spatiotemporal EEG Analysis and Low-Complexity CNN",
+   "doi": "10.1109/ACCESS.2024.3435768",
+   "year": "2024",
+   "venue": "IEEE Access",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Forecasting COVID-19 Dynamics: Clustering, Generalized Spatiotemporal Attention, and Impacts of Mobility and Geographic Proximity",
+   "doi": "10.1109/ICDE55515.2023.00221",
+   "year": "2023",
+   "venue": "2023 IEEE 39th International Conference on Data Engineering (ICDE)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "The Method of Spatiotemporal-Frequency Multidimensional Feature Fusion Based on Emotional EEG Signals",
+   "doi": "10.1109/DIIA62678.2024.10871366",
+   "year": "2024",
+   "venue": "2024 IEEE First International Conference on Data Intelligence and Innovative Application (DIIA)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Neuromorphic Implementation of a Recurrent Neural Network for EMG Classification",
+   "doi": "10.1109/AICAS48895.2020.9073810",
+   "year": "2020",
+   "venue": "2020 2nd IEEE International Conference on Artificial Intelligence Circuits and Systems (AICAS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "HC-MBNet: A Hybrid Collaborative Multi-Branch Network for Spatiotemporal Gastrointestinal Disease Classification",
+   "doi": "10.1109/ICCA66035.2025.11431042",
+   "year": "2025",
+   "venue": "2025 International Conference on Computer and Applications (ICCA)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "SSTAR: Skeleton-Based Spatio-Temporal Action Recognition for Intelligent Video Surveillance and Suicide Prevention in Metro Stations",
+   "doi": "10.1109/WACVW65960.2025.00091",
+   "year": "2025",
+   "venue": "2025 IEEE/CVF Winter Conference on Applications of Computer Vision Workshops (WACVW)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "STMemAE: An Instance-Level Based Spatio-Temporal Memory Autoencoder for Unsupervised Vision-Based Seizure Detection",
+   "doi": "10.1109/TETCI.2024.3522208",
+   "year": "2025",
+   "venue": "IEEE Transactions on Emerging Topics in Computational Intelligence",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Dynamic Weighted Spatio-Temporal-Spectral Fusion for EEG-Based Social Anxiety Detection",
+   "doi": "10.1109/TAFFC.2026.3702831",
+   "year": "2026",
+   "venue": "IEEE Transactions on Affective Computing",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "An Iterative Analysis of Deep Learning Models Including LSTM and CNN-GRU for Real-Time Seizure Prediction",
+   "doi": "10.1109/ICMLAS64557.2025.10968206",
+   "year": "2025",
+   "venue": "2025 International Conference on Machine Learning and Autonomous Systems (ICMLAS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "EEGWaveNet: Multiscale CNN-Based Spatiotemporal Feature Extraction for EEG Seizure Detection",
+   "doi": "10.1109/TII.2021.3133307",
+   "year": "2022",
+   "venue": "IEEE Transactions on Industrial Informatics",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Deep Architectures for Spatio-Temporal Modeling: Automated Seizure Detection in Scalp EEGs",
+   "doi": "10.1109/ICMLA.2018.00118",
+   "year": "2018",
+   "venue": "2018 17th IEEE International Conference on Machine Learning and Applications (ICMLA)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Multi-Scale Temporal Deep Learning for Joint Cardiac Severity Classification and Ejection Fraction Estimation from Echocardiograms",
+   "doi": "10.1109/NELeX69209.2026.11590077",
+   "year": "2026",
+   "venue": "2026 International Conference on Next Generation Electronics (NELEX)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Recognizing British Sign Language Using Deep Learning: A Contactless and Privacy-Preserving Approach",
+   "doi": "10.1109/TCSS.2022.3210288",
+   "year": "2023",
+   "venue": "IEEE Transactions on Computational Social Systems",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "CABPT: Predicting Southern California Marine Biotoxins in Shellfish via Deep, Spatiotemporal, Multivariate Prediction",
+   "doi": "10.1109/ICMI60790.2024.10585965",
+   "year": "2024",
+   "venue": "2024 IEEE 3rd International Conference on Computing and Machine Intelligence (ICMI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Physical Activity Recognition With Statistical-Deep Fusion Model Using Multiple Sensory Data for Smart Health",
+   "doi": "10.1109/JIOT.2020.3013272",
+   "year": "2021",
+   "venue": "IEEE Internet of Things Journal",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "NeuroBPNet: A Physiological-Informed Deep Learning Framework for Continuous Blood Pressure Estimation Using Multimodal PPG and ECG Signals",
+   "doi": "10.1109/ICBBT65815.2025.11276509",
+   "year": "2025",
+   "venue": "2025 17th International Conference on Bioinformatics and Biomedical Technology (ICBBT)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Deep Spatio-Temporal Method for ADHD Classification Using Resting-State fMRI",
+   "doi": "10.1109/ICTAI56018.2022.00165",
+   "year": "2022",
+   "venue": "2022 IEEE 34th International Conference on Tools with Artificial Intelligence (ICTAI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Deep Adversarial Synthesis Coupled with Spatio-Temporal Attention Distillation for Interpretable Stroke Risk Stratification",
+   "doi": "10.1109/ETAI68332.2026.11485133",
+   "year": "2026",
+   "venue": "2026 5th International Conference on Electronics Technology and Artificial Intelligence (ETAI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Automated Seizure Detection: A Hybrid Spatio-Temporal Architecture",
+   "doi": "10.1109/CIPHER70417.2026.11524025",
+   "year": "2026",
+   "venue": "2026 International Conference on Intelligent Processing, Hardware, Electronics, and Radio Systems (CIPHER)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Quantifying Diagnostic Uncertainty in EEG-Based Dementia Classification Using Conformal Prediction",
+   "doi": "10.1109/ICIIBMS66230.2025.11316774",
+   "year": "2025",
+   "venue": "2025 10th International Conference on Intelligent Informatics and Biomedical Sciences (ICIIBMS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "A Deep Learning Architecture for Epileptic Seizure Classification Based on Object and Action Recognition",
+   "doi": "10.1109/ICASSP40776.2020.9054649",
+   "year": "2020",
+   "venue": "ICASSP 2020 - 2020 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "A Multi-stream Deep Learning Model for EEG-based Depression Identification",
+   "doi": "10.1109/BIBM55620.2022.9995246",
+   "year": "2022",
+   "venue": "2022 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "A Hybrid Multimodal Deep Learning Framework for Robust Diagnosis of Parkinson\u2019s Disease Using Hand Tremor Analysis",
+   "doi": "10.1109/JSEN.2025.3641648",
+   "year": "2026",
+   "venue": "IEEE Sensors Journal",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Classifying early stages of Parkinson\u2019s Disease by constructing a temporal latent space",
+   "doi": "10.1109/SIPAIM67325.2025.11283304",
+   "year": "2025",
+   "venue": "2025 21st International Symposium on Biomedical Image Processing and Analysis (SIPAIM)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "HiSAM-MambaNet: A Dual-Path Hierarchical Hybrid Architecture for Motor Imagery EEG Classification",
+   "doi": "10.1109/ICASSP55912.2026.11463277",
+   "year": "2026",
+   "venue": "ICASSP 2026 - 2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "A Study on the Assessment of Depression Severity Based on ESANet",
+   "doi": "10.1109/CCET66260.2025.11199604",
+   "year": "2025",
+   "venue": "2025 IEEE 8th International Conference on Computer and Communication Engineering Technology (CCET)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "High-Resolution Spatiotemporal Estimation of PM2.5 in Complex Terrain During the Heating Period: A Case Study in Shanxi, China",
+   "doi": "10.1109/TGRS.2026.3672110",
+   "year": "2026",
+   "venue": "IEEE Transactions on Geoscience and Remote Sensing",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Deep Learning Approaches for Recognizing Daily Human Activities Using Smart Home Sensors",
+   "doi": "10.1109/ECTIDAMTNCON57770.2023.10139507",
+   "year": "2023",
+   "venue": "2023 Joint International Conference on Digital Arts, Media and Technology with ECTI Northern Section Conference on Electrical, Electronics, Computer and Telecommunications Engineering (ECTI DAMT & NCON)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Research on Gait Detection System Integrating High-Density Flexible Sensor Array and Deep Learning Algorithm",
+   "doi": "10.1109/ICETIS70504.2026.11633486",
+   "year": "2026",
+   "venue": "2026 11th International Conference on Electronic Technology and Information Science (ICETIS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Sleep Behavior Detection Based on Pseudo-3D Convolutional Neural Network and Attention Mechanism",
+   "doi": "10.1109/ACCESS.2022.3201496",
+   "year": "2022",
+   "venue": "IEEE Access",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Intelligent Monitoring of Stress Induced by Water Deficiency in Plants Using Deep Learning",
+   "doi": "10.1109/TIM.2021.3111994",
+   "year": "2021",
+   "venue": "IEEE Transactions on Instrumentation and Measurement",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "A Novel Deep Learning Model for Subway PM2.5 Prediction Using Neighborhood Component Analysis and Convolutional Latent Variables",
+   "doi": "10.1109/TIM.2025.3572997",
+   "year": "2025",
+   "venue": "IEEE Transactions on Instrumentation and Measurement",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Dynamic Graph Contrastive Learning for EEG-Based Epileptic Seizure Detection",
+   "doi": "10.1109/ITOEC63606.2025.10968415",
+   "year": "2025",
+   "venue": "2025 IEEE 8th Information Technology and Mechatronics Engineering Conference (ITOEC)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Motor Imagery Classification Research Based on FBCSANet Algorithm",
+   "doi": "10.1109/CCET66260.2025.11199439",
+   "year": "2025",
+   "venue": "2025 IEEE 8th International Conference on Computer and Communication Engineering Technology (CCET)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "HGR-STAR: Raw HD-sEMG Gesture Recognition via StarNet With HD-sEMG Embedding and Label Smoothing",
+   "doi": "10.1109/THMS.2026.3703202",
+   "year": "2026",
+   "venue": "IEEE Transactions on Human-Machine Systems",
+   "contentType": "IEEE Early Access Articles",
+   "arm": "a"
+  },
+  {
+   "title": "Smart Digital Twin Ecosystem Powered by RETFound for Lung Cancer Diagnosis and Monitoring",
+   "doi": "10.1109/ASIANCON66527.2025.11280666",
+   "year": "2025",
+   "venue": "2025 5th Asian Conference on Innovation in Technology (ASIANCON)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "PDMoE: A Multi-Modal Pose Mixture-of-Experts Framework for Skeleton-Based Parkinson\u2019s Disease Recognition",
+   "doi": "10.1109/PRMVAI70103.2026.11605522",
+   "year": "2026",
+   "venue": "2026 IEEE International Conference on Pattern Recognition, Machine Vision and Artificial Intelligence (PRMVAI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Human Activity and Signature Recognition: A Deep Learning Approach for a One-System Model",
+   "doi": "10.1109/ISCS69371.2025.11386093",
+   "year": "2025",
+   "venue": "2025 2nd International Conference on Intelligent Systems for Cybersecurity (ISCS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "DisPred-Net: A Hybrid Deep Learning Model Integrating TCN and XGBoost for Seasonal Disease Forecasting in India",
+   "doi": "10.1109/ICCCMLA66092.2025.11581225",
+   "year": "2025",
+   "venue": "2025 IEEE 7th International Conference on Cybernetics, Cognition and Machine Learning Applications (ICCCMLA)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Hybrid Deep Learning Algorithm for Real-Time Emotion Detection from Facial Expressions",
+   "doi": "10.1109/ICCR67387.2025.11292359",
+   "year": "2025",
+   "venue": "2025 3rd International Conference on Cyber Resilience (ICCR)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Optimized Hybrid Deep Network for Heart Disease Diagnosis Using Convolutional-Gated Recurrent Units",
+   "doi": "10.1109/GCAT66372.2025.11368537",
+   "year": "2025",
+   "venue": "2025 IEEE 6th Global Conference for Advancement in Technology (GCAT)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Electrocardiogram Time Series Prediction Using a Fully Convolutional LSTM Network",
+   "doi": "10.1109/ICICC71012.2026.11638003",
+   "year": "2026",
+   "venue": "2026 6th International Conference on Intelligent Communications and Computing (ICICC)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Research on ADHD Motor Behavior Recognition and Intervention Based on Computer Vision",
+   "doi": "10.1109/ICEACE67491.2025.11439885",
+   "year": "2025",
+   "venue": "2025 IEEE 3rd International Conference on Electrical, Automation and Computer Engineering (ICEACE)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "MS-PAMamba: Multi-Scale Pollutant-Aware Mamba for Enhanced PM2.5 Concentration Prediction",
+   "doi": "10.1109/ICMLCA66850.2025.11336619",
+   "year": "2025",
+   "venue": "2025 6th International Conference on Machine Learning and Computer Application (ICMLCA)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Customized Spectro-Temporal CNN Feature Extraction and ELM-Based Classifier for Accurate Respiratory Obstruction Detection",
+   "doi": "10.1109/ACCESS.2025.3581271",
+   "year": "2025",
+   "venue": "IEEE Access",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Retrospective State Fusion with Query-Guided Weighting for Long-Range Epidemic Forecasting",
+   "doi": "10.1109/CyberSciTech68397.2025.00106",
+   "year": "2025",
+   "venue": "2025 IEEE Cyber Science and Technology Congress (CyberSciTech)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Parkinson's Disease Classification Using EEG and a Hybrid EEGNet-LSTM Architecture",
+   "doi": "10.1109/ICBME68496.2025.11392473",
+   "year": "2025",
+   "venue": "2025 32nd National and 10th International Iranian Conference on Biomedical Engineering (ICBME)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "An ANN-RNN-Multi-Head Attention Hybrid Model for PM10 Air Pollution Prediction",
+   "doi": "10.1109/IAICT71158.2026.11620978",
+   "year": "2026",
+   "venue": "2026 IEEE International Conference on Industry 4.0, Artificial Intelligence, and Communications Technology (IAICT)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "A 40-nm Sub-mJ/Transfer HDC-SNN Hybrid Processor Enabling On-Chip Few-Shot Transfer Learning for IoT Applications",
+   "doi": "10.1109/TCASAI.2026.3658593",
+   "year": "2026",
+   "venue": "IEEE Transactions on Circuits and Systems for Artificial Intelligence",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Graph-Temporal Attention Framework for Climate-Driven Multi-Disease Risk Prediction using Multimodal Satellite Data",
+   "doi": "10.1109/ICESC70182.2026.11687699",
+   "year": "2026",
+   "venue": "2026 7th International Conference on Electronics and Sustainable Communication Systems (ICESC)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Impact of Sampling Rate and Quantization on EMG-Based HMI: Achieving Hardware Invariance by Advanced Feature Engineering",
+   "doi": "10.1109/AIM65483.2026.11658070",
+   "year": "2026",
+   "venue": "2026 IEEE/ASME International Conference on Advanced Intelligent Mechatronics (AIM)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Enhancing Physical Activity Intensity Estimation via Graph-Structured Human Gait Recognition",
+   "doi": "10.1109/ICSSAS66150.2025.11081348",
+   "year": "2025",
+   "venue": "2025 3rd International Conference on Self Sustainable Artificial Intelligence Systems (ICSSAS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "G-CaNDEM: A Causal Graph-Based Learning Model for Epidemic Interventions on Human Mobility Networks",
+   "doi": "10.1109/SCCC67219.2025.11420403",
+   "year": "2025",
+   "venue": "2025 44th International Conference of the Chilean Computer Science Society (SCCC)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Semi-supervised Learning for Epileptic Focus Localization Using Deep Convolutional Autoencoder",
+   "doi": "10.1109/BIOCAS.2019.8919222",
+   "year": "2019",
+   "venue": "2019 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Lightweight Multimedia Anomaly and Integrity Detection for Consumer IoT Using Knowledge Distillation",
+   "doi": "10.1109/TCE.2025.3644297",
+   "year": "2026",
+   "venue": "IEEE Transactions on Consumer Electronics",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Neural State-Space Hypergraph Networks: EEG Seizure Detection via Distributional and Geometric Inductive Biases",
+   "doi": "10.1109/ACCESS.2026.3702760",
+   "year": "2026",
+   "venue": "IEEE Access",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "HM-Detect: A Novel Method for Heart Murmur Detection and Classification Using Machine Learning and Sound Feature Analysis",
+   "doi": "10.1109/SiPS62058.2024.00018",
+   "year": "2024",
+   "venue": "2024 IEEE Workshop on Signal Processing Systems (SiPS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "OcularWorldSim: A Visual World Model for Ophthalmic Microsurgery With Sim-to-Real Transfer Learning",
+   "doi": "10.1109/ACCESS.2026.3684562",
+   "year": "2026",
+   "venue": "IEEE Access",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "CorpHealthTrack: A Hybrid GCN\u2013LSTM Model for Legal and Epidemiological Analysis of Industrial Carbon Emissions",
+   "doi": "10.23919/INDIACom70271.2026.11526618",
+   "year": "2026",
+   "venue": "2026 13th International Conference on Computing for Sustainable Global Development (INDIACom)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "EEG Lightformer-KD: a Lightweight Framework for Motor Imagery EEG Decoding via Knowledge Distillation",
+   "doi": "10.1109/ECIS65594.2025.11086653",
+   "year": "2025",
+   "venue": "2025 IEEE 2nd International Conference on Electronics, Communications and Intelligent Science (ECIS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Recognition of Volleyball Setting Phases Based on Multiple Sensors",
+   "doi": "10.1109/ICECET65726.2026.11632789",
+   "year": "2026",
+   "venue": "2026 6th International Conference on Electrical, Computer and Energy Technologies (ICECET)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Egocentric Hand Pose for Robot Learning from Sterile Manipulations",
+   "doi": "10.1109/BioRob66782.2026.11681773",
+   "year": "2026",
+   "venue": "2026 11th IEEE RAS/EMBS International Conference on Biomedical Robotics and Biomechatronics (BioRob)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Prediction of Elderly Behavior Patterns Based on Big Data in Smart Elderly Care",
+   "doi": "10.1109/ICIPCA65645.2025.11138936",
+   "year": "2025",
+   "venue": "2025 IEEE 3rd International Conference on Image Processing and Computer Applications (ICIPCA)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Will you be Aware? Eye Tracking\u2013Based Modeling of Situational Awareness in Augmented Reality",
+   "doi": "10.1109/ISMAR67309.2025.00051",
+   "year": "2025",
+   "venue": "2025 IEEE International Symposium on Mixed and Augmented Reality (ISMAR)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Dysarthria Detection Based on Voice Recordings using Multiscale CNN Architecture with Temporal Pyramid Pooling",
+   "doi": "10.1109/ICDSG67714.2025.11381325",
+   "year": "2025",
+   "venue": "2025 1st International Conference on Data Science and Geoinformatics (ICDSG)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "AI-Powered Multimodal Seizure Detection and Classification using CNN and GAN-based EEG Signal Analysis",
+   "doi": "10.1109/ICEAMST67459.2025.11335834",
+   "year": "2025",
+   "venue": "2025 Third International Conference on Emerging Applications of Material Science and Technology (ICEAMST)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Designing a Teacher\u2014Student Knowledge Distillation Framework for Accurate and Efficient Epilepsy Prediction on Edge Devices",
+   "doi": "10.1109/INISTA68122.2025.11249604",
+   "year": "2025",
+   "venue": "2025 International Conference on INnovations in Intelligent SysTems and Applications (INISTA)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Sustainable Fish Dynamics in Mahanadi Estuary Using Artificial Intelligence",
+   "doi": "10.1109/AESPC67542.2025.11326787",
+   "year": "2025",
+   "venue": "2025 5th IEEE International Conference on Applied Electromagnetics, Signal Processing, & Communication (AESPC)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Anomaly Detection in WBANs using GANs and ConvLSTM",
+   "doi": "10.1109/ICPHM65385.2025.11062055",
+   "year": "2025",
+   "venue": "2025 IEEE International Conference on Prognostics and Health Management (ICPHM)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Hybrid Deep-Spiking Neural Architectures for EEG-based Brain Signal Analysis",
+   "doi": "10.1109/ICOSEC67334.2025.11459517",
+   "year": "2025",
+   "venue": "2025 6th International Conference on Smart Electronics and Communication (ICOSEC)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Epileptic Seizure Prediction Using Stacked CNN-BiLSTM: A Novel Approach",
+   "doi": "10.1109/TAI.2024.3410928",
+   "year": "2024",
+   "venue": "IEEE Transactions on Artificial Intelligence",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "EEG-Based ADHD Detection Using Deep Capsule Networks with Explainable AI: A Comparative Analysis of EnhancedCapsuleNet and IDLHICNet",
+   "doi": "10.1109/IOT-SIU65919.2025.11402796",
+   "year": "2025",
+   "venue": "2025 5th International Conference on Internet of Things: Smart Innovation and Usages (IoT-SIU)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "LSTM-Based Emotional EEG Framework for Alzheimer\u2019s Diagnosis Using Connectivity and CNN Features",
+   "doi": "10.1109/ICSPIS68676.2025.11551657",
+   "year": "2025",
+   "venue": "2025 11th International Conference on Signal Processing and Intelligent Systems (ICSPIS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "PFIMPA: A Multimodal Approach to Predict Physical Function Impairment in Older Adults Using Physical Activity From Wrist-Worn Accelerometer",
+   "doi": "10.1109/TIM.2024.3470051",
+   "year": "2024",
+   "venue": "IEEE Transactions on Instrumentation and Measurement",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Adaptive Feature Weighting in Aggregated Long Short-Term Memory for Air Quality Prediction",
+   "doi": "10.1109/ICOEI68323.2026.11541917",
+   "year": "2026",
+   "venue": "2026 9th International Conference on Trends in Electronics and Informatics (ICOEI)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Classification of Pancreatic Nodules on Multiphase CT Images Using a ConvLSTM Network",
+   "doi": "10.1109/ICAACE69793.2026.11508882",
+   "year": "2026",
+   "venue": "2026 9th International Conference on Advanced Algorithms and Control Engineering (ICAACE)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "LMFN: A Lightweight Multimodal Fusion Network for Subject-Independent EEG-Based Alzheimer's Disease Diagnosis",
+   "doi": "10.1109/AIBDF67964.2025.11440814",
+   "year": "2025",
+   "venue": "2025 5th International Symposium on Artificial Intelligence and Big Data (AIBDF)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Guided Activity Prediction for Minimally Invasive Surgery Safety Improvement in the Internet of Medical Things",
+   "doi": "10.1109/JIOT.2021.3108457",
+   "year": "2022",
+   "venue": "IEEE Internet of Things Journal",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Motor Imagery EEG Signal Classification Based on Multi-Teacher Knowledge Distillation",
+   "doi": "10.1109/DOCS67533.2025.11200876",
+   "year": "2025",
+   "venue": "2025 7th International Conference on Data-driven Optimization of Complex Systems (DOCS)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Effective Multi-Step PM2.5 and PM10 Air Quality Forecasting Using Bidirectional ConvLSTM Encoder-Decoder With STA Mechanism",
+   "doi": "10.1109/ACCESS.2024.3509142",
+   "year": "2024",
+   "venue": "IEEE Access",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Time-Series Signal Completion and Denoising Techniques for Multimodal Large Models in Time-Series-Text Integration",
+   "doi": "10.1109/CBASE67452.2025.11335517",
+   "year": "2025",
+   "venue": "2025 4th International Conference on Cloud Computing, Big Data Application and Software Engineering (CBASE)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Machine Learning for Motor Learning: EEG-based Continuous Assessment of Cognitive Engagement for Adaptive Rehabilitation Robots",
+   "doi": "10.1109/BioRob49111.2020.9224368",
+   "year": "2020",
+   "venue": "2020 8th IEEE RAS/EMBS International Conference for Biomedical Robotics and Biomechatronics (BioRob)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Classification of Infant Sleep-Wake States from Natural Overnight In-Crib Sleep Videos",
+   "doi": "10.1109/WACVW65960.2025.00010",
+   "year": "2025",
+   "venue": "2025 IEEE/CVF Winter Conference on Applications of Computer Vision Workshops (WACVW)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Attentive Dilated Convolution for Automatic Sleep Staging Using Force-Directed Layout",
+   "doi": "10.1109/ACCESS.2026.3680836",
+   "year": "2026",
+   "venue": "IEEE Access",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "A Web Application for Cardiovascular Disease Prediction Using CNN-LSTM Hybrid Model",
+   "doi": "10.1109/ICSCAN66520.2026.11588384",
+   "year": "2026",
+   "venue": "2026 International Conference on System, Computation, Automation and Networking (ICSCAN)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "MSSTN: Multi-Scale Spatial Temporal Network for Air Pollution Prediction",
+   "doi": "10.1109/BigData47090.2019.9005574",
+   "year": "2019",
+   "venue": "2019 IEEE International Conference on Big Data (Big Data)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "A Noninvasive Framework for Heart Function Assessment by Multitask Learning",
+   "doi": "10.1109/TIM.2025.3553885",
+   "year": "2025",
+   "venue": "IEEE Transactions on Instrumentation and Measurement",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "3DCNN-InvertU-Net: A Noncontact Continuous Estimation for Aortic Blood Pressure During Cardiopulmonary Resuscitation",
+   "doi": "10.1109/TIM.2026.3731717",
+   "year": "2026",
+   "venue": "IEEE Transactions on Instrumentation and Measurement",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "Multimodal EEG Analysis of Neural Synchrony in Minimal Phrase Processing Using Machine Learning",
+   "doi": "10.1109/RAAICON69033.2025.11502190",
+   "year": "2025",
+   "venue": "2025 IEEE 4th International Conference on Robotics, Automation, Artificial-Intelligence and Internet-of-Things (RAAICON)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "An Enhanced Autism Detection Model Based on Electroencephalogram Signals",
+   "doi": "10.1109/IJCNN64981.2025.11229074",
+   "year": "2025",
+   "venue": "2025 International Joint Conference on Neural Networks (IJCNN)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Cross-Population Plantar Pressure Image Classification via Multi-Task Learning",
+   "doi": "10.1109/CBASE67452.2025.11335542",
+   "year": "2025",
+   "venue": "2025 4th International Conference on Cloud Computing, Big Data Application and Software Engineering (CBASE)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Cross-Modal Learning for Audio-Visual Emotion Recognition in Acted Speech",
+   "doi": "10.1109/ATSIP55956.2022.9805959",
+   "year": "2022",
+   "venue": "2022 6th International Conference on Advanced Technologies for Signal and Image Processing (ATSIP)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Pseudo-Label-Vector-Guided Parallel Attention Network for Remaining Useful Life Prediction",
+   "doi": "10.1109/TII.2022.3202832",
+   "year": "2023",
+   "venue": "IEEE Transactions on Industrial Informatics",
+   "contentType": "IEEE Journals",
+   "arm": "a"
+  },
+  {
+   "title": "CarbonTrackAI: Real-Time Carbon Footprint Estimation from Daily Activities",
+   "doi": "10.1109/IITCEE67948.2026.11394264",
+   "year": "2026",
+   "venue": "2026 International Conference on Intelligent and Innovative Technologies in Computing, Electrical and Electronics\u00a0(IITCEE)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Action Recognition Using CNN-LSTM Architecture for Video-Based Temporal Classification",
+   "doi": "10.23919/INDIACom70271.2026.11526192",
+   "year": "2026",
+   "venue": "2026 13th International Conference on Computing for Sustainable Global Development (INDIACom)",
+   "contentType": "IEEE Conferences",
+   "arm": "a"
+  },
+  {
+   "title": "Multi-Modal Fusion of IoT and EHR Data Using Transformer Networks for Holistic Patient in Consumer-Centric Digital Twins",
+   "doi": "10.1109/TCE.2026.3672115",
+   "year": "2026",
+   "venue": "IEEE Transactions on Consumer Electronics",
+   "contentType": "IEEE Journals",
+   "arm": "b"
+  },
+  {
+   "title": "Design and Implementation of a Real-Time Digital Twin for Power Transformer Protection Systems",
+   "doi": "10.1109/IMPACT68503.2026.11468305",
+   "year": "2026",
+   "venue": "2026 6th International Conference on Multimedia, Signal Processing and Communication Technologies (IMPACT)",
+   "contentType": "IEEE Conferences",
+   "arm": "b"
+  },
+  {
+   "title": "Digital-Twin-Assisted Healthcare Framework for Adult",
+   "doi": "10.1109/JIOT.2023.3345331",
+   "year": "2024",
+   "venue": "IEEE Internet of Things Journal",
+   "contentType": "IEEE Journals",
+   "arm": "b"
+  },
+  {
+   "title": "Status Monitoring and Full Lifecycle Assessment of Power Equipment Based on the Integration of Edge Intelligence and Cloud Computing",
+   "doi": "10.1109/PSGAI68158.2025.11413458",
+   "year": "2025",
+   "venue": "2025 International Conference on Power Systems, Smart Grid, and Artificial Intelligence (PSGAI)",
+   "contentType": "IEEE Conferences",
+   "arm": "b"
+  }
+ ],
+ "difference_from_the_pubmed_screen": "Xplore metadata carries no review flag, so the 'review' exclusion the PubMed arm applied has no equivalent here and reviews remain among the IEEE eligible records."
+}

@@ -96,7 +96,10 @@ def check():
     n_studies = studies_in_main()
     out = {"supplement_file": SUPP, "studies_in_table_ii": n_studies, "tasks": {}}
 
-    def task(key, title, label, want_rows, want_cols, extra=None, also=None):
+    def task(key, title, label, want_rows, want_cols, extra=None, also=None, col_also=None):
+        """`also` continues the same columns with more rows; `col_also` carries the
+        remaining columns of the same rows (the a/b panels of a split wide table),
+        so its rows must not be counted again."""
         st = {"title": title, "label": label, "done": False, "notes": []}
         if supp is None:
             st["notes"].append("supplement.tex does not exist yet")
@@ -115,9 +118,18 @@ def check():
             else:
                 rows = rows + body_rows(b2)
                 blk = blk + b2
+        head_src = blk
+        for panel_label in (col_also or []):
+            b3 = table_block(supp, panel_label)
+            if b3 is None:
+                st["notes"].append(f"no panel carrying \\label{{{panel_label}}}")
+            else:
+                head_src = head_src + b3
+                blk = blk + b3
         st["rows"] = len(rows)
         header = rows[0] if rows else ""
-        head_src = blk[:blk.find("\\midrule")] if "\\midrule" in blk else blk
+        head_src = "".join(h[:h.find("\\midrule")] if "\\midrule" in h else h
+                           for h in re.split(r"(?=\\begin\{table)", head_src))
         missing_cols = [c for c in want_cols if c.lower() not in head_src.lower()]
         if missing_cols:
             st["notes"].append("header is missing: " + ", ".join(missing_cols))
@@ -151,9 +163,11 @@ def check():
     task("S1", "Threats and protections across IoT layers (comment 9)",
          "tab:threats", 7, ["threat", "protection"], s1_extra)
     task("S2", "Dataset table, both parts (comment 8)",
-         "tab:datasets", 9, DATASET_COLS, extra=None, also=["tab:datasets-b"])
+         "tab:S2a", 9, DATASET_COLS, extra=None, also=["tab:S4a"],
+         col_also=["tab:S2b", "tab:S4b"])
     task("S3", "Study quality assessment, both parts (comment 7)",
-         "tab:quality", n_studies or 12, QUALITY_COLS, s3_extra, also=["tab:quality-b"])
+         "tab:S3a", n_studies or 12, QUALITY_COLS, s3_extra, also=["tab:S5a"],
+         col_also=["tab:S3b", "tab:S5b"])
     task("S4", "Survey-comparison evidence (comment 6)",
          "tab:surveyevidence", 12, ["review", "section evidence"])
     task("S5", "Communication substrate (comment 9)",
