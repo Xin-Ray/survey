@@ -1,0 +1,35 @@
+{
+ "n": 60,
+ "rule_pos": 21,
+ "rule_neg": 39,
+ "tp": 13,
+ "fn": 7,
+ "precision": 0.619,
+ "precision_ci": [
+  0.4088,
+  0.7925
+ ],
+ "miss_rate": 0.1795,
+ "miss_ci": [
+  0.0898,
+  0.3267
+ ],
+ "screened": 1206,
+ "rule_eligible": 363,
+ "true_pos_est": 225,
+ "true_pos_ci": [
+  148,
+  288
+ ],
+ "missed_est": 151,
+ "missed_ci": [
+  76,
+  275
+ ],
+ "pool_est": 376,
+ "pool_bounds": [
+  224,
+  563
+ ],
+ "labeller": "one author (Xin Xiang), 2026-09-23, blind to the rule's verdict"
+}

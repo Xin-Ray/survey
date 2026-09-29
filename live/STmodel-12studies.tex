@@ -1,0 +1,1317 @@
+
+\documentclass[journal]{IEEEtran}
+%%
+%% Packages required after switching from acmart to IEEEtran.
+\usepackage{graphicx}
+\graphicspath{{figures/}{./}}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cite}
+\usepackage[utf8]{inputenc}
+\usepackage{url}
+\usepackage[T1]{fontenc}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,fit,backgrounds}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{makecell}
+%% === ADDED: change-tracking markup (red strikethrough = deleted, green = added) ===
+\usepackage[normalem]{ulem}
+\definecolor{trackadd}{rgb}{0,0.55,0}
+\DeclareRobustCommand{\cadd}[1]{\textcolor{trackadd}{#1}}
+\DeclareRobustCommand{\cdel}[1]{\textcolor{red}{\sout{#1}}}
+%% \Description is an acmart-only macro; make it a no-op under IEEEtran.
+\providecommand{\Description}[1]{}
+
+%% === Build switch: 8-page IEEE IoT-J submission vs. extended version ===
+%%   latexmk -pdf STmodel.tex
+%%       -> submission build, target <= 8 pages (no over-length charges)
+%%   latexmk -pdf -jobname=STmodel-full -usepretex=\"\\def\\EXTENDED{}\" STmodel.tex
+%%       -> extended build with every table, figure and passage restored
+%%   (fallback if -usepretex is unavailable: comment out \submissiontrue below)
+%%
+%% CONVENTION: prefer the single-branch form
+%%     \ifsubmission\else <extended-only content> \fi
+%% so nothing is duplicated. Use the two-branch form
+%%     \ifsubmission <short> \else <long> \fi
+%% only where a passage genuinely needs both a short and a long wording.
+%% Every \ref must resolve in BOTH builds: if a float is extended-only, its
+%% referring sentence must be too.
+\newif\ifsubmission
+\submissiontrue
+\ifdefined\EXTENDED\submissionfalse\fi
+%% Retained figures render smaller in the submission build.
+\ifsubmission\newcommand{\figw}{0.72\linewidth}\else\newcommand{\figw}{\linewidth}\fi
+%% Float placement: allow floats to share a page with body text so that
+%% full-width tables and figures do not strand half-empty pages.
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.7}
+\renewcommand{\textfraction}{0.06}
+\renewcommand{\floatpagefraction}{0.85}
+\renewcommand{\dbltopfraction}{0.92}
+\renewcommand{\dblfloatpagefraction}{0.85}
+\setcounter{topnumber}{3}
+\setcounter{dbltopnumber}{3}
+\setcounter{totalnumber}{5}
+
+\begin{document}
+
+\title{Spatiotemporal Deep Learning for IoT-Enabled Digital Health: From Predictive Models to Digital Twins and Emerging World Models}
+
+\author{Xin~Xiang,~Hua~Fang,~Dengyi~Liu,~Ashikur~Nobel,~and~Honggang~Wang%
+\thanks{The authors are with the Graduate Computer Science and Engineering Department, Katz School of Health and Science, Yeshiva University, New York, NY 10016 USA (e-mail: xxiang@mail.yu.edu; julia.fang@yu.edu; dliu6@mail.yu.edu; anobel@mail.yu.edu; honggang.wang@yu.edu).}}
+%%
+%% Sometimes the addresses are too long to fit on the page.  In this
+%% case uncomment the lines below and fill them accodingly.
+%%
+%% Institute for Clarity in Documentation, P.O. Box 1212, Dublin,
+%% Ohio, USA, 43017-6221}
+%%
+%%
+%% Keywords. The author(s) should pick words that accurately describe
+%% the work being presented. Separate the keywords with commas.
+
+\maketitle
+
+\begin{abstract}
+Health evolves jointly in time and space, yet clinical records sample it only intermittently. Connected health devices---wearables, continuous glucose monitors, and ambient environmental sensors---supply the missing context. The Internet of Things (IoT) is therefore the data layer on which digital health now depends: the deployed devices determine what is observed, at what rate, and where computation can run. This survey reviews deep spatiotemporal models for such connected health data under one organizing progression. Spatiotemporal models learn health dynamics; digital twins keep those dynamics synchronized with an individual patient; and world models extend the twin from prediction toward simulating candidate interventions. We categorize the spatiotemporal data types arising in connected digital health and compare recurrent, convolutional, graph, attention based, state space, and generative architectures by spatial handling, temporal handling, computational cost, and data requirements. We give a structured summary of the quantitative evidence reported by twelve studies across dietary, diabetes, depression, cardiac and longitudinal clinical work, with their datasets, metrics and performance; dietary evidence is thinnest, resting on wrist-worn inertial sensing rather than outcome trials. We then examine medical digital twins---multisource data fusion, federated learning under privacy constraints, and clinical visualization---and the emerging world model formulation, whose health applications remain largely conceptual rather than clinically evaluated. Across these twelve studies, spatial and environmental context improved chronic disease prediction where it was modelled, lifestyle factors stayed underused and deployment characteristics were almost never reported; we do not generalize beyond the set, whose provenance we state. We close with challenges in data sparsity, heterogeneity, privacy, and continuous model updating, and with research directions for deployable connected health systems.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Spatiotemporal models, deep neural networks, digital health, Internet of Things, wearable sensing, longitudinal data, federated learning, digital twin, world models, chronic disease.
+\end{IEEEkeywords}
+
+% \begin{figure*}[t]
+%     \centering
+%     \includegraphics[width=\linewidth]{Frame 9 (3).png}
+%     \caption{ST Data Categories}
+%     \Description{A diagram illustrating different categories of Spatiotemporaldata (e.g., spatial only, temporal only, Spatiotemporal).}
+
+%     \label{fig:ST Data Categories}
+% \end{figure}
+
+
+\section{Introduction}
+\label{sec:intro}
+
+\begin{table*}[t]
+\centering
+\caption{Recent reviews adjacent to this survey. $\bullet$ covered, $\circ$ partial, -- not a stated focus, judged from each review's title and abstract. IoT: IoT layer (acquisition tier); ST: spatiotemporal model families; App: clinical application; DT: digital twin; WM: world model; Priv: privacy; Edge: edge deployment; Data: datasets; Eval: evaluation.}
+\label{tab:related-surveys}
+\ifsubmission
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.7cm} c c c c c c c c c >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Review} & \textbf{IoT} & \textbf{ST} & \textbf{App} & \textbf{DT} & \textbf{WM} & \textbf{Priv} & \textbf{Edge} & \textbf{Data} & \textbf{Eval} & \textbf{Note} \\
+\midrule
+Wang et al.~\cite{wang2022deep} & -- & $\bullet$ & -- & -- & -- & -- & -- & $\bullet$ & -- & Traffic and climate; no clinical task or acquisition tier \\
+\addlinespace[1pt]
+Samani et al.~\cite{samani2026stdl} & -- & $\bullet$ & -- & -- & -- & -- & -- & $\circ$ & -- & General spatiotemporal prediction; health only as outbreak detection \\
+\addlinespace[1pt]
+Swinckels et al.~\cite{swinckels2024ehr} & -- & $\circ$ & $\bullet$ & -- & -- & -- & -- & $\bullet$ & $\circ$ & Longitudinal EHR for prevention; no sensing tier or spatial context \\
+\addlinespace[1pt]
+Busnatu et al.~\cite{Busnatu2022} & $\bullet$ & -- & $\bullet$ & -- & -- & -- & -- & -- & -- & Biotelemetry devices; no model families or quantitative synthesis \\
+\addlinespace[1pt]
+Sun et al.~\cite{sun2026irregularmedical} & -- & $\circ$ & $\bullet$ & -- & -- & -- & -- & $\bullet$ & $\bullet$ & Irregularly sampled medical series; temporal only, no twin layer \\
+\addlinespace[1pt]
+Wang et al.~\cite{Wang2023Survey} & $\bullet$ & -- & -- & $\bullet$ & -- & $\bullet$ & $\bullet$ & -- & -- & General IoT twins, not patient twins \\
+\addlinespace[1pt]
+Sel et al.~\cite{Sel2025VVUQ} & -- & -- & -- & $\bullet$ & -- & -- & -- & -- & $\bullet$ & Validation and uncertainty for medical twins only \\
+\addlinespace[1pt]
+Zheng et al.~\cite{Zheng2026DTtoWM} & -- & -- & -- & $\bullet$ & $\bullet$ & -- & $\bullet$ & -- & -- & Mobile edge intelligence, not clinical care \\
+\addlinespace[1pt]
+Chen et al.~\cite{chen2024genaitwin} & $\bullet$ & -- & $\bullet$ & $\bullet$ & -- & -- & -- & -- & -- & Generative human twins in IoT health; no spatiotemporal model comparison stated \\
+\addlinespace[1pt]
+Amin \& Hossain~\cite{amin2021edgeintel} & $\bullet$ & -- & $\bullet$ & -- & -- & -- & $\bullet$ & -- & -- & Edge-AI offloading and 5G; no spatiotemporal model classes or twins \\
+\addlinespace[1pt]
+Nguyen et al.~\cite{nguyen2022FLsmarthealthcare} & $\bullet$ & -- & $\bullet$ & -- & -- & $\bullet$ & -- & -- & -- & Federated aggregation; no spatiotemporal learning or edge budget \\
+\addlinespace[1pt]
+Zhang et al.~\cite{zhang2022harreview} & -- & $\bullet$ & $\bullet$ & -- & -- & -- & -- & $\bullet$ & -- & Activity recognition only; no deployment layer \\
+\addlinespace[1pt]
+\textbf{This survey} & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & Layer-by-layer mapping from sensing to decision (Fig.~\ref{fig:taxonomy}); logged search; deployment reporting \\
+\bottomrule
+\end{tabularx}
+\else
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Review} & \textbf{Scope} & \textbf{Contribution match} & \textbf{Gap addressed here} \\
+\midrule
+Wang et al.~\cite{wang2022deep} & Generic spatiotemporal data mining & Taxonomy of spatiotemporal data types and deep architectures & Targets traffic and climate; no clinical tasks, no device-to-data relation, no twins \\
+\addlinespace[2pt]
+Atluri et al.~\cite{atluri2018stdm} & Generic spatiotemporal data mining & Problem and method taxonomy for spatiotemporal mining & Predates current deep spatiotemporal families; not health; no deployment view \\
+\addlinespace[2pt]
+Miotto et al.~\cite{miotto2018deeplearning} & Deep learning for health care & Clinical deep learning tasks and data modalities & Records treated as sequences; no spatial context, no sensing or placement layer \\
+\addlinespace[2pt]
+Busnatu et al.~\cite{Busnatu2022} & Digital health and biotelemetry & Remote monitoring devices for personalized medicine & Device oriented; no spatiotemporal model families and no quantitative synthesis \\
+\addlinespace[2pt]
+Shukla \& Marlin~\cite{shukla2021irregular} & Irregularly sampled time series & Principles and models for irregular sampling and missingness & Temporal only; no spatial support, no twin or simulation layer \\
+\addlinespace[2pt]
+Wang et al.~\cite{Wang2023Survey} & Digital twins (IoT) & Twin architecture, enabling technologies, security and privacy & General IoT twins rather than patient twins; no health spatiotemporal model comparison \\
+\addlinespace[2pt]
+Sel et al.~\cite{Sel2025VVUQ} & Digital twins for precision medicine & Verification, validation, and uncertainty quantification & Validation methodology only; no model family comparison, no world models \\
+\addlinespace[2pt]
+Zheng et al.~\cite{Zheng2026DTtoWM} & Digital twins to world models & Conceptual transfer from twins to world models & Framed for mobile edge general intelligence, not clinical care; no health evaluation \\
+\bottomrule
+\end{tabularx}
+\fi
+\end{table*}
+
+\ifsubmission
+Clinical decisions combine static characteristics, snapshot observations, and longitudinal history, but for chronic disease periodic visits give only an intermittently sampled view, disconnected from daily behavior and environmental exposure. Health evolves jointly in time and space: location, food environment, air quality, activity, and socioeconomic context shape physiological trajectories, and diet quality and chronic disease risk vary systematically across regions and socioeconomic groups~\cite{McCullough2022Diet}. Temporal models trained on continuous glucose monitoring capture short term dynamics and longer term shifts in insulin sensitivity~\cite{Vaughan2025CGMPrediction}, but temporal modeling alone cannot represent that spatial context.
+
+Connected devices make the joint view observable. In IoT-enabled digital health the sensing layer---wearables, continuous glucose monitors, ambient nodes, and smartphones acting as gateways---determines which variables exist at all, at what rate, with what gaps, and under which timestamp and calibration conventions, while the network and edge layers determine where a model may run and how fast it may respond. Health data are therefore the output of a deployed system rather than modality neutral inputs, and a model chosen without reference to that system's acquisition may not remain valid under deployment conditions. This device to data relation is the thread of this survey, and Figure~\ref{fig:taxonomy} is the taxonomy we use to organise it: IoT system layers against the spatiotemporal modelling function each one supports.
+
+We ask four questions. \emph{RQ1}: which spatiotemporal data types arise in connected digital health, and how do sensing and deployment conditions constrain the model families that can consume them? \emph{RQ2}: what quantitative evidence exists that spatiotemporal deep learning improves clinical prediction, and how comparable is it? \emph{RQ3}: what does a medical digital twin require of such models, and which requirements does current work meet? \emph{RQ4}: what distinguishes a world model based twin from adjacent formulations, and what evidence supports its clinical use?
+
+Table~\ref{tab:related-surveys} sets this survey against adjacent reviews---generic spatiotemporal data mining~\cite{wang2022deep,atluri2018stdm}, deep learning for health care~\cite{miotto2018deeplearning}, biotelemetry based digital health~\cite{Busnatu2022}, irregularly sampled longitudinal modeling~\cite{shukla2021irregular}, digital twins~\cite{Wang2023Survey,Sel2025VVUQ}, and the transfer of the twin idea to world models~\cite{Zheng2026DTtoWM}; none treats connected health acquisition, spatiotemporal model families, and twin synchronization together. Beyond a taxonomy, a quantitative synthesis, and a gap driven agenda, our contribution is an application and service level mapping for connected health relating data characteristics (sensing modality, sampling regularity, spatial support, subject coverage) and deployment conditions (where data are collected, where inference must run, and the bandwidth, latency, and privacy constraints of that placement) to spatiotemporal model choices. For an IoT readership this answers which model family a given sensing and placement regime supports, and where published evidence stops and conceptual proposals begin.
+\else
+Clinical decisions combine static patient characteristics, snapshot observations, and longitudinal history such as prior diagnoses, laboratory trends, and treatment responses. For chronic or progressive diseases, periodic follow up visits yield only an intermittently sampled view of health evolution that is coarse, fragmented, and disconnected from daily behavior and environmental exposure. Digital health reframes this workflow as time stamped, context dependent observations, allowing symptoms, physiological signals, behavior, and exposures to be recorded continuously and modeled as evolving trajectories.
+
+Computational health modeling has moved from static risk estimation toward dynamic, contextual prediction. Early rule based systems were interpretable but brittle; electronic health records later enabled probabilistic and survival models, while machine learning improved nonlinear pattern recognition yet often reduced longitudinal history to aggregated features. The key shift came when temporal models represented disease evolution directly from sequential observations, accelerated by wearable sensors and mobile health. In diabetes management, for instance, models trained on continuous glucose monitoring capture short term glucose dynamics and longer term changes in insulin sensitivity, supporting responsive prediction and treatment adjustment \cite{Vaughan2025CGMPrediction,Gecili2020CGMPrediction}.
+
+Temporal modeling alone cannot capture how health unfolds in real life. Health evolves jointly in time and space: location, food environments, air quality, physical activity, mobility, work routines, and socioeconomic context all shape physiological and behavioral trajectories. Large scale nutrition studies, for example, show that diet quality and chronic disease risk vary systematically across regions and socioeconomic groups \cite{McCullough2022Diet}. Incorporating spatial context therefore links environmental and lifestyle factors to longitudinal patient states, improving personalization and helping explain why similar clinical profiles can follow different trajectories.
+
+
+\ifsubmission\else
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.6\linewidth]{digital twin in health care.png}
+    \caption{Conceptual overview of a digital twin in healthcare: real world patient data from sensors, wearables, and clinical records continuously update a virtual patient replica, which supports monitoring, prediction, and intervention planning in a closed feedback loop.}
+    \Description{A conceptual diagram of a digital twin in healthcare, in which real-world patient data from sensors, wearables, and clinical records continuously update a virtual patient replica that supports monitoring, prediction, and intervention planning.}
+    \label{fig:digital twin in health care}
+\end{figure*}
+\fi
+Connected devices are what make this joint view observable. In IoT-enabled digital health the sensing layer---wearables and implantables, continuous glucose monitors, ambient and environmental nodes, and smartphones acting as gateways---determines which physiological, behavioral, and contextual variables exist at all, at what sampling rate, with what gaps, and under which timestamp and calibration conventions. The network and edge layers then determine where a model may run and how fast it may respond: on the device, at a gateway, on a hospital edge server, or in the cloud under a federated protocol. Health data are therefore not modality neutral inputs but the output of a deployed system, and a spatiotemporal model chosen without reference to that system's acquisition and deployment conditions is unlikely to survive contact with it. This device to data relation is the thread we follow throughout the survey.
+
+This survey argues that spatiotemporal modeling is a necessary step in this progression. Reviewing spatiotemporal models and their digital health applications, we clarify how environmental and lifestyle factors such as diet can enter longitudinal disease prediction, and how such models support faithful, personalized digital twins for healthcare.
+
+
+We organize the survey around four research questions. \emph{RQ1}: which spatiotemporal data types arise in connected digital health, and how do sensing and deployment conditions constrain the model families that can consume them? \emph{RQ2}: what quantitative evidence exists that spatiotemporal deep learning improves clinical prediction across digital health domains, and how comparable is that evidence? \emph{RQ3}: what does a medical digital twin require of such models, and which of those requirements does current work actually meet? \emph{RQ4}: what distinguishes a world model based twin from adjacent formulations, and what evidence supports its clinical use? Our audience is twofold: developers who build spatiotemporal models and researchers who deploy them in digital health or digital twin settings. We introduce a practical taxonomy, examine application scenarios, recommend data processing pipelines and model choices, and give evaluation guidance. We then address deployment privacy concerns and solutions such as federated learning, and forecast future trends in digital twin based digital health. This is a narrative survey: we draw on peer-reviewed work and recent preprints spanning 2015--2026, prioritizing methods relevant to spatiotemporal deep learning in digital health. Section~\ref{sec:method} reports two logged searches that size the eligible literature and states how the synthesized studies were assembled. Table~\ref{tab:related-surveys} positions this survey against recent reviews spanning generic spatiotemporal data mining~\cite{wang2022deep,atluri2018stdm}, deep learning for health care~\cite{miotto2018deeplearning}, wearable and biotelemetry based digital health~\cite{Busnatu2022}, irregularly sampled longitudinal modeling~\cite{shukla2021irregular}, digital twins~\cite{Wang2023Survey,Sel2025VVUQ}, and the transfer of the twin idea to world models~\cite{Zheng2026DTtoWM}: none treats connected health acquisition, spatiotemporal model families, and twin synchronization together.
+
+\emph{Our main contributions are as follows.} First, we develop a digital health taxonomy linking spatiotemporal data types (event, trajectory, point reference, raster, video), their preprocessing challenges (sparsity, irregular sampling, multi scale structure), the foundational architectures (CNN, GNN, RNN, Transformer), and clinical applications into a unified map from data to model to deployment. Second, we synthesize the major model families (CNN--RNN hybrids, spatiotemporal graph neural networks, Transformer based models, 3D-CNN and hybrid networks, and irregular time, longitudinal, and statistical deep learning approaches) with guidance on when each suits digital health data, illustrated across dietary, diabetes, depression, and cardiac applications. Third, we analyze deployment through medical digital twins, including privacy preserving federated learning, visualization, uncertainty quantification, and world model based patient simulators for counterfactual planning. Finally, we contribute an application and service level mapping for connected health: we relate connected health data characteristics (sensing modality, sampling regularity, spatial support, and subject coverage) and deployment conditions (where data are collected, where inference must run, and the bandwidth, latency, and privacy constraints of that placement) to spatiotemporal model choices, and identify the open challenges on the path to world model based digital twins.
+
+
+
+For readers of IoT venues in particular, the practical question this survey answers is what can be built on top of a connected health deployment: which spatiotemporal model family a given sensing and inference placement regime can actually support, what such a model must report before it can be trusted at the edge or across federated sites, and where the published evidence stops and conceptual proposals begin.
+
+The remainder is organized as follows. Section~\ref{sec:data} characterizes spatiotemporal data in digital health and its challenges (sparsity, irregular sampling, multi scale structure). Section~\ref{sec:history} reviews the development of deep learning based spatiotemporal methods. Section~\ref{sec:models} presents spatiotemporal models and their digital health applications across domains, including the longitudinal evidence. Section~\ref{sec:DT} covers integration within digital twin systems, including data collection and privacy. Section~\ref{sec:world_model_dt} develops world model based digital twins for patient state simulation and counterfactual planning. Section~\ref{sec:future} outlines future directions combining spatiotemporal modeling with digital twins.
+
+
+\fi
+
+
+\section{Survey Methodology}
+\label{sec:method}
+This is a \emph{narrative}, purposive survey, not a systematic review; Figure~\ref{fig:prisma} gives the flow and the counts.
+
+We ran two logged searches, over a 2015--2026 window: \textbf{PubMed} on 11 September 2026 through the E-utilities interface, and \textbf{IEEE Xplore} on 22 September 2026 through its command search. Both combine four title/abstract blocks: A \texttt{spatiotemporal OR spatio-temporal OR space-time}; B \texttt{``deep learning'' OR ``neural network'' OR transformer OR ``graph network'' OR ``graph neural''}; C \texttt{health OR clinical OR patient OR wearable}; D \texttt{``digital twin'' OR ``world model''}. The spatiotemporal arm is A\,AND\,B\,AND\,C and the twin arm, serving Sections~\ref{sec:DT} and~\ref{sec:world_model_dt}, is D\,AND\,B\,AND\,C. Figure~\ref{fig:prisma} gives the counts. We did not search Scopus, to which our institution has no subscription, and we make no claim to systematic citation chasing.
+
+Eligibility and selection criteria were three. A record qualified for inclusion when it (i) modeled data indexed by both time and space, or longitudinal data with an explicit temporal model; (ii) addressed a clinical or public health task; and (iii) reported at least one quantitative result against a named baseline, which also served as the quality assessment. Exclusion followed from failing any one of them. A saturation rule governed retention: a study entered the synthesis only when it added a data type, model family, or application domain not already represented. Eight groups of records duplicated under different keys were merged in the reference list.
+
+We ran the query against PubMed in September 2026 and logged the search results: 1{,}171 records on the spatiotemporal arm and 268 on the twin and world model arm, 3 on both, giving \textbf{1{,}436 unique records}. Removing 36 non-research item types and 194 reviews left \textbf{1{,}206 records screened} on title and abstract. We applied criteria (i)--(iii) as explicit textual rules, so the decision is reproducible: 99 records were excluded as not a human clinical or public health task, 127 for carrying neither a space--time nor a longitudinal structure, and 617 for reporting no quantitative result against a named alternative, leaving \textbf{363 rule-eligible records}. One author re-read a random 60 of the 1{,}206 screened records by hand, blind to the rule's verdict: 45 agreed. Of the 21 called eligible, 13 were confirmed (precision 62\%, 95\% CI 41--79\%); of the 39 excluded, 7 were eligible after all (18\%, 95\% CI 9--33\%). The rule errs both ways, so correcting both cells puts the eligible literature at \textbf{roughly 375 studies} --- an order of magnitude, not a count, from one reviewer and wide intervals. The rule also judges abstracts, so it under-counts studies whose abstracts omit results, and the IEEE Xplore arm is reported as counts only (930 and 274 records) without the same record-level screen.
+
+The studies in Table~\ref{tab:evidence} were not sampled from that pool: they were assembled while drafting earlier and longer versions of this survey, and the searches above were run afterwards to size the eligible literature rather than to select them. Resolved by DOI against the search output, 3 of the twelve fall among the 363 rule-eligible records and 4 are retrieved at all, though every one is indexed in PubMed.\ifsubmission\else{} The eight misses fail an explicit block rather than an index: four carry no spatial term, being continuous-monitoring or longitudinal designs, and one of those also carries no health term; two are not matched by the deep learning block, one written as a graph convolutional network and one a Bayesian spatiotemporal model rather than a deep network; and one abstract names no health term. A fifth retrieved study fails criterion (iii) at the screen.\fi{} Table~\ref{tab:evidence} is therefore an illustrative set assembled by the authors, not a representative sample of the literature the search sizes.
+
+\begin{figure}[t]
+\centering
+\footnotesize
+\begin{tikzpicture}[
+  >=Latex, node distance=2.2mm,
+  bx/.style={draw, rounded corners=1.5pt, align=center, text width=70mm,
+             inner sep=1.5pt, font=\scriptsize},
+  nr/.style={draw, dashed, align=center, text width=70mm, inner sep=2pt,
+             font=\scriptsize\itshape}]
+\node[bx] (a) {\textbf{Identified.} PubMed, 11 Sept.\ 2026, window 2015--2026:
+  1{,}171 $+$ 268 records, 3 shared $\rightarrow$ \textbf{1{,}436 unique}.
+  IEEE Xplore, 22 Sept.\ 2026: 930 $+$ 274, counts only};
+\node[bx, below=of a] (c) {\textbf{Excluded by item type.} 36 non-research, 194 reviews
+  $\rightarrow$ \textbf{1{,}206 screened}};
+\node[bx, below=of c] (d) {\textbf{Rule-based screen.} Excluded 99 (ii), 127 (i), 617 (iii)};
+\node[bx, below=of d] (e) {\textbf{Rule-eligible: 363.} Hand check of 60: precision 71\%
+  $\Rightarrow$ pool $\approx$ 260};
+\node[nr, below=of e] (f) {The 12 synthesized studies were assembled in earlier drafts,
+  not drawn from this pool: 3 of 363, 4 retrieved};
+\foreach \u/\v in {a/c,c/d,d/e,e/f} {\draw[->] (\u) -- (\v);}
+\end{tikzpicture}
+\caption{Literature selection flow with the counts logged when the query was run, laid out in the PRISMA reporting convention~\cite{page2021prisma}. The endpoint differs from a systematic review: the dashed box is where we sample from the literature for taxonomy coverage rather than carry the eligible set forward.}
+\Description{A vertical flow diagram of the literature selection process, from sources and query through an unlogged screening stage, eligibility criteria, a quality and saturation gate, to the included studies.}
+\label{fig:prisma}
+\end{figure}
+\section{Spatiotemporal Data in Connected Digital Health}
+\label{sec:data}
+
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  >=Latex, font=\scriptsize,
+  hd/.style={font=\footnotesize\bfseries, align=center},
+  lay/.style={draw, rounded corners=2pt, align=center, text width=21mm,
+              font=\scriptsize\bfseries, minimum height=8.6mm, inner sep=1.5pt},
+  cl/.style={draw, rounded corners=2pt, align=left, text width=41mm,
+             minimum height=8.6mm, inner sep=2pt},
+  sc/.style={align=center, text width=13mm, font=\scriptsize\itshape}]
+\node[hd, text width=21mm, align=center] at (0.00,0.95) {IoT system layer};
+\node[hd, text width=41mm, align=center] at (3.50,0.95) {Data representation};
+\node[hd, text width=41mm, align=center] at (8.25,0.95) {Spatiotemporal modelling function};
+\node[hd, text width=41mm, align=center] at (13.00,0.95) {What the layer constrains};
+\node[hd, text width=13mm, align=center] at (16.20,0.95) {Section};
+\node[lay] at (0.00,-0.00) {Sensing \& device};
+\node[cl]  at (3.50,-0.00) {Event, trajectory and point-reference streams; raw video};
+\node[cl]  at (8.25,-0.00) {On-device gesture and anomaly models; time-aware RNN with decay~\cite{metzger2023crop}};
+\node[cl]  at (13.00,-0.00) {Sampling rate, gaps, calibration, battery};
+\node[sc]  at (16.20,-0.00) {\S{}III};
+\node[lay] at (0.00,-1.06) {Communication};
+\node[cl]  at (3.50,-1.06) {Summarized or downsampled series; model updates};
+\node[cl]  at (8.25,-1.06) {None local; the layer sets the byte budget per patient-day};
+\node[cl]  at (13.00,-1.06) {Bandwidth, connectivity, push cadence};
+\node[sc]  at (16.20,-1.06) {\S{}III, VIII};
+\draw[->, gray] (0.00,-0.26) -- (0.00,-0.58);
+\node[lay] at (0.00,-2.12) {Edge / gateway};
+\node[cl]  at (3.50,-2.12) {Windowed tensors; locally extracted features};
+\node[cl]  at (8.25,-2.12) {CNN--RNN and ConvLSTM~\cite{shi2015convolutional}; state-space models~\cite{gu2023mamba} for long streams};
+\node[cl]  at (13.00,-2.12) {Latency, memory, energy per inference};
+\node[sc]  at (16.20,-2.12) {\S{}III, IV};
+\draw[->, gray] (0.00,-1.32) -- (0.00,-1.64);
+\node[lay] at (0.00,-3.18) {Cloud / platform};
+\node[cl]  at (3.50,-3.18) {Raster grids, cohort matrices, imaging volumes};
+\node[cl]  at (8.25,-3.18) {STGNN~\cite{shao2022longterm}; Transformer ST~\cite{xu2020stransformer}; 3D-CNN; generative models};
+\node[cl]  at (13.00,-3.18) {Compute cost, harmonization, governance};
+\node[sc]  at (16.20,-3.18) {\S{}III, IV};
+\draw[->, gray] (0.00,-2.38) -- (0.00,-2.70);
+\node[lay] at (0.00,-4.24) {Twin \& decision};
+\node[cl]  at (3.50,-4.24) {Synchronized latent patient state; action logs};
+\node[cl]  at (8.25,-4.24) {World model: action-conditioned transition and planner};
+\node[cl]  at (13.00,-4.24) {Validation, safety filter, privacy budget};
+\node[sc]  at (16.20,-4.24) {\S{}VI, VII};
+\draw[->, gray] (0.00,-3.44) -- (0.00,-3.76);
+\end{tikzpicture}
+\caption{Two-dimensional taxonomy organising this survey: IoT system layers (rows, read top to bottom as the data path from body-worn sensing to clinical decision) against the spatiotemporal modelling function each layer supports. Each row names the representation that leaves the layer, the model families that can consume it, the resource or governance constraint the layer imposes, and the section that treats it. }
+\Description{A five-row by four-column grid. Rows are IoT system layers from sensing and device, through communication, edge gateway and cloud platform, to twin and decision. Columns give the data representation leaving each layer, the spatiotemporal model families that consume it, the constraint the layer imposes, and the section of the paper covering it.}
+\label{fig:taxonomy}
+\end{figure*}
+
+\ifsubmission
+Following prior work~\cite{wang2022deep,atluri2018stdm}, spatiotemporal data in digital health fall into five types, each entering the connected pipeline at a different point. \emph{Event} data are discrete (location, time, type) records such as outbreak reports, arriving sparsely from reporting systems and on-device threshold crossings over low bandwidth links. \emph{Trajectory} data are ordered (location, time) series from wearables or mobile units, sampled continuously and summarized before transmission. \emph{Point reference} data are field measurements at known locations, such as air quality or heart rate, from fixed ambient, home, and clinic instruments. \emph{Raster} data occupy fixed locations at regular intervals, forming a space--time tensor from server side aggregation or volumetric imaging, fMRI included. \emph{Video} data are frame sequences from ultrasound, endoscopy, and ward cameras, whose bandwidth forces edge processing or selective upload. Relational structure such as brain connectivity or referral networks is a layer over these rather than a sixth type. Data type, achievable sampling rate, and the feasible location of inference are thus fixed together by the deployed sensing tier rather than chosen independently. What that tier can execute is now as much a hardware question as a modelling one: microcontroller-class learning has become practical at wearable scale~\cite{saha2022mcuml}, binarized networks classify ECG beats inside an edge power budget~\cite{wong2022binarizedecg}, and ultra-low-power biosignal processors combine a medical-grade analog front end with wireless connectivity on one platform~\cite{frey2023biogap}. These set the ceiling for on-device spatiotemporal models.
+
+The categories overlap---a wearable cohort yields trajectories and point reference vitals from one device, an fMRI study yields raster data also treated as a graph---so in extraction we coded the data type by the representation the model consumes rather than by the acquiring device, recording every type entering a fused model and classifying the study by the representation carrying its primary predictive signal.
+
+Two properties constrain every model choice. Health data are sparse and irregularly sampled, with follow up spanning months or years, missingness from non-compliance or operational limits~\cite{che2018grud}, and site-specific schedules producing uneven intervals that violate standard temporal assumptions unless gaps are modeled explicitly~\cite{shukla2021irregular}. Spatial granularity is heterogeneous, from census level location in cohort datasets to fine grained wearable mobility, and the two support different exposure inferences.
+
+Before joint modeling the data must be made comparable, and the reviewed studies report this unevenly: sensor calibration, drift and mid-study firmware changes at the device level; inconsistent timestamps, clock skew and resampling applied before the train and test split, which leaks future information backwards, at the temporal level; differing coordinate systems, aggregation units and boundary changes at the spatial level; and site and device shift, identity resolution across a participant's devices, provenance for derived variables and schema interoperability with clinical coding standards at the system level, where FHIR~\cite{ayaz2021fhir} and the IEEE 11073 personal health device profiles~\cite{ieee11073std} are the usual anchors. Table~\ref{tab:evidence} records the consequence: four of the twelve studies validate within a single cohort~\cite{2,9,Lim2025VirtualCGM,glaser2022deep} and one reports no validation split~\cite{XiaoLi2016DiabetesSpatiotemporal}, which limits cross study comparison throughout this survey and is why harmonization returns among the research directions of Section~\ref{sec:future}. Harmonized multi-site efforts show what the alternative looks like: the NIH funded iPAT project aligns dietary and biomarker measurements with time indexes and site level metadata across national trials~\cite{Fang2021iPAT}, and UK Biobank standardized acquisition and follow-up across its assessment centres for half a million participants~\cite{sudlow2015ukbiobank}.
+\else
+
+Most patient related phenomena are indexed by both time and space and can be represented in four dimensions (three spatial, one temporal). Following prior work~\cite{wang2022deep,atluri2018stdm}, spatiotemporal data in digital health fall into five types---event, trajectory, point reference, raster, and video data\ifsubmission\else , illustrated in Figure~\ref{fig:Five Spatio temporal Data Categories}\fi .
+
+
+
+
+\ifsubmission\else
+\begin{figure*}
+    \centering
+    \includegraphics[width=0.6\linewidth]{Fivecategories.png}
+    \caption{The five categories of spatiotemporal data in digital health---event, trajectory, point reference, raster, and video data---each shown with a representative clinical example (e.g., outbreak reports, wearable mobility traces, vital sign fields, hospital monitoring grids, and surgical video).}
+    \Description{An illustration of the five categories of spatiotemporal data in digital health: event data, trajectory data, point-reference data, raster data, and video data, each paired with a representative clinical example.}
+    \label{fig:Five Spatio temporal Data Categories}
+\end{figure*}
+\fi
+
+\emph{Event data} are discrete records in time and space, structured as (location, time, event type)---for example, confirmed infectious cases or outbreak reports for influenza or COVID-19---supporting risk prediction, anomaly detection, and transmission analysis.
+
+\emph{Trajectory data} describe an entity's path as an ordered series of (location, time) observations, arising from wearables, ambulance routing, or mobile screening units, and support path prediction, travel time estimation, and epidemiological analysis of movement.
+
+\emph{Point reference data} take the form (location, time, measurement), sampling a target field such as air quality, heart rate, or blood pressure at fixed locations, and support field interpolation, anomaly detection, and multisensor fusion.
+
+\emph{Raster data} are observations on fixed locations at regular intervals, forming a space--time tensor; examples include daily departmental outpatient volumes, fixed air quality stations, and fMRI time series, supporting spatiotemporal prediction, anomaly detection, and segmentation.
+
+\emph{Video data} are sequential image frames at high spatial and temporal resolution, appearing in surgical, ultrasound, and endoscopic recordings, and support lesion tracking, detection, and action recognition.
+
+\emph{Where each type comes from in a connected deployment.} The five types map onto distinct points of the connected health data lifecycle. Event data are produced by clinical and public health reporting systems and by threshold crossings raised on device, such as fall alarms and arrhythmia flags, and therefore arrive sparsely and asynchronously over low bandwidth links. Trajectory data come from body worn and carried devices---smartphone positioning, accelerometers, and inertial units in wearables---sampled continuously on the device and usually summarized or downsampled before transmission. Point reference data come from fixed or semi-fixed sensing: ambient environmental nodes, home monitoring equipment, and clinic instruments reporting a measurement at a known location. Raster data arise when point reference streams are aggregated onto a fixed grid or administrative geography, typically server side rather than at the edge, and also from volumetric clinical imaging. Video data come from high rate imaging devices such as ultrasound probes, endoscopes, and ward cameras, whose bandwidth normally forces processing at the edge or selective upload. Data type, achievable sampling rate, and the feasible location of inference are thus fixed together by the deployed sensing tier rather than chosen independently.
+
+Much health data also carries relational structure, where measurements are linked by node--edge relations (road networks, brain functional connectivity, hospital referral networks). This is not a sixth category but a relational layer over the types above---most often point reference and raster data---where sites or regions become nodes and spatial, topological, or functional links become edges. Such data are handled by spatiotemporal graph neural networks (STGNN), discussed in Sections~\ref{sec:history} and~\ref{sec:models}.
+
+\emph{Overlap and multimodal coding.} These categories are not mutually exclusive, and a single study commonly spans several: a wearable cohort yields trajectory data and point reference vital signs from the same device; an fMRI study yields raster data that is also treated as a connectivity graph; an ambulance study yields trajectories that are also event streams. In extracting studies for this survey we therefore coded the data type by the \emph{representation the model actually consumes} rather than by the acquiring device, and for a study that fuses several representations we recorded every type entering the model while classifying the study by the representation carrying its primary predictive signal. Multimodal studies are counted once in the taxonomy but may be discussed under more than one type.
+
+Our primary interest is how patient covariates---behavior, exposure, physiology---vary jointly across space and time, so trajectory data is the most central form discussed, though the principles generalize across categories.
+
+Public datasets make trajectory centric data increasingly feasible. StudentLife uses smartphone sensing to link day to day behavioral patterns with stress, sleep, sociability, and mental health outcomes~\cite{wang2014studentlife}, while harmonized multi site nutrition and biomarker efforts such as the NIH funded iPAT project add time indexed measurements and site level metadata for dietary pattern analysis in chronic disease research~\cite{Fang2021iPAT}. These resources let covariate--outcome relationships be examined spatiotemporally rather than as static summaries.
+
+Downstream tasks on trajectory data fall into recurring goals: spatiotemporal feature aggregation, which summarizes how covariates evolve across time and context; prediction, which forecasts the next location or activity, future covariate values, or clinical risk by modeling movement in space and time; and intervention oriented reasoning, which identifies when and where actions are most likely to reduce risk, for example by linking mobility and context to lifestyle factors such as diet. These mirror the forecasting, representation learning, and decision support emphases of trajectory mining and mobility modeling.
+
+Three strategies are common for processing trajectory data. Sequential modeling orders observations chronologically and applies recurrent, sequence to sequence, or attention based models to capture temporal dependencies, as in mobility and trajectory forecasting. Spatial mapping discretizes trajectories into grids or maps them onto structured supports such as road networks, after which convolutional modules emphasize local proximity. Hybrid modeling couples graph neural networks with temporal encoders over nodes and edges from road or interaction graphs, enforcing topological constraints and improving robustness under sparse sampling. These are elaborated in Sections~\ref{sec:history}--\ref{sec:models} as CNN based, RNN based, Transformer based, and STGNN architectures.
+
+\subsection{Challenges of Sparsity, Irregularity, and Multi-scale Structure in Spatiotemporal Health Data}
+Although spatiotemporal models are well suited to digital health in principle, data challenges complicate deployment. Models benefit from dense, continuous observations, but health data are almost always sparse and irregularly sampled, constraining design, training, and evaluation.
+
+Temporal sparsity is intrinsic: clinical follow up spans months or years yet observations are intermittent, with missingness from non-compliance, privacy, or operational limits. It is a defining property of longitudinal records and mobile sensing rather than an exception~\cite{che2018grud}.
+
+Temporal irregularity compounds this: differing follow up schedules across sites yield highly uneven intervals that violate standard temporal model assumptions unless time gaps are modeled explicitly~\cite{shukla2021irregular}.
+
+Spatial data span multiple granularities. Coarse location (residential or census level) is widely available in cohort datasets but sparse in spatial transitions, often missing contextual exposures. Fine grained mobility from wearables and mobile devices enables exposure estimation and context aware analysis but is noisy, incomplete, and unevenly available. The two scales are coupled---short term mobility is embedded in long term residence---so cross scale modeling must handle redundancy, confounding, and scale mismatch, with analogous short versus long term structure in the temporal dimension.
+
+Together, sparsity, irregular sampling, heterogeneous spatial granularity, and cross scale dependency are the central challenges, requiring models robust to missing and irregular data that integrate information across spatial and temporal scales.
+
+\emph{Data quality and harmonization.} Before such data can be modeled jointly they must be made comparable, and the reviewed studies report this unevenly. At the device level the recurring issues are sensor calibration and drift, units and resolutions that differ between manufacturers, and firmware changes that alter a signal partway through a study. At the temporal level they are inconsistent timestamp standards, time zone and daylight saving handling, clock skew between devices worn by one participant, and resampling or interpolation applied before the train and test split, which leaks future information backwards. At the spatial level they are differing coordinate reference systems and units of geographic aggregation, residual spatial autocorrelation that inflates apparent significance, and administrative boundary changes across study years. At the system level they are site and device shift when cohorts are pooled, identity resolution across the several devices belonging to one participant, provenance for derived variables, and schema interoperability where clinical coding standards must align with sensor streams. Few of the studies reviewed here report these steps in enough detail to reproduce, which limits cross study comparison throughout this survey and motivates the reporting recommendations in Section~\ref{sec:future}.
+
+\fi
+
+\section{Deep Learning--Based Spatiotemporal Modeling Methods for Connected Health}
+\label{sec:history}
+\ifsubmission
+Spatiotemporal deep learning in health care developed in three phases. Before 2015, feed-forward networks were adapted to time series prediction such as disease incidence and patient visits~\cite{miotto2018deeplearning}, with spatial context hand engineered. Between 2015 and 2020, spatiotemporal graph neural networks added graph convolution for non-Euclidean spatial relations while attention based models captured long range dependence and enabled multimodal fusion~\cite{caroprese2018deepehr}. Since 2020, Transformers, self-supervised learning, and multimodal fusion have dominated~\cite{liu2024temporallearning}. In parallel the statistics literature contributed physics informed models, score driven and semiparametric formulations for irregular nonstationary locations, and statistical deep learning syntheses~\cite{liu2022convectionDiffusion,gasperoni2023scoreDriven,castroMorales2025dynamicDeformation,wikle2023statisticalDeepLearning}, supplying interpretable covariance structure and principled baselines.
+
+Several of these architectures were first demonstrated on traffic, climate, or environmental monitoring rather than on patients. We retain those exemplars because the task has the same shape as connected health sensing: distributed sensors reporting at irregular rates over a non-Euclidean topology, bursty missingness when devices fail, several simultaneous timescales, and inference that must eventually run under bandwidth and energy limits. The analogy stops where health adds subject level identifiability, missingness informative of the patient's own behavior, far smaller cohorts, and consequences for individuals.
+
+\ifsubmission The recurring architectures are:\else Figure~\ref{fig:foundation_arch} shows the internal structure of the recurring architectures:\fi  graph networks~\cite{scarselli2009gnn} for non-Euclidean relations, recurrent networks~\cite{rumelhart1986rnn} and Transformers~\cite{vaswani2017attention} for temporal dependence, autoencoders~\cite{hinton2006reducing} for latent compression, state space models such as Mamba~\cite{gu2023mamba} for long sequences in linear time, generative adversarial networks~\cite{goodfellow2014gan} and diffusion models~\cite{ho2020ddpm} for synthesis, and world models~\cite{maes2026leworldmodel} for action conditioned latent transitions. \ifsubmission Figure~\ref{fig:taxonomy} places these families at the layers that can host them---\else Table~\ref{tab:st-model-comparison} compares the resulting spatiotemporal families by spatial and temporal handling, cost, data requirement, and digital health use---\fi CNN--RNN hybrids such as ConvLSTM~\cite{shi2015convolutional} assume a regular grid, STGNNs~\cite{shao2022longterm} require a graph that must often be estimated, and Transformer variants such as STTNet~\cite{xu2020stransformer} factorize spatial and temporal attention to avoid quadratic joint cost.
+
+Irregular sampling most separates health data from these origins. Time aware recurrent models add explicit decay as the observation gap grows~\cite{metzger2023crop}; ODE-RNN~\cite{rubanova2019latent} evolves the hidden state continuously between arrivals; ContiFormer~\cite{chen2023contiformer} embeds this in attention and Rough Transformers~\cite{morenopino2024rough} use signature features for unevenly sampled intensive care data; and frequency or multi-scale designs~\cite{zhou2022fedformer,wang2023micn} target periodicity. For longitudinal cohorts, mixed models separate a fixed trend from per individual random effects, neural additive formulations learn the nonlinearity while retaining them, and Transformer based longitudinal models replace manual random effect and spline specification with global temporal and personalized feature attention.
+\else
+Having established the applicability of spatiotemporal data in digital health and its processing methods, this section reviews the historical development of spatiotemporal models across forecasting categories, then introduces the mainstream spatiotemporal models before turning to their digital health applications.
+
+\emph{Why non-health exemplars appear here.} Several architectures below were first demonstrated on traffic, climate, or environmental monitoring rather than on patients, and we retain those exemplars because the underlying task has the same shape as connected health sensing. In each case a distributed set of fixed or mobile sensors reports at irregular and heterogeneous rates; the spatial relation between sensors is non-Euclidean and better described by a graph than by a grid; observations go missing in bursts when devices fail or leave coverage; the signal evolves on several timescales at once; and inference must eventually run under bandwidth, latency, and energy limits away from a data center. A road network of loop detectors and a body area network of wearables differ in what they measure, not in the modeling problem they pose. That similarity is why these results transferred to health at all, and it is also where the analogy stops: health adds subject level identifiability, missingness that is informative of the patient's own behavior, far smaller cohorts, and consequences for individuals that a traffic forecast does not carry.
+
+\subsection{The Historical Development of Spatiotemporal Models in Digital Health}
+Historically, the exploration of deep learning for ST tasks commenced with simpler feed-forward networks such as Multilayer Perceptrons (MLPs). Early applications (pre-2015) adapted MLPs primarily for time-series prediction (e.g., forecasting disease incidence or patient visits~\cite{miotto2018deeplearning}), albeit with limited capacity to handle complex spatial relationships. Subsequently, RNNs and LSTMs gained prominence by extending the modeling scope to longer sequences and more nuanced temporal dynamics. By incorporating spatial structures into LSTM cells (e.g., ST-LSTM), these architectures could capture both spatial and temporal correlations, making them valuable in tasks like epidemic forecasting and wearable device data analytics.
+
+Between 2015 and 2020, spatiotemporal graph neural networks (STGNN) and attention based mechanisms emerged. STGNNs added graph convolution to model non-Euclidean spatial relationships, from city wide traffic to hospital networks, while Transformers and variants such as ST-Transformer captured long range dependencies and enabled multimodal fusion of imaging, EHR, wearable, and environmental data~\cite{caroprese2018deepehr}.
+
+Since 2020, spatiotemporal deep learning has combined Transformers, self-supervised learning, and multimodal fusion for fine grained dependencies, with exemplars such as TimeSformer and ST-Transformer variants for medical imaging sequences and climate health interactions~\cite{liu2024temporallearning}. Federated learning has concurrently emerged as a privacy preserving way to train across distributed medical datasets.
+
+In parallel, statistics research has strengthened foundations useful for digital health spatiotemporal modeling: physics informed convection--diffusion models, Lagrangian cross-covariance functions, score driven models, semiparametric autoregressive models for irregular nonstationary locations, dynamic deformation covariance models, graphical models for nonstationary series, varying-coefficient disease mapping, spatial SIR emulators, and statistical deep learning syntheses~\cite{liu2022convectionDiffusion,salvana2023lagrangian,gasperoni2023scoreDriven,lu2024dyfast,castroMorales2025dynamicDeformation,basu2023graphicalNonstationary,wang2024respiratoryDiseaseMapping,trostle2024spatialSIR,wikle2023statisticalDeepLearning}. These contribute interpretable covariance structures, physical constraints, uncertainty quantification, and principled baselines for neural models.
+
+We next introduce the foundational architectures (CNN, GNN, RNN, Transformer) and then the mainstream spatiotemporal model families: \emph{CNN--RNN hybrids}, which extract spatial features with CNNs and temporal dependencies with RNNs; \emph{spatiotemporal graph neural networks (STGNN)}, which model spatial relations on graphs with temporal encoders; \emph{Transformer based models}, which use self-attention for long range dependencies; and \emph{3D-CNN and hybrid networks} for high dimensional data such as video.
+
+
+\subsection{Foundational Deep Learning Architectures }
+These architectures underpin many spatiotemporal models. We briefly review GNNs~\cite{scarselli2009gnn}, RNNs~\cite{rumelhart1986rnn}, Transformers~\cite{vaswani2017attention}, autoencoders~\cite{hinton2006reducing} and stacked variants~\cite{masci2011stacked}, state space models including Mamba~\cite{gu2023mamba}, GANs~\cite{goodfellow2014gan}, denoising diffusion models (DDPMs)~\cite{ho2020ddpm}, and world models~\cite{maes2026leworldmodel} (Figures~\ref{fig:GeneralModel} and~\ref{fig:foundation_arch}) before turning to specialized techniques.
+
+
+\paragraph{Graph Neural Networks (GNNs)}: Many systems---social, molecular, transportation, recommendation---are graph structured, where grid and sequence models such as CNNs~\cite{lecun1998cnn} and RNNs struggle. GNNs~\cite{scarselli2009gnn} process a graph $G=(V,E)$ with node features by message passing: each node aggregates information from its neighbors and updates its embedding. At layer $l$,
+\begin{equation}
+m_i^{(l)} = \sum_{j \in N(i)} f\bigl(h_j^{(l-1)}, h_i^{(l-1)}, e_{ij}\bigr), \quad h_i^{(l)} = \sigma\bigl(W m_i^{(l)} + b\bigr),
+\end{equation}
+where $f(\cdot)$ is the aggregation function, $e_{ij}$ an optional edge feature, and $W,b,\sigma$ the trainable transform and activation. Variants differ in aggregation: GCN uses spectral convolution~\cite{kipf2017gcn}, GAT attention weighted neighbors~\cite{velickovic2018gat}, and GIN MLP based updates for greater expressiveness~\cite{xu2019gin}.
+
+\paragraph{Recurrent Neural Networks (RNN) and Variants}: RNNs~\cite{rumelhart1986rnn} model sequences through a hidden state $h_t = f(W_h h_{t-1} + W_x x_t + b_h)$ that carries past context, but suffer from vanishing and exploding gradients on long sequences. Long Short-Term Memory (LSTM)~\cite{rnn_lstm} adds input, forget, and output gates and a cell state that together retain long term information while discarding irrelevant detail; Gated Recurrent Units simplify this with fewer gates.
+
+\paragraph{Transformer}: The Transformer~\cite{vaswani2017attention} stacks encoder and decoder layers of multi-head self-attention, feedforward networks, residual connections, and layer normalization, with causal masking in the decoder. Self-attention projects the input $X$ into queries, keys, and values $Q,K,V$ and computes
+\begin{equation}
+\mathrm{Attention}(Q,K,V) = \mathrm{softmax}\!\left(\frac{QK^\top}{\sqrt{d_k}}\right) V,
+\end{equation}
+where $d_k$ scales the scores. Computing all pairwise interactions in parallel lets Transformers capture long range dependencies efficiently.
+
+\paragraph{AutoEncoder (AE) and Stacked AutoEncoder (SAE)}: An autoencoder learns an encoder that maps input $\mathbf{x}$ to a latent code $\mathbf{h}$ and a decoder that reconstructs $\hat{\mathbf{x}}$, trained to minimize reconstruction error; Hinton and Salakhutdinov~\cite{hinton2006reducing} introduced deep AEs for dimensionality reduction. In spatiotemporal modeling, AEs extract local spatial and temporal patterns for tasks such as traffic and environmental monitoring~\cite{vincent2008extracting, bengio2009learning}. Stacked AEs deepen this through layerwise pretraining and fine tuning for multiscale features~\cite{erhan2010why, ranzato2007unsupervised, masci2011stacked, vincent2010stacked}, while Variational AEs~\cite{kingma2013auto} add a probabilistic latent space for representation and generation~\cite{glorot2010understanding, zhang2017deep, yu2018spatio}.
+
+\paragraph{State-Space Models and Mamba}: State-space models (SSMs) propagate a latent state linearly over time, an efficient alternative to attention for long sequences. After discretization,
+\begin{equation}
+h_t = \bar{A} h_{t-1} + \bar{B} x_t, \quad y_t = C h_t,
+\end{equation}
+which, being linear, can be unrolled as a global convolution for efficient long sequence training, as in the S4 family~\cite{smith2023convssm}. Mamba~\cite{gu2023mamba} makes the parameters input dependent (selective), keeping linear time, constant memory inference. These properties suit long physiological streams (continuous glucose, ECG, EEG), long video, and multi-year trajectories where self-attention is too costly.
+
+\paragraph{Generative Adversarial Networks (GANs)}: GANs~\cite{goodfellow2014gan} pit a generator $G$ that maps noise $z$ to samples against a discriminator $D$ that separates real from synthetic, trained on the minimax objective
+\begin{equation}
+\min_G \max_D \; \mathbb{E}_{x \sim p_{\text{data}}}[\log D(x)] + \mathbb{E}_{z \sim p_z}[\log (1 - D(G(z)))].
+\end{equation}
+At convergence $G$ matches the data distribution. In digital health, GANs synthesize medical images and physiological signals, augment scarce or imbalanced cohorts, and impute missing values; conditional and temporal variants generate context conditioned spatiotemporal sequences.
+
+\paragraph{Denoising Diffusion Probabilistic Models (DDPMs)}: DDPMs~\cite{ho2020ddpm} corrupt data with Gaussian noise over $T$ steps according to a schedule $\{\beta_t\}$,
+\begin{equation}
+q(x_t \mid x_{t-1}) = \mathcal{N}\!\left(x_t; \sqrt{1-\beta_t}\, x_{t-1}, \; \beta_t \mathbf{I}\right),
+\end{equation}
+and train a network $\epsilon_\theta$ to reverse it by predicting the added noise, $L = \mathbb{E}_{x_0,\epsilon,t}[\|\epsilon - \epsilon_\theta(x_t,t)\|^2]$. Sampling iteratively denoises from pure noise. Compared with GANs, diffusion offers more stable training and higher fidelity, and is increasingly used for high fidelity generation and denoising of medical images and signals, imputation of irregular measurements, and augmentation for downstream prediction.
+
+\paragraph{World Models}: World models learn a compact model of how an environment evolves so that future states can be predicted and actions evaluated by simulation~\cite{ha2018worldmodels}. Joint-Embedding Predictive Architectures (JEPA) encode observations into a latent state and predict its evolution~\cite{lecun2022jepa,maes2026leworldmodel}: an encoder $E_\theta$ maps $x_t$ to $z_t$, a predictor $P_\phi$ rolls it forward under action $a_t$, and training aligns the prediction with a target encoded future,
+\begin{equation}
+\begin{aligned}
+z_t &= E_\theta(x_t), \quad \hat{z}_{t+1} = P_\phi(z_t, a_t),\\
+L &= \left\| \hat{z}_{t+1} - E_{\bar{\theta}}(x_{t+1}) \right\|^2,
+\end{aligned}
+\end{equation}
+with $E_{\bar{\theta}}$ a slowly updated target encoder. In digital health, world models support patient state simulation and counterfactual planning and underpin the world model based digital twins of Section~\ref{sec:world_model_dt}.
+
+
+
+% \subsection{Spatiotemporal Model}
+% While general DNN frameworks like Transformers and AEs excel at feature learning, many real world challenges involve both space and time dimensions. In this section, we shift our focus to Spatiotemporal models, which integrate spatial feature extraction with temporal sequence modeling. These models address tasks such as traffic prediction, meteorological forecasting, and video analysis by capturing interactions across both space and time. We will explore various architectures—from 3D CNN, CNN-RNN hybrids to graph-based and Transformer-based solutions that build upon the fundamentals described in the previous section.
+
+% \paragraph{CNN-RNN Hybrid Model}The CNN-RNN hybrid model is one of the earliest deep learning architectures applied to ST modeling. This model extracts spatial features using Convolutional Neural Networks (CNN) and learns temporal dependencies using Recurrent Neural Networks (RNN), such as Long Short-Term Memory (LSTM) or Gated Recurrent Units (GRU). This approach has demonstrated effectiveness in tasks like weather forecasting and video analysis. For instance, Li et al. proposed a hybrid deep learning framework for solar radiation forecasting, utilizing CNN for spatial feature extraction and LSTM for capturing temporal dependencies, significantly improving prediction accuracy. However, a major drawback of this model is its high computational complexity and the potential vanishing gradient problem when dealing with long-term dependencies.
+
+% \paragraph{ST Graph Neural Networks (STGNN)} ST Graph Neural Networks (STGNN) \cite{shao2022longterm} have gained significant attention for modeling complex, non-Euclidean spatial data, such as traffic flow and power grid monitoring. STGNNs utilize Graph Neural Networks (GNN) to model spatial relationships between nodes while employing temporal models like LSTM or Transformer to learn temporal evolution patterns. For example, Wang et al.~\cite{wang2025rul} proposed a Graph Feature Attention Network (GFAN)-based method for predicting the remaining useful life of multi-sensor systems, effectively capturing ST dependencies between sensors. Although STGNNs perform well in many applications, they are computationally expensive and require significant resources for large-scale graph data processing.
+
+% \paragraph{Transformer-based ST model} Transformer-based ST models have become a research hotspot in recent years. The self-attention mechanism in Transformer architectures allows them to capture long-range dependencies effectively, making them highly suitable for ST sequence modeling. Unlike traditional RNN-based models, Transformers handle long-term dependencies more efficiently. For example, Yu et al.~\cite{yu2025graph} introduced a method integrating dynamic Transformers with Graph Diffusion Learning (GDL) to improve anomaly detection in multivariate time series. Additionally, Wang et al.~\cite{wang2025propeller} developed a Transformer-SMFANet-based model to enhance the accuracy of propeller wake predictions. While Transformer-based models have made significant breakthroughs in ST forecasting, their high computational cost and dependence on large-scale data remain major challenges.
+
+\paragraph{Patient State Simulation and Planning}: Counterfactual patient state simulation extends spatiotemporal learning from prediction toward intervention planning. Because it depends on both latent dynamics and synchronized digital twin infrastructure, we discuss it with world model based digital twins in Section~\ref{sec:world_model_dt}.
+
+\paragraph{CNN-RNN Hybrid Model}
+The CNN--RNN hybrid is one of the earliest spatiotemporal architectures and remains widely used: a CNN extracts spatial features from grid structured inputs, and a recurrent module models their temporal evolution.
+ 
+At each step, a spatial snapshot $X_t \in \mathbb{R}^{H \times W \times C}$ (image, sensor heatmap, or gridded field) is encoded by the CNN into a feature vector $z_t$; the sequence $\{z_1,\ldots,z_T\}$ is then fed to a recurrent network, typically an LSTM~\cite{rnn_lstm} or GRU~\cite{cho2014gru}, which models its temporal evolution.
+ 
+ConvLSTM~\cite{shi2015convolutional} replaces the dense operations in LSTM gates with convolutions, preserving spatial structure and proving effective for precipitation nowcasting. Hybrids have since served video prediction~\cite{srivastava2015unsupervised}, action recognition~\cite{donahue2015longterm}, and medical imaging time series, where the spatial branch captures anatomy and the temporal branch tracks disease progression.
+ 
+Their limitations are well known: CNNs assume regular grids and cannot handle irregular structures such as road or referral networks (motivating graph models); RNNs process steps sequentially, limiting parallelism and long range dependency learning~\cite{bengio1994learning}; and the two-stage design separates spatial and temporal modeling, which more tightly coupled models such as ConvLSTM and attention based architectures improve on.
+ 
+\paragraph{Spatiotemporal Graph Neural Networks (STGNN)}
+Spatiotemporal graph neural networks (STGNN)~\cite{shao2022longterm} model non-Euclidean spatial relationships with temporal dynamics. Rather than grids, they represent space as a graph $G=(V,E)$ whose nodes are entities (sensors, hospitals, brain regions) and edges encode proximity, functional connectivity, or administrative links, capturing irregular topologies common in real systems.
+ 
+STGNNs alternate spatial aggregation and temporal layers. In the spatial layer, each node aggregates neighbor features via a GCN~\cite{kipf2017gcn}, GAT~\cite{velickovic2018gat}, or message passing operator; for node $i$ at layer $l$:
+ 
+\begin{equation}
+h_i^{(l)} = \sigma \Bigl( \sum_{j \in \mathcal{N}(i)} \alpha_{ij} \, W^{(l)} h_j^{(l-1)} + b^{(l)} \Bigr)
+\end{equation}
+ 
+where $\alpha_{ij}$ is the edge weight or attention coefficient and $W^{(l)},b^{(l)},\sigma$ are the learnable transform and activation. Temporal layers then process the per step representations with LSTM~\cite{rnn_lstm}, GRU~\cite{cho2014gru}, temporal convolution~\cite{lea2017temporal}, or attention~\cite{vaswani2017attention}.
+ 
+Landmark designs include DCRNN~\cite{li2018dcrnn} (diffusion convolution with an encoder--decoder GRU), STGCN~\cite{yu2018spatio} (graph plus 1D temporal convolutions, avoiding recurrence), Graph WaveNet~\cite{wu2019graphwavenet} (an adaptive adjacency matrix with dilated causal convolutions), ASTGCN~\cite{guo2019astgcn} (spatial and temporal attention for nonstationary data), and a GFAN based method~\cite{wang2025rul} for remaining useful life of multi-sensor systems.
+ 
+STGNNs perform strongly on traffic~\cite{yu2018spatio, li2018dcrnn}, air quality, power grid, and brain connectivity tasks, but face challenges: graph construction needs domain knowledge and can bias results; large node counts make adjacency operations costly, partly mitigated by sampling~\cite{hamilton2017inductive}, sparsification, and mini-batch training; and most assume a static topology, so dynamic graphs remain an open problem~\cite{pareja2020evolvegcn}.
+ 
+\paragraph{Transformer-Based Spatiotemporal Models}
+Transformer based spatiotemporal models offer an alternative to recurrent and graph-convolutional architectures: self-attention~\cite{vaswani2017attention} computes all pairwise interactions in parallel, avoiding the recurrent bottleneck and capturing long range dependencies.
+ 
+Adapting them to spatiotemporal data means attending across spatial tokens (locations or nodes) and across time, with positional encodings from coordinates and timestamps to restore ordering that permutation invariant attention would otherwise discard.
+ 
+STTNet~\cite{xu2020stransformer} factorizes spatial and temporal attention, cutting complexity from $O((N \times T)^2)$ to $O(N^2 + T^2)$ for $N$ locations and $T$ steps; Traffic Transformer~\cite{cai2020traffic} restricts attention to spatially proximate nodes via a graph mask; and TimeSformer~\cite{bertasius2021timesformer} uses divided space-time attention for efficient action recognition.
+ 
+Recent variants push efficiency and structure: dynamic Transformers with graph diffusion learning for anomaly detection~\cite{yu2025graph}, a Transformer-SMFANet for propeller wake prediction~\cite{wang2025propeller}, Informer~\cite{zhou2021informer} with ProbSparse attention at $O(T \log T)$, and Autoformer~\cite{wu2021autoformer} with series decomposition for long horizon forecasting.
+ 
+Open challenges remain: the quadratic cost of attention is prohibitive for very large domains or horizons; pretraining on spatiotemporal corpora is limited by data availability; and the lack of locality and graph inductive biases can cause underfitting in low data regimes, motivating hybrids with convolution or graph structure.
+ 
+% \begin{figure*}
+%     \centering
+%     \includegraphics[width=1\linewidth]{temporal (1).png}
+%     \caption{Temporal Model}
+%     \label{Temporal Model}
+%     \Description{Temporal Model}
+% \end{figure*}
+
+ 
+ 
+\subsection{Irregular Time Series and Longitudinal Modeling in Digital Health}
+We include irregular time series and longitudinal modeling because they form the temporal backbone of spatiotemporal learning under real-world digital health constraints: irregular sampling and personalized, nonstationary trajectories are exactly what spatial and contextual covariates must align with, extending rather than departing from the framework of Sections~\ref{sec:data}--\ref{sec:history}. Beyond the general models above, digital health adds nonstationarity, irregular sampling, and personalized trajectories, motivating the specialized methods below.
+
+\paragraph{Hybrid long and short term models}: Hybrid designs feed LSTM encoded short term features into a Transformer, using self-attention for the long range dependencies that gated recurrence captures poorly, giving robust performance when both fluctuations and trends matter.
+
+\paragraph{TimeMixer}: TimeMixer~\cite{timemixer} applies MLP token mixing over sliding windows and adds a Fourier decomposition $X_f=\mathrm{FFT}(X)$, where low and high frequency bands capture long term trends and short term variation, improving periodic pattern learning.
+
+\paragraph{Trajectory representation learning}: Spatiotemporal hypergraph models for next point of interest recommendation~\cite{Zhang2023POI} represent an individual's history as a longitudinal trajectory of locations and timestamps, with hyperedges over users, places, and time contexts capturing higher order interactions beyond pairwise relations. Replacing points of interest with health contexts (environments, behaviors, exposures) and the target with disease risk reuses the same representation for personalized health prediction.
+
+\paragraph{MICN}: MICN~\cite{wang2023micn} fuses multi-scale convolution---small kernels for short term fluctuations, large kernels for long term trends---with a Transformer over time steps, suiting air quality, weather, and traffic forecasting.
+
+\paragraph{Periodic and frequency based models}: Periodic Transformers add periodic encoding for cyclical variation under irregular sampling, and FEDformer combines frequency and time domain modeling for strongly periodic sequences~\cite{zhou2022fedformer}; wavelet transforms further aid joint temporal and spectral feature extraction.
+
+\paragraph{Time aware models for irregular sampling}: Standard RNNs assume uniform intervals. GRU-$\Delta t$~\cite{metzger2023crop} adds a decay $\Gamma(\Delta t)=e^{-\Delta t/\tau}$ so older information fades as the gap $\Delta t$ grows, handling irregular medical and sensor streams.
+
+ODE-RNN~\cite{rubanova2019latent} couples Neural ODEs~\cite{chen2018neural} with RNNs, evolving the hidden state continuously via $\frac{dh}{dt}=f(h,t;\theta)$ between observations and updating it discretely on arrival, capturing both smooth trends and sudden changes for ECG/EEG and epidemiological data.
+
+Transformer variants extend this idea: ContiFormer~\cite{chen2023contiformer} embeds Neural ODEs in attention for continuous time, and Rough Transformers~\cite{morenopino2024rough} use rough path (signature) features for noisy, unevenly sampled ICU data.
+
+% \begin{figure*}[t]
+%     \centering
+%     \includegraphics[width=\linewidth]{Spatio.png}
+%     \caption{Spatial Model}
+%     \Description{An illustration of a spatial model highlighting spatial correlations (e.g., location-based influences).}
+
+%     \label{Spatial Model}
+% \end{figure}
+
+\paragraph{Longitudinal modeling}: Longitudinal data require both within subject correlation and between subject variability. The linear mixed-effects model (LMM) separates a fixed effect trend from random per individual intercepts and slopes but assumes linearity; the generalized additive mixed model (GAMM) adds spline based nonlinear trends at the cost of manual basis and smoothness selection. A deep generalized additive mixed model replaces splines with a neural network,
+\[
+Y_{ij} = \mathrm{DNN}(X_{ij}) + Z_{ij} u_i + \epsilon_{ij},
+\]
+learning nonlinearities automatically while retaining random effects $Z_{ij}u_i$, though it still struggles with long term dependencies.
+
+Transformer based longitudinal models further add global temporal attention and personalized feature attention, capturing long range dependencies and individual dynamics without manual random effect or spline specification. This progression---from linear and additive mixed models to neural additive and transformer based formulations---successively removes linearity and manual feature constraints, improving personalized longitudinal health prediction.
+
+
+\fi
+
+\ifsubmission\else
+\begin{figure*}
+    \centering
+    \includegraphics[width=\figw]{Frame 34.png}
+    \caption{A general spatiotemporal modeling pipeline for digital health: foundational deep learning architectures (CNN, GNN, RNN, Transformer, and autoencoders) transform raw spatiotemporal health data into clinical predictions, forming the basis for the specialized model families surveyed in Sections~\ref{sec:history}--\ref{sec:models}. Figure~\ref{fig:foundation_arch} details the internal structure of several of these architectures.}
+    \Description{A schematic of a general spatiotemporal modeling pipeline for digital health, showing how raw spatiotemporal health data are encoded by foundational deep learning architectures (CNN, GNN, RNN, Transformer, and autoencoders) and mapped to clinical prediction tasks.}
+    \label{fig:GeneralModel}
+\end{figure*}
+\fi
+
+\ifsubmission\else
+\begin{figure*}
+    \centering
+    \includegraphics[width=\figw]{arch2.png}
+    \caption{Internal structure of five foundational deep learning architectures, \ifsubmission\else complementing the pipeline overview in Figure~\ref{fig:GeneralModel}\fi. The stacked autoencoder compresses an input into a latent code and reconstructs it through stacked encoder and decoder layers; the state space model (Mamba) propagates an input dependent hidden state across time through a selective scan; the generative adversarial network (GAN) trains a generator against a discriminator that separates real from synthetic samples; the denoising diffusion probabilistic model (DDPM) corrupts data with noise in a forward process and learns to reverse it to generate clean samples; and the world model encodes an observation and an action into a latent state, predicts the next latent state, and aligns it with a target encoding of the future observation to support simulation and planning.}
+    \Description{Five panels showing the architectures of a stacked autoencoder, a state space model (Mamba), a generative adversarial network, a denoising diffusion probabilistic model, and a world model, each drawn as a block diagram with its inputs, latent states, and outputs.}
+    \label{fig:foundation_arch}
+\end{figure*}
+\fi
+
+\ifsubmission\else
+\begin{table*}[htbp]
+\centering
+\caption{Comparison of Deep Learning--Based Spatiotemporal Architectures for Digital Health Applications}
+\label{tab:st-model-comparison}
+\ifsubmission
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.05}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{4.0cm} >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Model family} & \textbf{Spatial and temporal handling} & \textbf{Cost; data needs} & \textbf{Digital health use} \\
+\midrule
+CNN--RNN hybrid & CNN over grids; RNN or ConvLSTM over steps & Moderate--high; gridded data with temporal order & Image sequences; wearable forecasting; regional incidence \\
+\addlinespace[2pt]
+STGNN & Graph aggregation (GCN, GAT); temporal layers & High; needs an explicit graph & Patient flow; multi-sensor monitoring; epidemic spread \\
+\addlinespace[2pt]
+Transformer ST & Attention over spatial tokens and time; no spatial prior & High--very high; large data, pre-training helps & Longitudinal records; climate--health; multimodal fusion \\
+\addlinespace[2pt]
+3D-CNN and hybrids & Joint convolution over space and depth or time & High; volumetric or video data & Echocardiography; fMRI sequences; motion assessment \\
+\addlinespace[2pt]
+AE / SAE / VAE & Latent compression; sequential encoder for time & Low--moderate; can exploit unlabeled data & Vitals anomaly detection; imputation; phenotype discovery \\
+\addlinespace[2pt]
+State space / Mamba & Spatial structure via tokenization; linear-time recurrence & Low--moderate; efficient on very long sequences & CGM, ECG, EEG streams; long-horizon trajectories \\
+\addlinespace[2pt]
+GAN & CNN or GNN backbones; temporal or conditional generators & Moderate--high; augments scarce cohorts & Synthetic images and signals; imputation \\
+\addlinespace[2pt]
+DDPM (diffusion) & U-Net denoiser conditioned on time or sequence context & High; moderate--large data & High-fidelity synthesis; irregular measurement imputation \\
+\addlinespace[2pt]
+World model & Encoder to latent state; action conditioned rollout & High; needs observation--action sequences & Patient-state simulation; counterfactual planning \\
+\bottomrule
+\end{tabularx}
+\else
+\footnotesize
+\renewcommand{\arraystretch}{1.0}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{1.4cm} >{\raggedright\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Model Type} & \textbf{Spatial Handling} & \textbf{Temporal Handling} & \textbf{Comp. Cost} & \textbf{Data Needs} & \textbf{Digital Health Examples} \\
+\midrule
+ 
+CNN-RNN Hybrid
+& CNN extracts local spatial features via convolutional filters on grid-structured inputs (e.g., images, spatial maps)
+& RNN/LSTM/GRU models sequential dependencies through recurrent hidden states
+& Moderate to High
+& Moderate; requires spatially gridded or image-like data with temporal ordering
+& Medical image sequence analysis; wearable sensor forecasting; regional disease incidence prediction \\
+ 
+\addlinespace[4pt]
+ 
+STGNN
+& GNN (GCN, GAT) propagates information over graph-structured spatial relationships (non-Euclidean)
+& Temporal modules (LSTM, GRU, or temporal convolution) capture evolution along the time axis
+& High
+& Requires explicit graph structure (e.g., adjacency matrix); moderate to large labeled data
+& Hospital network patient flow; multi-sensor physiological monitoring; epidemic spread over contact/mobility networks \\
+ 
+\addlinespace[4pt]
+ 
+Transformer-based ST
+& Self-attention over spatial tokens or positional embeddings; no fixed spatial inductive bias
+& Self-attention with temporal positional encoding captures long-range dependencies in parallel
+& High to Very High
+& Large-scale data preferred; benefits from pre-training; positional encoding needed for spatial structure
+& Large-scale EHR longitudinal prediction; climate--health interaction modeling; multi-modal medical data fusion \\
+
+\addlinespace[4pt]
+
+3D-CNN \& Hybrid Networks
+& 3D convolution jointly captures spatial patterns across height, width, and depth/time dimensions
+& Temporal dynamics learned implicitly through the depth axis of 3D convolution kernels
+& High
+& High-dimensional volumetric or video-like data (e.g., $H \times W \times T$)
+& Medical video analysis (e.g., echocardiography, surgical video); fMRI/brain imaging sequences; motion-based rehabilitation assessment \\
+
+\addlinespace[4pt]
+
+AE / SAE / VAE
+& Encoder compresses spatial features into a latent space; can be combined with CNN or GNN encoders
+& Temporal patterns captured when paired with sequential encoders or applied per time step
+& Low to Moderate
+& Can leverage unlabeled data (unsupervised / self-supervised); flexible input formats
+& Anomaly detection in patient vitals; missing data imputation in longitudinal records; latent phenotype discovery from EHR \\
+
+\addlinespace[4pt]
+
+State-Space Models / Mamba
+& Spatial structure handled implicitly through tokenization or combined with CNN/GNN encoders; no built-in spatial bias
+& Selective state-space recurrence captures long-range temporal dependencies in linear time
+& Low to Moderate
+& Efficient on very long sequences; moderate labeled data
+& Long continuous physiological streams (CGM, ECG, EEG); long-horizon longitudinal trajectories; long medical video \\
+
+\addlinespace[4pt]
+
+GAN
+& Generator and discriminator use CNN or GNN backbones to model spatial structure
+& Temporal dynamics modeled by recurrent or temporal convolution generators (conditional or temporal GAN variants)
+& Moderate to High
+& Augments scarce or imbalanced cohorts; benefits from moderate real samples
+& Synthetic medical image and signal generation; data augmentation for rare conditions; missing value imputation \\
+
+\addlinespace[4pt]
+
+DDPM (Diffusion)
+& U-Net (CNN) backbone captures spatial structure during iterative denoising
+& Temporal or spatiotemporal dynamics modeled by conditioning the denoiser on time or sequence context
+& High
+& Moderate to large data; stable training with high sample fidelity
+& High-fidelity medical image and signal synthesis and denoising; imputation of irregular measurements; data augmentation \\
+
+\addlinespace[4pt]
+
+World Model
+& Encoder (CNN, GNN, or Transformer) maps observations into a latent state representing spatial context
+& Latent dynamics model rolls the state forward over time for prediction and simulation
+& High
+& Sequential observation and action data; benefits from large interaction data
+& Patient-state simulation; counterfactual intervention planning; world model based digital twins \\
+
+\bottomrule
+\end{tabularx}
+
+{\footnotesize \textit{Note:} Computational cost is characterized relative to other architectures in this table. Actual cost depends on data scale, graph size, sequence length, and implementation details.}
+\fi
+\end{table*}
+\fi
+
+\section{Spatiotemporal Models in Digital Health}
+\label{sec:models}
+\ifsubmission
+We examine four domains, drawing on work published between 2014 and 2026---dietary interventions, diabetes management, depression diagnosis, and cardiac disease---chosen to span the data types of Section~\ref{sec:data} rather than to rank clinical importance, so that together they exercise all five categories and every model family of Section~\ref{sec:history}. Dietary work receives extended treatment because lifestyle exposure is the least studied of the four and the one whose spatial layer is most often discarded, not because it is the most mature. Dietary data appear as image sequences or wearable series rendered as video or raster tensors~\cite{Rouast2020IntakeGesture,Kyritsis2019EatingBehavior}; diabetes data as continuous glucose traces and regional prevalence rates~\cite{Li2020GluNet,XiaoLi2016DiabetesSpatiotemporal}; depression as fMRI, EEG, population counts, and connectivity graphs~\cite{2,3,4,9}; and cardiac work as imaging sequences and electrical signals on spatial nodes~\cite{5,6,7}.
+
+Reading these against the layers of Figure~\ref{fig:taxonomy} exposes two patterns. First, the unit of analysis is not uniform within a domain: diabetes and depression each contain individual level sensing studies and population level surveillance studies whose conclusions do not transfer, so the two literatures should not be pooled when reading reported accuracy. Second, deployment characteristics are almost never reported: of the studies in Table~\ref{tab:evidence}, only the pruned cardiac network of Bohoran et al.~\cite{5} states anything about model cost, and none reports inference latency, sustained data rate, bandwidth, connectivity assumptions, or an update strategy, so reported accuracy is not evidence of deployability---a gap we return to in Section~\ref{sec:future}. Where a study is not itself IoT based, the useful question is where it could run: consumer electroencephalography headsets make edge inference plausible for the depression work and a pruned network points at scanner-side deployment, whereas registry epidemiology remains server side by construction. Across domains all four pair convolutional or graph encoders with recurrent or attention temporal modules, differing mainly in priors, and neuroimaging and 4D cardiac data are high dimensional but small in sample~\cite{4,5,6}, motivating physical priors, active learning, and federated training.
+
+Clinical use demands inspectable outputs, and these studies most often supply attention maps~\cite{2,4}. Attention should not be equated with explanation: attention distributions can often be replaced by substantially different ones without changing the prediction~\cite{jain2019attention}, the highest weighted components are frequently not those whose removal changes the output~\cite{serrano2019attention}, and even a weaker defense concedes that attention alone does not establish faithfulness~\cite{wiegreffe2019attention}. Clinicians ask for actionable justification rather than a saliency image~\cite{tonekaboni2019clinicians}, and for high stakes decisions an inherently interpretable model may be preferable to post-hoc rationalization~\cite{rudin2019stopexplaining}; attention maps are best treated as a debugging aid, with faithfulness testing the evaluation step this literature lacks.
+
+\else
+We now examine four representative digital health domains, drawing on work published between 2014 and 2026---dietary interventions, diabetes management, depression diagnosis, and cardiac disease---spanning video behavior recognition, regularly sampled time series, brain functional connectivity, and 3D/4D cardiac imaging. For each we summarize the data forms, typical tasks, and representative architectures, and contrast deep spatiotemporal models with classical baselines to surface recurring tradeoffs; Table~\ref{tab:evidence} collects their datasets, sensors, validation and deployment.
+
+\emph{How these four domains were selected.} They were chosen to span the data types of Section~\ref{sec:data} rather than to rank clinical importance: dietary intervention studies contribute video and wearable derived behavior data, diabetes contributes regularly sampled physiological series together with a population level spatial layer, depression contributes graph structured neuroimaging and electrophysiology, and cardiac disease contributes volumetric and time resolved imaging with physically constrained signals. Together they exercise all five data categories and every mainstream model family introduced in Section~\ref{sec:history}, which is the property a model oriented survey requires. Dietary work receives extended treatment because lifestyle exposure is the least studied of the four and the one in which the spatial layer is most often discarded, not because it is the most mature: as Table~\ref{tab:evidence} records, it is the domain contributing the least quantitative evidence. Domains left out, such as oncology imaging, sleep, and respiratory disease, are not modeled differently in kind, and the model selection guidance below carries over to them.
+
+\subsection{Dietary Interventions}
+Dietary data appear mainly as image sequences of eating or exercise behavior, or wearable sensor series rendered as video or raster tensors~\cite{Rouast2020IntakeGesture,Kyritsis2019EatingBehavior}. Tasks center on detecting and classifying eating behaviors and anomalies, often fused with wearable signals (heart rate, activity) for prediction or recommendation. Architectures are typically 2D-CNN plus RNN (LSTM/GRU), or 3D-CNN and ConvLSTM that convolve directly over space and time~\cite{Rouast2020IntakeGesture}. Relative to handcrafted dietary logging, these models detect subtle eating actions automatically and enable individualized intervention, but at the cost of heavy labeling and computation; robustness to lighting, occlusion, and individual variation, along with cross-population generalization, remains the main obstacle, motivating self-supervised or few-shot learning and on-device inference.
+
+\subsection{Diabetes Management and Prediction}
+Diabetes data are mostly regularly sampled series---continuous glucose monitor (CGM) readings and regional prevalence rates---with individual trajectory or point reference samples from wearables and EHRs. Tasks include short term glucose forecasting and anomaly alerts, regional incidence prediction for public health, and imputation or insulin dosing. Personal glucose series are modeled with RNN, LSTM, GRU, or Transformers, as in GluNet and related deep forecasters~\cite{Li2020GluNet,Lim2025VirtualCGM}, while regional data use GCNs with temporal modules such as STGCN over geographic adjacency, and spatiotemporal analyses map prevalence across regions~\cite{XiaoLi2016DiabetesSpatiotemporal}; patient specific management is increasingly framed as a predictive digital twin~\cite{Faruqui2024}. Compared with classical statistical glucose models, deep spatiotemporal models better capture nonlinear, multi-scale temporal dynamics but demand more data and offer less interpretability; multi-source heterogeneous fusion and privacy remain the key obstacles, motivating large multimodal datasets and federated learning.
+
+\subsection{Depression Diagnosis and Intervention}
+Depression studies use fMRI sequences and EEG series~\cite{2,4}, population counts as raster data~\cite{3}, and dynamic functional connectivity graphs~\cite{4,9}. Tasks span classification, anomaly detection, signal imputation, case forecasting~\cite{3}, and treatment response prediction~\cite{4}. fMRI uses 3D-CNN, ConvLSTM, or ConvLSTM U-Net~\cite{9}; EEG uses CNN plus GRU/LSTM~\cite{2}; dynamic connectivity uses GCN with RNN (STGCN) or attention~\cite{4}. The defining challenge is high dimensional yet small sample data with cross-center heterogeneity: such models capture complex neural dynamics but overfit easily and transfer poorly across sites, motivating self-supervised learning, multimodal fusion, and federated training~\cite{9}.
+
+\subsection{Cardiac Diseases}
+Cardiac work uses imaging sequences (MRI, CT, echocardiography) and ECG or intracardiac signals~\cite{5,6,7}. Cine-MRI and ultrasound are video data for segmentation and detection, while ECG signals map onto spatial nodes as raster data or graphs~\cite{7}. Tasks include segmentation, classification (arrhythmia, heart failure), risk prediction, and physics-informed conduction modeling~\cite{7}. Models use 3D-CNN and ConvLSTM (including ConvLSTM U-Net), LSTMs or Transformers for signals~\cite{5,6}, and GNNs or physics-informed networks for electrophysiology~\cite{7}. Embedding physical priors improves accuracy and interpretability over purely data-driven models, yet center-to-center protocol variation, high imaging resolution, and real-time demands still degrade out-of-domain performance, driving interest in lightweight, interpretable, physics-informed multimodal models~\cite{6}.
+
+\subsection{Cross-Domain Patterns in Spatiotemporal Modeling for Digital Health}
+Across these domains, several recurring patterns guide model selection and deployment.
+
+\ifsubmission Reading the domains against the connected health lifecycle exposes two patterns. First,\else Table~\ref{tab:iot-placement} records, for each domain, where the data are acquired, where inference is reported to run or could feasibly run in a connected deployment, whether the study reasons at the level of an individual or a population, and which deployment characteristics are reported. Two patterns are immediately visible. First,\fi the unit of analysis is not uniform within a domain: diabetes and depression each contain individual level sensing studies and population level surveillance studies whose conclusions do not transfer to one another, so the sample level and population level literatures should not be pooled when reading reported accuracy. Second, and more consequentially for an IoT audience, deployment characteristics are almost never reported. Of the studies synthesized in Table~\ref{tab:evidence}, only the pruned cardiac segmentation network of Bohoran et al.~\cite{5} states anything about model cost, and none reports inference latency, sustained sampling or data rate, bandwidth, connectivity assumptions, or an update strategy. Reported predictive accuracy therefore cannot be read as evidence of deployability, and this absence is a gap we return to in Section~\ref{sec:future}.
+
+\ifsubmission\else
+\begin{table*}[t]
+\centering
+\caption{Acquisition, inference placement, unit of analysis, and reported deployment characteristics by domain. ``Feasible'' entries describe how the work could map onto a connected health deployment where the original study was not itself IoT based; \emph{n/r} denotes not reported, \emph{n/a} not applicable.}
+\label{tab:iot-placement}
+\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{2.3cm} >{\raggedright\arraybackslash}p{3.1cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{2.9cm}}
+\toprule
+\textbf{Domain (studies)} & \textbf{Where data are collected} & \textbf{Where inference runs (reported $\rightarrow$ feasible)} & \textbf{Unit of analysis} & \textbf{Deployment characteristics reported} \\
+\midrule
+Dietary behavior~\cite{Rouast2020IntakeGesture,Kyritsis2019EatingBehavior} & Body worn inertial sensors and cameras, free living & n/r (offline) $\rightarrow$ on-device or phone gateway; gesture models are small enough for the wearable tier & Sample (individual) & n/r \\
+\addlinespace[2pt]
+Diabetes, CGM forecasting~\cite{Li2020GluNet,Lim2025VirtualCGM} & Continuous glucose monitor plus life-log on the body & n/r (offline) $\rightarrow$ phone gateway; 30--60\,min horizons tolerate gateway latency & Sample (individual) & n/r \\
+\addlinespace[2pt]
+Diabetes, spatial epidemiology~\cite{XiaoLi2016DiabetesSpatiotemporal} & Survey and census registries; no personal device & Server or cloud, batch & Population (48 states) & n/a \\
+\addlinespace[2pt]
+Depression, EEG~\cite{2} & Clinical EEG cap, in-clinic session & n/r $\rightarrow$ edge inference plausible with consumer EEG headsets & Sample (individual) & n/r \\
+\addlinespace[2pt]
+Depression, fMRI~\cite{4,9} & Hospital scanner; intermittent, not a continuous stream & Server & Sample (individual) & n/r \\
+\addlinespace[2pt]
+Depression, population counts~\cite{3} & National surveillance reporting & Server or cloud, batch & Population (national) & n/a \\
+\addlinespace[2pt]
+Cardiac imaging~\cite{5,6} & Hospital CMR, CT, echocardiography & Server $\rightarrow$ scanner-side edge & Sample (individual) & Network pruning reported~\cite{5}; latency and memory n/r \\
+\addlinespace[2pt]
+Cardiac electrophysiology~\cite{7} & Simulation and intracardiac electrodes & Server & Sample (simulated) & n/r \\
+\addlinespace[2pt]
+Longitudinal clinical and registry~\cite{lin2022deep,nitski2021long,glaser2022deep} & EHR, transplant registry, serial DXA; intermittent clinical acquisition & Server or cloud, batch at each visit & Sample (individual) & n/r \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+\fi
+
+\paragraph{Versatility.} All four domains pair CNN or GCN spatial encoders with temporal modules (LSTM/GRU/Transformer) or STGCN to jointly model space and time across video, raster, and EEG data~\cite{2,3,4,6}, differing mainly in priors---anatomical connectivity for depression~\cite{4}, physical equations for cardiac flow and electrophysiology~\cite{5,7}.
+
+\paragraph{Small samples, high dimensions.} Neuroimaging and 4D cardiac data are high dimensional but small in sample due to cost and ethics, risking overfitting and poor transfer~\cite{4,5,6}; physical priors~\cite{7}, active learning, federated learning, and self-supervised attention to salient regions help~\cite{2,4}.
+
+\paragraph{Multimodal fusion.} Integrating environmental, behavioral, and genetic data with the primary signals yields richer assessments---glucose plus geography for diabetes risk maps~\cite{XiaoLi2016DiabetesSpatiotemporal}, physiological or physical priors for cardiac interpretability~\cite{5,7}. Statistics research reinforces this: convection--diffusion and dynamic deformation models encode physical transport and nonstationary dependence, and disease mapping and spatial SIR emulators link exposure, regional outcomes, and temporal dynamics through Bayesian hierarchies~\cite{liu2022convectionDiffusion,castroMorales2025dynamicDeformation,wang2024respiratoryDiseaseMapping,trostle2024spatialSIR,wikle2023statisticalDeepLearning}.
+
+\paragraph{Deployment and efficiency.} Macro scale regional forecasting must incorporate socioeconomic, transport, and mobility factors, where adjacency uncertainty and noise hamper robustness~\cite{2,3}. Rising data resolution raises compute cost~\cite{5,7}, motivating compression, edge computing, and hardware-software co-design for real-time monitoring.
+
+\paragraph{Explainability and standardization.} Clinical use demands outputs a clinician can inspect, and the reviewed studies most often supply attention maps and salient space--time segments~\cite{2,4}. Attention weights should not, however, be equated with an explanation of the decision. Jain and Wallace showed that attention distributions can often be replaced by substantially different ones without changing the prediction~\cite{jain2019attention}; Serrano and Smith found that the highest weighted components are frequently not those whose removal changes the output~\cite{serrano2019attention}; and Wiegreffe and Pinter, while defending a weaker reading, agree that attention alone does not establish faithfulness~\cite{wiegreffe2019attention}. The difficulty compounds in the multi-layer, multi-head spatiotemporal encoders used here, where weights are aggregated across layers, heads, space, and time before being displayed. What clinicians ask for is closer to contextual, actionable justification than to a saliency image~\cite{tonekaboni2019clinicians}, and for high stakes decisions an inherently interpretable model may be preferable to a post-hoc rationalization of an opaque one~\cite{rudin2019stopexplaining}. Attention maps are therefore best treated as a debugging and hypothesis generating aid, with faithfulness testing---perturbation or ablation of the attended region and agreement with mechanistic knowledge---as the evaluation step this literature still lacks. Separately, inconsistent annotation across centers limits reproducibility~\cite{6}, calling for data governance and benchmarking.
+
+\fi
+
+\subsection{Longitudinal Evidence within the Taxonomy}
+\label{sec:longitudinal}
+\ifsubmission
+Three studies in Table~\ref{tab:evidence} have no spatial component, and we include them deliberately: the twin argument of Sections~\ref{sec:DT} and~\ref{sec:world_model_dt} rests on \emph{synchronization}---that a virtual representation can be repeatedly updated from new observations of one individual and re-issue a prediction---and they are among the clearest evidence in the reviewed sample that dynamic re-prediction from accumulating history outperforms one-shot prediction, which no spatially explicit study tests. Lin and Luo~\cite{lin2022deep} treat each visit as a token with masked self-attention; Nitski et al.~\cite{nitski2021long} find a Transformer best for 1- and 5-year mortality, externally validated on a second registry; Glaser et al.~\cite{glaser2022deep} show sequence models over serial DXA outperforming single-scan models. In Table~\ref{tab:evidence} the IoT layer and the spatial and temporal structure are our classification of the data each study uses, not stated by the study; no quantitative dietary or lifestyle study was surfaced by our search under the stated criteria.
+
+None of the three uses a continuously sensed stream; all draw on episodic encounters, which is what makes them informative here: they establish the value of updating a prediction as history accumulates while sampling it a few times a year. A connected deployment changes the sampling regime rather than the model class, since a visit token Transformer accepts wearable derived weekly summaries alongside laboratory panels. Serial DXA in particular is not a health-IoT modality: the scans are intermittently acquired clinical imaging obtained at visits years apart, so the re-synchronization interval rather than the architecture separates this setting from the wearable case.
+\else
+Complementing the irregular-time and longitudinal \emph{methods} of Section~\ref{sec:history}, this section reviews clinical \emph{studies} that apply DNN based medical and longitudinal models to two tasks---dynamic prediction and risk stratification. These studies leverage longitudinal data, from multivariate clinical measurements to sequential imaging, using multivariate functional principal component analysis (MFPCA), CNNs, Transformers, and recurrent networks for survival prediction, mortality risk, and personalized care. Table~\ref{tab:evidence} synthesizes representative studies across the four application domains and these longitudinal tasks, with their datasets, evaluation metrics, and reported performance; a recurring theme is that attention based models tend to outperform recurrent and convolutional baselines once follow-up data are dynamically incorporated, though reported gains vary and several studies rely on small or private cohorts.
+
+\emph{Why longitudinal-only studies belong in a spatiotemporal survey.} Three studies below---Lin and Luo~\cite{lin2022deep}, Nitski et al.~\cite{nitski2021long}, and Glaser et al.~\cite{glaser2022deep}---have no spatial component. We include them deliberately. The digital twin argument of Sections~\ref{sec:DT} and~\ref{sec:world_model_dt} rests on a claim about \emph{synchronization}: that a virtual representation can be repeatedly updated from new observations of the same individual and re-issue a prediction. These studies are the strongest evidence we found that dynamic re-prediction from accumulating history outperforms one-shot prediction, which is the temporal half of the twin mechanism, and none of the spatially explicit studies above tests that property. Our eligibility bar here is correspondingly narrow: repeated observations of the same subject, an outcome defined at a later time, and an explicit comparison against a model that ignores follow-up. The division of labor with Section~\ref{sec:history} is that the earlier section covers longitudinal \emph{methods}---how irregular sampling, decay, and missingness are represented---while this section covers longitudinal \emph{evidence}, namely whether such models change a clinical estimate; architectures introduced there are cross-referenced rather than re-described.
+
+The selection protocol is given in Section~\ref{sec:method}.
+
+\emph{Where connected health data would enter.} None of these three studies uses a wearable or any continuously sensed stream; all draw on episodic clinical encounters. That is what makes them informative for an IoT reading: they establish the value of updating a prediction as history accumulates while sampling that history only a few times a year. A connected deployment changes the sampling regime rather than the model class---the visit token Transformer of Lin and Luo, or the per-visit embedding followed by recurrence of Glaser et al., accepts a denser stream of wearable derived summaries such as weekly activity, sleep regularity, resting heart rate, or glycemic variability in place of, or interleaved with, laboratory panels. The questions this raises are about the sampling regime: whether between-visit wearable summaries add predictive information over the clinical trajectory, how a dense noisy stream should be weighted against a sparse reliable one, and how often the model must be re-run and its update transmitted to remain useful. None of the three addresses these, and we found no longitudinal risk model in this literature that ingests a continuous consumer sensing stream.
+
+
+\subsection{Deep Learning for Dynamic Prediction of Multivariate Longitudinal and Survival Data}
+Lin et al.~\cite{lin2022deep} jointly model multivariate longitudinal data and time-to-event outcomes, avoiding the restrictive assumptions of classical joint models. They compare MFPCA based survival models (MFPCA-Cox, MFPCA-DeepSurv), efficient but limited in nonlinear interactions; MATCH-net, a CNN handling irregular sampling and missingness but predicting survival without forecasting trajectories; and TransformerJM, which treats each visit as a token and uses masked self-attention to jointly predict future measurements and update survival probabilities, excelling under nonlinear interactions and non-proportional hazards.
+
+\subsection{Deep Learning Approaches for Long-Term Mortality Risk Stratification in Liver Transplant Recipients}
+
+Nitski et al.~\cite{nitski2021long} forecast 1-year and 5-year mortality in liver transplant recipients from longitudinal clinical data, replacing static logistic regression that ignores follow-up dynamics. Among multilayer perceptron (MLP), RNN, temporal convolutional network (TCN), and Transformer architectures, the Transformer achieved the highest area under the ROC curve (AUROC); trained on the Scientific Registry of Transplant Recipients (SRTR) and externally validated on University Health Network (UHN) data with transfer learning, it enables continually updated, real-time risk stratification.
+
+
+\subsection{Deep Learning for All-Cause Mortality Prediction from Longitudinal DXA Imaging}
+
+Glaser et al.~\cite{glaser2022deep} predict all-cause mortality from longitudinal total-body dual-energy X-ray absorptiometry (DXA) imaging, showing that deep networks extract predictive features directly from raw scans (alone or with clinical risk factors) and that sequence models over multiple scans outperform single-scan models. They use single-record models (a DenseNet121 over image crops, a fully connected network over clinical metadata, and a combined-modality fusion) and sequence models that feed per visit embeddings to an LSTM to capture the temporal evolution of body composition. Serial DXA should not be read as a health-IoT modality: the scans are intermittently acquired clinical imaging, obtained at scheduled study visits years apart, in a facility, by a technologist, so the series is longitudinal in the epidemiological sense rather than a sensor feed. Treating it as a continuous stream would overstate how often a twin built on such data could be re-synchronized, and the re-synchronization interval, not the architecture, is what separates this setting from the wearable case.
+
+
+\fi
+
+\begin{table*}[t]
+\centering
+\caption{Structured summary of the quantitative evidence reported by the twelve studies synthesized here (assembled in earlier drafts, not sampled from the search of Section~\ref{sec:method})\ifsubmission\else, panel A: data and acquisition (panel B, Table~\ref{tab:evidence-b}, gives model, evaluation and deployment)\fi. Values are as reported; \emph{n/r} denotes not reported or not applicable.}
+\label{tab:evidence}
+\ifsubmission
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{1.08}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{1.4cm} >{\raggedright\arraybackslash}p{1.7cm} >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Study} & \textbf{Domain} & \textbf{Dataset ($n$; access)} & \textbf{Sensors / devices} & \textbf{Model} & \textbf{Validation} & \textbf{Deployment} & \textbf{Task; reported metric} \\
+\midrule
+Liu et al.~\cite{2} & Depression, EEG & MODMA, 53; public & Clinical EEG cap & CNN$+$GRU brain-map & Within-cohort & Server & Classification; acc.\ 89.6\% (over SVM, TCN) \\
+\addlinespace[1pt]
+Thaipisutikul et al.~\cite{3} & Depression, population & Thai national, 70 mo.; public & Surveillance reports & Multivariate CNN & Hold-out & Server & Forecasting; MAE 449.7 (over SARIMAX, LSTM) \\
+\addlinespace[1pt]
+Kong et al.~\cite{4} & Depression, fMRI & 2 cohorts, $\sim$277; private & Hospital MRI & Spatiotemporal GCN & Two cohorts & Server & Diagnosis; acc.\ 84.1\%, response 89.6\% \\
+\addlinespace[1pt]
+Zhang et al.~\cite{9} & Depression, fMRI & OpenNeuro, 72; public & Hospital MRI & STANet (CNN$+$RNN) & Within-cohort & Server & Classification; acc.\ 82.4\%, AUC 90.7\% \\
+\addlinespace[1pt]
+Li et al.~\cite{Li2020GluNet} & Diabetes, CGM & UVA/Padova $+$ clinical; mixed & CGM & Dilated CNN (GluNet) & Sim.\ $+$ clinical & Gateway feasible & 30/60-min forecast; RMSE 8.9/19.9 mg/dL \\
+\addlinespace[1pt]
+Lim et al.~\cite{Lim2025VirtualCGM} & Diabetes, life-log & 171 adults; n/r & CGM, life-log & BiLSTM $+$ attention & Within-cohort & Gateway feasible & Glucose inference; RMSE 19.5 mg/dL \\
+\addlinespace[1pt]
+Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & Diabetes, spatial epi. & BRFSS $+$ ACS, 48 states; public & Survey registry & Bayesian spatiotemporal & n/r & Server, batch & Prevalence mapping; 8.7\%$\to$11.2\% (2004--11) \\
+\addlinespace[1pt]
+Bohoran et al.~\cite{5} & Cardiac, CMR & 424 scans / 376 pt.; private & CMR scanner & Pruned BConvLSTM U-Net & Multicentre & Scanner-side (pruned) & Aortic segmentation; Dice 0.989 \\
+\addlinespace[1pt]
+Xie \& Yao~\cite{7} & Cardiac, EP & Simulation; synthetic & Intracardiac electrodes & Physics-constrained AL & Simulation & Server & Wave reconstruction; rel.\ error $\downarrow$48\% \\
+\addlinespace[1pt]
+Lin \& Luo~\cite{lin2022deep} & Longitudinal, survival & ADNI 1068 $+$ NACC 5261; public & Clinical visits & TransformerJM & Two cohorts & Server, per visit & Dynamic survival; iAUC 0.89/0.81 \\
+\addlinespace[1pt]
+Nitski et al.~\cite{nitski2021long} & Longitudinal, mortality & SRTR 42{,}146 $+$ UHN 3269; registry & Registry records & Transformer & External (UHN) & Server, per visit & 1/5-yr mortality; AUROC 0.80/0.73 \\
+\addlinespace[1pt]
+Glaser et al.~\cite{glaser2022deep} & Longitudinal, imaging & Health ABC, $>$15k; public & DXA scanner & DenseNet $+$ RNN & Within-cohort & Server, per visit & All-cause mortality; AUROC 0.79 \\
+\bottomrule
+\multicolumn{8}{l}{\scriptsize Metrics are as reported by each study and are not comparable across rows.}
+\end{tabularx}
+\else
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{2.3cm}}
+\toprule
+\textbf{Study} & \textbf{Domain} & \textbf{Dataset ($n$; access)} & \textbf{Sensors / devices} & \textbf{IoT layer} & \textbf{Spatial structure} & \textbf{Temporal structure} \\
+\midrule
+Liu et al.~\cite{2} & Depression, EEG & MODMA, 53 subjects; public & Clinical EEG cap & Sensing; server & Electrode montage as a brain map & Continuous EEG epochs \\
+\addlinespace[1pt]
+Thaipisutikul et al.~\cite{3} & Depression, population & Thai national, 70 months; public & Surveillance reporting & Cloud & Provincial areal units & Monthly counts \\
+\addlinespace[1pt]
+Kong et al.~\cite{4} & Depression, fMRI & 2 hospital cohorts, $\sim$277; private & Hospital MRI & Cloud & Functional connectivity graph & BOLD series \\
+\addlinespace[1pt]
+Zhang et al.~\cite{9} & Depression, fMRI & OpenNeuro DS002748, 72; public & Hospital MRI & Cloud & Voxel grid and connectivity & BOLD series \\
+\addlinespace[1pt]
+Li et al.~\cite{Li2020GluNet} & Diabetes, CGM & UVA/Padova sim.\ (10) $+$ clinical; mixed & CGM & Sensing; gateway feasible & None (single subject) & 5-min glucose stream \\
+\addlinespace[1pt]
+Lim et al.~\cite{Lim2025VirtualCGM} & Diabetes, life-log & 171 adults; n/r & CGM, life-log app & Sensing; gateway feasible & None (single subject) & Irregular life-log $+$ CGM \\
+\addlinespace[1pt]
+Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & Diabetes, spatial epi. & BRFSS $+$ ACS, 48 states; public & Survey registry & Cloud & State and county areal units & Annual, 2004--2011 \\
+\addlinespace[1pt]
+Bohoran et al.~\cite{5} & Cardiac, CMR & 424 scans / 376 patients; private & CMR scanner & Edge (scanner-side) & 3D image volume & Cine frames within a cycle \\
+\addlinespace[1pt]
+Xie \& Yao~\cite{7} & Cardiac, EP & Simulation; synthetic & Intracardiac electrodes & Cloud & Cardiac surface mesh & Electrical wave series \\
+\addlinespace[1pt]
+Lin \& Luo~\cite{lin2022deep} & Longitudinal, survival & ADNI 1068 $+$ NACC 5261; public & Clinical visit records & Cloud & None & Irregular visits \\
+\addlinespace[1pt]
+Nitski et al.~\cite{nitski2021long} & Longitudinal, mortality & SRTR 42{,}146 $+$ UHN 3269; registry & Registry records & Cloud & None & Irregular visits \\
+\addlinespace[1pt]
+Glaser et al.~\cite{glaser2022deep} & Longitudinal, imaging & Health ABC, $>$15k scans; public & DXA scanner & Cloud & Whole-body image & Serial visits, years apart \\
+\bottomrule
+\end{tabularx}
+\fi
+\end{table*}
+
+\ifsubmission\else
+\begin{table*}[p]
+\centering
+\caption{Study comparison, panel B: model, evaluation and deployment. Rows are those of Table~\ref{tab:evidence}, in the same order. \emph{n/r} denotes not reported. The deployment column records what each study states about where inference runs and at what cost; it is almost entirely \emph{n/r}, which is the observation motivating direction G1 in Table~\ref{tab:agenda-a}.}
+\label{tab:evidence-b}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}p{2.7cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.9cm} >{\raggedright\arraybackslash}p{2.9cm}}
+\toprule
+\textbf{Study} & \textbf{Model} & \textbf{Validation} & \textbf{Task; reported performance} & \textbf{Baselines outperformed} & \textbf{Deployment placement; reported cost} \\
+\midrule
+Liu et al.~\cite{2} & CNN$+$GRU brain-map & Within-cohort & Classification; accuracy 89.6\%, F1 90.2\% & SVM, TCN & Server; n/r \\
+\addlinespace[1pt]
+Thaipisutikul et al.~\cite{3} & Multivariate CNN (MONDEP) & Hold-out & Forecasting; MAE 449.7, RMSE 528.1 & SARIMAX, LSTM, TS-Transformer & Server; n/r \\
+\addlinespace[1pt]
+Kong et al.~\cite{4} & Spatiotemporal GCN & Two cohorts & Diagnosis acc.\ 84.1\%; treatment response 89.6\% & SVM, RF, GCN & Server; n/r \\
+\addlinespace[1pt]
+Zhang et al.~\cite{9} & STANet (CNN$+$RNN, AFGRU) & Within-cohort & Classification; accuracy 82.4\%, AUC 90.7\% & SVM, LSTM, Conv-GRU & Server; n/r \\
+\addlinespace[1pt]
+Li et al.~\cite{Li2020GluNet} & Dilated CNN (GluNet) & Simulation $+$ clinical & 30/60-min forecast; RMSE 8.9/19.9 mg/dL (sim.) & SVR, ARX, NNPG & Gateway feasible; n/r \\
+\addlinespace[1pt]
+Lim et al.~\cite{Lim2025VirtualCGM} & BiLSTM $+$ dual attention & Within-cohort & Glucose inference; RMSE 19.5 mg/dL & n/r & Gateway feasible; n/r \\
+\addlinespace[1pt]
+Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & Bayesian spatiotemporal (STAR) & n/r & Prevalence mapping; 8.7\%$\to$11.2\% (2004--11) & n/r (epidemiological) & Server, batch; n/r \\
+\addlinespace[1pt]
+Bohoran et al.~\cite{5} & Pruned BConvLSTM U-Net & Multicentre & Aortic segmentation; Dice 0.989/0.991 & Bai et al.\ (2018) & Scanner-side; pruned model (only cost figure reported in this table) \\
+\addlinespace[1pt]
+Xie \& Yao~\cite{7} & Physics-constrained deep active learning & Simulation & Wave reconstruction; rel.\ error $\downarrow$ up to 48\% & Spatiotemporal GP & Server; n/r \\
+\addlinespace[1pt]
+Lin \& Luo~\cite{lin2022deep} & TransformerJM & Two cohorts & Dynamic survival; iAUC 0.89/0.81, best calibration & MFPCA-Cox, MATCH-net (mixed) & Server, per visit; n/r \\
+\addlinespace[1pt]
+Nitski et al.~\cite{nitski2021long} & Transformer & External (UHN) & 1/5-yr mortality; AUROC 0.80/0.73 & MLP, RNN, TCN, LR & Server, per visit; n/r \\
+\addlinespace[1pt]
+Glaser et al.~\cite{glaser2022deep} & DenseNet $+$ RNN & Within-cohort & All-cause mortality; AUROC 0.79 & Single-scan models & Server, per visit; n/r \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+\fi
+
+\section{Spatiotemporal Models in Medical Digital Twins}
+\label{sec:DT}
+\ifsubmission
+The twin layer at the foot of Figure~\ref{fig:taxonomy} is where the pipeline closes. Doing so faces three constraints: data that are insufficient and heterogeneous, security and privacy, and presentation to clinicians and patients. A digital twin addresses them as a cyber-physical feedback loop in which multimodal data from sensors and IoT devices stream to a virtual replica, are analyzed, and feed back to the physical side; in health care it is described in four tiers from visualization through prediction and optimization to closed loop control~\cite{Tao2018,NIST2021}. Faruqui \emph{et al.}\ paired a transfer learned network with a clinician guided controller to generate daily lifestyle recommendations for type 2 diabetes~\cite{Faruqui2024}.\ifsubmission\else{} The closest the set comes to a validated twin is mechanistic rather than learned: Silfvergren \emph{et al.}\ fit organ crosstalk and hepatic fluxes to several clinical studies, predicted an independent study correctly, and personalized the response to an individual~\cite{Silfvergren2022} --- an explicitly offline twin with no return path from a sensed patient, the boundary Section~\ref{sec:world_model_dt} draws.\fi
+
+\emph{Fusion and its limits.} Fusion is not monotonically beneficial, and the reviewed studies rarely say when it fails. An added modality contributes noise when its signal-to-noise ratio is low relative to the primary channel; bias when availability differs across subgroups, so a twin fusing a wearable stream inherits the demographics of who wears the device; cost linear in devices and bandwidth; and failure points, since a fused model is only as available as its least reliable input unless trained for modality dropout. The test we would ask is whether a fused twin still meets its stated accuracy with each modality withheld in turn; it is not reported.
+
+\emph{Human factors.} Post-hoc attribution reports what a model weighted without telling a clinician whether to act~\cite{rudin2019stopexplaining,tonekaboni2019clinicians}. A twin needs an explicit account of who intervenes and where: a person should adjudicate identity resolution at intake, approve any re-synchronization that materially shifts a risk stratum, read any output that changes therapy, and review subgroup calibration and fairness at audit---most urgently where uncertainty is high, the recommendation contradicts mechanistic expectation, or the patient falls outside the training cohort's support.
+
+\emph{Privacy and federated learning.} Healthcare data are a frequent target of fraud and ransomware~\cite{Seh2020HealthcareDataBreaches}, motivating training without moving raw data. Federated learning sends a global model to institutional clients that train locally and return encrypted updates, at the cost of communication overhead, non-IID data, and adversarial exposure~\cite{prayitno2021FLhealthcare,aouedi2022FLmedical}. Results are nevertheless usually a single accuracy figure against a centralized model, which cannot establish deployability. A federated spatiotemporal twin should report client availability and participation, the degree of non-IID and device shift, rounds to convergence, update size and total bandwidth, round latency, client energy and memory ceilings, treatment of stragglers and asynchrony, personalization back to each site, an attack and defense evaluation covering gradient inversion, membership inference and update poisoning, the differential privacy budget with its accuracy cost, and comparison against both centralized and local-only baselines. Device-layer authentication and encryption of the link secure what the model layer cannot. We give this as a checklist because the reviewed studies do not supply the fields.
+
+\emph{Rendering is not synchronization.} Extended-reality rendering of anatomy or data~\cite{Auvinet2018AR} is properly judged on comprehension and satisfaction; the improvement reported by Louis et al.~\cite{Louis2021VR} is evidence of that kind, about the interface rather than the model behind it. A synchronized twin interface, bound to a continuously updated patient state, is properly judged on clinical endpoints: calibration of the displayed risk, agreement with the patient's subsequent course, and whether the clinician's decision changes and improves outcome. Most visualization work surveyed here is of the first kind.
+\else
+Bringing spatiotemporal models into clinical workflows faces three constraints along the symptom--visit--diagnosis--treatment--rehabilitation pathway: (1) insufficient and heterogeneous data, since reliance on recall and self-report creates gaps and inconsistent time labels while constitution, lifestyle, and environment add heterogeneity that no single variable explains; (2) data security and privacy, balancing the use of highly sensitive health information against compliance requirements; and (3) presentation and interpretation, communicating outputs to clinicians and patients across diverse, interdependent data types.
+
+Digital twins address these jointly by building a virtual ``human mirror'' linked to the individual in near real time, aggregating and governing multisource time series from wearables and fixed medical devices with cloud based standardization, temporal alignment, and cross-modal fusion. Population scale longitudinal data improve predictive accuracy and generalization; federated learning enables training under data remain in place constraints; and multidimensional visualization with human in the loop mechanisms present predictions interpretably, closing the loop between decision support and self-management. We next discuss data acquisition and fusion, privacy preserving modeling, and clinical visualization.
+
+\subsection{Digital Twin in Digital Health}
+
+A digital twin (DT) is a cyber-physical feedback loop in which real-time multimodal data from sensors and IoT devices stream to a high fidelity virtual replica, are analyzed, and feed back to the physical asset. Originating in aerospace and manufacturing for full life cycle support~\cite{Tao2018}, in healthcare it emphasizes runtime, with four tiers---visualization and monitoring, prediction, optimization, and closed loop control~\cite{NIST2021,sun2023digitaltwin}. Early work formalized the healthcare digital twin as a virtual patient built from biological and omics data, promising precision medicine while raising ethical questions~\cite{Bruynseels2018DigitalTwins}; at the tissue scale, cell atlas efforts such as the NIH Human Biomolecular Atlas Program (HuBMAP), launched in 2018, map the body at cellular resolution to parameterize a digital twin of the healthy human~\cite{HuBMAP2019}. The most advanced form is the personal digital twin~\cite{deKerckhove2021}.
+
+Personal twins fuse continuous glucose monitors, wearables, home IoT, and genomics into patient specific models. Faruqui \emph{et al.}\ applied transfer learning to a neural network and paired it with a clinician guided feedback controller to generate daily, personalized lifestyle recommendations for managing type 2 diabetes; prediction accuracy exceeded eighty percent and produced sustained improvements in HbA1c and weight~\cite{Faruqui2024}. Silfvergren \emph{et al.} built a multi-organ metabolic model that personalises fasting schedules and macronutrient ratios by simulating hepatic glycogen turnover \cite{Silfvergren2022}. For cardiovascular care, continuous PPG and ECG streams injected into cardiac twins detect atrial fibrillation and impending de-compensation, reducing readmissions \cite{Bayoumy2021,Williams2023}. Because personal twins rely on high frequency, privacy sensitive data, they are increasingly paired with federated learning and differential privacy.
+
+
+
+\subsection{Challenges in Data Collection and Prediction for Medical Digital Twins}
+
+In the construction of medical digital twins, data collection is both the most fundamental and one of the most challenging stages. The main difficulty arises from the diversity of data sources. In medical contexts, data originate from electronic health records (EHR), medical imaging (CT, MRI, ultrasound), laboratory test results, physiological signals captured by wearable devices, and real-time monitoring data from ICU systems. These different sources exhibit significant disparities in sparsity and sampling rates: for example, EHR records are sparse and infrequent, whereas ICU monitoring devices capture data at millisecond or second-level granularity; imaging data are usually interval based snapshots that fail to fully capture dynamic processes. Such heterogeneity leads to inconsistencies across temporal, spatial, and semantic dimensions, thereby increasing the difficulty of data alignment and integration.
+
+Moreover, there are substantial differences between modalities, such as textual medical records versus imaging data, or structured laboratory indicators versus continuous physiological signals. Addressing the integration of heterogeneous multimodal data remains a key challenge in the implementation of digital twins in healthcare. Previous studies have pointed out that the standardization and fusion of multi-source heterogeneous medical data are prerequisites for achieving accurate digital twins\cite{tao2019digital,reddy2015healthcare}.
+
+Multimodal fusion is central to the prediction stage, since single modality data (e.g., ECG alone) are noise and gap prone; combining physiological signals, laboratory results, and imaging better simulates progression, with cross-modal alignment mitigating sparsity and single-point failures~\cite{baltrusaitis2019multimodal}, and deep multimodal fusion outperforming unimodal models in cardiovascular prediction~\cite{huang2020fusion}.
+
+
+
+\emph{When fusion does not help.} Fusion is not monotonically beneficial, and the reviewed studies rarely state the conditions under which it fails. Adding a modality adds noise when its signal-to-noise ratio is low relative to the primary channel, so a weak stream dilutes a strong one unless the fusion is gated or weighted. It adds bias when modalities differ in availability across subgroups: a twin that fuses a wearable stream inherits the demographics of who owns and wears the device, and a model trained on complete cases silently conditions on that availability. It adds cost linearly in devices, storage, and bandwidth, and superlinearly in calibration and alignment effort. It also adds failure points, because a fused model in deployment is only as available as its least reliable input: a modality missing at inference time, whether from a flat battery, a disconnected sensor, or an unperformed scan, degrades the prediction unless the architecture is explicitly trained for modality dropout. The test we would ask of any fused twin is whether it still meets its stated accuracy with each modality withheld in turn, and whether an added modality earns its marginal cost. We found neither reported in the studies surveyed here.
+
+Patient heterogeneity complicates prediction: variability from demographics, genetics, environment, disease subtypes, and individual trajectories means identical indicators (e.g., the same BMI or blood pressure) can imply different risks across populations, and ignoring it introduces systematic bias~\cite{obermeyer2016predicting,rajkomar2019machine,yu2018artificial}. Incorporating individual priors---baseline characteristics, genetics, history---into patient specific twins, with Bayesian or meta learning for fast adaptation from little data, improves specificity and robustness~\cite{bjornsson2020digitaltwins}.
+
+Heterogeneity also harms interpretability: complex decision boundaries create a black box effect that undermines clinical trust~\cite{rudin2019stopexplaining}. Since interpretability is as important as accuracy in high risk care~\cite{tonekaboni2019clinicians,lundberg2017unified,voigt2021digital}, twins increasingly use attention based feature attribution, post hoc explanations (SHAP, LIME), and causality driven models with medical knowledge graphs~\cite{ahmad2018interpretable}.
+
+\emph{Human factors, not only post-hoc explanation.} Post-hoc attribution reports what the model weighted; it does not tell a clinician whether to act, and comprehension is a property of the reader rather than of the saliency map. A twin therefore needs an explicit account of who intervenes, where, and on what evidence. At data intake a person should adjudicate identity resolution, device provenance, and implausible values that automated range checks admit. At model update a person should approve any re-synchronization that materially shifts a patient's risk stratum, since silent drift is otherwise invisible. At inference a person should be the mandatory reader of any output that changes therapy, with the twin ranking options rather than selecting one. At audit a person should review the subgroup calibration that determines whether the twin is equally trustworthy across the population it serves. The cases that most need routing to a human are those in which the twin's own uncertainty is high, the recommendation contradicts a mechanistic expectation, the input stream has recently changed regime through a new device, a firmware update, or a care transition, or the patient falls outside the demographic support of the training cohort. Comprehension outcomes---whether clinicians and patients read the twin's uncertainty correctly---belong alongside accuracy and are currently absent from this literature.
+
+\subsection{Medical Data Privacy Problem and Federated Learning in Digital Twin}
+
+\emph{Why medical data privacy is critical.} Healthcare data are highly sensitive and valuable on the black market, making the sector a frequent target of identity theft, fraud, and ransomware; a single healthcare breach costs on average about USD 10.1 million, and the 2015 Anthem breach alone exposed nearly 80 million records~\cite{Seh2020HealthcareDataBreaches,Argaw2020HospitalCybersecurity,Nemec2024HealthcareSecurity}. Centralized storage is especially vulnerable, motivating privacy enhancing methods such as blockchain, differential privacy, and federated learning as secure alternatives~\cite{rieke2020digitalhealth,dhiman2022FL}.
+\ifsubmission\else
+\begin{figure*}[t] \centering \includegraphics[width=\linewidth]{Fig5_redrawn_600dpi.png} \caption{The federated learning training cycle: a global model is distributed to participating institutions, each trains it locally on its own private data, and only the resulting model updates are returned to a central server for aggregation, so raw patient data never leave the institution.} \Description{A schematic of the federated learning process, showing local training on multiple clients and global aggregation of model updates on a central server without sharing raw data.} \label{fig:Federated Learning Process} \end{figure*}
+\fi
+
+
+\emph{How federated learning works.} FL trains a shared model across institutions without moving raw data\ifsubmission\else{} (Figure~\ref{fig:Federated Learning Process})\fi : a global model is initialized and sent to clients, each trains locally and returns only encrypted updates, which are aggregated and redistributed iteratively, aiding HIPAA and GDPR compliance. Challenges include communication overhead, non-IID data, and adversarial robustness~\cite{prayitno2021FLhealthcare,coelho2023FLsecurity}.
+
+
+\emph{Federated learning for spatiotemporal models in digital twins.} Combining FL with spatiotemporal longitudinal models inside a digital twin yields a privacy preserving pipeline: local twins on edge or hospital servers encode multivariate trajectories (diet logs, CGM traces, regional lifestyle factors) into latent representations, refine a shared network on private cohorts, and send only encrypted updates to an aggregator that synchronizes thousands of twins in compliance with data protection rules~\cite{aouedi2022FLmedical}\ifsubmission\else{} (Fig.~\ref{fig:architecture of FL})\fi . This enhances personalized optimization and real-time monitoring while letting each twin learn from a larger virtual cohort, valuable in nutrition centric applications where dietary patterns vary by geography yet privacy rules block sharing~\cite{nguyen2022FLsmarthealthcare}. A twin aware stack adds a semantic alignment layer harmonizing site schemas and a feedback layer streaming uncertainties to bedside dashboards; with transformer based encoders, such designs aim to lower glycemic prediction error while reducing communication overhead, though quantitative evidence remains preliminary.
+
+\emph{What a federated evaluation must report.} Federated results in this literature are usually summarized by a single accuracy figure set against a centralized model, which is not enough to judge deployability. A federated spatiotemporal twin should report, at minimum: client availability and per-round participation; the degree and kind of non-IID heterogeneity, including site and device shift; communication rounds to convergence; update size per round and total bandwidth consumed; wall-clock round latency; energy drawn on the client; client compute and memory ceilings; the treatment of stragglers and dropout, and whether operation is synchronous or asynchronous; whether and how the global model is personalized back to each site; the attack and defense evaluation performed, covering at least gradient inversion, membership inference, and update poisoning; the privacy budget where differential privacy is applied, together with the accuracy cost at that budget; and comparison against both a centralized and a local-only baseline, since a federated system that does not improve on local training does not justify its coordination cost. We give these as an evaluation checklist rather than as a synthesis, because the studies reviewed here do not supply the fields.
+
+\emph{Outlook.} Converging edge--cloud FL, explainable spatiotemporal models, and physics informed organ simulators could push digital twins toward closed loop companions that propose, simulate, and verify lifestyle or medication changes before any real action, requiring standardized ontologies, differential privacy for gradient sharing, and lightweight continual learning on wearable class hardware. 
+\ifsubmission\else
+\begin{figure*}[t] \centering \includegraphics[width=\linewidth]{Fig6_redrawn_600dpi.png} \caption{A general architecture for federated learning of spatiotemporal models in digital health: distributed institutions encode local spatiotemporal patient data, train a shared model on their private cohorts, and exchange only encrypted updates with a central aggregator that synchronizes the per-patient digital twins.} \Description{A general architecture of federated learning for spatiotemporal models in digital health, showing distributed data sources and collaborative training without sharing raw data.} \label{fig:architecture of FL} \end{figure*}
+\fi
+
+\subsection{Visualization in Digital Twin}
+
+Digital twins enable dynamic, personalized visualization. In surgery, computer generated vitals on a feedback screen improve ergonomics~\cite{Auvinet2018AR}, and with extended reality they overlay operative regions and incision lines for precise cuts~\cite{QUESADAOLARTE20221580}. AI powered twins generate live, data driven graphical analysis for the operating room and routine check-ups~\cite{Vallee2023DT}, while AR display of CT scans supports preplanning~\cite{Southworth2020XR}; preoperative 3D mapping with marked incisions has been shown to shorten surgery time~\cite{Auvinet2018AR}.
+
+For patients, xR presentations aid comprehension: virtual brain models for doctor--patient communication raised satisfaction about 25\% above the average of the HCAHPS standardized patient-experience survey across 257 patients~\cite{Louis2021VR}.
+
+\emph{Rendering is not synchronization.} Two different things are described as twin visualization in this literature, and they should be judged against different evidence. The first is three-dimensional or extended-reality rendering of patient anatomy or data: a virtual brain model used to explain a procedure, or an overlay guiding an incision. Its proper endpoints are comprehension, communication, workload, and satisfaction; the satisfaction improvement reported by Louis et al.~\cite{Louis2021VR} is evidence of exactly this kind, and it is a genuine result about the interface rather than about the model behind it. The second is a synchronized twin interface, in which the display is bound to a continuously updated patient state and changes as new observations arrive. Its proper endpoints are clinical: calibration of the displayed risk, agreement with the patient's subsequent course, whether the clinician's decision changes, and whether that change improves outcome. A high satisfaction score for a rendering says nothing about the validity of a synchronized twin, and a well calibrated twin behind an unreadable interface will not be used. Most of the visualization work surveyed here is of the first kind, and we are not aware of a study evaluating a synchronized health twin interface against clinical endpoints.
+
+Twins also visualize dietary health over time; Gkouskou et al.~\cite{gkouskou2020virtual} propose lifelong nutritional snapshots integrating metabolomic, immune, behavioral, and gut microbial parameters, feeding a longitudinal spatiotemporal model of nutritional health.
+
+\fi
+
+\section{World Model Based Digital Twins in Digital Health}
+\label{sec:world_model_dt}
+\ifsubmission
+This section is a \emph{proposed conceptual framework and research agenda}, not a synthesis of evaluated clinical systems: among the studies reviewed above we found no health digital twin that learns an action conditioned latent transition and has been validated against patient outcomes. We state what such a system would require and mark open problems as open.
+
+Two criteria separate the adjacent concepts, and without them a survey risks renaming ordinary latent trajectory prediction as a world model and ordinary repeated prediction as a twin. A model is a \emph{world model} only when its transition is conditioned on an action, so that a rollout answers what would happen under an intervention: an encoder, latent state, transition and decoder without an action model give a state-space or disease progression model, adding a reward and planner gives model-based reinforcement learning, a mechanistic simulator specifies its transition from theory rather than learning it, and a causal model answers interventional queries under identification assumptions. A system is a \emph{digital twin} only when it is bound to one identified individual and kept synchronized with a path back to that individual; one-way updating without that return path is a digital shadow. On these criteria the systems reviewed in Section~\ref{sec:DT} are predominantly shadows with predictive heads. Such a system would roll a latent patient state forward under candidate actions across three layers---representation, synchronization, and action conditioned rollout with human review~\cite{Sadee2025MedicalDT}---and must be evaluated as a coupled pipeline rather than as a model.
+
+Active simulation widens the attack surface beyond the confidentiality concerns of Section~\ref{sec:DT}: a compromised predictive twin produces a wrong number, a compromised world model twin a wrong plan, and where the loop actuates, a wrong action. Sensor spoofing drives the latent state to an attacker chosen region that seeds every rollout; action label tampering inverts the estimated effect of an intervention while leaving predictive accuracy intact; state poisoning through malicious federated updates shifts the learned dynamics rather than a decision boundary; model extraction and privacy leakage from released rollouts expose an identified patient's state; and planner manipulation makes an unsafe trajectory appear optimal. Controls map onto the same layers: per-device authentication, provenance for observations and action labels, signed and reversible updates with anomaly screening of client contributions, a privacy budget on released rollouts, an audit log binding each recommendation to a model version, and a safety filter rejecting trajectories that violate physiological or protocol constraints.
+
+Validation of such a system cannot rest on retrospective comparison with held-out histories, because most interventions are counterfactual; it should add calibration across horizons, subgroup analysis, external cohorts, and prospective study. Uncertainty grows over long rollouts, so a usable system reports calibrated intervals, separates aleatoric from epistemic uncertainty, detects out-of-distribution states, and signals when no reliable recommendation is possible~\cite{Sel2025VVUQ}.
+\else
+This section is a \emph{proposed conceptual framework and research agenda}, not a synthesis of evaluated clinical systems. Among the primary studies reviewed above we found no health digital twin that learns an action conditioned latent transition and has been validated against patient outcomes. We therefore state what such a system would require and mark open problems as open, rather than describing capabilities as established.
+
+A world model, in the sense used here, learns a compact latent state together with a transition that can be rolled forward under hypothetical actions, in contrast to a conventional spatiotemporal model that maps observed history to a future outcome. Coupled to a digital twin, such a model would compress multimodal observations (EHR, wearables, imaging, mobility, exposures, lifestyle) into an evolving patient state and produce trajectories under alternative interventions, joining representation learning, personalized twins, and decision planning. The move from digital twins to world models has so far been articulated for mobile edge general intelligence rather than for clinical care~\cite{Zheng2026DTtoWM}; we are not aware of a corresponding clinical evaluation.
+
+\emph{Distinguishing the adjacent concepts.} The terms in this area overlap, and without an explicit comparison a survey risks renaming ordinary latent trajectory prediction as a world model and ordinary repeated prediction as a digital twin. \ifsubmission Two criteria do most of the work.\else Table~\ref{tab:wm-taxonomy} states the components we take to be necessary and optional for each. Two distinctions do most of the work.\fi A model becomes a \emph{world model} only when its transition is conditioned on an action, so that a rollout answers what would happen under an intervention rather than what will happen next; a latent state and a transition alone give a state-space model. A system becomes a \emph{digital twin} only when it is bound to one identified instance and kept synchronized with it, with some path back to that instance; automatic one-way updating without that return path is a digital shadow, and a model that is simply re-run on new data is neither. On these criteria, the health systems reviewed in Section~\ref{sec:DT} are predominantly shadows with predictive heads, and the world model layer described below remains a proposal.
+
+\ifsubmission\else
+\begin{table*}[t]
+\centering
+\caption{Necessary and optional components of the adjacent modeling concepts. $\bullet$ required, $\circ$ optional, -- not part of the concept. Components: Enc.\ observation encoder; Lat.\ latent state; Trans.\ transition model; Act.\ action or intervention model; Dec.\ decoder, reward, or outcome head; Plan.\ policy or planner; Sync.\ synchronization to a specific physical instance. \textbf{Mat.}\ is our assessment of maturity \emph{in health applications}, on the nine-point technology readiness scale~\cite{ISO2013TRL}, read as: 1--3 formulated or demonstrated in principle; 4--6 validated in a laboratory or relevant setting; 7--9 demonstrated in an operational clinical setting. It is a judgment about the literature surveyed here and not a measurement.}
+\label{tab:wm-taxonomy}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.1cm} ccccccc c >{\raggedright\arraybackslash}X}
+\toprule
+\textbf{Concept} & \textbf{Enc.} & \textbf{Lat.} & \textbf{Trans.} & \textbf{Act.} & \textbf{Dec.} & \textbf{Plan.} & \textbf{Sync.} & \textbf{Mat.} & \textbf{Distinguishing property} \\
+\midrule
+State-space / disease-progression model & $\circ$ & $\bullet$ & $\bullet$ & $\circ$ & $\bullet$ & -- & -- & 7--8 & Latent dynamics fitted to observed trajectories; identifiability and interpretability are the goal \\
+\addlinespace[2pt]
+Generative model & $\circ$ & $\bullet$ & $\circ$ & -- & $\bullet$ & -- & -- & 4--5 & Models the data distribution and can sample from it; carries no notion of intervention \\
+\addlinespace[2pt]
+Mechanistic simulator & -- & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\circ$ & $\circ$ & 8--9 & Transition specified from domain theory rather than learned; parameters are physically meaningful \\
+\addlinespace[2pt]
+Causal model & $\circ$ & $\circ$ & $\circ$ & $\bullet$ & $\bullet$ & -- & -- & 5--6 & Answers interventional and counterfactual queries under stated identification assumptions \\
+\addlinespace[2pt]
+World model & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\circ$ & -- & 3--4 & Learned \emph{action conditioned} latent transition that can be rolled forward without the real system \\
+\addlinespace[2pt]
+Model-based reinforcement learning & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & -- & 3--4 & A world model plus an explicit reward and planner or policy that it is used to optimize \\
+\addlinespace[2pt]
+Digital shadow & $\bullet$ & $\circ$ & $\circ$ & -- & $\bullet$ & -- & $\bullet$ & 6--7 & Automatic one-way flow from the physical instance to the virtual one; no feedback to the physical side \\
+\addlinespace[2pt]
+Digital twin & $\bullet$ & $\bullet$ & $\circ$ & $\circ$ & $\bullet$ & $\circ$ & $\bullet$ & 4--5 & Bound to one specific instance and kept synchronized, with feedback returning to that instance \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+\fi
+
+\subsection{Patient-State Simulation and Counterfactual Planning}
+A health world model would simulate patient-state evolution rather than predict a single endpoint: given the current latent state and an action (medication change, diet, rehabilitation, sleep, exposure reduction), it produces a short or long horizon trajectory of physiological, behavioral, or clinical variables. Such a counterfactual capability would be valuable in chronic disease management, where clinicians compare intervention paths before choosing; whether it can be delivered at clinically useful accuracy is untested.
+
+Unlike generic generative models, these twins stay anchored to a specific patient: the twin supplies continual synchronization as new observations update the latent state and constrain rollouts, while spatiotemporal learning supplies the representation backbone encoding temporal dynamics and spatial context (regional exposures, organ imaging, mobility, behavior). Together they would move from passive monitoring toward active scenario testing, with clinicians retaining final interpretation.
+
+\subsection{Layered Architecture for Spatiotemporal World Models}
+An integrated architecture would have three layers: spatiotemporal representation models that embed multimodal longitudinal data (physiological series, mobility, imaging, diet, exposures); a digital twin layer maintaining synchronization through continual updating and patient calibration; and a world model layer generating action conditioned rollouts on the twin's latent state, extending the twin from monitoring into simulation and planning with human in the loop review~\cite{Sadee2025MedicalDT}.
+
+This structure shows world models are not isolated modules: their reliability depends on upstream multimodal fusion, temporal alignment, missing data handling, and personalization, and their usability on downstream interfaces conveying assumptions, trajectories, and uncertainty. A world model based twin should thus be evaluated as a coupled system spanning ingestion, representation, simulation, uncertainty, visualization, and workflow integration.
+
+\subsection{Attack Surface of a World Model Based Twin}
+Active simulation and planning widen the attack surface beyond the data confidentiality concerns of Section~\ref{sec:DT}. A predictive twin that is compromised produces a wrong number; a world model twin that is compromised produces a wrong \emph{plan}, and if any part of the loop actuates, a wrong action. The threats specific to this setting attach to identifiable points of the layered architecture above.
+
+At the sensing layer, \emph{sensor spoofing} injects fabricated or replayed measurements so the latent state is driven to an attacker chosen region, which is more damaging here than in a monitoring system because the corrupted state seeds every rollout. At the ingestion layer, \emph{action label tampering} corrupts the record of which intervention was administered; since the transition is action conditioned, mislabeled actions systematically invert the model's estimate of what an intervention does, and the damage is invisible in ordinary predictive accuracy. At the training and update layer, \emph{state poisoning} through malicious client updates in a federated deployment shifts the learned dynamics rather than just the decision boundary. At the interface layer, \emph{model extraction} recovers a usable copy of the twin from query access, and \emph{privacy leakage from trajectories and rollouts} is a distinct exposure: a simulated trajectory is derived from one identified patient's state, so releasing rollouts can disclose attributes that were never released as raw data. Where a language or agentic interface mediates access, \emph{adversarial interface inputs} may steer the planner, and \emph{planner manipulation} more generally covers reward or objective tampering that makes an unsafe trajectory appear optimal. Finally, \emph{unsafe actuation} is the terminal risk wherever the twin is permitted to close the loop onto a pump, stimulator, or automated care pathway.
+
+The corresponding controls map onto the same layers: device and gateway authentication with per-device keys at the sensing layer; integrity protection and provenance for observations and action labels at ingestion; signed, verifiable, and reversible model updates with anomaly screening of client contributions at the update layer; rate limiting and output perturbation against extraction, and a privacy budget applied to released rollouts rather than only to training, at the interface; an append-only audit log binding every issued recommendation to the model version and the observations that produced it; and a safety filter between planner and actuator that rejects trajectories violating physiological or protocol constraints regardless of predicted reward. None of the studies reviewed here evaluates these controls for a health world model twin, and we treat that as a prerequisite for any deployment that acts rather than merely advises.
+
+\subsection{Verification, Validation, and Uncertainty}
+Verification, validation, and uncertainty quantification are critical because simulated trajectories can influence real decisions. Verification checks that the implementation behaves as intended: pipelines preserve temporal order, action labels map to meaningful interventions, constraints prevent impossible states, and rollouts are reproducible, with stress tests for missing values, delayed or corrupted streams, and distribution shift across sites.
+
+Validation checks clinical credibility. Retrospective comparison with held-out histories is insufficient because most interventions are counterfactual, so validation should add calibration across horizons, subgroup analysis, comparison with mechanistic knowledge, external cohorts, and prospective studies, assessing whether the model ranks interventions consistently with evidence, flags unsafe trajectories, and stays stable under input perturbations.
+
+Uncertainty grows over long rollouts through error accumulation, hidden confounding, partial observability, and multiple plausible futures. A useful system reports calibrated intervals, separates aleatoric from epistemic uncertainty, detects out-of-distribution states, and signals when no reliable recommendation is possible---safeguards essential for trusted decision support rather than opaque simulators~\cite{Sel2025VVUQ}.
+
+
+\fi
+
+\section{Future Prospects: Spatiotemporal Digital Twins}
+\label{sec:future}
+\ifsubmission
+\emph{A gap driven agenda.} Each direction below follows from a gap observed in the studies synthesized here, and the counts refer to those studies. \emph{Measurement}: one of the twelve studies in Table~\ref{tab:evidence} reports a model cost figure and none reports latency, data rate, bandwidth, or update strategy. The same task should therefore be benchmarked across device, gateway, and server placement, with parameters, latency, and energy reported beside accuracy. \emph{Fusion}: no study reports performance with each modality withheld. Leave-one-modality-out evaluation at measured device failure rates is needed before a modality is judged to earn its cost. \emph{Explanation}: attention maps are offered as interpretability without faithfulness testing, which perturbation of the attended region against matched random regions would supply. \emph{Federation}: results are reported as single accuracy figures, without the rounds, bandwidth, energy, privacy budget, and local-only baseline that determine feasibility. \emph{World model twins}: no reviewed system meets both the action conditioning and synchronization criteria and has been evaluated on outcomes. Target trial emulation followed by silent mode deployment is the natural first test. \emph{Lifestyle}, \emph{harmonization} and \emph{safety} complete the list. Our search surfaced no quantitative dietary study; cross-site variation attributable to harmonization choices is unmeasured; and no study evaluates sensor spoofing, action label tampering or planner manipulation for a twin permitted to act.
+
+\emph{Networking directions.} The agenda assumes a communication substrate this literature leaves unspecified. The reviewed pipelines are described without a transport, yet the choice among publish--subscribe messaging for periodic vital summaries, low energy links for the body area tier, and low power wide area bearers for ambient nodes determines the achievable sampling rate and whether a model update can be pushed at all. Resource accounting should span model to deployment as one chain---bytes per patient-day, bytes after on-device summarization, model bytes per federated round, latency at each placement and energy at each hop---so a model choice is checked against a link budget rather than justified by accuracy. Reproducible multi-site testbeds with an edge tier of controllable bandwidth, latency and loss, plus released traces, would let a reported edge deployment be replicated rather than asserted.
+\else
+As DNNs advance, spatiotemporal modeling will increasingly integrate multimodal sources, improve efficiency through parallel computing, enhance interpretability, and adopt secure learning. We outline key directions below.
+\paragraph{The Value of Digital Twin and Spatiotemporal Modeling in Digital Health}
+
+Healthcare faces fragmented data, delayed diagnosis, limited personalization, and inefficient resource use, with scarce continuous high-quality data limiting AI. Digital twins with spatiotemporal modeling address this by maintaining real-time virtual patient representations updated from wearables, records, environmental sensors, and mobility, from which spatiotemporal models simulate trends, forecast progression, and support decisions while generating high-resolution, temporally aligned data~\cite{ali2024spatialtwins}. Wider adoption should accumulate diverse datasets and enable standardized cross-population models~\cite{bilal2025cityseircast}.
+
+\paragraph{Exploration of Spatiotemporal Models and Technological Advancements}
+
+Across dietary, diabetes, depression, and cardiac applications, deep learning consistently captures spatiotemporal dependencies and integrates multimodal information, aided by big data, cloud, and parallel computing. Key challenges remain: limited data availability and quality, privacy and cross-center collaboration, underexplored multimodal fusion, and real-time and generalization constraints. Privacy preserving methods such as federated learning and differential privacy are therefore essential, and as wearables, self-supervised learning, physics informed constraints, and edge computing mature, clinical adoption will require standardized protocols, robust data protection, reliable models, and tight workflow integration.
+\paragraph{A gap driven research agenda} Figure~\ref{fig:roadmap} arranges the directions below by dependency, and Figure~\ref{fig:iot-arch} locates them on the pipeline; Table~\ref{tab:datasets} lists the data resources the synthesis rests on. Every direction below is derived from a gap we actually observed while assembling this survey rather than from general expectation, \ifsubmission and we state for each the observation that motivates it and the study it calls for.\else and Tables~\ref{tab:agenda-a} and~\ref{tab:agenda-b} record for each the observation that motivates it, the IoT layer and stakeholder it affects, the research question, a study design and the baselines it requires, the metrics that would settle it, and the criterion under which it would count as answered.\fi The counts given are counts within the studies synthesized here and inherit the purposive selection described in Section~\ref{sec:method}; they indicate what this literature reports, not a population estimate over all published work.
+
+\ifsubmission
+\emph{Measurement}: only one of the twelve studies in Table~\ref{tab:evidence} reports any model cost figure and none reports latency, data rate, bandwidth, or update strategy, so the same task should be benchmarked across device, gateway, and server placement with parameters, latency, and energy reported beside accuracy. \emph{Fusion}: no study reports performance with each modality withheld, so leave-one-modality-out evaluation at measured device failure rates is needed before a modality is judged to earn its cost. \emph{Explanation}: attention maps are offered as interpretability without faithfulness testing, which perturbation of the attended region against matched random regions would supply. \emph{Federation}: federated results are reported as single accuracy figures, without the rounds, bandwidth, energy, privacy budget, and local-only baseline that determine feasibility. \emph{World model twins}: no reviewed system meets both the action conditioning and the synchronization criterion and has been evaluated on outcomes, for which target trial emulation followed by silent mode deployment is the natural first test. \emph{Lifestyle}: our search surfaced no quantitative dietary or lifestyle study, so a cohort pairing clinical and continuous lifestyle streams is needed to test whether lifestyle context adds predictive information. \emph{Harmonization} and \emph{safety} complete the list: cross-site variation attributable to harmonization choices is unmeasured, and no study evaluates sensor spoofing, action label tampering, or planner manipulation for a twin permitted to act.
+\fi
+
+
+
+\ifsubmission\else
+\begin{table*}[p]
+\centering
+\caption{Research agenda derived from observed evidence gaps (G1--G4): measurement, fusion, explanation, and federated deployment.}
+\label{tab:agenda-a}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.9cm} >{\raggedright\arraybackslash}p{3.0cm}}
+\toprule
+\textbf{Observed gap} & \textbf{IoT layer; stakeholder} & \textbf{Research question} & \textbf{Study design, testbed, and required baselines} & \textbf{Metrics} & \textbf{Success criterion} \\
+\midrule
+\textbf{G1 Deployment cost unreported.} 1 of 12 studies in Table~\ref{tab:evidence} reports any model-cost figure; none reports latency, data rate, bandwidth, connectivity assumptions, or update strategy & Device and edge; system integrator & Which spatiotemporal model families meet clinical accuracy inside the compute, memory, energy, and bandwidth envelope of a wearable--gateway tier? & Same task benchmarked across device, gateway, and server placement on a physical testbed. Baselines: full server-side model; compressed on-device model; classical statistical predictor & Parameters, MACs, peak memory, p95 latency, energy per inference, sustained sampling rate, bytes per day & Accuracy within a pre-registered non-inferiority margin of the server model at a stated energy and bandwidth budget \\
+\addlinespace[3pt]
+\textbf{G2 Fusion evaluated only on complete cases.} No reviewed study reports performance with each modality withheld, or under realistic modality dropout & Sensing and data; clinician & Does each added modality improve outcome prediction once its real availability and failure rate are taken into account? & Leave-one-modality-out plus simulated dropout at measured device failure rates. Baselines: single best modality; complete-case fused model & Change in primary metric per modality with confidence intervals, calibration under dropout, marginal cost per modality & A modality is retained only if it improves the primary metric at its realistic availability rate \\
+\addlinespace[3pt]
+\textbf{G3 Attention offered as explanation without a faithfulness test.} Attention maps are presented as clinical interpretability in the reviewed work; no faithfulness evaluation accompanies them & Application; clinician and regulator & Are the attended space--time regions causally responsible for the prediction, and do clinicians read them correctly? & Perturbation and ablation of attended regions; adversarial attention. Baselines: matched random-region ablation; an inherently interpretable model & Comprehensiveness and sufficiency, clinician agreement, decision change rate & Attended regions change the output significantly more than matched random regions, pre-registered \\
+\addlinespace[3pt]
+\textbf{G4 Federated results reduced to one accuracy number.} None of the federated twin work reviewed in Section~\ref{sec:DT} reports the system fields listed there & Network and edge; hospital IT & What round, bandwidth, and energy budget makes federated spatiotemporal training viable across sites with real device and population shift? & Multi-site testbed with measured non-IID split and injected stragglers and dropout. Baselines: centralized, local-only, and a standard federated averaging scheme & Rounds to target, bytes per round, round latency, client energy, privacy budget with its accuracy cost, poisoning robustness & Improves on local-only training at a stated privacy budget while fitting the measured site bandwidth \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+\fi
+
+\ifsubmission\else
+\begin{table*}[p]
+\centering
+\caption{Research agenda derived from observed evidence gaps (G5--G8): world model twins, lifestyle evidence, harmonization, and safety.}
+\label{tab:agenda-b}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}p{1.9cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.9cm} >{\raggedright\arraybackslash}p{3.0cm}}
+\toprule
+\textbf{Observed gap} & \textbf{IoT layer; stakeholder} & \textbf{Research question} & \textbf{Study design, testbed, and required baselines} & \textbf{Metrics} & \textbf{Success criterion} \\
+\midrule
+\textbf{G5 No health world model twin has been evaluated.} By the criteria of Table~\ref{tab:wm-taxonomy}, no reviewed primary study learns an action conditioned latent transition validated against patient outcomes & Application; clinician, patient, regulator & Can an action conditioned latent model rank candidate interventions consistently with existing trial evidence? & Target-trial emulation on longitudinal cohorts, followed by prospective silent-mode deployment. Baselines: state-space model without actions; mechanistic simulator; standard-of-care rule & Calibration across horizons, agreement of interventional ranking with trial-derived effects, subgroup calibration, uncertainty coverage & Intervention ranking agrees with trial evidence and rollouts stay calibrated to a stated horizon \\
+\addlinespace[3pt]
+\textbf{G6 Lifestyle evidence is qualitative only.} Our search surfaced no quantitative dietary or lifestyle study meeting the criteria of Section~\ref{sec:method} & Sensing and application; patient & Does wearable derived lifestyle context add predictive information beyond the clinical trajectory alone? & Cohort with paired clinical and continuous lifestyle streams; nested model comparison. Baseline: clinical-only longitudinal model & Incremental discrimination with confidence intervals, calibration, fairness across device-ownership strata & Pre-registered incremental improvement whose confidence interval excludes zero \\
+\addlinespace[3pt]
+\textbf{G7 Harmonization and provenance under-reported.} Few reviewed studies state calibration, timestamp, coordinate reference, or resampling protocol (Section~\ref{sec:data}) & Data and platform; data steward & How much cross-site performance variation is attributable to harmonization choices rather than to the model? & Multi-site replication varying one harmonization choice at a time. Baseline: naive pooling of sites & Variance in performance explained by each choice, leakage detection rate, independent reproduction rate & A published pipeline card that lets an independent site reproduce the reported result \\
+\addlinespace[3pt]
+\textbf{G8 No safety or adversarial evaluation for acting twins.} No reviewed study evaluates the threats identified in Section~\ref{sec:world_model_dt} & All layers; regulator and patient & How much sensor spoofing or action-label corruption is needed to change the plan a twin issues? & Red-team evaluation on a testbed twin under a declared threat model. Baseline: the undefended twin & Attack success rate against perturbation budget, detection rate, safety-filter violation rate, time to detection & No unsafe actuation under the declared threat model, with every violation caught by the safety filter \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+\fi
+
+\paragraph{Networking directions} The agenda above assumes a communication substrate that this literature has not specified, and closing that gap is a distinct line of work. Three questions are concrete enough to attack now. First, \emph{protocol fit}: the reviewed pipelines are described without a transport, yet the choice among MQTT or CoAP publish--subscribe messaging for periodic vital summaries, BLE and its gateway profile for the body area tier, and low power wide area bearers for ambient exposure nodes determines the achievable sampling rate, the tolerable payload, and whether an update can be pushed at all; profiles that carry model updates and provenance metadata alongside measurements, rather than measurements alone, do not yet exist for health twins. Second, \emph{a resource budget that spans model to deployment}: the quantities named above should be reported as one chain---bytes generated per patient-day at the sensor, bytes transmitted after on-device summarization, model bytes per federated round, inference latency at each candidate placement, and energy at each hop---so that a model choice can be checked against a link budget rather than justified only by accuracy. Third, \emph{shared testbeds}: progress on the questions above requires reproducible multi-site setups combining instrumented participants, an edge tier with controllable bandwidth, latency, and loss, and a federated coordinator, together with released traces so that a claimed edge deployment can be replicated rather than asserted. We regard open, characterized testbeds and pipeline cards as the most immediately actionable contribution the IoT community could make to this area.
+
+\paragraph{Promoting Data Sharing in Digital Health Research}
+Digital health integrates heterogeneous data from hospitals, wearables, environmental sensors, and genomics, so standardized collection, annotation, and exchange protocols are essential. Federated learning and secure multi-party computation let institutions retain data autonomy while collaborating, but only joint technical and legal progress can overcome data silos for precise monitoring and intervention.
+
+\paragraph{From Clinical Trials to Real World Commercial Applications}
+Translating these technologies to market requires stability and scalability in dynamic settings, balancing accuracy with cost, security, and user experience, and moving from controlled trials to population scale use through collaboration with insurers, pharma, and hospitals, with continuous iteration on user feedback.
+
+\paragraph{Future World Model Based Digital Twins}
+Future systems will likely benefit most from constrained world models synchronized through digital twins and informed by spatiotemporal context, compressing multimodal data into latent health states, updating continually, and rolling forward under candidate interventions. The challenge is combining the adaptability of world models with the personalization, synchronization, and accountability of medical twins, requiring hybrid mechanistic learning, multiscale organ--person--environment representations, privacy preserving continual learning, and prospective validation before deployment~\cite{DeDomenico2025ComplexSystems}.
+\fi
+
+\ifsubmission\else
+\begin{table*}[p]
+\centering
+\caption{Data resources used by the studies synthesized in Table~\ref{tab:evidence}. Modality, structure, size and access are reported exactly as the citing study states them; \emph{n/r} denotes not reported, and ``unnamed'' marks a resource the citing study does not identify by name. We did not independently verify availability, licence terms or access procedure for any entry, and readers should treat the access column as the citing study's description rather than as current access status.}
+\label{tab:datasets}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabularx}{\textwidth}{>{\raggedright\arraybackslash}p{4.0cm} >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}X >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{1.7cm} >{\raggedright\arraybackslash}p{2.8cm}}
+\toprule
+\textbf{Resource} & \textbf{Modality} & \textbf{Spatial; temporal structure} & \textbf{Size as reported} & \textbf{Access} & \textbf{Used by} \\
+\midrule
+MODMA & EEG & Electrode montage as a brain map; continuous epochs & 53 subjects & Public & Liu et al.~\cite{2} \\
+\addlinespace[1pt]
+Thai national depression surveillance & Reported case counts & Provincial areal units; monthly & 70 months & Public & Thaipisutikul et al.~\cite{3} \\
+\addlinespace[1pt]
+Two hospital cohorts (unnamed) & Resting-state fMRI & Connectivity graph; BOLD series & $\sim$277 subjects & Private & Kong et al.~\cite{4} \\
+\addlinespace[1pt]
+OpenNeuro DS002748 & Resting-state fMRI & Voxel grid; BOLD series & 72 subjects & Public & Zhang et al.~\cite{9} \\
+\addlinespace[1pt]
+UVA/Padova T1D simulator & Simulated CGM & None; 5-min stream & 10 virtual subjects & Simulator output & Li et al.~\cite{Li2020GluNet} \\
+\addlinespace[1pt]
+Clinical CGM records (unnamed) & CGM & None; 5-min stream & n/r & Mixed & Li et al.~\cite{Li2020GluNet} \\
+\addlinespace[1pt]
+Life-log and CGM cohort (unnamed) & CGM, life-log & None; irregular entries & 171 adults & n/r & Lim et al.~\cite{Lim2025VirtualCGM} \\
+\addlinespace[1pt]
+BRFSS $+$ ACS & Survey and census & State and county areal units; annual & 48 states, 2004--2011 & Public & Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} \\
+\addlinespace[1pt]
+Multicentre CMR cohort (unnamed) & Cardiac MR & 3D volume; cine frames & 424 scans / 376 patients & Private & Bohoran et al.~\cite{5} \\
+\addlinespace[1pt]
+Simulated cardiac electrophysiology & Electrical potential & Cardiac surface mesh; wave series & Synthetic & Synthetic & Xie \& Yao~\cite{7} \\
+\addlinespace[1pt]
+ADNI & Clinical visit records & None; irregular visits & 1068 subjects & Public & Lin \& Luo~\cite{lin2022deep} \\
+\addlinespace[1pt]
+NACC & Clinical visit records & None; irregular visits & 5261 subjects & Public & Lin \& Luo~\cite{lin2022deep} \\
+\addlinespace[1pt]
+SRTR & Transplant registry & None; irregular visits & 42{,}146 recipients & Registry & Nitski et al.~\cite{nitski2021long} \\
+\addlinespace[1pt]
+UHN cohort & Transplant registry & None; irregular visits & 3269 recipients & Registry & Nitski et al.~\cite{nitski2021long} \\
+\addlinespace[1pt]
+Health ABC & Total-body DXA & Whole-body image; serial visits & $>$15{,}000 scans & Public & Glaser et al.~\cite{glaser2022deep} \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+\fi
+
+\ifsubmission\else
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  font=\footnotesize,
+  tier/.style={draw, rounded corners=2pt, align=center, text width=30mm,
+               minimum height=11mm, font=\footnotesize\bfseries, inner sep=2pt},
+  what/.style={draw, rounded corners=2pt, align=left, text width=52mm,
+               minimum height=11mm, inner sep=3pt},
+  car/.style={draw, rounded corners=2pt, align=left, text width=42mm,
+              minimum height=11mm, inner sep=3pt},
+  up/.style={-Latex, thick},
+  down/.style={-Latex, thick, dashed},
+]
+\node[font=\footnotesize\bfseries] at (1.50,1.05) {IoT tier};
+\node[font=\footnotesize\bfseries] at (7.30,1.05) {What runs there};
+\node[font=\footnotesize\bfseries] at (13.60,1.05) {What crosses the boundary above};
+\node[tier] (body) at (1.50,-0.00) {Body area sensing};
+\node[what] at (7.30,-0.00) {Wearables, CGM, EEG caps, ambient nodes};
+\node[car]  at (13.60,-0.00) {Raw samples, event flags};
+\node[tier] (gw) at (1.50,-1.30) {Gateway / edge};
+\node[what] at (7.30,-1.30) {Phone, hub, scanner-side compute};
+\node[car]  at (13.60,-1.30) {Windowed tensors, local features};
+\node[tier] (net) at (1.50,-2.60) {Network};
+\node[what] at (7.30,-2.60) {Publish--subscribe, low energy links, wide area bearers};
+\node[car]  at (13.60,-2.60) {Summaries, model updates};
+\node[tier] (cloud) at (1.50,-3.90) {Cloud / platform};
+\node[what] at (7.30,-3.90) {Training, harmonization, registries, governance};
+\node[car]  at (13.60,-3.90) {Cohort tensors, global model};
+\node[tier] (twin) at (1.50,-5.20) {Twin and decision};
+\node[what] at (7.30,-5.20) {Synchronized patient state, planner, clinician review};
+\node[car]  at (13.60,-5.20) {Risk, trajectory, recommendation};
+\draw[up] ($(twin.west)+(-0.30,0)$) -- ($(body.west)+(-0.30,0)$)
+  node[midway, rotate=90, above=1pt, font=\scriptsize] {Observation path};
+\draw[down] ($(body.west)+(-1.05,0)$) -- ($(twin.west)+(-1.05,0)$)
+  node[midway, rotate=90, below=1pt, font=\scriptsize] {Return path};
+\node[align=left, font=\scriptsize, text width=52mm] at (7.30,-6.50) {The return path is what separates a twin from a shadow: without it the upward flow alone is one-way monitoring.};
+\end{tikzpicture}
+\caption{Reference architecture for the connected health pipeline this survey organizes. Solid arrows carry observations upward; the dashed arrow is the return path to the patient, which Section~\ref{sec:world_model_dt} treats as necessary for a system to count as a twin rather than a shadow. The tiers are the rows of Figure~\ref{fig:taxonomy}; this figure states what each tier runs and what it passes upward, where Figure~\ref{fig:taxonomy} states which model families consume it.}
+\label{fig:iot-arch}
+\end{figure*}
+\fi
+
+\ifsubmission\else
+\begin{figure*}[t]
+\centering
+\begin{tikzpicture}[
+  font=\footnotesize,
+  gap/.style={draw, fill=white, rounded corners=2pt, align=center, text width=34mm,
+              minimum height=10mm, inner sep=2pt},
+  stage/.style={align=center, font=\footnotesize\bfseries, text width=34mm},
+  dep/.style={-Latex, gray, thick},
+]
+\node[stage] at (0.00,1.40) {Instrument\\what is missing};
+\node[stage] at (4.30,1.40) {Evaluate\\what is claimed};
+\node[stage] at (8.60,1.40) {Establish\\what is safe};
+\node[stage] at (12.90,1.40) {Test on\\patient outcomes};
+\node[gap] (g1) at (0.00,-0.00) {G1 Deployment cost};
+\node[gap] (g7) at (0.00,-1.35) {G7 Harmonization};
+\node[gap] (g2) at (4.30,-0.00) {G2 Fusion under dropout};
+\node[gap] (g3) at (4.30,-1.35) {G3 Attention faithfulness};
+\node[gap] (g4) at (8.60,-0.00) {G4 Federated budget};
+\node[gap] (g8) at (8.60,-1.35) {G8 Safety of acting twins};
+\node[gap] (g6) at (8.60,-2.70) {G6 Lifestyle evidence};
+\node[gap] (g5) at (12.90,-0.00) {G5 World model twin outcome trial};
+\begin{scope}[on background layer]
+\draw[dep] (g1) -- (g2);
+\draw[dep] (g1) -- (g4);
+\draw[dep] (g7) -- (g4);
+\draw[dep] (g7) -- (g6);
+\draw[dep] (g2) -- (g5);
+\draw[dep] (g3) -- (g5);
+\draw[dep] (g4) -- (g5);
+\draw[dep] (g8) -- (g5);
+\draw[dep] (g6) -- (g5);
+\end{scope}
+\end{tikzpicture}
+\caption{The research agenda of Tables~\ref{tab:agenda-a} and~\ref{tab:agenda-b} arranged by dependency rather than by date. An arrow means the source must be settled before the target can be answered convincingly: an outcome trial of a world model twin (G5) presupposes that deployment cost is measurable (G1), that fused inputs survive realistic dropout (G2), that the explanations shown to clinicians are faithful (G3), that federated training is feasible within a stated budget (G4), that lifestyle streams carry predictive information (G6), and that an acting twin has been evaluated adversarially (G8). We give no calendar estimate; the ordering is a claim about prerequisites, not about how long each will take.}
+\label{fig:roadmap}
+\end{figure*}
+\fi
+
+\section{Review Limitations}
+\label{sec:limitations}
+\ifsubmission
+The provenance of the synthesized set, set out in Section~\ref{sec:method}, is this review's principal limitation: the studies in Table~\ref{tab:evidence} were assembled while drafting rather than sampled, and the verification search puts the eligible literature at roughly 375 studies against the 12 we synthesize, so no statement about completeness or prevalence follows from any number we report, and the chosen sources exclude clinical registries, regulatory submissions, unpublished industrial deployments, non-English work and pre-2015 statistical literature. Part of the world model literature exists only as preprints and the published record over-represents positive results, so the figures in Table~\ref{tab:evidence} are likely optimistic; the studies also differ in cohort, outcome, horizon and validation split, so we report their numbers as stated and do not pool them. Assignment to layers, data types and feasible inference placement required judgment, and because the primary studies rarely report model size, latency, bandwidth or energy, our treatment of deployment characterizes an absence in the literature rather than measuring systems.
+\else
+Several limitations constrain how the preceding synthesis should be read.
+
+\emph{Selection was narrative, not systematic.} Studies were chosen purposively to span data types, model families, and application domains, as described in Section~\ref{sec:method}. We did not pre-register a protocol, did not screen in duplicate, and did not record the number of records identified, screened, or excluded at each stage. No completeness or prevalence claim should be drawn from any count we report; counts describe the studies assembled here and nothing wider.
+
+\emph{Search constraints.} The two logged searches cover PubMed and IEEE Xplore only; Scopus was not searched, and citation chasing was not conducted systematically. Venues indexed elsewhere, in particular clinical trial registries, regulatory submissions, and industrial deployments that are never published, are systematically absent. Our window of roughly 2015--2026 excludes earlier statistical spatiotemporal work that remains relevant, and we restricted attention to English language publications, so evidence reported in other languages is missing.
+
+\emph{Preprints and publication bias.} Part of the world model literature exists only as preprints and has not been peer reviewed; we cite such work as a statement of direction rather than as evidence, and label it accordingly in Section~\ref{sec:world_model_dt}. The published record also over-represents positive results, so the performance figures in Table~\ref{tab:evidence} are likely optimistic relative to what these methods achieve in routine use.
+
+\emph{Heterogeneity prevents metric comparison.} The studies differ in cohort, outcome, horizon, preprocessing and validation split, and several rely on small or private cohorts. We therefore report each study's numbers as stated and deliberately do not pool, rank, or meta-analyze them; a higher accuracy in one row of Table~\ref{tab:evidence} does not mean a better model than a lower accuracy in another.
+
+\emph{Taxonomy involves judgment.} Assignment of studies to data types, model families, unit of analysis, and inference placement required interpretation, particularly for multimodal work and for our judgment of where a study \emph{could} feasibly run rather than where it was run. A different reviewer could code some studies differently.
+
+\emph{Missing system reporting limits the deployment analysis.} Because the primary studies rarely report model size, latency, data rate, bandwidth, energy, or update strategy, our treatment of deployment characterizes an absence in the literature rather than measuring the systems themselves. We did not re-implement or benchmark any model.
+
+\emph{The world model literature is moving quickly.} That section is a conceptual synthesis of a field whose primary sources are appearing faster than they can be evaluated, and its assessment of the evidence is likely to date sooner than the rest of this survey.
+
+\fi
+
+\section{Conclusion}
+\label{sec:conclusion}
+\ifsubmission
+We answer the four questions in turn without introducing anything not supported above. The five data types overlap, and the sensing tier fixes data type, sampling rate and feasible inference location together (Fig.~\ref{fig:taxonomy}). Attention based and hybrid architectures generally reported gains once follow-up was incorporated dynamically, but the evidence in Table~\ref{tab:evidence} is not comparable across studies, our selection was purposive, no quantitative dietary study met the criteria, and deployment characteristics are almost never reported. Twins require multisource fusion, continual synchronization, privacy preserving training and an actionable interface, and current work meets these unevenly: fusion is evaluated on complete cases, federated results omit the quantities that determine feasibility, and visualization work largely evaluates rendering rather than synchronization. A world model twin is distinguished by an action conditioned transition and by synchronization with a return path to the individual, and we found no health system meeting both conditions evaluated against patient outcomes.
+\else
+We answer in turn the four research questions posed in the introduction, without introducing claims not already supported above.
+
+\emph{RQ1.} Spatiotemporal data in connected digital health fall into five types---event, trajectory, point reference, raster, and video---overlaid by a relational layer, and these are not independent of the deployment that produces them: as set out in Section~\ref{sec:data}, the sensing tier fixes the data type, the achievable sampling rate, and the feasible location of inference together. The categories overlap, and we coded multimodal studies by the representation their model consumes.
+
+\emph{RQ2.} Across the dietary, diabetes, depression, cardiac, and longitudinal studies synthesized in Table~\ref{tab:evidence}, attention based and hybrid spatial--temporal architectures generally reported gains over recurrent, convolutional, and classical baselines once follow-up data were incorporated dynamically. The evidence is not comparable across studies: cohorts, outcomes, horizons, and splits differ, several cohorts are small or private, and our selection was purposive. We found no quantitative dietary or lifestyle study meeting our stated criteria, and studies report predictive accuracy almost to the exclusion of deployment characteristics.
+
+\emph{RQ3.} A medical digital twin requires multisource fusion, temporal alignment, continual synchronization to one identified individual, privacy preserving training, and an interface a clinician can act on. Current work meets these unevenly: fusion is evaluated on complete cases rather than under realistic modality loss, federated results are reported as single accuracy figures without the system quantities that determine feasibility, visualization work largely evaluates rendering rather than synchronization, and post-hoc attribution is offered where faithfulness testing and an explicit account of human intervention would be needed.
+
+\emph{RQ4.} By the component criteria set out in Section~\ref{sec:world_model_dt}, a world model based twin is distinguished from a state-space model by an action conditioned transition and from a digital shadow by synchronization with a return path to the individual. On that definition we found no health system meeting both conditions that has been evaluated against patient outcomes. Section~\ref{sec:world_model_dt} is therefore a conceptual framework and research agenda rather than a synthesis of evaluated systems, and the directions in Section~\ref{sec:future} follow from the gaps this review observed rather than from expectation.
+
+\fi
+
+\section*{Acknowledgment}
+This work was supported in part by the National Institute of Diabetes and Digestive and Kidney Diseases of the National Institutes of Health under Grant R01DK129432. The content is solely the responsibility of the authors and does not necessarily represent the official views of the National Institutes of Health.
+
+Per IEEE policy on artificial intelligence in authoring, the authors disclose that a large language model (Anthropic Claude) was used for language editing, for condensing the manuscript to its submitted length, and for formatting the comparison and synthesis tables. All literature selection, technical content, and conclusions are the authors' own, and every reported value was verified against the cited primary source.
+
+\bibliographystyle{IEEEtran}
+\bibliography{newST}
+
+\end{document}
+
+\endinput
+%%
+%% End of file `sample-acmcp.tex'.

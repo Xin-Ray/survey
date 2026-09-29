@@ -1,0 +1,119 @@
+[
+ {
+  "pmid": "35625016",
+  "label": "[30] Liu et al. - depression, MODMA EEG",
+  "doi": "10.3390/brainsci12050630",
+  "journal": "Brain sciences",
+  "pmcid": "PMC9139403",
+  "oa": true,
+  "title": "A Depression Prediction Algorithm Based on Spatiotemporal Feature of EEG Signal."
+ },
+ {
+  "pmid": "39281477",
+  "label": "[57] Thaipisutikul et al. - depression, Thai national",
+  "doi": "10.1016/j.heliyon.2024.e36877",
+  "journal": "Heliyon",
+  "pmcid": "PMC11402176",
+  "oa": true,
+  "title": "MONDEP: A unified SpatioTemporal MONitoring Framework for National DEPression Forecasting."
+ },
+ {
+  "pmid": "33969930",
+  "label": "[58] Kong et al. - depression, fMRI",
+  "doi": "10.1002/hbm.25529",
+  "journal": "Human brain mapping",
+  "pmcid": "PMC8288094",
+  "oa": true,
+  "title": "Spatio-temporal graph convolutional network for diagnosis and treatment response prediction of major depressive disorder from functional connectivity."
+ },
+ {
+  "pmid": "39728900",
+  "label": "[31] Zhang et al. - depression, STANet fMRI",
+  "doi": "10.3390/tomography10120138",
+  "journal": "Tomography (Ann Arbor, Mich.)",
+  "pmcid": "PMC11679224",
+  "oa": true,
+  "title": "STANet: A Novel Spatio-Temporal Aggregation Network for Depression Classification with Small and Unbalanced FMRI Data."
+ },
+ {
+  "pmid": "31369390",
+  "label": "[56] Li et al. - diabetes, GluNet CGM",
+  "doi": "10.1109/jbhi.2019.2931842",
+  "journal": "",
+  "pmcid": null,
+  "oa": false,
+  "title": ""
+ },
+ {
+  "pmid": "40348812",
+  "label": "[32] Lim et al. - diabetes, life-log",
+  "doi": "10.1038/s41598-025-01367-7",
+  "journal": "Scientific reports",
+  "pmcid": "PMC12065870",
+  "oa": true,
+  "title": "A deep learning framework for virtual continuous glucose monitoring and glucose prediction based on life-log data."
+ },
+ {
+  "pmid": "27903059",
+  "label": "[34] Li et al. - diabetes, BRFSS+ACS",
+  "doi": "10.4081/gh.2016.439",
+  "journal": "Geospatial health",
+  "pmcid": null,
+  "oa": false,
+  "title": "Identifying counties vulnerable to diabetes from obesity prevalence in the United States: a spatiotemporal analysis."
+ },
+ {
+  "pmid": "38066222",
+  "label": "[59] Bohoran et al. - cardiac, CMR",
+  "doi": "10.1038/s41598-023-48986-6",
+  "journal": "Scientific reports",
+  "pmcid": "PMC10709583",
+  "oa": true,
+  "title": "Resource efficient aortic distensibility calculation by end to end spatiotemporal learning of aortic lumen from multicentre multivendor multidisease CMR images."
+ },
+ {
+  "pmid": "35751197",
+  "label": "[61] Xie & Yao - cardiac, EP simulation",
+  "doi": "10.1016/j.compbiomed.2022.105586",
+  "journal": "Computers in biology and medicine",
+  "pmcid": null,
+  "oa": false,
+  "title": "Physics-constrained deep active learning for spatiotemporal modeling of cardiac electrodynamics."
+ },
+ {
+  "pmid": "35347750",
+  "label": "[67] Lin & Luo - longitudinal survival",
+  "doi": "10.1002/sim.9392",
+  "journal": "Statistics in medicine",
+  "pmcid": "PMC9232978",
+  "oa": true,
+  "title": "Deep learning for the dynamic prediction of multivariate longitudinal and survival data."
+ },
+ {
+  "pmid": "33858815",
+  "label": "[68] Nitski et al. - longitudinal mortality",
+  "doi": "10.1016/s2589-7500(21)00040-6",
+  "journal": "The Lancet. Digital health",
+  "pmcid": null,
+  "oa": false,
+  "title": "Long-term mortality risk stratification of liver transplant recipients: real-time application of deep learning algorithms on longitudinal data."
+ },
+ {
+  "pmid": "35992891",
+  "label": "[33] Glaser et al. - longitudinal DXA",
+  "doi": "10.1038/s43856-022-00166-9",
+  "journal": "Communications medicine",
+  "pmcid": "PMC9381587",
+  "oa": true,
+  "title": "Deep learning predicts all-cause mortality from longitudinal total-body DXA imaging."
+ },
+ {
+  "pmid": "30629523",
+  "label": "Kyritsis et al. - dietary, smartwatch IMU",
+  "doi": "10.1109/JBHI.2019.2892011",
+  "journal": "IEEE journal of biomedical and health informatics",
+  "pmcid": null,
+  "oa": false,
+  "title": "Modeling Wrist Micromovements to Measure In-Meal Eating Behavior From Inertial Sensor Data."
+ }
+]

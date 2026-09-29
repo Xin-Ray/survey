@@ -1,0 +1,1154 @@
+TY  - JOUR
+AU  - Wang, S.
+AU  - Cao, J.
+AU  - Yu, P. S.
+TI  - Deep Learning for Spatio-Temporal Data Mining: A Survey
+JO  - IEEE Transactions on Knowledge and Data Engineering
+PY  - 2022
+VL  - 34
+SP  - 3681
+EP  - 3700
+DO  - 10.1109/tkde.2020.3025580
+UR  - https://doi.org/10.1109/tkde.2020.3025580
+LB  - wang2022deep
+N1  - bibkey=wang2022deep; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Samani, S.
+AU  - Vadiati, M.
+AU  - Kisi, O.
+AU  - Molaei, F.
+TI  - Deep Learning: A Game Changer for Spatio-Temporal Prediction - A Review of Methods and Applications
+JO  - Neural Processing Letters
+PY  - 2026
+DO  - 10.1007/s11063-026-11874-x
+UR  - https://doi.org/10.1007/s11063-026-11874-x
+LB  - samani2026stdl
+N1  - bibkey=samani2026stdl; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Swinckels, L.
+AU  - Bennis, F. C.
+AU  - Ziesemer, K. A.
+TI  - The Use of Deep Learning and Machine Learning on Longitudinal Electronic Health Records for the Early Detection and Prevention of Diseases: Scoping Review
+JO  - Journal of Medical Internet Research
+PY  - 2024
+VL  - 26
+SP  - e48320
+DO  - 10.2196/48320
+UR  - https://doi.org/10.2196/48320
+LB  - swinckels2024ehr
+N1  - bibkey=swinckels2024ehr; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Busnatu, S. S.
+AU  - Niculescu, A. G.
+TI  - A Review of Digital Health and Biotelemetry: Modern Approaches Towards Personalized Medicine and Remote Health Assessment
+JO  - Journal of Personalized Medicine
+PY  - 2022
+VL  - 12
+IS  - 10
+SP  - 1656
+DO  - 10.3390/jpm12101656
+UR  - https://doi.org/10.3390/jpm12101656
+LB  - Busnatu2022
+N1  - bibkey=Busnatu2022; verification=verified; source=crossref:search; authors=match; DOI found by title search
+ER  - 
+
+TY  - JOUR
+AU  - Sun, C.
+AU  - Song, M.
+AU  - Cai, D.
+AU  - Zhang, B.
+AU  - Li, H.
+AU  - Hong, S.
+TI  - A Review of Deep Learning Methods for Irregularly Sampled Medical Time Series Data
+JO  - Health Data Science
+PY  - 2026
+VL  - 6
+DO  - 10.34133/hds.0456
+UR  - https://doi.org/10.34133/hds.0456
+LB  - sun2026irregularmedical
+N1  - bibkey=sun2026irregularmedical; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Wang, Y.
+AU  - Su, Z.
+AU  - Guo, S.
+TI  - A Survey on Digital Twins: Architecture, Enabling Technologies, Security and Privacy, and Future Prospects
+JO  - IEEE Internet of Things Journal
+PY  - 2023
+DO  - 10.1109/jiot.2023.3263909
+UR  - https://doi.org/10.1109/jiot.2023.3263909
+LB  - Wang2023Survey
+N1  - bibkey=Wang2023Survey; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Sel, K.
+AU  - Hawkins-Daarud, A.
+AU  - Chaudhuri, A.
+TI  - Survey and Perspective on Verification, Validation, and Uncertainty Quantification of Digital Twins for Precision Medicine
+JO  - npj Digital Medicine
+PY  - 2025
+VL  - 8
+SP  - 40
+DO  - 10.1038/s41746-025-01447-y
+UR  - https://doi.org/10.1038/s41746-025-01447-y
+LB  - Sel2025VVUQ
+N1  - bibkey=Sel2025VVUQ; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Zheng, J.
+AU  - Niyato, D.
+AU  - Zhao, C.
+TI  - From Digital Twins to World Models: Opportunities, Challenges, and Applications for Mobile Edge General Intelligence
+JO  - arXiv preprint arXiv:2603.17420
+PY  - 2026
+DO  - 10.48550/arXiv.2603.17420
+UR  - https://arxiv.org/abs/2603.17420v1
+LB  - Zheng2026DTtoWM
+N1  - bibkey=Zheng2026DTtoWM; verification=verified; source=arxiv:id; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Chen, J.
+AU  - Shi, Y.
+AU  - Yi, C.
+AU  - Du, H.
+AU  - Kang, J.
+AU  - Niyato, D.
+TI  - Generative-AI-Driven Human Digital Twin in IoT Healthcare: A Comprehensive Survey
+JO  - IEEE Internet of Things Journal
+PY  - 2024
+VL  - 11
+IS  - 21
+SP  - 34749
+EP  - 34773
+DO  - 10.1109/jiot.2024.3421918
+UR  - https://doi.org/10.1109/jiot.2024.3421918
+LB  - chen2024genaitwin
+N1  - bibkey=chen2024genaitwin; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Amin, S. U.
+AU  - Hossain, M. S.
+TI  - Edge Intelligence and Internet of Things in Healthcare: A Survey
+JO  - IEEE Access
+PY  - 2021
+VL  - 9
+SP  - 45
+EP  - 59
+DO  - 10.1109/access.2020.3045115
+UR  - https://doi.org/10.1109/access.2020.3045115
+LB  - amin2021edgeintel
+N1  - bibkey=amin2021edgeintel; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Nguyen, D. C.
+AU  - Pham, Q. V.
+AU  - Pathirana, P. N.
+TI  - Federated Learning for Smart Healthcare: A Survey
+JO  - ACM Computing Surveys
+PY  - 2023
+VL  - 55
+IS  - 3
+SP  - 1
+EP  - 37
+PB  - ACM
+DO  - 10.1145/3501296
+UR  - https://doi.org/10.1145/3501296
+LB  - nguyen2022FLsmarthealthcare
+N1  - bibkey=nguyen2022FLsmarthealthcare; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Zhang, S.
+AU  - Li, Y.
+AU  - Zhang, S.
+AU  - Shahabi, F.
+AU  - Xia, S.
+AU  - Deng, Y.
+AU  - Alshurafa, N.
+TI  - Deep Learning in Human Activity Recognition with Wearable Sensors: A Review on Advances
+JO  - Sensors
+PY  - 2022
+VL  - 22
+IS  - 4
+SP  - 1476
+DO  - 10.3390/s22041476
+UR  - https://doi.org/10.3390/s22041476
+LB  - zhang2022harreview
+N1  - bibkey=zhang2022harreview; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - McCullough, M. L.
+TI  - Association of Socioeconomic and Geographic Factors with Diet Quality in US Adults
+JO  - JAMA Network Open
+PY  - 2022
+DO  - 10.1001/jamanetworkopen.2022.16406
+UR  - https://doi.org/10.1001/jamanetworkopen.2022.16406
+LB  - McCullough2022Diet
+N1  - bibkey=McCullough2022Diet; verification=verified; source=crossref:search; authors=match; DOI found by title search
+ER  - 
+
+TY  - JOUR
+AU  - Vaughan, N.
+TI  - Continuous Blood Glucose Monitoring Prediction for Diabetes Using Evolving Neural Network
+JO  - Scientific Reports
+PY  - 2025
+DO  - 10.1038/s41598-025-29169-x
+UR  - https://doi.org/10.1038/s41598-025-29169-x
+LB  - Vaughan2025CGMPrediction
+N1  - bibkey=Vaughan2025CGMPrediction; verification=verified; source=crossref:search; authors=match; DOI found by title search
+ER  - 
+
+TY  - JOUR
+AU  - Atluri, G.
+AU  - Karpatne, A.
+AU  - Kumar, V.
+TI  - Spatio-Temporal Data Mining: A Survey of Problems and Methods
+JO  - ACM Computing Surveys
+PY  - 2018
+VL  - 51
+IS  - 4
+DO  - 10.1145/3161602
+UR  - https://doi.org/10.1145/3161602
+LB  - atluri2018stdm
+N1  - bibkey=atluri2018stdm; verification=verified; source=crossref:doi; authors=match; title variant on record: 'Spatio-Temporal Data Mining'
+ER  - 
+
+TY  - JOUR
+AU  - Miotto, R.
+AU  - Wang, F.
+AU  - Wang, S.
+TI  - Deep Learning for Healthcare: Review, Opportunities and Challenges
+JO  - Briefings in Bioinformatics
+PY  - 2018
+PB  - Oxford University Press
+DO  - 10.1093/bib/bbx044
+UR  - https://doi.org/10.1093/bib/bbx044
+LB  - miotto2018deeplearning
+N1  - bibkey=miotto2018deeplearning; verification=verified; source=crossref:search; authors=match; DOI found by title search
+ER  - 
+
+TY  - JOUR
+AU  - Shukla, S. N.
+AU  - Marlin, B. M.
+TI  - A Survey on Principles, Models and Methods for Learning from Irregularly Sampled Time Series
+JO  - arXiv preprint arXiv:2012.00168
+PY  - 2020
+UR  - https://arxiv.org/abs/2012.00168v2
+LB  - shukla2021irregular
+N1  - bibkey=shukla2021irregular; verification=verified; source=arxiv:id; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Page, M. J.
+AU  - McKenzie, J. E.
+AU  - Bossuyt, P. M.
+TI  - The PRISMA 2020 Statement: An Updated Guideline for Reporting Systematic Reviews
+JO  - BMJ
+PY  - 2021
+VL  - 372
+SP  - n71
+DO  - 10.1136/bmj.n71
+UR  - https://doi.org/10.1136/bmj.n71
+LB  - page2021prisma
+N1  - bibkey=page2021prisma; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Metzger, N.
+AU  - Turkoglu, M. O.
+AU  - D'Aronco, S.
+TI  - Crop Classification Under Varying Cloud Cover With Neural Ordinary Differential Equations
+JO  - IEEE Transactions on Geoscience and Remote Sensing
+PY  - 2022
+VL  - 60
+SP  - 1
+EP  - 12
+DO  - 10.1109/tgrs.2021.3101965
+UR  - https://doi.org/10.1109/tgrs.2021.3101965
+LB  - metzger2023crop
+N1  - bibkey=metzger2023crop; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - CPAPER
+AU  - Shi, X.
+AU  - Chen, Z.
+AU  - Wang, H.
+TI  - Convolutional LSTM Network: A Machine Learning Approach for Precipitation Nowcasting
+T2  - Advances in Neural Information Processing Systems (NeurIPS)
+PY  - 2015
+VL  - 28
+DO  - 10.48550/arxiv.1506.04214
+UR  - https://doi.org/10.48550/arxiv.1506.04214
+LB  - shi2015convolutional
+N1  - bibkey=shi2015convolutional; verification=verified; source=openalex; authors=match; matched on OpenAlex
+ER  - 
+
+TY  - JOUR
+AU  - Gu, A.
+AU  - Dao, T.
+TI  - Mamba: Linear-Time Sequence Modeling with Selective State Spaces
+JO  - arXiv preprint arXiv:2312.00752
+PY  - 2023
+UR  - https://arxiv.org/abs/2312.00752v2
+LB  - gu2023mamba
+N1  - bibkey=gu2023mamba; verification=verified; source=arxiv:id; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Shao, W.
+AU  - Jin, Z.
+AU  - Wang, S.
+TI  - Long-Term Spatio-Temporal Forecasting via Dynamic Multiple-Graph Attention
+JO  - Information Sciences
+PY  - 2022
+VL  - 612
+SP  - 636
+EP  - 651
+PB  - Elsevier
+DO  - 10.24963/ijcai.2022/309
+UR  - https://doi.org/10.24963/ijcai.2022/309
+LB  - shao2022longterm
+N1  - bibkey=shao2022longterm; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Xu, M.
+AU  - Dai, W.
+AU  - Liu, C.
+AU  - Gao, X.
+AU  - Lin, W.
+AU  - Qi, G.-J.
+AU  - Xiong, H.
+TI  - Spatial-Temporal Transformer Networks for Traffic Flow Forecasting
+JO  - arXiv preprint arXiv:2001.02908
+PY  - 2020
+UR  - https://arxiv.org/abs/2001.02908v2
+LB  - xu2020stransformer
+N1  - bibkey=xu2020stransformer; verification=verified; source=arxiv:id; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Saha, S. S.
+AU  - Sandha, S. S.
+AU  - Srivastava, M.
+TI  - Machine Learning for Microcontroller-Class Hardware: A Review
+JO  - IEEE Sensors Journal
+PY  - 2022
+VL  - 22
+IS  - 22
+SP  - 21362
+EP  - 21390
+DO  - 10.1109/jsen.2022.3210773
+UR  - https://doi.org/10.1109/jsen.2022.3210773
+LB  - saha2022mcuml
+N1  - bibkey=saha2022mcuml; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Wong, D. L. T.
+AU  - Li, Y.
+AU  - John, D.
+AU  - Ho, W. K.
+AU  - Heng, C.-H.
+TI  - An Energy Efficient ECG Ventricular Ectopic Beat Classifier Using Binarized CNN for Edge AI Devices
+JO  - IEEE Transactions on Biomedical Circuits and Systems
+PY  - 2022
+VL  - 16
+IS  - 2
+SP  - 222
+EP  - 232
+DO  - 10.1109/tbcas.2022.3152623
+UR  - https://doi.org/10.1109/tbcas.2022.3152623
+LB  - wong2022binarizedecg
+N1  - bibkey=wong2022binarizedecg; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - CPAPER
+AU  - Frey, S.
+AU  - Guermandi, M.
+AU  - Benatti, S.
+AU  - Kartsch, V.
+AU  - Cossettini, A.
+AU  - Benini, L.
+TI  - BioGAP: A 10-Core FP-capable Ultra-Low Power IoT Processor, with Medical-Grade AFE and BLE Connectivity for Wearable Biosignal Processing
+T2  - Proc. IEEE Int. Conf. Omni-layer Intelligent Systems (COINS)
+PY  - 2023
+SP  - 1
+EP  - 7
+DO  - 10.1109/coins57856.2023.10189286
+UR  - https://doi.org/10.1109/coins57856.2023.10189286
+LB  - frey2023biogap
+N1  - bibkey=frey2023biogap; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Che, Z.
+AU  - Purushotham, S.
+AU  - Cho, K.
+TI  - Recurrent Neural Networks for Multivariate Time Series with Missing Values
+JO  - Scientific Reports
+PY  - 2018
+VL  - 8
+IS  - 1
+SP  - 6085
+DO  - 10.1038/s41598-018-24271-9
+UR  - https://doi.org/10.1038/s41598-018-24271-9
+LB  - che2018grud
+N1  - bibkey=che2018grud; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Ayaz, M.
+AU  - Pasha, M. F.
+AU  - Alzahrani, M. Y.
+AU  - Budiarto, R.
+AU  - Stiawan, D.
+TI  - The Fast Health Interoperability Resources (FHIR) Standard: Systematic Literature Review of Implementations, Applications, Challenges and Opportunities
+JO  - JMIR Medical Informatics
+PY  - 2021
+VL  - 9
+IS  - 7
+SP  - e21929
+DO  - 10.2196/21929
+UR  - https://doi.org/10.2196/21929
+LB  - ayaz2021fhir
+N1  - bibkey=ayaz2021fhir; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - GEN
+AU  - IEEE
+TI  - Health Informatics-Personal Health Device Communication, Part 20601: Application Profile-Optimized Exchange Protocol
+T2  - IEEE Std 11073-20601-2019
+PY  - 2019
+DO  - 10.1109/ieeestd.2019.8936639
+UR  - https://doi.org/10.1109/ieeestd.2019.8936639
+LB  - ieee11073std
+N1  - bibkey=ieee11073std; verification=verified; source=crossref:doi; authors=n/a
+ER  - 
+
+TY  - JOUR
+AU  - Liu, W.
+AU  - Jia, K.
+AU  - Wang, Z.
+TI  - A Depression Prediction Algorithm Based on Spatiotemporal Feature of EEG Signal
+JO  - Brain Sciences
+PY  - 2022
+VL  - 12
+IS  - 5
+SP  - 630
+DO  - 10.3390/brainsci12050630
+UR  - https://doi.org/10.3390/brainsci12050630
+LB  - 2
+N1  - bibkey=2; verification=verified; source=crossref:search; authors=match; DOI found by title search
+ER  - 
+
+TY  - JOUR
+AU  - Zhang, W.
+AU  - Zeng, W.
+AU  - Chen, H.
+TI  - STANet: A Novel Spatio-Temporal Aggregation Network for Depression Classification with Small and Unbalanced fMRI Data
+JO  - Tomography
+PY  - 2024
+VL  - 10
+IS  - 12
+SP  - 1895
+EP  - 1914
+DO  - 10.3390/tomography10120138
+UR  - https://doi.org/10.3390/tomography10120138
+LB  - 9
+N1  - bibkey=9; verification=verified; source=crossref:search; authors=match; DOI found by title search
+ER  - 
+
+TY  - JOUR
+AU  - Lim, M. H.
+TI  - A Deep Learning Framework for Virtual Continuous Glucose Monitoring and Glucose Prediction Based on Life-Log Data
+JO  - Scientific Reports
+PY  - 2025
+DO  - 10.1038/s41598-025-01367-7
+UR  - https://doi.org/10.1038/s41598-025-01367-7
+LB  - Lim2025VirtualCGM
+N1  - bibkey=Lim2025VirtualCGM; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Glaser, Y.
+AU  - Shepherd, J.
+AU  - Leong, L.
+TI  - Deep Learning Predicts All-Cause Mortality from Longitudinal Total-Body DXA Imaging
+JO  - Communications Medicine
+PY  - 2022
+DO  - 10.1038/s43856-022-00166-9
+UR  - https://doi.org/10.1038/s43856-022-00166-9
+LB  - glaser2022deep
+N1  - bibkey=glaser2022deep; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Li, X.
+TI  - Identifying Counties Vulnerable to Diabetes from Obesity Prevalence in the United States: A Spatiotemporal Analysis
+JO  - Geospatial Health
+PY  - 2016
+VL  - 11
+IS  - 2
+DO  - 10.4081/gh.2016.439
+UR  - https://doi.org/10.4081/gh.2016.439
+LB  - XiaoLi2016DiabetesSpatiotemporal
+N1  - bibkey=XiaoLi2016DiabetesSpatiotemporal; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - GEN
+AU  - Fang, H.
+TI  - iPAT: Intelligent Diet Quality Pattern Analysis for Harmonized MA-National Trials
+T2  - NIH/NIDDK Research Grant R01DK129432
+PY  - 2021
+UR  - https://nihvip-ipat.yu.edu/
+LB  - Fang2021iPAT
+N1  - bibkey=Fang2021iPAT; verification=unverified-url; source=bib:url; authors=n/a; not indexed by Crossref/arXiv; using URL from bib
+ER  - 
+
+TY  - JOUR
+AU  - Sudlow, C.
+AU  - Gallacher, J.
+AU  - Allen, N.
+TI  - UK Biobank: An Open Access Resource for Identifying the Causes of a Wide Range of Complex Diseases of Middle and Old Age
+JO  - PLoS Medicine
+PY  - 2015
+VL  - 12
+IS  - 3
+SP  - e1001779
+DO  - 10.1371/journal.pmed.1001779
+UR  - https://doi.org/10.1371/journal.pmed.1001779
+LB  - sudlow2015ukbiobank
+N1  - bibkey=sudlow2015ukbiobank; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - CPAPER
+AU  - Caroprese, L.
+AU  - Veltri, P.
+AU  - Vocaturo, E.
+AU  - Zumpano, E.
+TI  - Deep Learning Techniques for Electronic Health Record Analysis
+T2  - 2018 9th International Conference on Information, Intelligence, Systems and Applications (IISA)
+PY  - 2018
+SP  - 1234
+EP  - 1241
+PB  - IEEE
+DO  - 10.1109/iisa.2018.8633647
+UR  - https://doi.org/10.1109/iisa.2018.8633647
+LB  - caroprese2018deepehr
+N1  - bibkey=caroprese2018deepehr; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Liu, C. L.
+AU  - Su, H. C.
+TI  - Temporal Learning in Predictive Health Management Using Channel-Spatial Attention-Based Deep Neural Networks
+JO  - Advanced Engineering Informatics
+PY  - 2024
+PB  - Elsevier
+DO  - 10.1016/j.aei.2024.102604
+UR  - https://doi.org/10.1016/j.aei.2024.102604
+LB  - liu2024temporallearning
+N1  - bibkey=liu2024temporallearning; verification=verified; source=crossref:search; authors=match; DOI found by title search
+ER  - 
+
+TY  - JOUR
+AU  - Liu, X.
+AU  - Yeo, K.
+AU  - Lu, S.
+TI  - Statistical Modeling for Spatio-Temporal Data from Stochastic Convection-Diffusion Processes
+JO  - Journal of the American Statistical Association
+PY  - 2022
+VL  - 117
+IS  - 539
+SP  - 1482
+EP  - 1499
+DO  - 10.1080/01621459.2020.1863223
+UR  - https://doi.org/10.1080/01621459.2020.1863223
+LB  - liu2022convectionDiffusion
+N1  - bibkey=liu2022convectionDiffusion; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Gasperoni, F.
+AU  - Luati, A.
+AU  - Paci, L.
+TI  - Score-Driven Modeling of Spatio-Temporal Data
+JO  - Journal of the American Statistical Association
+PY  - 2023
+VL  - 118
+IS  - 542
+SP  - 1066
+EP  - 1077
+DO  - 10.1080/01621459.2021.1970571
+UR  - https://doi.org/10.1080/01621459.2021.1970571
+LB  - gasperoni2023scoreDriven
+N1  - bibkey=gasperoni2023scoreDriven; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Morales, F. E. Castro
+AU  - Paez, M. Silva
+TI  - Spatiotemporal Modelling with Dynamic Deformation for Nonstationary Covariance Structures
+JO  - Journal of the Royal Statistical Society: Series C (Applied Statistics)
+PY  - 2025
+VL  - 74
+IS  - 3
+SP  - 743
+EP  - 774
+DO  - 10.1093/jrsssc/qlae076
+UR  - https://doi.org/10.1093/jrsssc/qlae076
+LB  - castroMorales2025dynamicDeformation
+N1  - bibkey=castroMorales2025dynamicDeformation; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Wikle, C. K.
+AU  - Zammit-Mangion, A.
+TI  - Statistical Deep Learning for Spatial and Spatio-Temporal Data
+JO  - Annual Review of Statistics and Its Application
+PY  - 2023
+VL  - 10
+SP  - 247
+EP  - 270
+DO  - 10.1146/annurev-statistics-033021-112628
+UR  - https://doi.org/10.1146/annurev-statistics-033021-112628
+LB  - wikle2023statisticalDeepLearning
+N1  - bibkey=wikle2023statisticalDeepLearning; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Scarselli, F.
+AU  - Gori, M.
+AU  - Tsoi, A. C.
+TI  - The Graph Neural Network Model
+JO  - IEEE Transactions on Neural Networks
+PY  - 2009
+VL  - 20
+IS  - 1
+SP  - 61
+EP  - 80
+PB  - IEEE
+DO  - 10.1109/tnn.2008.2005605
+UR  - https://doi.org/10.1109/tnn.2008.2005605
+LB  - scarselli2009gnn
+N1  - bibkey=scarselli2009gnn; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - BOOK
+AU  - Rumelhart, D. E.
+AU  - Hinton, G. E.
+AU  - Williams, R. J.
+TI  - Learning Internal Representations by Error Propagation
+T2  - Parallel Distributed Processing: Explorations in the Microstructure of Cognition
+PY  - 1986
+VL  - 1
+SP  - 318
+EP  - 362
+PB  - MIT Press
+DO  - 10.21236/ada164453
+UR  - https://doi.org/10.21236/ada164453
+LB  - rumelhart1986rnn
+N1  - bibkey=rumelhart1986rnn; verification=verified; source=crossref:search; authors=match; DOI found by title search
+ER  - 
+
+TY  - CPAPER
+AU  - Vaswani, A.
+AU  - Shazeer, N.
+AU  - Parmar, N.
+TI  - Attention Is All You Need
+T2  - Advances in Neural Information Processing Systems
+PY  - 2017
+VL  - 30
+UR  - https://arxiv.org/abs/1706.03762v7
+LB  - vaswani2017attention
+N1  - bibkey=vaswani2017attention; verification=verified; source=arxiv; authors=match; matched on arXiv
+ER  - 
+
+TY  - JOUR
+AU  - Hinton, G. E.
+AU  - Salakhutdinov, R. R.
+TI  - Reducing the Dimensionality of Data with Neural Networks
+JO  - Science
+PY  - 2006
+VL  - 313
+IS  - 5786
+SP  - 504
+EP  - 507
+PB  - American Association for the Advancement of Science
+DO  - 10.1126/science.1127647
+UR  - https://doi.org/10.1126/science.1127647
+LB  - hinton2006reducing
+N1  - bibkey=hinton2006reducing; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - CPAPER
+AU  - Goodfellow, I. J.
+AU  - Pouget-Abadie, J.
+AU  - Mirza, M.
+TI  - Generative Adversarial Nets
+T2  - Advances in Neural Information Processing Systems (NeurIPS)
+PY  - 2014
+VL  - 27
+SP  - 2672
+EP  - 2680
+DO  - 10.48550/arxiv.1406.2661
+UR  - https://doi.org/10.48550/arxiv.1406.2661
+LB  - goodfellow2014gan
+N1  - bibkey=goodfellow2014gan; verification=verified; source=openalex; authors=match; matched on OpenAlex
+ER  - 
+
+TY  - CPAPER
+AU  - Ho, J.
+AU  - Jain, A.
+AU  - Abbeel, P.
+TI  - Denoising Diffusion Probabilistic Models
+T2  - Advances in Neural Information Processing Systems (NeurIPS)
+PY  - 2020
+VL  - 33
+SP  - 6840
+EP  - 6851
+UR  - https://arxiv.org/abs/2006.11239v2
+LB  - ho2020ddpm
+N1  - bibkey=ho2020ddpm; verification=verified; source=arxiv; authors=match; title matches this record but bib authors differ: Jonathan, Ho,; Jain, Ajay N.; Abbeel, Pietermatched on arXiv
+ER  - 
+
+TY  - JOUR
+AU  - Maes, L.
+AU  - Le Lidec, Q.
+AU  - Scieur, D.
+TI  - LeWorldModel: Stable End-to-End Joint-Embedding Predictive Architecture from Pixels
+JO  - arXiv preprint arXiv:2603.19312
+PY  - 2026
+UR  - https://arxiv.org/abs/2603.19312v3
+LB  - maes2026leworldmodel
+N1  - bibkey=maes2026leworldmodel; verification=verified; source=arxiv:id; authors=match
+ER  - 
+
+TY  - CPAPER
+AU  - Rubanova, Y.
+AU  - Chen, R. T. Q.
+AU  - Duvenaud, D.
+TI  - Latent ODEs for Irregularly-Sampled Time Series
+T2  - Advances in Neural Information Processing Systems
+PY  - 2019
+UR  - https://arxiv.org/abs/1907.03907v1
+LB  - rubanova2019latent
+N1  - bibkey=rubanova2019latent; verification=verified; source=arxiv; authors=match; matched on arXiv
+ER  - 
+
+TY  - CPAPER
+AU  - Chen, Y.
+AU  - Ren, K.
+AU  - Wang, Y.
+TI  - ContiFormer: Continuous-Time Transformer for Irregular Time Series Modeling
+T2  - Advances in Neural Information Processing Systems (NeurIPS)
+PY  - 2023
+VL  - 36
+SP  - 3564
+EP  - 3576
+PB  - Curran Associates, Inc.
+DO  - 10.52202/075280-2042
+UR  - https://doi.org/10.52202/075280-2042
+LB  - chen2023contiformer
+N1  - bibkey=chen2023contiformer; verification=verified; source=crossref:search; authors=match; DOI found by title search
+ER  - 
+
+TY  - CPAPER
+AU  - Moreno-Pino, F.
+AU  - Arroyo, A.
+AU  - Waldon, H.
+AU  - Dong, X.
+AU  - Cartea, A.
+TI  - Rough Transformers: Lightweight and Continuous Time Series Modelling through Signature Patching
+T2  - Advances in Neural Information Processing Systems (NeurIPS)
+PY  - 2024
+UR  - https://arxiv.org/abs/2405.20799v3
+LB  - morenopino2024rough
+N1  - bibkey=morenopino2024rough; verification=verified; source=arxiv:id; authors=match
+ER  - 
+
+TY  - CPAPER
+AU  - Zhou, T.
+AU  - Ma, Z.
+AU  - Wen, Q.
+AU  - Wang, X.
+AU  - Sun, L.
+AU  - Jin, R.
+TI  - FEDformer: Frequency Enhanced Decomposed Transformer for Long-Term Series Forecasting
+T2  - Proceedings of the 39th International Conference on Machine Learning (ICML)
+PY  - 2022
+UR  - https://arxiv.org/abs/2201.12740v3
+LB  - zhou2022fedformer
+N1  - bibkey=zhou2022fedformer; verification=verified; source=arxiv:id; authors=match
+ER  - 
+
+TY  - CPAPER
+AU  - Wang, H.
+AU  - Peng, J.
+AU  - Huang, F.
+TI  - MICN: Multi-Scale Local and Global Context Modeling for Long-Term Series Forecasting
+T2  - International Conference on Learning Representations (ICLR)
+PY  - 2023
+UR  - https://openreview.net/forum?id=zt53IDUR1U
+LB  - wang2023micn
+N1  - bibkey=wang2023micn; verification=manual-link; source=manual; authors=n/a; ICLR 2023 OpenReview page, supplied manually (OpenReview blocks automated checks) - please confirm
+ER  - 
+
+TY  - JOUR
+AU  - Rouast, P. V.
+AU  - Adam, M. T. P.
+TI  - Learning Deep Representations for Video-Based Intake Gesture Detection
+JO  - IEEE Journal of Biomedical and Health Informatics
+PY  - 2020
+VL  - 24
+IS  - 6
+SP  - 1727
+EP  - 1737
+DO  - 10.1109/jbhi.2019.2942845
+UR  - https://doi.org/10.1109/jbhi.2019.2942845
+LB  - Rouast2020IntakeGesture
+N1  - bibkey=Rouast2020IntakeGesture; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Li, K.
+AU  - Daniels, J.
+AU  - Liu, C.
+AU  - Herrero, P.
+AU  - Georgiou, P.
+TI  - GluNet: A Deep Learning Framework for Accurate Glucose Forecasting
+JO  - IEEE Journal of Biomedical and Health Informatics
+PY  - 2020
+VL  - 24
+IS  - 2
+SP  - 414
+EP  - 423
+DO  - 10.1109/jbhi.2019.2931842
+UR  - https://doi.org/10.1109/jbhi.2019.2931842
+LB  - Li2020GluNet
+N1  - bibkey=Li2020GluNet; verification=verified; source=crossref:doi; authors=partial
+ER  - 
+
+TY  - JOUR
+AU  - Thaipisutikul, T.
+TI  - MONDEP: A Unified SpatioTemporal MONitoring Framework for National DEPression Forecasting
+JO  - Heliyon
+PY  - 2024
+VL  - 10
+IS  - 17
+SP  - e36877
+DO  - 10.1016/j.heliyon.2024.e36877
+UR  - https://doi.org/10.1016/j.heliyon.2024.e36877
+LB  - 3
+N1  - bibkey=3; verification=verified; source=crossref:search; authors=match; DOI found by title search
+ER  - 
+
+TY  - JOUR
+AU  - Kong, Y.
+AU  - Gao, S.
+AU  - Yue, Y.
+TI  - Spatio-Temporal Graph Convolutional Network for Diagnosis and Treatment Response Prediction of Major Depressive Disorder from Functional Connectivity
+JO  - Human Brain Mapping
+PY  - 2021
+VL  - 42
+IS  - 12
+SP  - 3922
+EP  - 3933
+DO  - 10.1002/hbm.25529
+UR  - https://doi.org/10.1002/hbm.25529
+LB  - 4
+N1  - bibkey=4; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Bohoran, T. A.
+AU  - Parke, K. S.
+AU  - Graham-Brown, M. P. M.
+TI  - Resource-Efficient Aortic Distensibility Calculation by End-to-End Spatiotemporal Learning of Aortic Lumen from Multicentre Multivendor Multidisease CMR Images
+JO  - Scientific Reports
+PY  - 2023
+VL  - 13
+IS  - 1
+SP  - 21794
+DO  - 10.1038/s41598-023-48986-6
+UR  - https://doi.org/10.1038/s41598-023-48986-6
+LB  - 5
+N1  - bibkey=5; verification=verified; source=crossref:search; authors=match; DOI found by title search
+ER  - 
+
+TY  - JOUR
+AU  - Hernandez, K. A. Lara
+AU  - Rienmuller, T.
+AU  - Baumgartner, D.
+TI  - Deep Learning in Spatiotemporal Cardiac Imaging: A Review of Methodologies and Clinical Usability
+JO  - Computers in Biology and Medicine
+PY  - 2021
+VL  - 130
+SP  - 104200
+DO  - 10.1016/j.compbiomed.2020.104200
+UR  - https://doi.org/10.1016/j.compbiomed.2020.104200
+LB  - 6
+N1  - bibkey=6; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Xie, J.
+AU  - Yao, B.
+TI  - Physics-Constrained Deep Active Learning for Spatiotemporal Modeling of Cardiac Electrodynamics
+JO  - Computers in Biology and Medicine
+PY  - 2022
+VL  - 146
+SP  - 105586
+DO  - 10.1016/j.compbiomed.2022.105586
+UR  - https://doi.org/10.1016/j.compbiomed.2022.105586
+LB  - 7
+N1  - bibkey=7; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - CPAPER
+AU  - Jain, S.
+AU  - Wallace, B. C.
+TI  - Attention is not Explanation
+T2  - Proc. Conf. North American Chapter Assoc. Comput. Linguistics: Human Language Technologies (NAACL-HLT)
+PY  - 2019
+DO  - 10.18653/v1/n19-1357
+UR  - https://doi.org/10.18653/v1/n19-1357
+LB  - jain2019attention
+N1  - bibkey=jain2019attention; verification=verified; source=crossref:search; authors=match; DOI found by title search
+ER  - 
+
+TY  - CPAPER
+AU  - Serrano, S.
+AU  - Smith, N. A.
+TI  - Is Attention Interpretable?
+T2  - Proc. Annu. Meeting Assoc. Comput. Linguistics (ACL)
+PY  - 2019
+DO  - 10.18653/v1/p19-1282
+UR  - https://doi.org/10.18653/v1/p19-1282
+LB  - serrano2019attention
+N1  - bibkey=serrano2019attention; verification=verified; source=crossref:search; authors=match; DOI found by title search
+ER  - 
+
+TY  - CPAPER
+AU  - Wiegreffe, S.
+AU  - Pinter, Y.
+TI  - Attention is not not Explanation
+T2  - Proc. Conf. Empirical Methods in Natural Language Processing (EMNLP-IJCNLP)
+PY  - 2019
+DO  - 10.18653/v1/d19-1002
+UR  - https://doi.org/10.18653/v1/d19-1002
+LB  - wiegreffe2019attention
+N1  - bibkey=wiegreffe2019attention; verification=verified; source=crossref:search; authors=match; DOI found by title search
+ER  - 
+
+TY  - CPAPER
+AU  - Tonekaboni, S.
+AU  - Joshi, S.
+AU  - McCradden, M. D.
+TI  - What Clinicians Want: Contextualizing Explainable Machine Learning for Clinical End Use
+T2  - Proceedings of the Machine Learning for Healthcare Conference
+PY  - 2019
+DO  - 10.48550/arxiv.1905.05134
+UR  - https://doi.org/10.48550/arxiv.1905.05134
+LB  - tonekaboni2019clinicians
+N1  - bibkey=tonekaboni2019clinicians; verification=verified; source=openalex; authors=match; matched on OpenAlex
+ER  - 
+
+TY  - JOUR
+AU  - Rudin, C.
+TI  - Stop Explaining Black Box Machine Learning Models for High Stakes Decisions and Use Interpretable Models Instead
+JO  - Nature Machine Intelligence
+PY  - 2019
+VL  - 1
+IS  - 5
+SP  - 206
+EP  - 215
+DO  - 10.1038/s42256-019-0048-x
+UR  - https://doi.org/10.1038/s42256-019-0048-x
+LB  - rudin2019stopexplaining
+N1  - bibkey=rudin2019stopexplaining; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Lin, J.
+AU  - Luo, S.
+TI  - Deep Learning for the Dynamic Prediction of Multivariate Longitudinal and Survival Data
+JO  - Statistics in Medicine
+PY  - 2022
+VL  - 41
+IS  - 15
+DO  - 10.1002/sim.9392
+UR  - https://doi.org/10.1002/sim.9392
+LB  - lin2022deep
+N1  - bibkey=lin2022deep; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Nitski, O.
+AU  - Azhie, A.
+AU  - Qazi-Arisar, F. A.
+TI  - Long-Term Mortality Risk Stratification of Liver Transplant Recipients: Real-Time Application of Deep Learning Algorithms on Longitudinal Data
+JO  - The Lancet Digital Health
+PY  - 2021
+DO  - 10.1016/s2589-7500(21)00040-6
+UR  - https://doi.org/10.1016/s2589-7500(21)00040-6
+LB  - nitski2021long
+N1  - bibkey=nitski2021long; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Tao, F.
+AU  - Zhang, M.
+AU  - Nee, A. Y. C.
+TI  - Digital Twin Driven Prognostics and Health Management for Complex Equipment
+JO  - CIRP Annals
+PY  - 2018
+VL  - 67
+IS  - 1
+SP  - 169
+EP  - 172
+DO  - 10.1016/j.cirp.2018.04.055
+UR  - https://doi.org/10.1016/j.cirp.2018.04.055
+LB  - Tao2018
+N1  - bibkey=Tao2018; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - RPRT
+AU  - Griffor, E. R.
+AU  - Greer, C.
+AU  - Wollman, D. A.
+AU  - Burns, M. J.
+TI  - Framework for Cyber-Physical Systems: Volume 1, Overview
+T2  - National Institute of Standards and Technology
+PY  - 2017
+IS  - SP 1500-201
+DO  - 10.6028/nist.sp.1500-201
+UR  - https://doi.org/10.6028/nist.sp.1500-201
+LB  - NIST2021
+N1  - bibkey=NIST2021; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Faruqui, S. H. A.
+AU  - Alaeddini, A.
+AU  - Du, Y.
+TI  - Nurse-in-the-Loop Artificial Intelligence for Precision Management of Type 2 Diabetes via a Predictive Digital Twin
+JO  - arXiv preprint arXiv:2401.02661
+PY  - 2024
+UR  - https://arxiv.org/abs/2401.02661v1
+LB  - Faruqui2024
+N1  - bibkey=Faruqui2024; verification=verified; source=arxiv:id; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Seh, A. H.
+AU  - Zarour, M.
+AU  - Alenezi, M.
+TI  - Healthcare Data Breaches: Insights and Implications
+JO  - Healthcare
+PY  - 2020
+VL  - 8
+IS  - 2
+SP  - 133
+DO  - 10.3390/healthcare8020133
+UR  - https://doi.org/10.3390/healthcare8020133
+LB  - Seh2020HealthcareDataBreaches
+N1  - bibkey=Seh2020HealthcareDataBreaches; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Prayitno
+AU  - Shyu, C. R.
+AU  - Putra, K. T.
+TI  - A Systematic Review of Federated Learning in the Healthcare Area: From the Perspective of Data Properties and Applications
+JO  - Applied Sciences (MDPI)
+PY  - 2021
+VL  - 11
+IS  - 23
+SP  - 11191
+PB  - MDPI
+DO  - 10.3390/app112311191
+UR  - https://doi.org/10.3390/app112311191
+LB  - prayitno2021FLhealthcare
+N1  - bibkey=prayitno2021FLhealthcare; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Aouedi, O.
+AU  - Sacco, A.
+AU  - Piamrat, K.
+TI  - Handling Privacy-Sensitive Medical Data With Federated Learning: Challenges and Future Directions
+JO  - IEEE Journal of Biomedical and Health Informatics
+PY  - 2023
+VL  - 27
+IS  - 2
+SP  - 790
+EP  - 803
+PB  - IEEE
+DO  - 10.1109/jbhi.2022.3185673
+UR  - https://doi.org/10.1109/jbhi.2022.3185673
+LB  - aouedi2022FLmedical
+N1  - bibkey=aouedi2022FLmedical; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - CHAP
+AU  - Auvinet, E.
+AU  - Maillot, C.
+AU  - Uzoho, C.
+TI  - Augmented Reality Technology for Joint Replacement
+T2  - Personalized Hip and Knee Joint Replacement
+PY  - 2020
+SP  - 321
+EP  - 328
+PB  - Springer
+DO  - 10.1007/978-3-030-24243-5_27
+UR  - https://doi.org/10.1007/978-3-030-24243-5_27
+LB  - Auvinet2018AR
+N1  - bibkey=Auvinet2018AR; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Louis, R.
+AU  - Cagigas, J.
+AU  - Brant-Zawadzki, M.
+TI  - Impact of Neurosurgical Consultation with 360-Degree Virtual Reality Technology on Patient Engagement and Satisfaction
+JO  - Neurosurgery Practice
+PY  - 2020
+VL  - 1
+IS  - 3
+SP  - okaa004
+DO  - 10.1093/neuopn/okaa004
+UR  - https://doi.org/10.1093/neuopn/okaa004
+LB  - Louis2021VR
+N1  - bibkey=Louis2021VR; verification=verified; source=crossref:doi; authors=match
+ER  - 
+
+TY  - JOUR
+AU  - Sadee, C.
+AU  - Testa, S.
+AU  - Barba, T.
+TI  - Medical Digital Twins: Enabling Precision Medicine and Medical Artificial Intelligence
+JO  - The Lancet Digital Health
+PY  - 2025
+VL  - 7
+IS  - 7
+SP  - 100864
+DO  - 10.1016/j.landig.2025.02.004
+UR  - https://doi.org/10.1016/j.landig.2025.02.004
+LB  - Sadee2025MedicalDT
+N1  - bibkey=Sadee2025MedicalDT; verification=verified; source=crossref:doi; authors=match
+ER  - 

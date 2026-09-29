@@ -1,0 +1,126 @@
+%% Supplementary material for the IEEE IoT-J submission.
+%% Compiled independently of STmodel.tex; shares newST.bib.
+\documentclass[journal]{IEEEtran}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\begin{document}
+
+\title{Supplementary Material for\\
+``Spatiotemporal Deep Learning for IoT-Enabled Digital Health:\\
+From Predictive Models to Digital Twins and Emerging World Models''}
+\author{Xin Xiang, Hua Fang, Dengyi Liu, Ashikur Nobel, and Honggang Wang}
+\maketitle
+
+\section{Scope of this supplement}
+This supplement holds the three tables that do not fit the eight-page submission:
+the threat-and-protection map across IoT layers (Table~\ref{tab:threats}), the
+public-dataset guide (Table~\ref{tab:datasets}), and the study-level quality
+assessment (Table~\ref{tab:quality}). Reference numbers are those of this
+document, so each row also names its study or source in text. Where a field
+could not be established from a source we had access to, the cell reads
+\emph{n/r} (the source reports nothing) or \emph{not assessable} (we could not
+read the full text); neither is left blank, and Section~\ref{sec:access} lists
+what we could not obtain.
+
+\section{Threats and protections across the IoT layers}
+\label{sec:threats}
+Table~\ref{tab:threats} maps the threat surface of a connected-health pipeline
+onto the layers of the taxonomy in the main paper, separating the five security
+properties that a clinical deployment has to hold apart: confidentiality,
+integrity, availability, privacy, and patient safety. The last column names the
+protection that applies at that layer; nothing in the table is specific to a
+single product or vendor. Two points that the surveyed literature tends to blur
+are made explicit here. First, federated learning is an architecture for keeping
+raw records in place; on its own it supplies neither encryption nor a privacy
+guarantee, both of which are separate mechanisms listed in the corresponding
+rows. Second, the world-model layer is the only one where a successful attack
+yields a wrong \emph{action} rather than a wrong number, which is why the safety
+filter and the action-provenance requirements appear only there.
+
+\begin{table*}[t]
+\centering
+\caption{Threats and protections across the layers of the connected-health pipeline.
+Columns give the security property principally at stake; the final column gives the
+protection that belongs at that layer. C: confidentiality, I: integrity, A: availability,
+P: privacy, S: patient safety.}
+\label{tab:threats}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{L{1.9cm} L{2.6cm} L{2.4cm} L{2.2cm} L{2.4cm} X}
+\toprule
+\textbf{Layer} & \textbf{Threat (C)} & \textbf{Threat (I)} & \textbf{Threat (A)} & \textbf{Threat (P, S)} & \textbf{Protection at this layer} \\
+\midrule
+Sensing and device &
+Readout of stored samples from a lost or discarded wearable &
+Sensor spoofing; firmware tampering that shifts calibration &
+Battery exhaustion; jamming of the body-area link &
+Re-identification from raw motion or heart-rate traces; wrong therapy from a drifted sensor &
+Per-device authentication and key storage; signed firmware with calibration provenance; on-device retention limits; IEEE 11073 device profiles for a documented data contract~\cite{ieee11073std} \\
+\addlinespace[2pt]
+Communication &
+Interception of an unencrypted body-area or gateway link &
+Injection or replay of messages; downgrade of the transport &
+Link loss and packet drop; radio congestion at the gateway &
+Traffic analysis revealing behaviour even when payloads are encrypted; missed alarms from silent loss &
+Transport encryption with mutual authentication; replay protection; message freshness and sequence checks; store-and-forward with acknowledgement so loss is visible rather than silent \\
+\addlinespace[2pt]
+Edge and gateway &
+Extraction of a cached model or of buffered patient windows &
+Poisoned local update; tampered pre-processing that leaks future information into features &
+Resource exhaustion on a microcontroller-class device~\cite{saha2022mcuml}; thermal or power limits &
+Membership inference from an on-device model; unsafe local inference when the model is out of distribution &
+Secure boot and encrypted buffers; signed and reversible model updates; input validation of windowing and resampling; refusal to infer when inputs fall outside the validated range \\
+\addlinespace[2pt]
+Cloud and platform &
+Breach of a records store, a frequent target in health care~\cite{Seh2020HealthcareDataBreaches} &
+Silent schema or unit drift across sites; label corruption &
+Outage of the training or serving path &
+Linkage across cohorts; harmonisation choices that bias a subgroup &
+Access control with audit; schema and unit validation at ingestion, with FHIR as the interoperability contract~\cite{ayaz2021fhir}; separation of identifiers from measurements; recorded provenance for every derived variable \\
+\addlinespace[2pt]
+Federated training &
+Gradient inversion recovering training samples &
+Update poisoning that shifts the learned dynamics rather than a decision boundary &
+Stragglers and client dropout stalling a round &
+Membership inference from a released global model; non-IID clients yielding a model unsafe for a minority site &
+Secure aggregation and transport encryption, which federated learning does not itself provide~\cite{nguyen2022FLsmarthealthcare,aouedi2022FLmedical}; anomaly screening of client contributions; a stated differential-privacy budget with its accuracy cost; per-site personalisation and evaluation \\
+\addlinespace[2pt]
+Digital twin and decision &
+Exposure of a synchronised patient state, which identifies one individual &
+Tampering with the synchronisation path so the twin tracks a wrong state &
+Loss of synchronisation leaving a stale twin in service &
+A displayed risk that is uncalibrated for this patient; therapy changed on a stale state &
+Identity resolution reviewed by a person at intake; versioned state with a freshness indicator; calibration monitoring of the displayed risk; an audit log binding each output to a model version~\cite{Sel2025VVUQ} \\
+\addlinespace[2pt]
+World model and planning &
+Privacy leakage from released rollouts &
+Action-label tampering that inverts an intervention's estimated effect while leaving predictive accuracy intact &
+Planner unavailability at the moment of decision &
+Planner manipulation making an unsafe trajectory look optimal; a wrong \emph{action} rather than a wrong number &
+Provenance for observations and action labels; a privacy budget on released rollouts; a safety filter rejecting physiologically or protocol-infeasible trajectories; human review before any actuation~\cite{maes2026leworldmodel} \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\section{What we could not obtain}
+\label{sec:access}
+Of the studies synthesised in the main paper, the full text of one could not be
+obtained through open access, an author repository, or our institution:
+J.~Xie and B.~Yao, \emph{Computers in Biology and Medicine}, vol.~146,
+p.~105586, 2022 (doi:10.1016/j.compbiomed.2022.105586). Its method-level fields
+in Table~\ref{tab:quality} therefore read \emph{not assessable} rather than
+being inferred from the abstract. All other studies were read in full, from the
+publisher, from PubMed Central, or from an author-deposited version.
+
+\bibliographystyle{IEEEtran}
+\bibliography{newST}
+
+\end{document}

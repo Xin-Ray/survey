@@ -1,0 +1,7 @@
+# Scopus advanced search (paste into https://www.scopus.com/search/form.uri?display=advanced)
+
+=== ARM A (spatiotemporal) ===
+TITLE-ABS-KEY(spatiotemporal OR "spatio-temporal" OR "spatial-temporal" OR "space-time" OR "spatial and temporal") AND TITLE-ABS-KEY("deep learning" OR "neural network*" OR transformer* OR "graph neural" OR LSTM OR recurrent OR convolutional OR "deep neural") AND TITLE-ABS-KEY("digital health" OR wearable* OR "internet of things" OR IoT OR "mobile health" OR mHealth OR "remote monitoring" OR "continuous glucose" OR "electronic health record*" OR diabetes OR depression OR cardiac OR cardiovascular OR diet* OR "chronic disease*" OR "public health" OR "clinical prediction" OR "disease prediction" OR clinical OR patient* OR health) AND PUBYEAR > 2014 AND PUBYEAR < 2027
+
+=== ARM B (digital twin / world model) ===
+TITLE-ABS-KEY("digital twin*" OR "world model*") AND TITLE-ABS-KEY("deep learning" OR "neural network*" OR transformer* OR "graph neural" OR LSTM OR recurrent OR convolutional OR "deep neural") AND TITLE-ABS-KEY("digital health" OR wearable* OR "internet of things" OR IoT OR "mobile health" OR mHealth OR "remote monitoring" OR "continuous glucose" OR "electronic health record*" OR diabetes OR depression OR cardiac OR cardiovascular OR diet* OR "chronic disease*" OR "public health" OR "clinical prediction" OR "disease prediction" OR clinical OR patient* OR health) AND PUBYEAR > 2014 AND PUBYEAR < 2027

@@ -1,0 +1,104 @@
+[
+ {
+  "key": "Kyritsis2019EatingBehavior",
+  "doi": "10.1109/JBHI.2019.2892011",
+  "pmid": "30629523",
+  "abstract": "Overweight and obesity are both associated with in-meal eating parameters such as eating speed. Recently, the plethora of available wearable devices in the market ignited the interest of both the scientific community and the industry toward unobtrusive solutions for eating behavior monitoring. In this paper, we present an algorithm for automatically detecting the in-meal food intake cycles using the inertial signals (acceleration and orientation velocity) from an off-the-shelf smartwatch. We use five specific wrist micromovements to model the series of actions leading to and following an intake event (i.e., bite). Food intake detection is performed in two steps. In the first step, we process windows of raw sensor streams and estimate their micromovement probability distributions by means of a convolutional neural network. In the second step, we use a long short-term memory network to capture the temporal evolution and classify sequences of windows as food intake cycles. Evaluation is performed using a challenging dataset of 21 meals from 12 subjects. In our experiments, we compare the performance of our algorithm against three state-of-the-art approaches, where our approach achieves the highest F1 detection score (0.913 in the leave-one-subject-out experiment). The dataset used in the experiments is available at https://mug.ee.auth.gr/intake-cycle-detection/.",
+  "crossref_title": "Modeling Wrist Micromovements to Measure In-Meal Eating Behavior From Inertial Sensor Data",
+  "crossref_ok": true,
+  "venue": "IEEE Journal of Biomedical and Health Informatics",
+  "year": 2019,
+  "authors": [
+   "Kyritsis, Konstantinos",
+   "Diou, Christos",
+   "Delopoulos, Anastasios"
+  ]
+ },
+ {
+  "key": "Silfvergren2022",
+  "doi": "10.1371/journal.pcbi.1010469",
+  "pmid": "36094958",
+  "abstract": "Today, there is great interest in diets proposing new combinations of macronutrient compositions and fasting schedules. Unfortunately, there is little consensus regarding the impact of these different diets, since available studies measure different sets of variables in different populations, thus only providing partial, non-connected insights. We lack an approach for integrating all such partial insights into a useful and interconnected big picture. Herein, we present such an integrating tool. The tool uses a novel mathematical model that describes mechanisms regulating diet response and fasting metabolic fluxes, both for organ-organ crosstalk, and inside the liver. The tool can mechanistically explain and integrate data from several clinical studies, and correctly predict new independent data, including data from a new study. Using this model, we can predict non-measured variables, e.g. hepatic glycogen and gluconeogenesis, in response to fasting and different diets. Furthermore, we exemplify how such metabolic responses can be successfully adapted to a specific individual's sex, weight, height, as well as to the individual's historical data on metabolite dynamics. This tool enables an offline digital twin technology.",
+  "crossref_title": "Digital twin predicting diet response before and after long-term fasting",
+  "crossref_ok": true,
+  "venue": "PLOS Computational Biology",
+  "year": 2022,
+  "authors": [
+   "Silfvergren, Oscar",
+   "Simonsson, Christian",
+   "Ekstedt, Mattias",
+   "Lundberg, Peter",
+   "Gennemark, Peter",
+   "Cedersund, Gunnar"
+  ]
+ },
+ {
+  "key": "wang2014studentlife",
+  "doi": "10.1145/2632048.2632054",
+  "pmid": null,
+  "abstract": "",
+  "crossref_title": "StudentLife",
+  "crossref_ok": true,
+  "venue": "Proceedings of the 2014 ACM International Joint Conference on Pervasive and Ubiquitous Computing",
+  "year": 2014,
+  "authors": [
+   "Wang, Rui",
+   "Chen, Fanglin",
+   "Chen, Zhenyu",
+   "Li, Tianxing",
+   "Harari, Gabriella",
+   "Tignor, Stefanie"
+  ]
+ },
+ {
+  "key": "wang2024respiratoryDiseaseMapping",
+  "doi": "10.1093/biostatistics/kxac046",
+  "pmid": "36484310",
+  "abstract": "Respiratory diseases have been global public health problems for a long time. In recent years, air pollutants as important risk factors have drawn lots of attention. In this study, we investigate the influence of $\\pm2.5$ (particulate matters in diameter less than 2.5 ${\\rm{\\mu }} m$) on hospital visit rates for respiratory diseases in Taiwan. To reveal the spatiotemporal pattern of data, we propose a Bayesian disease mapping model with spatially varying coefficients and a parametric temporal trend. Model fitting is conducted using the integrated nested Laplace approximation, which is a widely applied technique for large-scale data sets due to its high computational efficiency. The finite sample performance of the proposed method is studied through a series of simulations. As demonstrated by simulations, the proposed model can improve both the parameter estimation performance and the prediction performance. We apply the proposed model on the respiratory disease data in 328 third-level administrative regions in Taiwan and find significant associations between hospital visit rates and $\\pm2.5$.",
+  "crossref_title": "Spatiotemporal varying coefficient model for respiratory disease mapping in Taiwan",
+  "crossref_ok": true,
+  "venue": "Biostatistics",
+  "year": 2022,
+  "authors": [
+   "Wang, Feifei",
+   "Duan, Congyuan",
+   "Li, Yang",
+   "Huang, Hui",
+   "Shia, Ben-Chang"
+  ]
+ },
+ {
+  "key": "bilal2025cityseircast",
+  "doi": "10.1007/s40747-024-01683-x",
+  "pmid": null,
+  "abstract": "",
+  "crossref_title": "CitySEIRCast: an agent-based city digital twin for pandemic analysis and simulation",
+  "crossref_ok": true,
+  "venue": "Complex &amp; Intelligent Systems",
+  "year": 2024,
+  "authors": [
+   "Bilal, Shakir",
+   "Zaatour, Wajdi",
+   "Alonso Otano, Yilian",
+   "Saha, Arindam",
+   "Newcomb, Ken",
+   "Kim, Soo"
+  ]
+ },
+ {
+  "key": "Gecili2020CGMPrediction",
+  "doi": null,
+  "pmid": null,
+  "abstract": "",
+  "crossref_title": "",
+  "crossref_ok": null
+ },
+ {
+  "key": "8",
+  "doi": null,
+  "pmid": null,
+  "abstract": "",
+  "crossref_title": "",
+  "crossref_ok": null
+ }
+]

@@ -1,0 +1,45 @@
+# ---- macOS / Python noise ----
+.DS_Store
+__pycache__/
+*.pyc
+
+# ---- LaTeX build products ----
+*.aux
+*.log
+*.out
+*.bbl
+*.blg
+*.synctex.gz
+*.fdb_latexmk
+*.fls
+*.toc
+
+# ---- Third-party full texts: NOT redistributable on a public repo ----
+# Publisher PDFs, author manuscripts, JATS XML from Europe PMC and arXiv HTML for the
+# papers we extracted evidence from. The licences differ per item (several are not CC-BY),
+# so none of them is published here. The extraction scripts and the derived tables are.
+review/fulltext/
+review/newstudies/
+review/surveys/
+
+# ---- Upstream ACM template distribution (not paper content; ~80 MB) ----
+version1-original/samples/
+version1-original/acmart.pdf
+version1-original/acmguide.pdf
+version1-original/acmart.cls
+version1-original/*.ins
+version1-original/*.dtx
+
+# ---- Large compiled PDFs of the manuscript (Overleaf is the source of truth) ----
+version1-original/DNN_Based_*.pdf
+version2-shrink/DNN_Based_*.pdf
+
+# ---- Held back from this public repo pending your explicit go-ahead ----
+# Other people's private correspondence and unsent drafts. Say the word and I will add them.
+feedback_iotsurvey.txt
+review/r3-julia-comments-2026-09-21.txt
+review/email-to-julia-draft.md
+review/email-to-fred-draft.md
+
+# Requirements register: derived from internal review correspondence, kept local
+REQUIREMENTS.md

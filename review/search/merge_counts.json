@@ -1,0 +1,15 @@
+{
+ "run_date": "2026-09-21",
+ "per_source_records": {
+  "pubmed": 2457,
+  "ieee": 0,
+  "scopus": 0
+ },
+ "total_before_dedup": 2457,
+ "duplicates_removed": {
+  "by_doi": 27,
+  "by_title": 22
+ },
+ "unique_after_dedup": 2408,
+ "in_more_than_one_source": 0
+}

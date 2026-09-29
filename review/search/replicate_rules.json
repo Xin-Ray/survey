@@ -1,0 +1,226 @@
+[
+ {
+  "bibkey": "2",
+  "label": "[30] Liu et al. - depression, MODMA EEG",
+  "doi": "10.3390/brainsci12050630",
+  "pmid": "35625016",
+  "resolved_by": "doi",
+  "in_identified": false,
+  "in_arm_a": false,
+  "in_arm_b": false,
+  "in_363_eligible": false,
+  "r1": true,
+  "r2": true,
+  "r3": false,
+  "replicated_verdict": "excluded_r3",
+  "pubtypes": [
+   "Journal Article"
+  ]
+ },
+ {
+  "bibkey": "3",
+  "label": "[57] Thaipisutikul et al. - depression, Thai national",
+  "doi": "10.1016/j.heliyon.2024.e36877",
+  "pmid": "39281477",
+  "resolved_by": "doi",
+  "in_identified": true,
+  "in_arm_a": true,
+  "in_arm_b": false,
+  "in_363_eligible": true,
+  "r1": true,
+  "r2": true,
+  "r3": true,
+  "replicated_verdict": "eligible",
+  "pubtypes": [
+   "Journal Article"
+  ]
+ },
+ {
+  "bibkey": "4",
+  "label": "[58] Kong et al. - depression, fMRI",
+  "doi": "10.1002/hbm.25529",
+  "pmid": "33969930",
+  "resolved_by": "doi",
+  "in_identified": false,
+  "in_arm_a": false,
+  "in_arm_b": false,
+  "in_363_eligible": false,
+  "r1": true,
+  "r2": true,
+  "r3": false,
+  "replicated_verdict": "excluded_r3",
+  "pubtypes": [
+   "Journal Article",
+   "Research Support, Non-U.S. Gov't"
+  ]
+ },
+ {
+  "bibkey": "9",
+  "label": "[31] Zhang et al. - depression, STANet fMRI",
+  "doi": "10.3390/tomography10120138",
+  "pmid": "39728900",
+  "resolved_by": "doi",
+  "in_identified": true,
+  "in_arm_a": true,
+  "in_arm_b": false,
+  "in_363_eligible": true,
+  "r1": true,
+  "r2": true,
+  "r3": true,
+  "replicated_verdict": "eligible",
+  "pubtypes": [
+   "Journal Article",
+   "Research Support, Non-U.S. Gov't"
+  ]
+ },
+ {
+  "bibkey": "Li2020GluNet",
+  "label": "[56] Li et al. - diabetes, GluNet CGM",
+  "doi": "10.1109/jbhi.2019.2931842",
+  "pmid": "31369390",
+  "resolved_by": "doi",
+  "in_identified": false,
+  "in_arm_a": false,
+  "in_arm_b": false,
+  "in_363_eligible": false,
+  "r1": true,
+  "r2": false,
+  "r3": false,
+  "replicated_verdict": "excluded_r2",
+  "pubtypes": [
+   "Journal Article",
+   "Research Support, Non-U.S. Gov't"
+  ]
+ },
+ {
+  "bibkey": "Lim2025VirtualCGM",
+  "label": "[32] Lim et al. - diabetes, life-log",
+  "doi": "10.1038/s41598-025-01367-7",
+  "pmid": "40348812",
+  "resolved_by": "doi",
+  "in_identified": false,
+  "in_arm_a": false,
+  "in_arm_b": false,
+  "in_363_eligible": false,
+  "r1": true,
+  "r2": false,
+  "r3": false,
+  "replicated_verdict": "excluded_r2",
+  "pubtypes": [
+   "Journal Article"
+  ]
+ },
+ {
+  "bibkey": "XiaoLi2016DiabetesSpatiotemporal",
+  "label": "[34] Li et al. - diabetes, BRFSS+ACS",
+  "doi": "10.4081/gh.2016.439",
+  "pmid": "27903059",
+  "resolved_by": "doi",
+  "in_identified": false,
+  "in_arm_a": false,
+  "in_arm_b": false,
+  "in_363_eligible": false,
+  "r1": true,
+  "r2": true,
+  "r3": false,
+  "replicated_verdict": "excluded_r3",
+  "pubtypes": [
+   "Journal Article"
+  ]
+ },
+ {
+  "bibkey": "5",
+  "label": "[59] Bohoran et al. - cardiac, CMR",
+  "doi": "10.1038/s41598-023-48986-6",
+  "pmid": "38066222",
+  "resolved_by": "doi",
+  "in_identified": true,
+  "in_arm_a": true,
+  "in_arm_b": false,
+  "in_363_eligible": true,
+  "r1": true,
+  "r2": true,
+  "r3": true,
+  "replicated_verdict": "eligible",
+  "pubtypes": [
+   "Journal Article"
+  ]
+ },
+ {
+  "bibkey": "7",
+  "label": "[61] Xie & Yao - cardiac, EP simulation",
+  "doi": "10.1016/j.compbiomed.2022.105586",
+  "pmid": "35751197",
+  "resolved_by": "doi",
+  "in_identified": true,
+  "in_arm_a": true,
+  "in_arm_b": false,
+  "in_363_eligible": false,
+  "r1": true,
+  "r2": true,
+  "r3": false,
+  "replicated_verdict": "excluded_r3",
+  "pubtypes": [
+   "Journal Article"
+  ]
+ },
+ {
+  "bibkey": "lin2022deep",
+  "label": "[67] Lin & Luo - longitudinal survival",
+  "doi": "10.1002/sim.9392",
+  "pmid": "35347750",
+  "resolved_by": "doi",
+  "in_identified": false,
+  "in_arm_a": false,
+  "in_arm_b": false,
+  "in_363_eligible": false,
+  "r1": true,
+  "r2": true,
+  "r3": false,
+  "replicated_verdict": "excluded_r3",
+  "pubtypes": [
+   "Journal Article",
+   "Research Support, N.I.H., Extramural",
+   "Research Support, Non-U.S. Gov't",
+   "Research Support, U.S. Gov't, Non-P.H.S."
+  ]
+ },
+ {
+  "bibkey": "nitski2021long",
+  "label": "[68] Nitski et al. - longitudinal mortality",
+  "doi": "10.1016/s2589-7500(21)00040-6",
+  "pmid": "33858815",
+  "resolved_by": "doi",
+  "in_identified": false,
+  "in_arm_a": false,
+  "in_arm_b": false,
+  "in_363_eligible": false,
+  "r1": true,
+  "r2": true,
+  "r3": true,
+  "replicated_verdict": "eligible",
+  "pubtypes": [
+   "Comparative Study",
+   "Journal Article",
+   "Research Support, Non-U.S. Gov't"
+  ]
+ },
+ {
+  "bibkey": "glaser2022deep",
+  "label": "[33] Glaser et al. - longitudinal DXA",
+  "doi": "10.1038/s43856-022-00166-9",
+  "pmid": "35992891",
+  "resolved_by": "doi",
+  "in_identified": false,
+  "in_arm_a": false,
+  "in_arm_b": false,
+  "in_363_eligible": false,
+  "r1": true,
+  "r2": true,
+  "r3": false,
+  "replicated_verdict": "excluded_r3",
+  "pubtypes": [
+   "Journal Article"
+  ]
+ }
+]

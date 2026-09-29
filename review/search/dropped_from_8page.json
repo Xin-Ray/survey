@@ -1,0 +1,530 @@
+[
+ {
+  "key": "8",
+  "title": "Sports Nutrition Intervention for Athletes Based on Continuous Image Deep Learning",
+  "venue": "2022 6th International Conference on Computing Methodologies and Communication (ICCMC)",
+  "year": "2022"
+ },
+ {
+  "key": "Argaw2020HospitalCybersecurity",
+  "title": "Cybersecurity of Hospitals: Discussing the Challenges and Working Towards Mitigating the Risks",
+  "venue": "BMC Medical Informatics and Decision Making",
+  "year": "2020"
+ },
+ {
+  "key": "Bayoumy2021",
+  "title": "Smart Wearable Devices in Cardiovascular Care: Where We Are and How to Move Forward",
+  "venue": "Nature Reviews Cardiology",
+  "year": "2021"
+ },
+ {
+  "key": "Bruynseels2018DigitalTwins",
+  "title": "Digital Twins in Health Care: Ethical Implications of an Emerging Engineering Paradigm",
+  "venue": "Frontiers in Genetics",
+  "year": "2018"
+ },
+ {
+  "key": "Choi2021CybersecurityRisks",
+  "title": "The Relationship Between Cybersecurity Ratings and the Risk of Hospital Data Breaches",
+  "venue": "Journal of the American Medical Informatics Association",
+  "year": "2021"
+ },
+ {
+  "key": "Coventry2018CybersecurityHealthcare",
+  "title": "Cybersecurity in Healthcare: A Narrative Review of Trends, Threats and Ways Forward",
+  "venue": "Maturitas",
+  "year": "2018"
+ },
+ {
+  "key": "DeDomenico2025ComplexSystems",
+  "title": "Challenges and Opportunities for Digital Twins in Precision Medicine from a Complex Systems Perspective",
+  "venue": "npj Digital Medicine",
+  "year": "2025"
+ },
+ {
+  "key": "Gecili2020CGMPrediction",
+  "title": "Functional Data Analysis and Prediction Tools for Continuous Glucose Monitoring Studies",
+  "venue": "Journal of Clinical and Translational Science",
+  "year": "2020"
+ },
+ {
+  "key": "HuBMAP2019",
+  "title": "The Human Body at Cellular Resolution: The NIH Human Biomolecular Atlas Program",
+  "venue": "Nature",
+  "year": "2019"
+ },
+ {
+  "key": "Kyritsis2019EatingBehavior",
+  "title": "Modeling Wrist Micromovements to Measure In-Meal Eating Behavior from Inertial Sensor Data",
+  "venue": "IEEE Journal of Biomedical and Health Informatics",
+  "year": "2019"
+ },
+ {
+  "key": "McLeod2018CyberAnalytics",
+  "title": "Cyber-Analytics: Modeling Factors Associated with Healthcare Data Breaches",
+  "venue": "Decision Support Systems",
+  "year": "2018"
+ },
+ {
+  "key": "Nemec2024HealthcareSecurity",
+  "title": "Data Breaches in Healthcare: Security Mechanisms for Attack Mitigation",
+  "venue": "Cluster Computing",
+  "year": "2024"
+ },
+ {
+  "key": "Okafor2023CybersecurityUSHealthcare",
+  "title": "Mitigating Cybersecurity Risks in the US Healthcare Sector",
+  "venue": "International Journal of Cybersecurity and Privacy",
+  "year": "2023"
+ },
+ {
+  "key": "QUESADAOLARTE20221580",
+  "title": "Extended Reality-Assisted Surgery as a Surgical Training Tool: Pilot Study Presenting First HoloLens-Assisted Complex Penile Revision Surgery",
+  "venue": "The Journal of Sexual Medicine",
+  "year": "2022"
+ },
+ {
+  "key": "RN137",
+  "title": "Augmented Reality Technology for Joint Replacement",
+  "venue": "Personalized Hip and Knee Joint Replacement",
+  "year": "2020"
+ },
+ {
+  "key": "RN138",
+  "title": "Digital Twin for Healthcare Systems",
+  "venue": "Frontiers in Digital Health",
+  "year": "2023"
+ },
+ {
+  "key": "RN139",
+  "title": "Use of Extended Realities in Cardiology",
+  "venue": "Trends in Cardiovascular Medicine",
+  "year": "2020"
+ },
+ {
+  "key": "RN140",
+  "title": "Impact of Neurosurgical Consultation with 360-Degree Virtual Reality Technology on Patient Engagement and Satisfaction",
+  "venue": "Neurosurgery Practice",
+  "year": "2020"
+ },
+ {
+  "key": "Ronquillo2018HealthITHacking",
+  "title": "Health IT, Hacking, and Cybersecurity: National Trends in Data Breaches of Protected Health Information",
+  "venue": "JAMIA Open",
+  "year": "2018"
+ },
+ {
+  "key": "Silfvergren2022",
+  "title": "Digital Twin Predicting Diet Response Before and After Long-Term Fasting",
+  "venue": "PLoS Computational Biology",
+  "year": "2022"
+ },
+ {
+  "key": "Southworth2020XR",
+  "title": "Use of Extended Realities in Cardiology",
+  "venue": "Trends in Cardiovascular Medicine",
+  "year": "2020"
+ },
+ {
+  "key": "Vallee2023DT",
+  "title": "Digital Twin for Healthcare Systems",
+  "venue": "Frontiers in Digital Health",
+  "year": "2023"
+ },
+ {
+  "key": "Williams2023",
+  "title": "Wearable Technology and the Cardiovascular System: The Future of Patient Assessment",
+  "venue": "The Lancet Digital Health",
+  "year": "2023"
+ },
+ {
+  "key": "Zhang2023POI",
+  "title": "Spatio-Temporal Hypergraph Learning for Next POI Recommendation",
+  "venue": "Proceedings of the ACM Conference",
+  "year": "2023"
+ },
+ {
+  "key": "ahmad2018interpretable",
+  "title": "Interpretable Machine Learning in Healthcare",
+  "venue": "Proceedings of the 2018 ACM International Conference on Bioinformatics, Computational Biology, and Health Informatics",
+  "year": "2018"
+ },
+ {
+  "key": "ali2024spatialtwins",
+  "title": "Enabling Spatial Digital Twins: Technologies, Challenges, and Future Research Directions",
+  "venue": "PFG--Journal of Photogrammetry, Remote Sensing and Geoinformation Science",
+  "year": "2024"
+ },
+ {
+  "key": "baltrusaitis2019multimodal",
+  "title": "Multimodal Machine Learning: A Survey and Taxonomy",
+  "venue": "IEEE Transactions on Pattern Analysis and Machine Intelligence",
+  "year": "2019"
+ },
+ {
+  "key": "basu2023graphicalNonstationary",
+  "title": "Graphical Models for Nonstationary Time Series",
+  "venue": "Annals of Statistics",
+  "year": "2023"
+ },
+ {
+  "key": "bengio1994learning",
+  "title": "Learning Long-Term Dependencies with Gradient Descent Is Difficult",
+  "venue": "IEEE Transactions on Neural Networks",
+  "year": "1994"
+ },
+ {
+  "key": "bengio2009learning",
+  "title": "Learning Deep Architectures for AI",
+  "venue": "Foundations and Trends in Machine Learning",
+  "year": "2009"
+ },
+ {
+  "key": "bertasius2021timesformer",
+  "title": "Is Space-Time Attention All You Need for Video Understanding?",
+  "venue": "Proceedings of the 38th International Conference on Machine Learning (ICML)",
+  "year": "2021"
+ },
+ {
+  "key": "bilal2025cityseircast",
+  "title": "CitySEIRCast: An Agent-Based City Digital Twin for Pandemic Analysis and Simulation",
+  "venue": "Complex \\& Intelligent Systems",
+  "year": "2025"
+ },
+ {
+  "key": "bjornsson2020digitaltwins",
+  "title": "Digital Twins to Personalize Medicine",
+  "venue": "Genome Medicine",
+  "year": "2020"
+ },
+ {
+  "key": "cai2020traffic",
+  "title": "Traffic Transformer: Capturing the Continuity and Periodicity of Time Series for Traffic Forecasting",
+  "venue": "Transactions in GIS",
+  "year": "2020"
+ },
+ {
+  "key": "chen2018neural",
+  "title": "Neural Ordinary Differential Equations",
+  "venue": "Advances in Neural Information Processing Systems (NeurIPS)",
+  "year": "2018"
+ },
+ {
+  "key": "cho2014gru",
+  "title": "Learning Phrase Representations Using RNN Encoder--Decoder for Statistical Machine Translation",
+  "venue": "arXiv preprint arXiv:1406.1078",
+  "year": "2014"
+ },
+ {
+  "key": "coelho2023FLsecurity",
+  "title": "A Survey on Federated Learning for Security and Privacy in Healthcare Applications",
+  "venue": "Computer Communications",
+  "year": "2023"
+ },
+ {
+  "key": "deKerckhove2021",
+  "title": "The Personal Digital Twin: Ethical Considerations",
+  "venue": "Philosophical Transactions of the Royal Society~A",
+  "year": "2021"
+ },
+ {
+  "key": "dhiman2022FL",
+  "title": "Federated Learning Approach to Protect Healthcare Data",
+  "venue": "Sustainability (MDPI)",
+  "year": "2022"
+ },
+ {
+  "key": "donahue2015longterm",
+  "title": "Long-Term Recurrent Convolutional Networks for Visual Recognition and Description",
+  "venue": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+  "year": "2015"
+ },
+ {
+  "key": "erhan2010why",
+  "title": "Why Does Unsupervised Pre-training Help Deep Learning?",
+  "venue": "Journal of Machine Learning Research",
+  "year": "2010"
+ },
+ {
+  "key": "gkouskou2020virtual",
+  "title": "The Virtual Digital Twins Concept in Precision Nutrition",
+  "venue": "Advances in Nutrition",
+  "year": "2020"
+ },
+ {
+  "key": "glorot2010understanding",
+  "title": "Understanding the Difficulty of Training Deep Feedforward Neural Networks",
+  "venue": "Proceedings of the Thirteenth International Conference on Artificial Intelligence and Statistics (AISTATS)",
+  "year": "2010"
+ },
+ {
+  "key": "guo2019astgcn",
+  "title": "Attention Based Spatial-Temporal Graph Convolutional Networks for Traffic Flow Forecasting",
+  "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+  "year": "2019"
+ },
+ {
+  "key": "ha2018worldmodels",
+  "title": "Recurrent World Models Facilitate Policy Evolution",
+  "venue": "Advances in Neural Information Processing Systems (NeurIPS)",
+  "year": "2018"
+ },
+ {
+  "key": "hamilton2017inductive",
+  "title": "Inductive Representation Learning on Large Graphs",
+  "venue": "Advances in Neural Information Processing Systems (NeurIPS)",
+  "year": "2017"
+ },
+ {
+  "key": "huang2020fusion",
+  "title": "Fusion of Medical Imaging and Electronic Health Records Using Deep Learning: A Systematic Review and Implementation Guidelines",
+  "venue": "npj Digital Medicine",
+  "year": "2020"
+ },
+ {
+  "key": "kingma2013auto",
+  "title": "Auto-Encoding Variational Bayes",
+  "venue": "Proceedings of the International Conference on Learning Representations (ICLR)",
+  "year": "2014"
+ },
+ {
+  "key": "kipf2017gcn",
+  "title": "Semi-Supervised Classification with Graph Convolutional Networks",
+  "venue": "International Conference on Learning Representations (ICLR)",
+  "year": "2017"
+ },
+ {
+  "key": "lea2017temporal",
+  "title": "Temporal Convolutional Networks for Action Segmentation and Detection",
+  "venue": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)",
+  "year": "2017"
+ },
+ {
+  "key": "lecun1998cnn",
+  "title": "Gradient-Based Learning Applied to Document Recognition",
+  "venue": "Proceedings of the IEEE",
+  "year": "1998"
+ },
+ {
+  "key": "lecun2022jepa",
+  "title": "A Path Towards Autonomous Machine Intelligence",
+  "venue": "",
+  "year": "2022"
+ },
+ {
+  "key": "li2018dcrnn",
+  "title": "Diffusion Convolutional Recurrent Neural Network: Data-Driven Traffic Forecasting",
+  "venue": "Proceedings of the 6th International Conference on Learning Representations (ICLR)",
+  "year": "2018"
+ },
+ {
+  "key": "li2025solar",
+  "title": "Solar Radiation Forecasting with Hybrid Deep Learning Framework Integrating Feature Factorization",
+  "venue": "Human-Centric Computing and Information Sciences",
+  "year": "2025"
+ },
+ {
+  "key": "lu2024dyfast",
+  "title": "On Semiparametrically Dynamic Functional-Coefficient Autoregressive Spatio-Temporal Models with Irregular Location Wide Nonstationarity",
+  "venue": "Journal of the American Statistical Association",
+  "year": "2024"
+ },
+ {
+  "key": "lundberg2017unified",
+  "title": "A Unified Approach to Interpreting Model Predictions",
+  "venue": "Advances in Neural Information Processing Systems",
+  "year": "2017"
+ },
+ {
+  "key": "masci2011stacked",
+  "title": "Stacked Convolutional Auto-Encoders for Hierarchical Feature Extraction",
+  "venue": "International Conference on Artificial Neural Networks",
+  "year": "2011"
+ },
+ {
+  "key": "obermeyer2016predicting",
+  "title": "Predicting the Future---Big Data, Machine Learning, and Clinical Medicine",
+  "venue": "New England Journal of Medicine",
+  "year": "2016"
+ },
+ {
+  "key": "pareja2020evolvegcn",
+  "title": "EvolveGCN: Evolving Graph Convolutional Networks for Dynamic Graphs",
+  "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+  "year": "2020"
+ },
+ {
+  "key": "piao2024frednormer",
+  "title": "FredNormer: Frequency Domain Normalization for Non-Stationary Time Series Forecasting",
+  "venue": "arXiv preprint arXiv:2410.01860",
+  "year": "2024"
+ },
+ {
+  "key": "rajkomar2019machine",
+  "title": "Machine Learning in Medicine",
+  "venue": "New England Journal of Medicine",
+  "year": "2019"
+ },
+ {
+  "key": "ranzato2007unsupervised",
+  "title": "Unsupervised Learning of Invariant Feature Hierarchies with Applications to Object Recognition",
+  "venue": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+  "year": "2007"
+ },
+ {
+  "key": "reddy2015healthcare",
+  "title": "Healthcare Data Analytics",
+  "venue": "",
+  "year": "2015"
+ },
+ {
+  "key": "rieke2020digitalhealth",
+  "title": "The Future of Digital Health with Federated Learning",
+  "venue": "Nature Digital Medicine",
+  "year": "2020"
+ },
+ {
+  "key": "rnn_lstm",
+  "title": "Long Short-Term Memory",
+  "venue": "Neural Computation",
+  "year": "1997"
+ },
+ {
+  "key": "salvana2023lagrangian",
+  "title": "Spatio-Temporal Cross-Covariance Functions Under the Lagrangian Framework with Multiple Advections",
+  "venue": "Journal of the American Statistical Association",
+  "year": "2023"
+ },
+ {
+  "key": "smith2023convssm",
+  "title": "Convolutional State Space Models for Long-Range Spatiotemporal Modeling",
+  "venue": "arXiv preprint arXiv:2310.19694",
+  "year": "2023"
+ },
+ {
+  "key": "srivastava2015unsupervised",
+  "title": "Unsupervised Learning of Video Representations Using LSTMs",
+  "venue": "Proceedings of the 32nd International Conference on Machine Learning (ICML)",
+  "year": "2015"
+ },
+ {
+  "key": "sun2023digitaltwin",
+  "title": "Digital Twin in Healthcare: Recent Updates and Challenges",
+  "venue": "Digital Health",
+  "year": "2023"
+ },
+ {
+  "key": "tao2019digital",
+  "title": "Digital Twin in Industry: State-of-the-Art",
+  "venue": "IEEE Transactions on Industrial Informatics",
+  "year": "2019"
+ },
+ {
+  "key": "timemixer",
+  "title": "Time-Mixer: Decomposable Multiscale Mixing for Time Series Forecasting",
+  "venue": "Proceedings of the 12th International Conference on Learning Representations (ICLR)",
+  "year": "2024"
+ },
+ {
+  "key": "trostle2024spatialSIR",
+  "title": "A Gaussian-Process Approximation to a Spatial SIR Process Using Moment Closures and Emulators",
+  "venue": "Biometrics",
+  "year": "2024"
+ },
+ {
+  "key": "velickovic2018gat",
+  "title": "Graph Attention Networks",
+  "venue": "International Conference on Learning Representations (ICLR)",
+  "year": "2018"
+ },
+ {
+  "key": "vincent2008extracting",
+  "title": "Extracting and Composing Robust Features with Denoising Autoencoders",
+  "venue": "Proceedings of the 25th International Conference on Machine Learning",
+  "year": "2008"
+ },
+ {
+  "key": "vincent2010stacked",
+  "title": "Stacked Denoising Autoencoders: Learning Useful Representations in a Deep Network with a Local Denoising Criterion",
+  "venue": "Journal of Machine Learning Research",
+  "year": "2010"
+ },
+ {
+  "key": "voigt2021digital",
+  "title": "Digital Twins for Multiple Sclerosis",
+  "venue": "Frontiers in Immunology",
+  "year": "2021"
+ },
+ {
+  "key": "wang2014studentlife",
+  "title": "StudentLife: Assessing Mental Health, Academic Performance and Behavioral Trends of College Students Using Smartphones",
+  "venue": "Proceedings of the 2014 ACM International Joint Conference on Pervasive and Ubiquitous Computing (UbiComp '14)",
+  "year": "2014"
+ },
+ {
+  "key": "wang2024respiratoryDiseaseMapping",
+  "title": "Spatiotemporal Varying Coefficient Model for Respiratory Disease Mapping in Taiwan",
+  "venue": "Biostatistics",
+  "year": "2024"
+ },
+ {
+  "key": "wang2025propeller",
+  "title": "A Novel and Efficient Propeller Wake Prediction Model: Transformer-SMFANet Neural Network and Its Application",
+  "venue": "SSRN preprint",
+  "year": "2025"
+ },
+ {
+  "key": "wang2025rul",
+  "title": "Remaining Useful Life Prediction Based on Graph Feature Attention Networks with Missing Multi-Sensor Features",
+  "venue": "Reliability Engineering \\& System Safety",
+  "year": "2025"
+ },
+ {
+  "key": "wu2019graphwavenet",
+  "title": "Graph WaveNet for Deep Spatial-Temporal Graph Modeling",
+  "venue": "Proceedings of the 28th International Joint Conference on Artificial Intelligence (IJCAI)",
+  "year": "2019"
+ },
+ {
+  "key": "wu2021autoformer",
+  "title": "Autoformer: Decomposition Transformers with Auto-Correlation for Long-Term Series Forecasting",
+  "venue": "Advances in Neural Information Processing Systems (NeurIPS)",
+  "year": "2021"
+ },
+ {
+  "key": "xu2019gin",
+  "title": "How Powerful Are Graph Neural Networks?",
+  "venue": "International Conference on Learning Representations (ICLR)",
+  "year": "2019"
+ },
+ {
+  "key": "yu2018artificial",
+  "title": "Artificial Intelligence in Healthcare",
+  "venue": "Nature Biomedical Engineering",
+  "year": "2018"
+ },
+ {
+  "key": "yu2018spatio",
+  "title": "Spatio-Temporal Graph Convolutional Networks: A Deep Learning Framework for Traffic Forecasting",
+  "venue": "IEEE Transactions on Intelligent Transportation Systems",
+  "year": "2018"
+ },
+ {
+  "key": "yu2025graph",
+  "title": "Enhanced Graph Diffusion Learning with Dynamic Transformer for Anomaly Detection in Multivariate Time Series",
+  "venue": "Neurocomputing",
+  "year": "2025"
+ },
+ {
+  "key": "zhang2017deep",
+  "title": "Deep Spatio-Temporal Residual Networks for Citywide Crowd Flows Prediction",
+  "venue": "Proceedings of the 31st AAAI Conference on Artificial Intelligence",
+  "year": "2017"
+ },
+ {
+  "key": "zhou2021informer",
+  "title": "Informer: Beyond Efficient Transformer for Long Sequence Time-Series Forecasting",
+  "venue": "Proceedings of the AAAI Conference on Artificial Intelligence",
+  "year": "2021"
+ }
+]

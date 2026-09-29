@@ -1,0 +1,973 @@
+%% Supplementary material for the IEEE IoT-J submission.
+%% Compiled independently of STmodel.tex; shares newST.bib.
+\documentclass[journal]{IEEEtran}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+\usepackage{cite}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+%% Supplement tables are numbered S1, S2, S3 so the main paper can point at them.
+\renewcommand{\thetable}{S\arabic{table}}
+
+\begin{document}
+
+\title{Supplementary Material for\\
+``Spatiotemporal Deep Learning for IoT-Enabled Digital Health:\\
+From Predictive Models to Digital Twins and Emerging World Models''}
+\author{Xin Xiang, Hua Fang, Dengyi Liu, Ashikur Nobel, and Honggang Wang}
+\maketitle
+
+%% The survey-comparison evidence table is S0 so that the tables the main text
+%% cites as S1--S5 keep those numbers.
+\setcounter{table}{-1}
+
+\section{Scope of this supplement}
+This supplement holds the ten tables (S0--S9) that the eight-page submission points to but
+cannot carry: the section-level evidence behind the survey comparison
+(Table~\ref{tab:surveyevidence}), the threat-and-protection map across IoT
+layers (Table~\ref{tab:threats}), the dataset guide in two parts
+(Tables~\ref{tab:datasets} and~\ref{tab:datasets-b}), the study-level quality
+assessment in two parts (Tables~\ref{tab:quality} and~\ref{tab:quality-b}), the
+communication substrate (Table~\ref{tab:protocols}), the system and privacy
+reporting of each study (Table~\ref{tab:deployrep}), the provenance and
+reason for inclusion of each study (Table~\ref{tab:provenance}), and the yield of
+citation chasing (Table~\ref{tab:chasing}). Reference numbers are those of this
+document, so each row also names its study or source in text. Where a source reports nothing on a field the cell reads \emph{n/r} and is never
+left blank; Section~\ref{sec:access} states what was read in full and what
+could not be obtained.
+
+\section{Evidence behind the survey comparison}
+\label{sec:surveyevidence}
+Table~\ref{tab:surveyevidence} supports every mark in Table~I of the main
+paper. For each compared review it names the section, subsection or table of
+\emph{that} review which justifies a $\bullet$ or $\circ$, so that a reader can
+check the judgement rather than accept it. We read eleven of the twelve reviews
+in full; the twelfth, Samani et al.~\cite{samani2026stdl}, we could not obtain,
+and its row is marked accordingly and judged only from its abstract.
+
+Reading the full texts moved several marks, in both directions, from what the
+titles and abstracts had suggested. Four reviews turned out to treat privacy or
+security substantively enough to earn a partial mark that the earlier
+abstract-level reading had denied them
+(\cite{Busnatu2022,Sel2025VVUQ,chen2024genaitwin,amin2021edgeintel}), and two
+earned partial marks for an acquisition tier or an edge tier on the same basis
+(\cite{zhang2022harreview,Zheng2026DTtoWM}). Two marks had to be withdrawn.
+Wang et al.~\cite{wang2022deep} has no dataset or benchmark guide: it
+categorizes data \emph{types} in its Section~II but names no reusable dataset,
+so its dataset mark is removed and its applications mark reduced to partial,
+its Section~V-G on neuroscience being its only health-adjacent application.
+Swinckels et al.~\cite{swinckels2024ehr} states explicitly that ``a critical
+appraisal was not systematically carried out,'' so its evaluation mark is
+removed. Both corrections favour our own survey, which is why we give the
+section evidence for each of them here.
+
+\begin{table*}[t]
+\centering
+\caption{Section-level evidence for every mark in Table~I of the main paper. Section numbers are
+those of the compared review, not of this document. Columns credited are listed with the section
+that justifies them; \emph{full} means we read the review's full text.}
+\label{tab:surveyevidence}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabularx}{\textwidth}{L{2.45cm} L{1.15cm} X L{2.5cm}}
+\toprule
+\textbf{Review} & \textbf{Read} & \textbf{Section evidence for each credited column} & \textbf{Not credited} \\
+\midrule
+Wang et al.~\cite{wang2022deep}, spatiotemporal data mining &
+Full &
+ST $\bullet$: \S II data types and representations, \S III model selection, \S IV models by problem class. App $\circ$: \S V-G neuroscience, the only health-adjacent application among its seven. &
+IoT, DT, WM, Priv, Edge, Data, Eval: no section. Data withdrawn after full text: no named dataset or benchmark \\
+\addlinespace[2pt]
+Samani et al.~\cite{samani2026stdl}, spatiotemporal prediction &
+Abstract only &
+ST $\bullet$ and Data $\circ$: stated in the abstract as a review of methods, applications and data sources for spatiotemporal prediction. &
+All other columns: not assessable from the abstract, and so left uncredited rather than inferred \\
+\addlinespace[2pt]
+Swinckels et al.~\cite{swinckels2024ehr}, longitudinal EHR &
+Full &
+ST $\circ$: \S 2.1.6 longitudinal eligibility, temporal only. App $\bullet$: \S 3.4 medical insights, \S 3.5 clinical benefits. Data $\bullet$: \S 3.3 EHR data. &
+Eval withdrawn after full text: \S 2.3 states no critical appraisal was carried out. IoT, DT, WM, Priv, Edge: no section \\
+\addlinespace[2pt]
+Busnatu et al.~\cite{Busnatu2022}, biotelemetry &
+Full &
+IoT $\bullet$: \S 3 biotelemetry devices, \S 3.1 wearable, \S 3.2 in-body. App $\bullet$: \S 4 remote health assessment, \S 5 personalized medicine. Priv $\circ$: \S 8 discussion, data security and breach of the digital network. &
+ST, DT, WM, Edge, Data, Eval: no section \\
+\addlinespace[2pt]
+Sun et al.~\cite{sun2026irregularmedical}, irregular medical series &
+Full &
+ST $\circ$: \S 3 architectures including \S 3.5 graph networks, temporal irregularity in \S 4. App $\bullet$: \S 2 series in electronic health records. Data $\bullet$ and Eval $\bullet$: \S 5 empirical experiments on imputation and classification. &
+IoT, DT, WM, Priv, Edge: no section \\
+\addlinespace[2pt]
+Wang et al.~\cite{Wang2023Survey}, internet of digital twins &
+Full &
+IoT $\bullet$: \S II-A architecture, \S II-B communication modes. DT $\bullet$: \S II working principles. Priv $\bullet$: \S III-D privacy threats, \S IV-D countermeasures. Edge $\bullet$: \S V-A cloud--edge--end orchestration. &
+ST, App, WM, Data, Eval: no section; the twins are industrial, not patient twins \\
+\addlinespace[2pt]
+Sel et al.~\cite{Sel2025VVUQ}, twin verification and validation &
+Full &
+DT $\bullet$: \S 2 virtual representation through human in the loop. Eval $\bullet$: \S 3.1--3.8 validation, benchmarks and uncertainty. App $\circ$: \S 2 cardiovascular and oncology. Priv $\circ$: \S 3.9 privacy of patient-level data in twins. &
+IoT, ST, WM, Edge, Data: no section \\
+\addlinespace[2pt]
+Zheng et al.~\cite{Zheng2026DTtoWM}, twins to world models &
+Full &
+DT $\bullet$: \S II-A. WM $\bullet$: \S II-B, \S II-C and \S III, including \S III-D action-conditioned prediction. Edge $\bullet$: \S II-D, \S V-C. IoT $\circ$: \S IV-A integrated sensing, communication and computing. Priv $\circ$: \S VI-B federated world modeling. &
+ST, App, Data, Eval: no section; health appears only as an example \\
+\addlinespace[2pt]
+Chen et al.~\cite{chen2024genaitwin}, human digital twin &
+Full &
+IoT $\bullet$: \S III-A data acquisition, \S III-B communication. DT $\bullet$: \S II-A human digital twin. App $\bullet$: \S IV monitoring, prescription, rehabilitation. Priv $\circ$: \S III-C security and privacy of twin data. &
+ST, WM, Edge, Data, Eval: no section; \S V-B proposes evaluation metrics as future work \\
+\addlinespace[2pt]
+Amin and Hossain~\cite{amin2021edgeintel}, edge intelligence &
+Full &
+IoT $\bullet$: \S IV edge-based IoT healthcare. App $\bullet$: \S IV, \S VI. Edge $\bullet$: \S III edge intelligence, \S VI. Priv $\circ$: \S V blockchain for data privacy. &
+ST, DT, WM, Data, Eval: no section; no spatiotemporal model family appears \\
+\addlinespace[2pt]
+Nguyen et al.~\cite{nguyen2022FLsmarthealthcare}, federated smart healthcare &
+Full &
+IoT $\bullet$: \S 5.2 federated remote health monitoring. App $\bullet$: \S 5 applications. Priv $\bullet$: \S 4.3 privacy-enhanced federated learning, \S 7.6 provable privacy. Edge $\circ$: \S 4.1 resource-aware federated learning, \S 7.1 communication. &
+ST, DT, WM, Data, Eval: no section \\
+\addlinespace[2pt]
+Zhang et al.~\cite{zhang2022harreview}, wearable activity recognition &
+Full &
+ST $\bullet$: \S 5 deep learning approaches. App $\bullet$: \S 4.1 fitness, healthcare and rehabilitation. Data $\bullet$: \S 4.3 major datasets. IoT $\circ$: \S 4.2 wearable sensors. Priv $\circ$: \S 6.1.3 privacy protection. Edge $\circ$: \S 6.4 model deployment. &
+DT, WM, Eval: no section \\
+\addlinespace[2pt]
+\textbf{This survey} &
+--- &
+IoT and ST: Figure~2 taxonomy. App: Section~V. DT: Section~VI. WM: Section~VII. Priv: Table~\ref{tab:threats}. Edge: Table~II deployment column and Table~\ref{tab:deployrep}. Data: Table~\ref{tab:datasets}. Eval: Table~\ref{tab:quality}. &
+--- \\
+\bottomrule
+\multicolumn{4}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize Column keys are those of Table~I of the main paper: IoT acquisition tier, ST spatiotemporal model families, App clinical application, DT digital twin, WM world model, Priv privacy and security, Edge edge deployment, Data named datasets or benchmarks, Eval evaluation or quality assessment of the evidence reviewed.}
+\end{tabularx}
+\end{table*}
+
+\section{Threats and protections across the IoT layers}
+\label{sec:threats}
+Table~\ref{tab:threats} maps the threat surface of a connected-health pipeline
+onto the layers of the taxonomy in the main paper, separating the five security
+properties that a clinical deployment has to hold apart: confidentiality,
+integrity, availability, privacy, and patient safety. The last column names the
+protection that applies at that layer; nothing in the table is specific to a
+single product or vendor. Two points that the surveyed literature tends to blur
+are made explicit here. First, federated learning is an architecture for keeping
+raw records in place; on its own it supplies neither encryption nor a privacy
+guarantee, both of which are separate mechanisms listed in the corresponding
+rows. Second, the world-model layer is the only one where a successful attack
+yields a wrong \emph{action} rather than a wrong number, which is why the safety
+filter and the action-provenance requirements appear only there.
+
+\begin{table*}[t]
+\centering
+\caption{Threats and protections across the layers of the connected-health pipeline.
+Columns give the security property principally at stake; the final column gives the
+protection that belongs at that layer. C: confidentiality, I: integrity, A: availability,
+P: privacy, S: patient safety.}
+\label{tab:threats}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{L{1.9cm} L{2.6cm} L{2.4cm} L{2.2cm} L{2.4cm} X}
+\toprule
+\textbf{Layer} & \textbf{Threat (C)} & \textbf{Threat (I)} & \textbf{Threat (A)} & \textbf{Threat (P, S)} & \textbf{Protection at this layer} \\
+\midrule
+Sensing and device &
+Readout of stored samples from a lost or discarded wearable &
+Sensor spoofing; firmware tampering that shifts calibration &
+Battery exhaustion; jamming of the body-area link &
+Re-identification from raw motion or heart-rate traces; wrong therapy from a drifted sensor &
+Per-device authentication and key storage; signed firmware with calibration provenance; on-device retention limits; IEEE 11073 device profiles for a documented data contract~\cite{ieee11073std} \\
+\addlinespace[2pt]
+Communication &
+Interception of an unencrypted body-area or gateway link &
+Injection or replay of messages; downgrade of the transport &
+Link loss and packet drop; radio congestion at the gateway &
+Traffic analysis revealing behaviour even when payloads are encrypted; missed alarms from silent loss &
+Transport encryption with mutual authentication; replay protection; message freshness and sequence checks; store-and-forward with acknowledgement so loss is visible rather than silent \\
+\addlinespace[2pt]
+Edge and gateway &
+Extraction of a cached model or of buffered patient windows &
+Poisoned local update; tampered pre-processing that leaks future information into features &
+Resource exhaustion on a microcontroller-class device~\cite{saha2022mcuml}; thermal or power limits &
+Membership inference from an on-device model; unsafe local inference when the model is out of distribution &
+Secure boot and encrypted buffers; signed and reversible model updates; input validation of windowing and resampling; refusal to infer when inputs fall outside the validated range \\
+\addlinespace[2pt]
+Cloud and platform &
+Breach of a records store, a frequent target in health care~\cite{Seh2020HealthcareDataBreaches} &
+Silent schema or unit drift across sites; label corruption &
+Outage of the training or serving path &
+Linkage across cohorts; harmonisation choices that bias a subgroup &
+Access control with audit; schema and unit validation at ingestion, with FHIR as the interoperability contract~\cite{ayaz2021fhir}; separation of identifiers from measurements; recorded provenance for every derived variable \\
+\addlinespace[2pt]
+Federated training &
+Gradient inversion recovering training samples &
+Update poisoning that shifts the learned dynamics rather than a decision boundary &
+Stragglers and client dropout stalling a round &
+Membership inference from a released global model; non-IID clients yielding a model unsafe for a minority site &
+Secure aggregation and transport encryption, which federated learning does not itself provide~\cite{nguyen2022FLsmarthealthcare,aouedi2022FLmedical}; anomaly screening of client contributions; a stated differential-privacy budget with its accuracy cost; per-site personalisation and evaluation \\
+\addlinespace[2pt]
+Digital twin and decision &
+Exposure of a synchronised patient state, which identifies one individual &
+Tampering with the synchronisation path so the twin tracks a wrong state &
+Loss of synchronisation leaving a stale twin in service &
+A displayed risk that is uncalibrated for this patient; therapy changed on a stale state &
+Identity resolution reviewed by a person at intake; versioned state with a freshness indicator; calibration monitoring of the displayed risk; an audit log binding each output to a model version~\cite{Sel2025VVUQ} \\
+\addlinespace[2pt]
+World model and planning &
+Privacy leakage from released rollouts &
+Action-label tampering that inverts an intervention's estimated effect while leaving predictive accuracy intact &
+Planner unavailability at the moment of decision &
+Planner manipulation making an unsafe trajectory look optimal; a wrong \emph{action} rather than a wrong number &
+Provenance for observations and action labels; a privacy budget on released rollouts; a safety filter rejecting physiologically or protocol-infeasible trajectories; human review before any actuation~\cite{maes2026leworldmodel} \\
+\bottomrule
+\end{tabularx}
+\end{table*}
+
+\section{Datasets underlying the synthesized studies}
+\label{sec:datasets}
+Tables~\ref{tab:datasets} and~\ref{tab:datasets-b} describe every dataset behind the
+twenty-two studies of Table~II of the main paper, one row per dataset, split by
+how the study entered the survey (Table~\ref{tab:provenance}), so that a reader can judge
+what kind of evidence each study rests on before reading its numbers. The
+fields are the ones that decide whether a dataset can support work on a
+connected-health system: who is in it, what is measured and with which
+instrument, how fast and for how long it is sampled, what spatial unit it
+carries, how missing records were handled, how it is obtained, what tasks it
+supports, and the limitation that matters most for IoT use. Three patterns are
+visible in the column of sampling rates and durations. First, fourteen of the
+twenty-three datasets carry a continuous stream at a sensor rate, from 1\,Hz
+heart rate to 2\,kHz surface electromyography, but only nine of those come from
+a body-worn, ambient or consumer device rather than a clinical instrument; the
+remaining nine datasets are visit-, scan- or month-indexed. Second, the
+datasets with the largest populations are still the registries, whose temporal
+resolution is a clinic schedule of months to a year rather than a sensor
+interval, so population size and temporal resolution trade off against each
+other across the whole set. Third, the spatial dimension is a scalp montage, a
+sensor array, a voxel grid, an image plane or an administrative area in every
+case: no dataset carries the position of a person or a device in a built
+environment, which is the spatial variable a deployed connected-health service
+would actually observe.
+
+\begin{table*}[p]
+\centering
+\caption{Datasets underlying the twelve studies of Table~II that were assembled while drafting.
+One row per dataset. Entries are as reported by the study or the dataset provider, and
+\emph{n/r} means the source reports nothing on that field.}
+\label{tab:datasets}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.0}
+\begin{tabularx}{\textwidth}{L{1.5cm} L{1.4cm} L{1.3cm} L{1.5cm} L{1.6cm} L{1.2cm} L{1.75cm} L{1.35cm} L{1.4cm} L{0.72cm} X}
+\toprule
+\textbf{Dataset (study)} & \textbf{Population} & \textbf{Modality} & \textbf{Device or instrument} & \textbf{Sampling rate; record duration} & \textbf{Spatial unit} & \textbf{Missingness, as handled} & \textbf{Access} & \textbf{Supported tasks} & \textbf{Fit} & \textbf{Principal limitation for IoT use} \\
+\midrule
+FIC intake cycles (Kyritsis et al.~\cite{Kyritsis2019EatingBehavior}) &
+12 subjects, 21 meals &
+Wrist acceleration and orientation velocity &
+Off-the-shelf smartwatch; model n/r &
+100\,Hz; one meal per recording &
+None; wrist frame &
+n/r &
+Public, author web page &
+In-meal intake-cycle and eating-behaviour detection &
+D &
+Twelve subjects and staged meals; no free-living sessions \\
+\addlinespace[1pt]
+MODMA EEG (Liu et al.~\cite{2}) &
+53 subjects, 24 with depression &
+Resting-state EEG &
+128-channel HydroCel Geodesic Sensor Net &
+250\,Hz; session length n/r &
+128 scalp electrodes &
+Label taken from the BDI score where a diagnosis was absent &
+Public on application &
+Depression classification &
+-- &
+Clinical cap rather than a wearable; 53 subjects \\
+\addlinespace[1pt]
+OpenNeuro DS002748 (Zhang et al.~\cite{9}) &
+72 subjects, 51 with depression &
+Resting-state fMRI &
+3\,T scanner, echo-planar imaging &
+TR 2500\,ms; 6\,min per subject &
+Voxels 2 by 2 by 5\,mm &
+n/r &
+Public, OpenNeuro &
+Depression classification &
+-- &
+Scanner-bound single session; no device stream \\
+\addlinespace[1pt]
+Two-site clinical rs-fMRI (Kong et al.~\cite{4}) &
+277 subjects across two hospitals &
+Resting-state fMRI and T1 &
+3\,T hospital MRI, two sites &
+TR 2000\,ms, 240 volumes; 8\,min &
+In-plane 3.75\,mm; 4\,mm slices &
+Scans discarded for head motion or ghosting &
+Private, two hospitals &
+Diagnosis and two-week treatment response &
+M &
+Not obtainable; response labels only at one of the two sites \\
+\addlinespace[1pt]
+Thai Area Health District depression counts (Thaipisutikul et al.~\cite{3}) &
+National; 13 districts plus country level &
+Administrative case counts &
+None; surveillance reporting &
+Monthly; Oct.\ 2016 to Jul.\ 2022, 70 points &
+Area Health District &
+Mean imputation &
+Public; authors release code &
+District and national forecasting &
+-- &
+Seventy monthly aggregates; no individual or device data \\
+\addlinespace[1pt]
+UVA/Padova simulator, ABC4D and OhioT1DM (Li et al.~\cite{Li2020GluNet}) &
+10 virtual adults and 10 adolescents; 10 and 6 subjects with type 1 diabetes &
+CGM, insulin doses, meal records, and a fitness band in OhioT1DM &
+Dexcom CGM with a patient-facing app; insulin pumps &
+Every 5\,min (288 points per day); 180 simulated days, about 180 days in ABC4D and 8 weeks in OhioT1DM &
+None &
+Outliers removed, CGM interpolated across short gaps, insulin and meal entries filled or estimated &
+Simulator under licence; OhioT1DM on request; ABC4D not public &
+Glucose forecasting at 30 and 60\,min &
+D, T &
+Two of the three sets are simulated or single-project; accuracy degrades with long data gaps, as the authors note \\
+\addlinespace[1pt]
+Life-log and CGM app cohort (Lim et al.~\cite{Lim2025VirtualCGM}) &
+171 healthy adults &
+CGM with app-entered diet, exercise and weight &
+Dexcom G7 and a smartphone app &
+Every 15\,min; at least 12 days per subject &
+None &
+Kept only where coverage exceeded 50\% of points &
+Not public &
+Glucose inference and short-horizon prediction from life-log &
+D, T &
+Healthy adults only; self-entered diet and exercise \\
+\addlinespace[1pt]
+BRFSS small-area estimates with ACS covariates (Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal}) &
+3109 counties in 48 contiguous states &
+Survey prevalence plus socioeconomic covariates &
+None; survey instruments &
+Annual, 2004--2011; ACS five-year estimate 2007--2011 &
+County &
+Five-year ACS estimates reduce county-level gaps &
+Public, CDC and US Census &
+Prevalence mapping and vulnerability ranking &
+-- &
+Ecological aggregates; no individual or device data \\
+\addlinespace[1pt]
+Multicentre aortic CMR (Bohoran et al.~\cite{5}) &
+376 patients, 424 scans &
+Cine cardiovascular MRI &
+1.5\,T and 3\,T, four scanners at three centres &
+Frames within one cardiac cycle; rate n/r &
+Image plane through the aorta &
+n/r &
+On request to the principal investigator; code public &
+Aortic lumen segmentation and distensibility &
+M &
+Not public; the unit of record is a scan, not a patient \\
+\addlinespace[1pt]
+ADNI (Lin and Luo~\cite{lin2022deep}) &
+1068 patients with mild cognitive impairment &
+Clinical, cognitive and imaging-derived visit data &
+None; clinic visits &
+Six-monthly then annual; mean follow-up 3.3\,y &
+None &
+NA on a fixed six-month grid &
+Public on application &
+Dynamic survival prediction &
+M &
+Visit cadence set by a protocol, not by a device \\
+\addlinespace[1pt]
+NACC (Lin and Luo~\cite{lin2022deep}) &
+5261 patients with mild cognitive impairment &
+Clinical visit variables &
+None; clinic visits &
+Typically annual; mean follow-up 2.8\,y &
+None &
+Visits with any missing variable dropped &
+Public on application &
+Dynamic survival prediction, second cohort &
+M &
+Sparse annual records; no device stream \\
+\addlinespace[1pt]
+SRTR and UHN registries (Nitski et al.~\cite{nitski2021long}) &
+42\,146 and 3269 liver transplant recipients &
+Registry clinical and laboratory records &
+None; registry and hospital records &
+Six-monthly then annual (SRTR), every 1--3 months (UHN); median follow-up 8.0 and 5.8\,y &
+None &
+Forward filled, else training-set mean; 73 excluded &
+SRTR on request; UHN not available; code public &
+Cause-specific mortality risk at each visit &
+M &
+Only 15\% of variables are shared between the two registries \\
+\addlinespace[1pt]
+Health ABC DXA (Glaser et al.~\cite{glaser2022deep}) &
+Over 3000 adults, over 15\,000 scans &
+Whole-body DXA plus questionnaire and exam &
+Hologic QDR 4500 &
+Up to eight occasions over 16 years &
+Scan image &
+Backfilled with the most recent value or an out-of-range default &
+On request from the study; code public &
+All-cause mortality prediction &
+-- &
+Scanner-bound; the temporal unit is a study visit \\
+\bottomrule
+\multicolumn{11}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize Fit: \textbf{D} supports device-level or edge evaluation; \textbf{M} supports multisite validation and continual synchronization; \textbf{T} supports digital-twin or intervention evaluation; -- none of the three. No dataset here supports all three, and none carries a complete sensor-to-twin-to-decision chain. BDI: Beck Depression Inventory. CGM: continuous glucose monitoring.} \\
+\multicolumn{11}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize TR: repetition time. DXA: dual-energy X-ray absorptiometry. BRFSS: Behavioral Risk Factor Surveillance System. ACS: American Community Survey.} \\
+\multicolumn{11}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize SRTR: Scientific Registry of Transplant Recipients. UHN: University Health Network.} 
+\end{tabularx}
+\end{table*}
+
+\section{Study-level quality assessment}
+\label{sec:quality}
+Tables~\ref{tab:quality} and~\ref{tab:quality-b} assess the twenty-two studies of
+Table~II of the main paper on the ten fields that decide whether a reported number would survive
+deployment. The assessment was made by one author from the full text of each
+study; it records what each paper states, not a judgement of the work's
+importance, and it is deliberately unforgiving: a field is credited only where
+the source says so explicitly.
+
+Read across the columns, the set is weaker than its headline metrics suggest.
+Sixteen of the twenty-two separate training from test data at the level of the
+subject, the patient or a later time period. Three split at the level of the
+individual sample, scan or clip while the same person contributes several of
+them (Liu et al.~\cite{2}, Bohoran et al.~\cite{5}, Hussein et
+al.~\cite{hussein2022seizure}), which inflates the reported score by an unknown
+amount; two do not state the level at which they split
+(\cite{liu2025sleepposture,zhu2024ippg}); and one is an estimation study with no
+predictive hold-out at all~\cite{XiaoLi2016DiabetesSpatiotemporal}.
+
+No study reports a calibration curve or a calibration error for a risk it
+displays. One reports an integrated Brier score~\cite{lin2022deep} and one
+displays 95\% bounds from a predicted distribution without ever assessing
+their coverage~\cite{Li2020GluNet}, which is as close as the set comes. Four
+report a confidence or bootstrap interval on their headline
+metric~\cite{XiaoLi2016DiabetesSpatiotemporal,lin2022deep,nitski2021long,glaser2022deep};
+several others give a standard deviation across subjects or folds, which
+describes dispersion rather than the uncertainty of the estimate; the rest give
+a single number. Five report performance broken down by a subgroup of the
+population~\cite{nitski2021long,glaser2022deep,liu2024cignn,herath2026parkinson,chan2026sitstand},
+and the rest report a single pooled number. Four release code.
+
+External validation is the field where the main paper's Table~II most needs
+qualification: of the studies it lists as validated on a second cohort, one
+retrains on that cohort~\cite{2}, one refits the model
+there~\cite{lin2022deep}, and in the third the best-performing model was
+fine-tuned on the second registry before its reported
+result~\cite{nitski2021long}, so none is an untouched external test; one trains
+a separate model per benchmark dataset~\cite{hussein2022seizure}, and one tests
+on unseen subjects but within a single cohort~\cite{Li2020GluNet}. None of the
+twenty-two reports a prospective or in-service clinical evaluation.
+
+\begin{table*}[p]
+\centering
+\caption{Quality assessment of the twelve studies of Table~II that were assembled while drafting,
+in the order of that table. Entries record what the source states, and \emph{n/r}
+means the source reports nothing on that field.}
+\label{tab:quality}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabularx}{\textwidth}{L{1.5cm} L{1.9cm} L{1.7cm} L{1.8cm} L{1.7cm} L{1.6cm} L{1.3cm} L{1.6cm} L{1.5cm} X}
+\toprule
+\textbf{Study} & \textbf{Train and test split} & \textbf{Leakage risk} & \textbf{Missing data} & \textbf{External validation} & \textbf{Calibration; uncertainty} & \textbf{Fairness or subgroups} & \textbf{Comparators} & \textbf{Reproducibility} & \textbf{Clinical validation} \\
+\midrule
+Kyritsis et al.~\cite{Kyritsis2019EatingBehavior} &
+Leave-one-subject-out over 12 subjects &
+Low; whole subjects held out &
+n/r &
+None; one dataset &
+Calibration n/r; no interval reported &
+n/r &
+Three prior published methods &
+Dataset public; code n/r &
+None; staged meals in a laboratory \\
+\addlinespace[2pt]
+Liu et al.~\cite{2} &
+Two thirds of samples for training, chosen at random, with LOOCV inside &
+High; samples, not subjects, were split &
+Label taken from the BDI score where a diagnosis was absent &
+A second private cohort, but the model is retrained on it &
+Calibration n/r; no interval reported &
+n/r &
+SVM, TCN and further classifiers &
+Data public on application; code n/r &
+None \\
+\addlinespace[2pt]
+Thaipisutikul et al.~\cite{3} &
+First 90\% of months for training, last 10\% for test; also five-fold CV &
+Low for the temporal split; the five-fold CV is not time-ordered &
+Mean imputation &
+None; one country &
+Calibration n/r; no interval reported &
+Results given per district, not per population group &
+SARIMAX, RNN, LSTM, GRU, BiLSTM, CNN and attention variants &
+Source code and results released &
+None; administrative counts \\
+\addlinespace[2pt]
+Kong et al.~\cite{4} &
+Ten-fold CV, run separately within each site &
+Low at subject level; no cross-site test &
+Scans discarded for head motion or ghosting &
+None; the two sites are evaluated separately &
+Calibration n/r; no interval reported &
+n/r &
+SVM, random forest, deep autoencoder, GCN &
+Data private; code n/r &
+None; response scored at two weeks \\
+\addlinespace[2pt]
+Zhang et al.~\cite{9} &
+Ten-fold CV at the subject level &
+Low; SMOTE applied to training folds only &
+n/r &
+None; one public cohort &
+Calibration n/r; no interval reported &
+n/r &
+AdaBoost, naive Bayes, decision tree and prior work &
+Data public; code n/r &
+None \\
+\addlinespace[2pt]
+Li et al.~\cite{Li2020GluNet} &
+Per subject: about 90 days for training and 90 for test in two sets, and the challenge split of 40 and 10 days in the third &
+Low within a subject; a separate test trains on five subjects and predicts the rest, giving one unseen-subject result (RMSE 24.9 against 20.6 personalized) &
+Outliers removed, CGM interpolated across short gaps, insulin and meal filled or estimated &
+Three datasets, one simulated and two clinical, with a personalized model refitted for each subject &
+Predicts a distribution and displays 95\% bounds, but their coverage is never assessed; RMSE given as mean and standard deviation &
+n/r &
+NNPG, SVR, LVX and ARX, with computational time for all five on the same hardware &
+Simulator licensed, OhioT1DM public; code n/r &
+None; retrospective, but implemented as an Android app \\
+\addlinespace[2pt]
+Lim et al.~\cite{Lim2025VirtualCGM} &
+Within each subject in time: 7 days train, 1 day gap, 4 days test &
+Low within a subject; no held-out subjects &
+Subjects kept only where coverage exceeded 50\% of possible points &
+None; one app cohort &
+Calibration n/r; error grows with horizon, no interval reported &
+n/r; healthy adults only &
+Ablations and variants of the same model; no published baseline &
+Data not public; code n/r &
+None \\
+\addlinespace[2pt]
+Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} &
+None; posterior estimation on the full sample &
+Not applicable; no predictive hold-out &
+Five-year ACS estimates used to reduce county-level missingness &
+None &
+Calibration n/r; 95\% intervals from the posterior &
+Estimates adjusted for age, sex and race &
+Two model specifications; no predictive comparator &
+Data public; analysis scripts n/r &
+None; ecological analysis \\
+\addlinespace[2pt]
+Bohoran et al.~\cite{5} &
+Random split of 424 scans into 272, 68 and 84 &
+Moderate; scans, not patients, were split, and 48 patients contribute more than one &
+n/r &
+None; the multicentre pool is split at random rather than by centre &
+Calibration n/r; no interval reported &
+n/r; the authors note untested ages, ethnic groups and scanners &
+Prior state-of-the-art aortic segmentation &
+Code public; data on request &
+None; agreement with reference contours, plus energy and carbon cost \\
+\addlinespace[2pt]
+Lin and Luo~\cite{lin2022deep} &
+Subjects split into training and test, evaluated at landmark times &
+Low; only data before each landmark are used &
+NA on a fixed six-month grid &
+A second cohort (NACC), with the model refitted there &
+Integrated Brier score reported; 95\% intervals &
+n/r &
+Joint models and other deep survival models &
+Data public on application; code n/r &
+None \\
+\addlinespace[2pt]
+Nitski et al.~\cite{nitski2021long} &
+Random split by patient, 80/10/10, in SRTR; five-fold CV in UHN &
+Low; split by patient &
+Forward filled, otherwise the training-set mean; 73 patients excluded &
+UHN evaluated, but the best model was fine-tuned on UHN first &
+Calibration n/r; 99\% intervals by bootstrap &
+Hepatitis C and post-2014 subgroups; race absent from UHN &
+Logistic regression, MLP, RNN and TCN &
+Code public; SRTR on request, UHN unavailable &
+None; retrospective, with an illustrative dashboard \\
+\addlinespace[2pt]
+Glaser et al.~\cite{glaser2022deep} &
+Split by participant, 70/10/20 &
+Low; split by participant &
+Backfilled with the most recent value or an out-of-distribution default &
+None; one cohort &
+Calibration n/r; bootstrap intervals over 1000 samples &
+AUROC reported for subpopulations &
+Metadata and single-modality models of the authors' own; no published baseline &
+Code public on GitHub and Zenodo; data on request &
+None; retrospective \\
+\bottomrule
+\multicolumn{10}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize LOOCV: leave-one-out cross-validation. CV: cross-validation.} \\
+\multicolumn{10}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize SMOTE: synthetic minority over-sampling technique. AUROC: area under the receiver operating characteristic curve.} \\
+\multicolumn{10}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize Calibration here means calibration of a predicted risk or value against observed outcomes, not instrument calibration.} 
+\end{tabularx}
+\end{table*}
+
+
+\begin{table*}[p]
+\centering
+\caption{Datasets underlying the ten studies sampled from the rule-eligible pool. Conventions are
+those of Table~\ref{tab:datasets}.}
+\label{tab:datasets-b}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.0}
+\begin{tabularx}{\textwidth}{L{1.5cm} L{1.4cm} L{1.3cm} L{1.5cm} L{1.6cm} L{1.2cm} L{1.75cm} L{1.35cm} L{1.4cm} L{0.72cm} X}
+\toprule
+\textbf{Dataset (study)} & \textbf{Population} & \textbf{Modality} & \textbf{Device or instrument} & \textbf{Sampling rate; record duration} & \textbf{Spatial unit} & \textbf{Missingness, as handled} & \textbf{Access} & \textbf{Supported tasks} & \textbf{Fit} & \textbf{Principal limitation for IoT use} \\
+\midrule
+Three cuffless-BP cohorts (Liu et al.~\cite{liu2024cignn}) & 305 subjects, 102 hypertensive & ECG and PPG with derived beat features & Clinical multi-parameter monitors; Finapres reference & 1000\,Hz; 10\,min per subject & None & n/r & Mixed; one cohort public & Cuffless beat-to-beat blood pressure & D & Reference is a laboratory Finapres, not ambulatory use \\
+\addlinespace[1pt]
+Single-channel SERF-MCG (Li et al.~\cite{li2026edgeischemia}) & 2118 subjects, 983 with ischemia & Magnetocardiography & Optically pumped magnetometer, 0--100\,Hz & n/r; one cardiac cycle per sample & None & Arrhythmia and pacemaker cases excluded & Private & Ischemia screening & -- & Shielded-room quantum sensor, not a wearable \\
+\addlinespace[1pt]
+IMU gait strides (Verbiest et al.~\cite{verbiest2023gaitstride}) & 4467 strides from 15 healthy adults & Foot inertial signals & IMU with Cortex-M4F microcontroller; GAITRite reference & 102.4\,Hz; stride-length windows & None & n/r & n/r & On-device stride-length estimation & D & Fifteen healthy adults; no pathological gait \\
+\addlinespace[1pt]
+WearGait-PD (Herath et al.~\cite{herath2026parkinson}) & 181 subjects, 100 with Parkinson's & Wearable inertial signals & Movella DOT IMUs & 100\,Hz; walking bouts & Body-segment placement & No imputation; per-fold standardization & Public & Parkinson's detection and severity tasks & D & One cohort; no second site \\
+\addlinespace[1pt]
+Smart-bed accelerometer array (Liu et al.~\cite{liu2025sleepposture}) & 30 healthy students, 15 of each sex & Triaxial acceleration under the mattress & Distributed accelerometer array in a bed mattress & 240\,Hz; staged postures & Array positions across the mattress & Transitional postures excluded & On request & Sleep-posture classification & D & Healthy young adults holding staged postures \\
+\addlinespace[1pt]
+Smartphone sit-to-stand videos (Chan et al.~\cite{chan2026sitstand}) & 2063 videos from 309 participants & Sagittal video with pose-derived joint angular velocity & Consumer smartphone at 2.4\,m & 30\,Hz, 1080p; seven trials each & Joint positions in the sagittal plane & Low-quality videos excluded & n/r & Symptomatic knee osteoarthritis detection & D & One camera view at a fixed distance \\
+\addlinespace[1pt]
+Wearable exercise cohort (Wang et al.~\cite{wang2025vo2}) & 21 adults, 14 male & Heart rate, acceleration and gas exchange & Polar chest strap, accelerometer, gas analyzer & 1\,Hz; graded exercise test & None & Participants with implants excluded & On request & Oxygen-uptake estimation & D & Twenty-one young adults in a laboratory protocol \\
+\addlinespace[1pt]
+VIPL-HR (Zhu et al.~\cite{zhu2024ippg}) & Public face-video cohort & RGB face video & Consumer cameras and webcams & 25\,fps & Face region & n/r & Public & Remote SpO$_2$ and heart-rate estimation & D & Labels come from a finger oximeter; illumination and motion differ from clinical use \\
+\addlinespace[1pt]
+Ninapro DB2 (Lin et al.~\cite{lin2024smapen}) & 40 able-bodied subjects, 40 movements & Surface EMG with glove kinematics & Delsys sEMG array; CyberGlove II & 2000\,Hz sEMG, glove resampled to match & Twelve electrode sites & n/r & Public & Continuous hand-kinematics estimation & D & Able-bodied subjects performing scripted movements \\
+\addlinespace[1pt]
+CHB-MIT and Freiburg EEG (Hussein et al.~\cite{hussein2022seizure}) & 22 scalp and 18 intracranial patients & Scalp and intracranial EEG & Clinical EEG systems & 256\,Hz; 9--42 one-hour recordings per patient & Electrode montage & n/r & Public & Seizure prediction & M & Per-patient models; recordings are in-hospital, not ambulatory \\
+\bottomrule
+\multicolumn{11}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize Conventions, column keys and the meaning of the Fit codes are given with Table~\ref{tab:datasets}. SERF: spin-exchange relaxation-free. PPG: photoplethysmography. sEMG: surface electromyography.}
+\end{tabularx}
+\end{table*}
+
+
+\begin{table*}[p]
+\centering
+\caption{Quality assessment of the ten studies sampled from the rule-eligible pool, in the order of
+Table~II of the main paper. Conventions are those of Table~\ref{tab:quality}.}
+\label{tab:quality-b}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.05}
+\begin{tabularx}{\textwidth}{L{1.5cm} L{1.9cm} L{1.7cm} L{1.8cm} L{1.7cm} L{1.6cm} L{1.3cm} L{1.6cm} L{1.5cm} X}
+\toprule
+\textbf{Study} & \textbf{Train and test split} & \textbf{Leakage risk} & \textbf{Missing data} & \textbf{External validation} & \textbf{Calibration; uncertainty} & \textbf{Fairness or subgroups} & \textbf{Comparators} & \textbf{Reproducibility} & \textbf{Clinical validation} \\
+\midrule
+Liu et al.~\cite{liu2024cignn} & Leave-one-subject-out across three cohorts & Low; whole subjects held out & n/r & Three cohorts pooled, not held out by cohort & Calibration n/r; error reported as mean and SD against AAMI and IEEE 1708 limits & Results given across age groups & Granger-causality, GCN and GRU variants & Data partly public; code n/r & None; Finapres reference in a laboratory \\
+\addlinespace[1pt]
+Li et al.~\cite{li2026edgeischemia} & Subject-level 70/10/20, stratified & Low; split by subject & Arrhythmia and pacemaker cases excluded & None; one private cohort & Calibration n/r; no interval reported & n/r & 1D-CNN and single-modality models; the 1D-CNN is faster at similar AUC & Data private; code n/r & None; screening scenario only \\
+\addlinespace[1pt]
+Verbiest et al.~\cite{verbiest2023gaitstride} & Subject-wise split, ten-fold cross-validation & Low; split on the subject identifier & n/r & None; fifteen healthy adults & Calibration n/r; agreement reported as bias with limits of agreement and minimal detectable change & n/r & GAITRite instrumented walkway as reference & Data n/r; Edge Impulse pipeline described & None; healthy gait only \\
+\addlinespace[1pt]
+Herath et al.~\cite{herath2026parkinson} & Subject-disjoint stratified five-fold, nested, five seeds & Low; explicitly leakage-free & No imputation; per-fold standardization & None; one cohort & Calibration n/r; standard deviations over 25 estimates & Age-matched and age-stratified analyses with a per-sex evaluation & Six classical baselines and a spectrogram CNN; two beat it on some metrics & Public data; pretrained encoder from a public repository & None \\
+\addlinespace[1pt]
+Liu et al.~\cite{liu2025sleepposture} & Grid search with cross-validation; split not stated at subject level & High; with 30 subjects and staged postures a random split can place one subject on both sides & Transitional postures excluded & None & Calibration n/r; no interval reported & n/r; sexes balanced by design & Several published deep models on the same data & Data on request; code n/r & None \\
+\addlinespace[1pt]
+Chan et al.~\cite{chan2026sitstand} & Subject-level hold-out, 1731 training and 410 test videos & Low; split by subject & Low-quality videos excluded & None; one cohort & Calibration n/r; standard deviations reported & AUC reported separately for male and female subgroups & Sit-to-stand pace and body-mass index as comparators & Data n/r; supplementary tables released & None; cross-sectional detection \\
+\addlinespace[1pt]
+Wang et al.~\cite{wang2025vo2} & Three subjects held out; six-fold cross-validation on the other 18 & Low; held out by participant & Participants with implants excluded & None; one cohort & Calibration n/r; no interval reported & n/r & Plain LSTM and attention ablations & Data on request; code n/r & None; laboratory exercise test \\
+\addlinespace[1pt]
+Zhu et al.~\cite{zhu2024ippg} &
+n/r &
+Unknown; no split is described anywhere in the paper & n/r & None; one public dataset & Calibration n/r; no interval reported & n/r & Related published methods on the same dataset, and module ablations & Public dataset; code n/r & None \\
+\addlinespace[1pt]
+Lin et al.~\cite{lin2024smapen} & Within subject, across movement repetitions & Moderate; no unseen-subject evaluation & n/r & None; one public dataset & Calibration n/r; significance tests against baselines & n/r; able-bodied subjects only & State-of-the-art sEMG regression methods, with $p<0.01$ & Public dataset; code n/r & None; portable-device timing only \\
+\addlinespace[1pt]
+Hussein et al.~\cite{hussein2022seizure} & Per-patient models; clips split into segments & High; segments of one clip can fall on both sides and the protocol is not stated at the clip level & n/r & Three benchmark datasets, each with its own models & Calibration n/r; false-alarm rate per hour reported & n/r & Published seizure-prediction methods & Public datasets; code n/r & None; retrospective recordings \\
+\bottomrule
+\multicolumn{10}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize Conventions are those of Table~\ref{tab:quality}. AAMI: Association for the Advancement of Medical Instrumentation.}
+\end{tabularx}
+\end{table*}
+
+\section{Communication substrate}
+\label{sec:protocols}
+Table~\ref{tab:protocols} compares the link and application-layer options a
+connected-health deployment actually chooses between, and states what each
+choice does to the three quantities a spatiotemporal model depends on: the
+sampling rate that can leave the device, the loss the model must tolerate, and
+how often a model update can be pushed. Figures are typical published values
+for each technology rather than guarantees for a particular product, and no
+study in Table~\ref{tab:quality} reports which of these it assumed. Two
+consequences are worth stating plainly. A link in the kilobit-per-second class
+cannot carry a waveform at all, so the device must summarise before it
+transmits, and the model downstream is then learning from features chosen at
+the sensing tier rather than from the signal. And the quality-of-service level
+of the application protocol decides whether a lost sample is silently absent or
+retried, which is the difference between a gap the model can detect and one it
+cannot.
+
+\begin{table*}[t]
+\centering
+\caption{Communication options for connected health, with the consequence for sampling rate,
+loss and model-update cadence. Values are typical published figures for the technology, not
+guarantees for a given product.}
+\label{tab:protocols}
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{L{2.0cm} L{2.3cm} L{1.7cm} L{1.6cm} L{2.0cm} X}
+\toprule
+\textbf{Technology} & \textbf{Typical data rate} & \textbf{Typical latency} & \textbf{Range} & \textbf{Energy profile} & \textbf{Consequence for sampling rate, loss and model updates} \\
+\midrule
+Bluetooth Low Energy~\cite{gomez2012ble} &
+Up to about 0.24\,Mb/s at the application layer &
+Milliseconds to about 100\,ms, set by the connection interval &
+About 10\,m &
+Coin cell for months to years at a low duty cycle &
+The connection interval, not the sensor, bounds what can be streamed; raising the rate costs battery, so devices buffer and window on board, and the model consumes segments rather than a continuous signal \\
+\addlinespace[2pt]
+Wi-Fi (IEEE 802.11) &
+Tens to hundreds of Mb/s &
+Single-digit milliseconds on a good link &
+Tens of metres indoors &
+Too high for a coin cell; assumes mains or daily charging &
+The only option in this table that can move imaging volumes or push a full model to the edge; confines the device to a room and makes coverage gaps the dominant loss mechanism \\
+\addlinespace[2pt]
+Cellular 4G and 5G~\cite{li20185giot} &
+Megabits to gigabits per second &
+About 1 to 10\,ms for the low-latency 5G targets &
+Wide area &
+High; needs a rechargeable battery and a subscription &
+Removes the gateway, so an ambulatory device can synchronise a twin directly; latency and cost, not bandwidth, decide whether inference runs on the device or in the cloud \\
+\addlinespace[2pt]
+LoRaWAN~\cite{raza2017lpwan} &
+About 0.3 to 50\,kb/s &
+Seconds, and duty-cycle limited &
+Kilometres &
+Years on a primary cell &
+Cannot carry a waveform: the device must transmit summaries or events, so the features are fixed at the sensing tier, and pushing a model update over the link is impractical \\
+\addlinespace[2pt]
+MQTT~\cite{mqtt5standard} &
+Application layer over TCP; overhead of a few bytes per message &
+Follows the underlying link, plus broker queueing &
+Broker-mediated, any range &
+Persistent TCP session costs energy on a sleepy device &
+The quality-of-service level decides whether a dropped sample is silently lost (QoS 0) or retried (QoS 1 and 2); retained messages let a twin recover its last state after a disconnection, which is what makes a gap visible to the model \\
+\addlinespace[2pt]
+CoAP~\cite{rfc7252} &
+Application layer over UDP; compact binary header &
+One round trip, no connection setup &
+Any range, designed for constrained nodes &
+Lowest of the application protocols here &
+Suits microcontroller-class devices that cannot hold a TCP session; confirmable messages give retransmission without TCP, and the observe option turns a periodic poll into a push, which lowers the energy cost of a high-cadence stream \\
+\bottomrule
+\multicolumn{6}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize Interoperability sits above this table and is not a substitute for it: HL7 FHIR~\cite{ayaz2021fhir} fixes the schema and semantics of the record a platform exchanges, whereas IEEE 11073~\cite{ieee11073std} fixes the device profile, so that a measurement arrives with its units, its accuracy and its provenance. A deployment needs both, and neither specifies the transport chosen above.}
+\end{tabularx}
+\end{table*}
+
+\section{Deployment and privacy reporting, per study}
+\label{sec:deployrep}
+Table~\ref{tab:deployrep} records, for each of the twenty-two studies, the four
+system quantities that decide whether a model can run where the paper implies
+it could, together with any privacy or security mechanism the study reports and
+its principal methodological limitation. The table is mostly empty, and that is its finding: five studies report a cost or latency figure of any kind, only three of those measured it on the class of device the work implies, none reports a sustained data rate or bandwidth, and none reports a privacy mechanism as part of its method. Deployment claims in this literature,
+including the placements we ourselves infer in Table~II of the main paper,
+therefore rest on plausibility rather than on measurement.
+
+\begin{table*}[t]
+\centering
+\caption{System and privacy reporting in the twenty-two studies. \emph{n/r}: not reported.}
+\label{tab:deployrep}
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.0}
+\begin{tabularx}{\textwidth}{L{2.0cm} L{2.6cm} L{1.5cm} L{2.4cm} L{1.9cm} X}
+\toprule
+\textbf{Study} & \textbf{Privacy or security method} & \textbf{Latency} & \textbf{Energy} & \textbf{Bandwidth or data rate} & \textbf{Principal methodological limitation} \\
+\midrule
+Kyritsis et al.~\cite{Kyritsis2019EatingBehavior} & n/r & n/r & n/r & n/r & Twelve subjects, staged meals; no free-living data \\
+\addlinespace[1pt]
+Liu et al.~\cite{2} & n/r & n/r & n/r & n/r & Split by sample, so a subject can appear on both sides \\
+\addlinespace[1pt]
+Thaipisutikul et al.~\cite{3} & n/r & n/r & n/r & n/r & Seventy monthly aggregates; no individual-level data \\
+\addlinespace[1pt]
+Kong et al.~\cite{4} & n/r & n/r & n/r & n/r & Each site evaluated on its own; no cross-site result \\
+\addlinespace[1pt]
+Zhang et al.~\cite{9} & n/r & n/r & n/r & n/r & Seventy-two subjects from one public cohort \\
+\addlinespace[1pt]
+Li et al.~\cite{Li2020GluNet} & n/r & 6\,ms per prediction on an Android phone; 0.79\,s on the comparison hardware & n/r & n/r & Two of three sets are simulated or single-project; the app was demonstrated, not trialled \\
+\addlinespace[1pt]
+Lim et al.~\cite{Lim2025VirtualCGM} & n/r & n/r & n/r & n/r & Healthy adults only, and the split holds out days rather than subjects \\
+\addlinespace[1pt]
+Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & n/r & n/r & n/r & n/r & Ecological analysis with no predictive hold-out \\
+\addlinespace[1pt]
+Bohoran et al.~\cite{5} & n/r & n/r & Energy and carbon-equivalent cost reported for the pruned model & n/r & Scans split at random, and 48 patients contribute more than one \\
+\addlinespace[1pt]
+Lin and Luo~\cite{lin2022deep} & n/r & n/r & n/r & n/r & The second cohort is refitted, so it is not an untouched external test \\
+\addlinespace[1pt]
+Nitski et al.~\cite{nitski2021long} & Anonymized registry records; no privacy mechanism in the method & n/r & n/r & n/r & Best result follows fine-tuning on the second registry \\
+\addlinespace[1pt]
+Glaser et al.~\cite{glaser2022deep} & n/r & n/r & n/r & n/r & One cohort; calibration of the displayed risk not reported \\
+\addlinespace[1pt]
+Liu et al.~\cite{liu2024cignn} & n/r & n/r & n/r & n/r & Reference blood pressure comes from a laboratory Finapres, not ambulatory use \\
+\addlinespace[1pt]
+Li et al.~\cite{li2026edgeischemia} & n/r & 4.7\,ms per cycle, on a desktop CPU, not on an edge board & n/r & n/r & Edge claim not validated on a device; a faster 1D-CNN reaches a similar AUC \\
+\addlinespace[1pt]
+Verbiest et al.~\cite{verbiest2023gaitstride} & n/r & Toolchain estimate; no measured figure & n/r & n/r & Fifteen healthy adults; nothing shown for pathological gait \\
+\addlinespace[1pt]
+Herath et al.~\cite{herath2026parkinson} & n/r & n/r & n/r & n/r & One cohort; the pretrained encoder is a fixed feature extractor, not a calibrated model \\
+\addlinespace[1pt]
+Liu et al.~\cite{liu2025sleepposture} & n/r & n/r & n/r & n/r & Split not stated at subject level; accuracy may be optimistic \\
+\addlinespace[1pt]
+Chan et al.~\cite{chan2026sitstand} & n/r & n/r & n/r & n/r & One sagittal view at a fixed distance, which a home setting would not guarantee \\
+\addlinespace[1pt]
+Wang et al.~\cite{wang2025vo2} & n/r & n/r & n/r & n/r & Twenty-one young adults on a laboratory protocol \\
+\addlinespace[1pt]
+Zhu et al.~\cite{zhu2024ippg} & n/r & n/r & n/r & n/r & No split is described, and the labels come from a finger oximeter \\
+\addlinespace[1pt]
+Lin et al.~\cite{lin2024smapen} & n/r & 97.93\,ms on a portable device & n/r & n/r & Able-bodied subjects and scripted movements; no unseen-subject evaluation \\
+\addlinespace[1pt]
+Hussein et al.~\cite{hussein2022seizure} & n/r & n/r & n/r & n/r & Clips split into segments; protocol not stated at clip level \\
+\bottomrule
+\multicolumn{6}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize Model size: three studies report anything. Bohoran et al.~\cite{5} give filter counts for a pruned network, Verbiest et al.~\cite{verbiest2023gaitstride} 92\,kB of flash and 14\,kB of RAM for an int8 model on a Cortex-M4F, and Li et al.~\cite{Li2020GluNet} 14{,}592 parameters with about 100\,MB of phone memory while forecasting. No other study reports parameter count or memory footprint, so the column is omitted rather than filled with nineteen identical entries.}
+\end{tabularx}
+\end{table*}
+
+
+\section{Provenance and reason for inclusion}
+\label{sec:provenance}
+Table~\ref{tab:provenance} states, for each of the twenty-two studies, how it entered the survey
+and what it contributes that no other row does. The two provenances are not equivalent and we do
+not present them as such: the first twelve were assembled by ordinary reading while earlier and
+longer versions of this survey were drafted, and the searches of Section~II of the main paper were
+run three months later; the last ten were drawn from the 363 rule-eligible records under the frame
+and stopping rule stated there. Neither part is a random sample, so the table is an audit trail
+rather than a claim of representativeness.
+
+\begin{table*}[t]
+\centering
+\caption{How each study entered the survey, and the reason it is included.}
+\label{tab:provenance}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabularx}{\textwidth}{L{2.6cm} L{3.1cm} X}
+\toprule
+\textbf{Study} & \textbf{Provenance} & \textbf{Reason for inclusion} \\
+\midrule
+Kyritsis et al.~\cite{Kyritsis2019EatingBehavior} & Assembled while drafting & The only wearable dietary study we found reporting a quantitative in-meal metric against prior methods \\
+Liu et al.~\cite{2} & Assembled while drafting & Public clinical EEG cohort with an explicit spatial montage \\
+Thaipisutikul et al.~\cite{3} & Assembled while drafting & The population-level temporal case, with an administrative spatial unit and a released code base \\
+Kong et al.~\cite{4} & Assembled while drafting & Two-site imaging with a treatment-response outcome rather than diagnosis alone \\
+Zhang et al.~\cite{9} & Assembled while drafting & Public imaging cohort evaluated at the subject level \\
+Li et al.~\cite{Li2020GluNet} & Assembled while drafting & The continuous-glucose forecasting case, combining a simulator with clinical data \\
+Lim et al.~\cite{Lim2025VirtualCGM} & Assembled while drafting & The only life-log and glucose cohort with an explicit gap period against window leakage \\
+Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & Assembled while drafting & The ecological spatial case, and the one study with no predictive hold-out \\
+Bohoran et al.~\cite{5} & Assembled while drafting & Multi-vendor imaging with a pruned model and a reported resource cost \\
+Lin and Luo~\cite{lin2022deep} & Assembled while drafting & Irregular longitudinal survival modelling, and the only study reporting a calibration score \\
+Nitski et al.~\cite{nitski2021long} & Assembled while drafting & The largest registry case, and the study that raises the external-validation question directly \\
+Glaser et al.~\cite{glaser2022deep} & Assembled while drafting & Serial imaging with subpopulation results and released code \\
+\addlinespace[3pt]
+Liu et al.~\cite{liu2024cignn} & Sampled from the 363 & Fills the cardiovascular sensing cell: wearable-grade signals with an error reported against device standards \\
+Li et al.~\cite{li2026edgeischemia} & Sampled from the 363 & Fills the edge-inference cell and reports a latency figure, which almost nothing else in the pool does \\
+Verbiest et al.~\cite{verbiest2023gaitstride} & Sampled from the 363 & The only study we found running inference on a microcontroller with memory figures reported \\
+Herath et al.~\cite{herath2026parkinson} & Sampled from the 363 & Fills wearable neurology, and has the strictest validation protocol in the set \\
+Liu et al.~\cite{liu2025sleepposture} & Sampled from the 363 & Fills ambient sensing, with a spatial sensor array rather than a body-worn device \\
+Chan et al.~\cite{chan2026sitstand} & Sampled from the 363 & Fills smartphone camera sensing, with a clinical endpoint and subgroup results \\
+Wang et al.~\cite{wang2025vo2} & Sampled from the 363 & Fills multi-source wearable regression against a laboratory reference \\
+Zhu et al.~\cite{zhu2024ippg} & Sampled from the 363 & Fills contactless respiratory sensing from ordinary video \\
+Lin et al.~\cite{lin2024smapen} & Sampled from the 363 & Fills rehabilitation sensing, and reports measured on-device latency \\
+Hussein et al.~\cite{hussein2022seizure} & Sampled from the 363 & Fills epilepsy, and is the one study evaluated across three benchmark datasets \\
+\bottomrule
+\multicolumn{3}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize The stopping rule was saturation, not a target count: sampling stopped when three consecutive candidates from the pool added no new data type, model family, clinical domain or IoT layer. Cells are our judgement of what each row contributes, and are not claims made by the studies themselves.}
+\end{tabularx}
+\end{table*}
+
+\section{Citation chasing}
+\label{sec:chasing}
+Citation chasing was run through OpenAlex on 11 of the twelve reviews compared in
+Table~I of the main paper; the twelfth is an arXiv preprint without a registered
+DOI and could not be resolved. Backward chasing took the reference list of each
+seed and forward chasing took the works citing it, restricted to 2015 onwards.
+The same three eligibility criteria were then applied to the title and abstract
+text OpenAlex supplies.
+
+Backward: 1{,}523 references, of which 1{,}362 were retrievable as records,
+yielding 1 eligible, 1 of them absent from the PubMed output. Forward:
+3{,}120 citing works in total, fetched under a cap of 400 per seed, giving
+2{,}110 distinct records and 14 eligible, all 14 absent from the PubMed
+output. The chase therefore adds \textbf{15} eligible records to the 363 the
+database screen produced.
+
+Three limits keep this a lower bound rather than an exhaustive check. The
+forward cap of 400 was reached by three seeds, so their citing literature is
+sampled rather than enumerated. OpenAlex supplies no abstract for a large share
+of records, and a title alone rarely satisfies three criteria at once, which is
+why the dominant rejection was the absence of a spatial or temporal term
+(1184 backward and 1909 forward records). And the seeds are reviews, so the
+chase reaches what reviews cite and what cites reviews, which is not the same
+population as the primary literature. Most of the fifteen are
+human-activity-recognition papers citing the wearable-sensing review, which is
+consistent with that bias.
+
+\begin{table}[t]
+\centering
+\caption{Citation-chasing seeds and their yield. References are the seed's own reference list;
+cited-by is its OpenAlex citation count at the time of the chase.}
+\label{tab:chasing}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.1}
+\begin{tabular}{@{}p{4.6cm} r r@{}}
+\toprule
+\textbf{Seed review} & \textbf{References} & \textbf{Cited by} \\
+\midrule
+Wang et al.~\cite{wang2022deep} & 202 & 819 \\
+\addlinespace[1pt]
+Samani et al.~\cite{samani2026stdl} & 0 & 0 \\
+\addlinespace[1pt]
+Swinckels et al.~\cite{swinckels2024ehr} & 66 & 73 \\
+\addlinespace[1pt]
+Busnatu et al.~\cite{Busnatu2022} & 130 & 47 \\
+\addlinespace[1pt]
+Sun et al.~\cite{sun2026irregularmedical} & 94 & 3 \\
+\addlinespace[1pt]
+Wang et al.~\cite{Wang2023Survey} & 141 & 315 \\
+\addlinespace[1pt]
+Sel et al.~\cite{Sel2025VVUQ} & 111 & 105 \\
+\addlinespace[1pt]
+Chen et al.~\cite{chen2024genaitwin} & 185 & 131 \\
+\addlinespace[1pt]
+Amin and Hossain~\cite{amin2021edgeintel} & 107 & 260 \\
+\addlinespace[1pt]
+Nguyen et al.~\cite{nguyen2022FLsmarthealthcare} & 137 & 802 \\
+\addlinespace[1pt]
+Zhang et al.~\cite{zhang2022harreview} & 350 & 565 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Full-text access}
+\label{sec:access}
+Every one of the twenty-two studies synthesized in the main paper was read in
+full, from the publisher, from PubMed Central, or from an author-deposited
+version, and every field in the tables above was taken from that full text
+rather than from an abstract. One further paper considered for the set,
+J.~Xie and B.~Yao, \emph{Comput.\ Biol.\ Med.}, vol.~146, p.~105586, 2022, could
+not be obtained through any of those routes and was therefore dropped rather
+than described from its abstract. Of the twelve reviews compared in Table~I of
+the main paper, eleven were read in full and one
+(Samani et al.~\cite{samani2026stdl}) could not be obtained; its row in
+Table~\ref{tab:surveyevidence} is marked accordingly.
+
+\bibliographystyle{IEEEtran}
+\bibliography{newST}
+
+\end{document}

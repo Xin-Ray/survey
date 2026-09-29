@@ -1,0 +1,177 @@
+{
+ "backward": {
+  "distinct": 1362,
+  "rule_eligible": 1,
+  "not_already_retrieved": 1,
+  "reasons": {
+   "outside window": 118,
+   "no spatial/temporal term": 1184,
+   "no deep-learning term": 14,
+   "no health term": 45,
+   "eligible": 1
+  },
+  "new": [
+   {
+    "id": "https://openalex.org/W3046507381",
+    "doi": "10.1109/jiot.2020.3013272",
+    "title": "Physical Activity Recognition With Statistical-Deep Fusion Model Using Multiple Sensory Data for Smart Health",
+    "year": 2020
+   }
+  ]
+ },
+ "forward": {
+  "distinct": 2110,
+  "rule_eligible": 14,
+  "not_already_retrieved": 14,
+  "reasons": {
+   "no spatial/temporal term": 1909,
+   "no quantitative result": 7,
+   "no deep-learning term": 64,
+   "no health term": 116,
+   "eligible": 14
+  },
+  "new": [
+   {
+    "id": "https://openalex.org/W4285215168",
+    "doi": "10.1109/access.2022.3174853",
+    "title": "Deep-AIR: A Hybrid CNN-LSTM Framework for Fine-Grained Air Pollution Estimation and Forecast in Metropolitan Cities",
+    "year": 2022
+   },
+   {
+    "id": "https://openalex.org/W4400648944",
+    "doi": "10.1371/journal.pone.0307159",
+    "title": "Modeling epidemic dynamics using Graph Attention based Spatial Temporal networks",
+    "year": 2024
+   },
+   {
+    "id": "https://openalex.org/W4391582481",
+    "doi": "10.1109/lra.2024.3362679",
+    "title": "TeleFMG: A Wearable Force-Myography Device for Natural Teleoperation of Multi-Finger Robotic Hands",
+    "year": 2024
+   },
+   {
+    "id": "https://openalex.org/W4402262720",
+    "doi": "10.1109/jsen.2024.3450499",
+    "title": "MHCNLS-HAR: Multiheaded CNN-LSTM-Based Human Activity Recognition Leveraging a Novel Wearable Edge Device for Elderly Health Care",
+    "year": 2024
+   },
+   {
+    "id": "https://openalex.org/W4391167855",
+    "doi": "10.3390/s24030758",
+    "title": "Wearable Sensor-Based Residual Multifeature Fusion Shrinkage Networks for Human Activity Recognition",
+    "year": 2024
+   },
+   {
+    "id": "https://openalex.org/W4399241319",
+    "doi": "10.7717/peerj-cs.2100",
+    "title": "Recognition of sports and daily activities through deep learning and convolutional block attention",
+    "year": 2024
+   },
+   {
+    "id": "https://openalex.org/W4409427287",
+    "doi": "10.1109/jiot.2025.3560344",
+    "title": "FusionGCNN: An IoT-Based Novel Spatiotemporal Graph Convolutional Network for ECG Arrhythmia Detection",
+    "year": 2025
+   },
+   {
+    "id": "https://openalex.org/W4401111261",
+    "doi": "10.1109/ecti-con60892.2024.10594977",
+    "title": "Enhancing Clinical Activity Recognition with Bidirectional RNNs and Accelerometer-ECG Fusion",
+    "year": 2024
+   },
+   {
+    "id": "https://openalex.org/W4405490948",
+    "doi": "10.1109/sensors60989.2024.10784549",
+    "title": "Multimodal Stress and Boredom Detection via Smartwatch Sensors and Hybrid Deep Residual Network with CBAM",
+    "year": 2024
+   },
+   {
+    "id": "https://openalex.org/W7132846492",
+    "doi": "10.1038/s41598-026-41195-x",
+    "title": "IoT framework for sports activity safety monitoring based on wearable sensors and CRNN spatiotemporal analysis",
+    "year": 2026
+   },
+   {
+    "id": "https://openalex.org/W7129530300",
+    "doi": "10.1109/ic-ftai67960.2025.11384510",
+    "title": "Hybrid Deep Learning Methods for Human Activity Recognition Based on Mobile Sensor Data",
+    "year": 2025
+   },
+   {
+    "id": "https://openalex.org/W4394979788",
+    "doi": "10.47392/irjaeh.2024.0125",
+    "title": "Human Activity Recognition Using CNN-LSTM-GRU Model",
+    "year": 2024
+   },
+   {
+    "id": "https://openalex.org/W4414643050",
+    "doi": "10.1177/18724981251380391",
+    "title": "Practice of wearable devices combined with deep learning algorithms in predicting athletic injury risk",
+    "year": 2025
+   },
+   {
+    "id": "https://openalex.org/W4387091114",
+    "doi": "10.1109/icipca59209.2023.10257913",
+    "title": "Deep Learning-Based Human Activity Recognition Algorithms: A Comparative Study",
+    "year": 2023
+   }
+  ]
+ },
+ "seeds": {
+  "wang2022deep": {
+   "doi": "10.1109/TKDE.2020.3025580",
+   "references": 202,
+   "cited_by": 819
+  },
+  "samani2026stdl": {
+   "doi": "10.1007/s11063-026-11874-x",
+   "references": 0,
+   "cited_by": 0
+  },
+  "swinckels2024ehr": {
+   "doi": "10.2196/48320",
+   "references": 66,
+   "cited_by": 73
+  },
+  "Busnatu2022": {
+   "doi": "10.3390/jpm12101656",
+   "references": 130,
+   "cited_by": 47
+  },
+  "sun2026irregularmedical": {
+   "doi": "10.34133/hds.0456",
+   "references": 94,
+   "cited_by": 3
+  },
+  "Wang2023Survey": {
+   "doi": "10.1109/JIOT.2023.3263909",
+   "references": 141,
+   "cited_by": 315
+  },
+  "Sel2025VVUQ": {
+   "doi": "10.1038/s41746-025-01447-y",
+   "references": 111,
+   "cited_by": 105
+  },
+  "chen2024genaitwin": {
+   "doi": "10.1109/JIOT.2024.3421918",
+   "references": 185,
+   "cited_by": 131
+  },
+  "amin2021edgeintel": {
+   "doi": "10.1109/ACCESS.2020.3045115",
+   "references": 107,
+   "cited_by": 260
+  },
+  "nguyen2022FLsmarthealthcare": {
+   "doi": "10.1145/3501296",
+   "references": 137,
+   "cited_by": 802
+  },
+  "zhang2022harreview": {
+   "doi": "10.3390/s22041476",
+   "references": 350,
+   "cited_by": 565
+  }
+ }
+}

@@ -1,0 +1,700 @@
+[
+ {
+  "pmid": "41776307",
+  "doi": "10.3390/s23041856",
+  "year": "2026",
+  "journal": "Scientific reports",
+  "title": "An IoT-enabled CRNN framework for secure wearable sensor-based activity recognition in physical education.",
+  "dev": 13,
+  "edge": 0,
+  "domains": [
+   "cardio",
+   "neuro/mental",
+   "activity/mobility",
+   "epidemic/population",
+   "imaging"
+  ],
+  "abs": "Recent advancements in digital technologies have profoundly transformed healthcare delivery, sports analytics, and physical activity surveillance. The accelerated proliferation of wearable sensing devices and Internet of Things (IoT) infrastructures has facilitated unprecedented large-scale acquisition of multimodal physiological and kinematic data. However, accurate recognition of complex human activities remains a formidable challenge, primarily due to inadequate modeling of the spatiotemporal dependencies inherent in wearable-sensor signals. To address these fundamental limitations, this paper proposed a novel IoT-oriented activity recognition framework predicated on a Convolutional Recurrent Neural Network (CRNN) architecture, engineered to simultaneously model the spatial and temporal characteristics of multimodal wearable-sensor data streams. The proposed framework synergistically integrates Convolutional Neural Networks (CNNs) for hierarchical spatial feature extraction with Recurrent Neural Networks (RNNs) for temporal sequence modeling, thereby enabling more discriminative and robust activity classification. The methodological pipeline comprises several sequential stages: First, multidimensional wearable-sensor datasets are employed, encompassing physiological and inertial measurements including heart rate variability, triaxial accelerometer readings, gyroscopic angular velocity, magnetometer orientation data, and cutaneous temperature signals acquired from multiple anatomical locations. Second, raw sensor signals undergo preprocessing and temporal segmentation procedures to enhance data quality and optimize temporal representation. Third, spatiotemporal feature representations are learned autonomously within the hierarchical CRNN architecture. Finally, the proposed model is systematically evaluated through a comparative analysis with five representative baseline methods, encompassing both conventional machine learning algorithms and contemporary deep learning approaches. Experimental results demonstrate that the proposed CRNN framework achieves superior performance, achieving 98.2% classification accuracy, 97.2% sensitivity, 99.2% specificity, 97.4% recall, and 97.6% precision on the evaluated wearable-sensor datasets. Compared with existing methodologies, the proposed model consistently achieves higher recognition accuracy and greater generalization robustness, underscoring its efficacy for wearable-sensor-based activity recognition and its considerable potential for broader deployment in IoT-enabled monitoring paradigms and adaptable solutions in educational settings.",
+  "pmcid": "PMC13068935",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 0
+ },
+ {
+  "pmid": "41764268",
+  "doi": "10.3390/computers12030060",
+  "year": "2026",
+  "journal": "Scientific reports",
+  "title": "IoT framework for sports activity safety monitoring based on wearable sensors and CRNN spatiotemporal analysis.",
+  "dev": 7,
+  "edge": 6,
+  "domains": [
+   "neuro/mental"
+  ],
+  "abs": "The integration of wearable sensors and IoT technology provides new technical means for sports activity monitoring. However, existing solutions still have deficiencies in joint spatiotemporal feature modeling, edge-side lightweight deployment, and secure transmission of sensitive data. This paper proposes an IoT sports activity monitoring framework based on CRNN spatiotemporal analysis and secure transmission mechanisms, adopting a layered architecture to achieve end-to-end processing from data acquisition to intelligent services. The spatiotemporal analysis module extracts spatial features of motion signals through convolutional neural networks, models temporal dependencies using long short-term memory networks, and introduces self-attention mechanisms to enhance the representation capability of key motion patterns. Addressing the resource constraints of edge devices, 8-bit quantization and knowledge distillation techniques are employed for lightweight model compression, reducing parameters from 2.34\u00a0M to 0.58\u00a0M with embedded inference latency of only 47.3ms. The secure transmission module adopts AES-128 encryption algorithm and HMAC-SHA256 message authentication code to ensure confidentiality and integrity of data transmission. A comparative analysis of encryption-based security and data-driven privacy protection methods such as differential privacy is provided, clarifying the applicability and complementary relationships of different privacy protection strategies in resource-constrained wearable scenarios. Experimental results on four datasets (UCI-HAR, PAMAP2, WISDM, and self-built sports activity dataset) demonstrate that the proposed method achieves an average recognition accuracy of 95.99%, improving by 2.85 to 3.52% points over baseline methods. The end-to-end latency of secure transmission is 23.6ms, with energy consumption increase controlled within 12.4%. This framework provides a feasible technical solution for the design of intelligent sports monitoring systems with promising application prospects.",
+  "pmcid": "PMC13056921",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 1
+ },
+ {
+  "pmid": "42289546",
+  "doi": "10.1186/1743-0003-11-48",
+  "year": "2026",
+  "journal": "Scientific reports",
+  "title": "Intelligent fall risk prediction and real-time warning system for elderly care based on multimodal deep learning and wearable sensor fusion.",
+  "dev": 7,
+  "edge": 1,
+  "domains": [
+   "neuro/mental",
+   "activity/mobility",
+   "epidemic/population"
+  ],
+  "abs": "Falls remain a leading cause of injury-related morbidity and mortality among adults aged 65 and older, and these human and economic costs keep rising as populations age worldwide. Most existing risk assessment tools rely on periodic clinical evaluations or single-sensor wearable devices, neither of which tracks the dynamic, multifactorial nature of fall risk throughout daily life. In this paper we describe the design, implementation, and pilot-level field validation of an integrated system that pairs a multi-sensor wearable unit (triaxial accelerometer, gyroscope, insole pressure array, and wrist-worn photoplethysmography) with a CNN-LSTM deep learning backbone enhanced by eight-head attention. The network ingests temporally aligned signals from all four modalities, extracts hierarchical spatiotemporal features, and outputs a continuous risk score that a rule-based engine maps onto four graded alert tiers. We collected data from 120 community-dwelling older adults (mean age 72.4 years) over six months and evaluated the system on a held-out test set of 18 participants (12,540 windows, 6 fall events). The model reached 94.2% overall accuracy and an AUC of 0.967, surpassing random forest, SVM, single-modality CNN and LSTM, a Transformer encoder baseline, and a late-fusion variant. We stress, however, that the extreme class imbalance (fall windows constitute only 0.05% of total windows, with a high-risk PPV of merely 6.25%) severely limits the stability and interpretability of sensitivity estimates; a single misclassification among the six fall events shifts sensitivity by roughly 17% points. End-to-end pipeline latency averaged 138 ms on a smartphone, satisfying real-time operational requirements. In a subsequent three-month deployment with 80 participants, the group receiving active alerts recorded 62% fewer falls than the passive-monitoring control group (0.82 vs. 2.14 falls per person-month; p\u2009<\u20090.01). This deployment, however, was conceived as a technical field test of system operability rather than a clinical efficacy trial; the fall incidence difference is an exploratory, secondary observation confounded by concurrent daily risk summaries and caregiver notifications, and it should not be interpreted as evidence of causal preventive effect. Importantly, the window-level classification PPV (6.25%) and the deployment-level alert PPV (87.8%) differ because the latter applies episode-level aggregation through the rule-based warning engine, and readers should note this distinction when comparing metrics across sections. User satisfaction averaged 4.3/5 on a Likert scale, and wearing compliance reached 91.3% of waking hours. Taken together, these results suggest that multimodal sensor fusion combined with attention-based deep learning offers a technically viable path toward continuous, community-based fall risk monitoring, while also underscoring the need for larger-scale, prospectively registered randomized controlled trials to establish whether such systems can causally reduce fall incidence.",
+  "pmcid": "PMC13527089",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 0
+ },
+ {
+  "pmid": "38478458",
+  "doi": "10.1109/jbhi.2024.3377128",
+  "year": "2024",
+  "journal": "IEEE journal of biomedical and health informatics",
+  "title": "CiGNN: A Causality-Informed and Graph Neural Network Based Framework for Cuffless Continuous Blood Pressure Estimation.",
+  "dev": 7,
+  "edge": 0,
+  "domains": [
+   "cardio"
+  ],
+  "abs": "Causalityholds profound potentials to dissipate confusion and improve accuracy in cuffless continuous blood pressure (BP) estimation, an area often neglected in current research. In this study, we propose a two-stage framework, CiGNN, that seamlessly integrates causality and graph neural network (GNN) for cuffless continuous BP estimation. The first stage concentrates on the generation of a causal graph between BP and wearable features from the the perspective of causal inference, so as to identify features that are causally related to BP variations. This stage is pivotal for the identification of novel causal features from the causal graph beyond pulse transit time (PTT). We found these causal features empower better tracking in BP changes compared to PTT. For the second stage, a spatio-temporal GNN (STGNN) is utilized to learn from the causal graph obtained from the first stage. The STGNN can exploit both the spatial information within the causal graph and temporal information from beat-by-beat cardiac signals for refined cuffless continuous BP estimation. We evaluated the proposed method with three datasets that include 305 subjects (102 hypertensive patients) with age ranging from 20-90 and BP at different levels, with the continuous Finapres BP as references. The mean absolute difference (MAD) for estimated systolic blood pressure (SBP) and diastolic blood pressure (DBP) were 3.77 mmHg and 2.52 mmHg, respectively, which outperformed comparison methods. In all cases including subjects with different age groups, while doing various maneuvers that induces BP changes at different levels and with or without hypertension, the proposed CiGNN method demonstrates superior performance for cuffless continuous BP estimation. These findings suggest that the proposed CiGNN is a promising approach in elucidating the causal mechanisms of cuffless BP estimation and can substantially enhance the precision of BP measurement.",
+  "pmcid": "PMC11100861",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 5
+ },
+ {
+  "pmid": "32946403",
+  "doi": "10.2196/12153",
+  "year": "2021",
+  "journal": "IEEE journal of biomedical and health informatics",
+  "title": "Wearables and Deep Learning Classify Fall Risk From Gait in Multiple Sclerosis.",
+  "dev": 6,
+  "edge": 0,
+  "domains": [
+   "activity/mobility"
+  ],
+  "abs": "Falls are a significant problem for persons with multiple sclerosis (PwMS). Yet fall prevention interventions are not often prescribed until after a fall has been reported to a healthcare provider. While still nascent, objective fall risk assessments could help in prescribing preventative interventions. To this end, retrospective fall status classification commonly serves as an intermediate step in developing prospective fall risk assessments. Previous research has identified measures of gait biomechanics that differ between PwMS who have fallen and those who have not, but these biomechanical indices have not yet been leveraged to detect PwMS who have fallen. Moreover, they require the use of laboratory-based measurement technologies, which prevent clinical deployment. Here we demonstrate that a bidirectional long short-term (BiLSTM) memory deep neural network was able to identify PwMS who have recently fallen with good performance (AUC of 0.88) based on accelerometer data recorded from two wearable sensors during a one-minute walking task. These results provide substantial improvements over machine learning models trained on spatiotemporal gait parameters (21% improvement in AUC), statistical features from the wearable sensor data (16%), and patient-reported (19%) and neurologist-administered (24%) measures in this sample. The success and simplicity (two wearable sensors, only one-minute of walking) of this approach indicates the promise of inexpensive wearable sensors for capturing fall risk in PwMS.",
+  "pmcid": "PMC8221405",
+  "inEPMC": "Y",
+  "isOA": "N",
+  "cites": 42
+ },
+ {
+  "pmid": "37631706",
+  "doi": "10.1088/1361-6579/ab86d6",
+  "year": "2023",
+  "journal": "Sensors (Basel, Switzerland)",
+  "title": "Gait Stride Length Estimation Using Embedded Machine Learning.",
+  "dev": 3,
+  "edge": 4,
+  "domains": [
+   "activity/mobility"
+  ],
+  "abs": "Spatiotemporal gait parameters, e.g., gait stride length, are measurements that are classically derived from instrumented gait analysis. Today, different solutions are available for gait assessment outside the laboratory, specifically for spatiotemporal gait parameters. Such solutions are wearable devices that comprise an inertial measurement unit (IMU) sensor and a microcontroller (MCU). However, these existing wearable devices are resource-constrained. They contain a processing unit with limited processing and memory capabilities which limit the use of machine learning to estimate spatiotemporal gait parameters directly on the device. The solution for this limitation is embedded machine learning or tiny machine learning (tinyML). This study aims to create a machine-learning model for gait stride length estimation deployable on a microcontroller. Starting from a dataset consisting of 4467 gait strides from 15 healthy people, measured by IMU sensor, and using state-of-the-art machine learning frameworks and machine learning operations (MLOps) tools, a multilayer 1D convolutional float32 and int8 model for gait stride length estimation was developed. The developed float32 model demonstrated a mean accuracy and precision of 0.23 \u00b1 4.3 cm, and the int8 model demonstrated a mean accuracy and precision of 0.07 \u00b1 4.3 cm. The memory usage for the float32 model was 284.5 kB flash and 31.9 kB RAM. The int8 model memory usage was 91.6 kB flash and 13.6 kB RAM. Both models were able to be deployed on a Cortex-M4F 64 MHz microcontroller with 1 MB flash memory and 256 kB RAM. This study shows that estimating gait stride length directly on a microcontroller is feasible and demonstrates the potential of embedded machine learning, or tinyML, in designing wearable sensor devices for gait analysis.",
+  "pmcid": "PMC10459491",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 2
+ },
+ {
+  "pmid": "42561739",
+  "doi": "10.1016/j.gaitpost.2026.110610",
+  "year": "2026",
+  "journal": "Gait & posture",
+  "title": "Wearable gait analysis for differentiating progressive supranuclear palsy and Parkinson's disease: Clinically interpretable digital biomarkers using machine learning.",
+  "dev": 4,
+  "edge": 0,
+  "domains": [
+   "neuro/mental",
+   "activity/mobility"
+  ],
+  "abs": "Early differentiation of progressive supranuclear palsy from Parkinson's disease is challenging due to overlapping motor features, particularly in early disease stages where clinical misclassification is common. Wearable inertial sensors provide high-resolution gait data that may reveal disease-specific and clinically relevant signatures. To evaluate whether sensor-derived gait measures can distinguish progressive supranuclear palsy from Parkinson's disease using machine learning, and to compare performance between raw time-series signals and aggregate spatiotemporal variables, with emphasis on clinically interpretable gait biomarkers. In this retrospective study, 34 participants with progressive supranuclear palsy and 410 with Parkinson's disease completed an instrumented Timed-Up-and-Go while wearing six synchronized sensors. Two input modalities were analyzed: raw accelerometer, gyroscope, and magnetometer signals sampled at 128\u202fHz; and 48 curated spatiotemporal features. Eight classifiers, including logistic regression, support vector machine, k-nearest neighbors, neural network, decision tree, random forest, extreme gradient boosting, and a baseline, were trained to classify progressive supranuclear palsy versus Parkinson's disease at the participant level using cross-validation procedures designed to prevent data leakage. The primary performance metric was macro-averaged F1-score. Shapley Additive Explanations were applied to aggregate-feature models to identify key discriminative gait features. Raw time-series models performed strongly, with gradient boosting achieving the highest macro-F1 (0.87), followed by random forest (0.86) and support vector machine (0.83). Aggregate models performed comparably, with gradient boosting reaching 0.88, followed by random forest (0.87) and support vector machine (0.84). Shapley analyses identified increased double-support time and mediolateral sway, and reduced stride length, gait speed, and trunk range of motion as the most distinctive gait impairments characterizing PSP relative to PD. Ensemble models reliably differentiated progressive supranuclear palsy from Parkinson's disease. Aggregate spatiotemporal models achieved performance comparable to raw signals while yielding clinically interpretable and physiologically meaningful gait biomarkers. These findings support the use of wearable sensor-based gait analysis combined with machine learning as a practical tool for improving differential diagnosis in movement disorder clinics.",
+  "pmcid": null,
+  "inEPMC": "N",
+  "isOA": "N",
+  "cites": 0
+ },
+ {
+  "pmid": "40648318",
+  "doi": "10.1152/japplphysiol.00570.2021",
+  "year": "2025",
+  "journal": "Sensors (Basel, Switzerland)",
+  "title": "Attention-Enhanced CNN-LSTM Model for Exercise Oxygen Consumption Prediction with Multi-Source Temporal Features.",
+  "dev": 4,
+  "edge": 0,
+  "domains": [
+   "cardio",
+   "metabolic",
+   "respiratory",
+   "activity/mobility"
+  ],
+  "abs": "Dynamic oxygen uptake (VO2) reflects moment-to-moment changes in oxygen consumption during exercise and underpins training design, performance enhancement, and clinical decision-making. We tackled two key obstacles-the limited fusion of heterogeneous sensor data and inadequate modeling of long-range temporal patterns-by integrating wearable accelerometer and heart-rate streams with a convolutional neural network-LSTM (CNN-LSTM) architecture and optional attention modules. Physiological signals and VO2 were recorded from 21 adults through resting assessment and cardiopulmonary exercise testing. The results showed that pairing accelerometer with heart-rate inputs improves prediction compared with considering the heart rate alone. The baseline CNN-LSTM reached R2 = 0.946, outperforming a plain LSTM (R2 = 0.926) thanks to stronger local spatio-temporal feature extraction. Introducing a spatial attention mechanism raised accuracy further (R2 = 0.962), whereas temporal attention reduced it (R2 = 0.930), indicating that attention success depends on how well the attended features align with exercise dynamics. Stacking both attentions (spatio-temporal) yielded R2 = 0.960, slightly below the value for spatial attention alone, implying that added complexity does not guarantee better performance. Across all models, prediction errors grew during high-intensity bouts, highlighting a bottleneck in capturing non-linear physiological responses under heavy load. These findings inform architecture selection for wearable metabolic monitoring and clarify when attention mechanisms add value.",
+  "pmcid": "PMC12252311",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 2
+ },
+ {
+  "pmid": "39736665",
+  "doi": "10.1109/tnsre.2024.3400535",
+  "year": "2024",
+  "journal": "Journal of neuroengineering and rehabilitation",
+  "title": "Multi-scale attention patching encoder network: a deployable model for continuous estimation of hand kinematics from surface electromyographic signals.",
+  "dev": 4,
+  "edge": 0,
+  "domains": [],
+  "abs": "Simultaneous and proportional control (SPC) based on surface electromyographic (sEMG) signals has emerged as a research hotspot in the field of human-machine interaction (HMI). However, the existing continuous motion estimation methods mostly have an average Pearson coefficient (CC) of less than 0.85, while high-precision methods suffer from the problem of long inference time (>\u2009200\u00a0ms) and can only estimate SPC of less than 15 hand movements, which limits their applications in HMI. To overcome these problems, we propose a smooth Multi-scale Attention Patching Encoder Network (sMAPEN). The sMAPEN consists of three modules, the Multi-scale Attention Fusion (MAF) module, the Patching Encoder (PE) module, and a smoothing layer. The MAF module adaptively captures the local spatiotemporal features at multiple scales, the PE module acquires the global spatiotemporal features of sEMG, and the smoothing layer further improves prediction stability. To evaluate the performance of the model, we conducted continuous estimation of 40 subjects performing over 40 different hand movements on the Ninapro DB2. The results show that the average Pearson correlation coefficient (CC), normalized root mean square error (NRMSE), coefficient of determination (R2), and smoothness (SMOOTH) of the sMAPEN model are 0.9082, 0.0646\u00b0, 0.8163, and -\u00a00.0017, respectively, which significantly outperforms that of the state-of-the-art methods in all metrics (p\u2009<\u20090.01). Furthermore, we tested the deployment performance of sMAPEN on the portable device, with a delay of only 97.93\u00a0ms. Our model can predict up to 40 hand movements while achieving the highest predicting accuracy compared with other methods. Besides, the lightweight design strategy brings an improvement in inference speed, which enables the model to be deployed on wearable devices. All these promotions imply that sMAPEN holds great potential in HMI.",
+  "pmcid": "PMC11684320",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 1
+ },
+ {
+  "pmid": "35905661",
+  "doi": "10.1016/j.compbiomed.2022.105905",
+  "year": "2022",
+  "journal": "Computers in biology and medicine",
+  "title": "Real-time forecasting of exercise-induced fatigue from wearable sensors.",
+  "dev": 4,
+  "edge": 0,
+  "domains": [
+   "neuro/mental",
+   "activity/mobility"
+  ],
+  "abs": "Although a number of studies attempt to classify human fatigue, most models can only identify fatigue after fatigue has already occurred. In this paper, we propose a novel time series approach to forecasting wearable sensor data and associated fatigue progression during exercise. The proposed framework consists of spatio-temporal attention-based Transformer with an auxiliary critic and a fatigue classifier. The Transformer network is used to analyze the person-independent pattern underlying the past kinematic sequence obtained from wearable sensors and generate short term predictions of the human motion. Adversarial training is employed to regularize the Transformer and improve the time series forecasting performance. A fatigue classifier is used to estimate person-independent fatigue levels based on the forecasted wearable sensor data from the Transformer model. The proposed approach is validated with simulated and real squat datasets which were collected from young healthy participants. The proposed network can accurately forecast a time horizon of up to 80 timesteps for motion signal forecasting and fatigue classification. In terms of fatigue prediction, an accuracy of 83% and a Pearson correlation coefficient of 0.92 were achieved on forecasted motion data with unseen participant data. The experimental results show that our model can predict fatigue progression and outperforms other state-of-the-art techniques, achieving 95% correlation compared to 83% for the best performing baseline method. Successfully predicting fatigue progression can help a patient or athlete monitor and adjust their exercise session to prevent overexertion and fatigue-induced injury.",
+  "pmcid": null,
+  "inEPMC": "N",
+  "isOA": "N",
+  "cites": 11
+ },
+ {
+  "pmid": "42694253",
+  "doi": "10.1109/access.2023.3332196",
+  "year": "2026",
+  "journal": "Frontiers in cardiovascular medicine",
+  "title": "Quantum-optimized spatio-temporal transformer for multimodal cardiovascular risk prediction from clinical and wearable data.",
+  "dev": 3,
+  "edge": 0,
+  "domains": [
+   "cardio"
+  ],
+  "abs": "Cardiovascular risk prediction remains a difficult problem due to the extreme class imbalance, time sparsity, non-uniform sampling, and heterogeneity of electronic health record and wearable sensor streams in the real world. A multimodal cardiovascular risk prediction framework called Quantum-Optimized Spatio-Temporal Transformer (QST-Trans) was designed. The framework combines Contextual Dual-Stream Synchronization to facilitate alignment between irregular clinical and wearable measurements, Enhanced Quantum-Inspired Binary Grey Wolf Optimization to select features with feature redundancy, a spatio-temporal transformer including attention gating and Kolmogorov-Arnold Network (KAN) layers, and time-aware SHAP to interpret the model's predictions at the patient level based on their longitudinal risk courses. The MIMIC-III and CAIR-CVD-2025 and UCI Heart Disease data sets were used to evaluate. The proposed QST-Trans framework successfully achieved AUC-ROC 0.99, F1-score 0.98, and sensitivity 97.5%, outperforming the considered baseline methods. The results suggest that multimodal synchronization, quantum-inspired feature optimization, spatio-temporal learning and the inclusion of time-aware explainability are a promising approach to cardiovascular risk stratification. But a multi-center validation and clinical testing in the real world should be required before clinical adoption.",
+  "pmcid": "PMC13538091",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 0
+ },
+ {
+  "pmid": "40573496",
+  "doi": "10.3390/app15094920",
+  "year": "2025",
+  "journal": "Sensors (Basel, Switzerland)",
+  "title": "Unobtrusive Sleep Posture Detection Using a Smart Bed Mattress with Optimally Distributed Triaxial Accelerometer Array and Parallel Convolutional Spatiotemporal Network.",
+  "dev": 3,
+  "edge": 0,
+  "domains": [
+   "neuro/mental",
+   "respiratory"
+  ],
+  "abs": "Sleep posture detection is a potentially important component of sleep quality assessment and health monitoring. Accurate identification of sleep postures can offer valuable insights into an individual's sleep patterns, comfort levels, and potential health risks. For example, improper sleep postures may lead to musculoskeletal issues, respiratory disturbances, and even worsen conditions like sleep apnea. Additionally, for long-term bedridden patients, continuous monitoring of sleep postures is essential to prevent pressure ulcers and other complications. Traditional methods for sleep posture detection have several limitations: wearable sensors can disrupt natural sleep and cause discomfort, camera-based systems raise privacy concerns and are sensitive to environmental conditions, and pressure-sensing mats are often complex and costly. To address these issues, we have developed a low-cost non-contact sleeping posture detection system. Our system features eight optimally distributed triaxial accelerometers, providing a comfortable and non-contact front-end data acquisition unit. For sleep posture classification, we employ an improved density peak clustering algorithm that incorporates the K-nearest neighbor mechanism. Additionally, we have constructed a Parallel Convolutional Spatiotemporal Network (PCSN) by integrating Convolutional Neural Network (CNN), Long Short-Term Memory (LSTM), and Bidirectional Long Short-Term Memory (Bi-LSTM) modules. Experimental results demonstrate that the PCSN can accurately distinguish six sleep postures: prone, supine, left log, left fetus, right log, and right fetus. The average accuracy is 98.42%, outperforming most state-of-the-art deep learning models. The PCSN achieves the highest scores across all metrics: 98.64% precision, 98.18% recall, and 98.10% F1 score. The proposed system shows considerable promise in various applications, including sleep studies and the prevention of diseases like pressure ulcers and sleep apnea.",
+  "pmcid": "PMC12196945",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 0
+ },
+ {
+  "pmid": "39437291",
+  "doi": "10.1109/jbhi.2024.3484994",
+  "year": "2025",
+  "journal": "IEEE journal of biomedical and health informatics",
+  "title": "Continuous Prediction of Wrist Joint Kinematics Using Surface Electromyography From the Perspective of Muscle Anatomy and Muscle Synergy Feature Extraction.",
+  "dev": 3,
+  "edge": 0,
+  "domains": [
+   "neuro/mental"
+  ],
+  "abs": "Post-stroke upper limb dysfunction severely impacts patients' daily life quality. Utilizing sEMG signals to predict patients' motion intentions enables more effective rehabilitation by precisely adjusting the assistance level of rehabilitation robots. Employing the muscle synergy (MS) features can establish more accurate and robust mappings between sEMG and motion intentions. However, traditional matrix factorization algorithms based on blind source separation still exhibit certain limitations in extracting MS features. This paper proposes four deep learning models to extract MS features from four distinct perspectives: spatiotemporal convolutional kernels, compression and reconstruction of sEMG, graph topological structure, and the anatomy of target muscles. Among these models, the one based on 3DCNN predicts motion intentions from the muscle anatomy perspective for the first time. It reconstructs 1D sEMG samples collected at each time point into 2D sEMG frames based on the anatomical distribution of target muscles and sEMG electrode placement. These 2D frames are then stacked as video segments and input into 3DCNN for MS feature extraction. Experimental results on both our wrist motion dataset and public Ninapro DB2 dataset demonstrate that the proposed 3DCNN model outperforms other models in terms of prediction accuracy, robustness, training efficiency, and MS feature extraction for continuous prediction of wrist flexion/extension angles. Specifically, the average nRMSE and R2 values of 3DCNN on these two datasets are (0.14/0.93) and (0.04/0.95), respectively. Furthermore, compared to existing studies, the 3DCNN outperforms musculoskeletal models based on direct collocation optimization, physics-informed GANs, and CNN-LSTM-based deep Kalman filter models when evaluated on our dataset.",
+  "pmcid": null,
+  "inEPMC": "N",
+  "isOA": "N",
+  "cites": 3
+ },
+ {
+  "pmid": "38339474",
+  "doi": "10.59717/j.xinn-mater.2023.100035",
+  "year": "2024",
+  "journal": "Sensors (Basel, Switzerland)",
+  "title": "Wearable Sensor-Based Residual Multifeature Fusion Shrinkage Networks for Human Activity Recognition.",
+  "dev": 3,
+  "edge": 0,
+  "domains": [
+   "neuro/mental",
+   "activity/mobility"
+  ],
+  "abs": "Human activity recognition (HAR) based on wearable sensors has emerged as a low-cost key-enabling technology for applications such as human-computer interaction and healthcare. In wearable sensor-based HAR, deep learning is desired for extracting human active features. Due to the spatiotemporal dynamic of human activity, a special deep learning network for recognizing the temporal continuous activities of humans is required to improve the recognition accuracy for supporting advanced HAR applications. To this end, a residual multifeature fusion shrinkage network (RMFSN) is proposed. The RMFSN is an improved residual network which consists of a multi-branch framework, a channel attention shrinkage block (CASB), and a classifier network. The special multi-branch framework utilizes a 1D-CNN, a lightweight temporal attention mechanism, and a multi-scale feature extraction method to capture diverse activity features via multiple branches. The CASB is proposed to automatically select key features from the diverse features for each activity, and the classifier network outputs the final recognition results. Experimental results have shown that the accuracy of the proposed RMFSN for the public datasets UCI-HAR, WISDM, and OPPORTUNITY are 98.13%, 98.35%, and 93.89%, respectively. In comparison with existing advanced methods, the proposed RMFSN could achieve higher accuracy while requiring fewer model parameters.",
+  "pmcid": "PMC10857031",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 2
+ },
+ {
+  "pmid": "35286891",
+  "doi": "10.1016/j.compbiomed.2022.105355",
+  "year": "2022",
+  "journal": "Computers in biology and medicine",
+  "title": "MhNet: Multi-scale spatio-temporal hierarchical network for real-time wearable fall risk assessment of the elderly.",
+  "dev": 3,
+  "edge": 0,
+  "domains": [
+   "activity/mobility"
+  ],
+  "abs": "Continuous fall risk assessment and real-time high falling risk warning are extremely necessary for the elderly, to protect their lives and ensure their quality of life. Wearable in-shoe pressure sensors have the potential to achieve these targets, due to their adequate wearing comfort. However, it is a great challenge to remove the individual differences of foot pressure data and identify the accurate fall risk from fewer gait cycles to realize real-time warning. We explored a hierarchical deep learning network named MhNet for real-time fall risk assessment, which utilized the advantages of two-layer network, to reach hierarchical tasks to reduce probability of misidentification of high fall risk subjects, by establishing a borderline category using the rehabilitation labels, and extracting multi-scale spatio-temporal features. It was trained by using a wearable plantar pressure dataset collected from 48 elderly subjects. This method could achieve a real time fall risk identification accuracy of 73.27% by using only 9 gaits, which was superior to traditional methods. Moreover, the sensitivity reached 76.72%, proving its strength in identifying high risk samples. MhNet might be a promising way in real-time fall risk assessment for the elderly in their daily activities.",
+  "pmcid": null,
+  "inEPMC": "N",
+  "isOA": "N",
+  "cites": 13
+ },
+ {
+  "pmid": "42649750",
+  "doi": "10.1038/s41531-024-00721-2",
+  "year": "2026",
+  "journal": "Bioengineering (Basel, Switzerland)",
+  "title": "Multi-Task Wearable Parkinson's Disease Detection with a Pretrained Spatio-Temporal Graph Encoder and Task-Level Token Aggregation.",
+  "dev": 2,
+  "edge": 0,
+  "domains": [
+   "neuro/mental",
+   "activity/mobility"
+  ],
+  "abs": "Wearable inertial measurement units (IMUs) offer an objective, low-cost basis for Parkinson's disease (PD) assessment, but multi-task clinical protocols yield heterogeneous recordings across body locations and small cohorts, and it is unclear whether such data can support reliable PD detection without training deep models from scratch. We therefore ask whether a motion-pretrained representation transfers to this setting, and quantify how much of the discriminative signal it supplies. Each subject is represented by five task-level motion embeddings, one per clinical task, produced by a frozen pretrained spatio-temporal graph convolutional network (ST-GCN) that fuses the thirteen body-worn sensors into a whole-body embedding; a three-layer Transformer with validity-mask weighting aggregates these tokens for binary PD-versus-control classification on the WearGait-PD cohort (181 subjects: 100 PD, 81 controls). Under a leakage-free nested protocol with repeated subject-disjoint stratified 5-fold cross-validation (5 seeds; 25 estimates per model) and paired significance testing, the model attains a balanced accuracy of 0.834 \u00b1 0.087, macro-F1 of 0.842 \u00b1 0.094, and AUC of 0.842 \u00b1 0.103. It leads six classical baselines and a spectrogram-CNN on accuracy-based metrics, though random forest, gradient boosting, and the spectrogram-CNN edge ahead on AUC; after correction for fold correlation, none of these between-model differences is significant. The one robust finding is a transfer effect: replacing the pretrained encoder with a random one of identical architecture lowers balanced accuracy by 15.5 points when frozen (p = 0.043) and 20.4 when trained end-to-end (p = 0.014). Discrimination is preserved under 1:1 age matching (0.846) and across both genders, so it is not explained by age imbalance. Motion-pretrained skeletal encoders thus supply the majority of the discriminative signal, while the aggregator contributes gains inseparable from noise at this cohort size.",
+  "pmcid": "PMC13509581",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 0
+ },
+ {
+  "pmid": "42626002",
+  "doi": "10.4174/jkss.2012.83.3.183",
+  "year": "2026",
+  "journal": "Frontiers in surgery",
+  "title": "Quaternion-based recurrent neural networks and machine learning for 3D modeling of superficial femoral artery dynamics: a theoretical framework for enhanced treatment outcomes.",
+  "dev": 2,
+  "edge": 0,
+  "domains": [
+   "imaging"
+  ],
+  "abs": "The superficial femoral artery (SFA) is highly susceptible to atherosclerotic disease, with restenosis rates which are exceeding 30%-50% following endovascular intervention. Current diagnostic approaches including two-dimensional angiography and duplex ultrasound are failing to capture the complex three-dimensional (3D) spatiotemporal dynamics of vessel remodeling during physiological motion. This theoretical framework is integrating quaternion-based recurrent neural networks (QRNNs) with machine learning pipelines to model dynamic 3D changes in SFA geometry from serial imaging data or continuous recording of SFA quaternion dynamics during activities by wearable Internet of Things devices. Quaternions are providing a singularity-free representation of 3D rotations, while QRNNs are processing quaternion-valued sequences through Hamilton product operations. The integrated pipeline is combining 3D convolutional neural network encoders for feature extraction, QRNN cores for temporal sequence modeling, and conditional generative adversarial networks for synthetic geometry generation. A multi-objective loss function is balancing quaternion prediction accuracy, geometric feature errors, geometric realism, and probability calibration. The framework is theoretically enabling predictive 3D modeling of vessel remodeling, simulation-driven personalized intervention planning, and quantitative risk stratification for restenosis. By grounding the approach in rigorous quaternion mathematics, QRNNs could achieve improved fidelity in capturing dynamic vessel behavior compared to Euclidean approximations. This theoretical framework may be able to address critical gaps in current treatment approaches and is demonstrating a potential for transforming SFA 3D analysis and peripheral artery disease management, once it has been tested and validated.",
+  "pmcid": "PMC13490192",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 0
+ },
+ {
+  "pmid": "42516350",
+  "doi": "10.1007/s10916-024-02037-3",
+  "year": "2026",
+  "journal": "International journal of telemedicine and applications",
+  "title": "Hybrid Convolutional-Gated Recurrent Neural Network for Robust Mobile Health Activities Classification.",
+  "dev": 2,
+  "edge": 0,
+  "domains": [],
+  "abs": "Mobile health has become a popular option for patients to monitor and analyze their body activities and vital signs using their mobile devices, such as smartphones and smartwatches. In addition, the healthcare community has begun using artificial intelligence (AI) models to automate the diagnosis of abnormal conditions and diseases, particularly in real-time emergency scenarios. This article introduces a new deep learning model to automatically identify daily body activities. We propose a hybrid AI model that combines a convolutional neural network (CNN) and a gated recurrent unit (GRU) for robust human activity classification. Key contributions include (1) the design of an end-to-end CNN-GRU model that jointly extracts local spatiotemporal features and models long-term temporal dependencies from raw sensor data, and (2) a comprehensive benchmarking framework validating the developed model against previous machine learning and deep learning classifiers. A public mobile health dataset (MHEALTH) has been used in this study. This dataset includes 12 physical activities, for example, knee bending, walking, and running. Key findings demonstrate that the CNN-GRU model achieves a state-of-the-art classification accuracy of 99.50% on the publicly available MHEALTH dataset, which encompasses 12 distinct physical activities. It significantly outperforms CNN-LSTM (98.83%), 1-D CNN (96.89%), and traditional ensemble methods while maintaining high precision, recall, and F1-scores across all activity classes. Therefore, our developed model can be implemented in a cloud computing system to monitor senior patients as a critical healthcare application.",
+  "pmcid": "PMC13403473",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 0
+ },
+ {
+  "pmid": "42295582",
+  "doi": "10.1186/s12984-025-01571-6",
+  "year": "2026",
+  "journal": "Annals of biomedical engineering",
+  "title": "A Multiscale Decoding Approach of Subject-Independent Motor Imagery EEG Signal Combined with Data Alignment Strategy.",
+  "dev": 2,
+  "edge": 0,
+  "domains": [
+   "neuro/mental"
+  ],
+  "abs": "Brain-computer interface (BCI) leverages artificial intelligence (AI) and wearable electroencephalography (EEG) sensors to decode brain signals, significantly enhancing quality of life. EEG-based motor imagery (MI) brain signals are widely used in various BCI applications, including smart healthcare, intelligent vehicle, smart homes, and robotics control. However, the substantial individual variability in EEG data distribution poses a challenge in applying constructed models to new subjects. To address this issue, this study proposes a novel deep learning framework, namely Multiscale Spatiotemporal Convolutional Neural Network (MSTCNN) based on Euclidean Space Data Alignment (ESDA), which can effectively decode MI tasks in subject-independent scenarios. First, to address the data distribution variability for different subjects, the proposed ESDA method is utilized to align all MI task data, reducing the discrepancies caused by physiological differences. Subsequently, an end-to-end multiscale model is constructed to extract multi-level MI task-related feature information from EEG signals. Additionally, the Squeeze-and-Excitation (SE) attention mechanism is incorporated to highlight critical local features, further improving MI task-decoding performance. Experiments conducted on the publicly available BCI Competition IV dataset 2a demonstrate that the proposed multiscale model achieves an average accuracy of 67.5% in subject-independent scenarios, with a relatively small number of parameters (4.4\u2009\u00d7\u2009103). Moreover, the highest decoding accuracy for individual subjects reaches 81.4%, surpassing many other state-of-the-art (SOTA) methods. The ablation experiments further validate the model's performance and robustness. This study may provide a solid theoretical foundation for advancing BCI system applications in Internet of Things units, clinical, and other areas.",
+  "pmcid": null,
+  "inEPMC": "N",
+  "isOA": "N",
+  "cites": 0
+ },
+ {
+  "pmid": "42041449",
+  "doi": "10.48550/arxiv.1503.02531",
+  "year": "2026",
+  "journal": "Biosensors",
+  "title": "Multimodal Phase-Space Dynamics Fusion for Robust Ischemia Screening: An Edge-AI Paradigm with SERF Magnetocardiography.",
+  "dev": 1,
+  "edge": 2,
+  "domains": [
+   "cardio"
+  ],
+  "abs": "Myocardial ischemia (MI) is a major cause of morbidity and mortality worldwide and requires timely and reliable detection. Although Spin-Exchange Relaxation-Free (SERF) magnetocardiography (MCG) provides femtotesla-level sensitivity for identifying non-linear cardiac repolarization anomalies, its clinical deployment is currently impeded by the computational bottlenecks inherent to portable edge platforms. We propose a \"Sensor-to-Image\" Edge-AI framework that links quantum sensing with computer vision. Single-channel SERF-MCG signals from a large cohort of 2118 subjects (1135 Healthy, 983 Ischemia) were transformed into phase-space images using three distinct encoding modalities: Recurrence Plots (RP), Gramian Angular Summation Fields (GASF), and Markov Transition Fields (MTF). These visual representations were subsequently analyzed by a streamlined MobileNetV3-Small architecture, optimized for low-latency inference. To maximize diagnostic precision, an adaptive weighted fusion mechanism was engineered to combine the chaotic specificity captured by RP with the morphological sensitivity of GASF through a validation-optimized fixed global weighting strategy. In our experiments, the fusion model achieved an Area Under the Curve (AUC) of 0.865, which was higher than the 1D-CNN baseline (AUC 0.857) and the single-modality models. Notably, the fusion strategy significantly elevated sensitivity to 88.3% while maintaining a specificity of 66.5%. Although specificity is moderate, this trade-off prioritizes high sensitivity to minimize false negatives in pre-hospital screening scenarios. The average inference time was 4.7 ms per sample on a standard CPU, suggesting suitability for real-time Point-of-Care (PoC) scenarios under further on-device validation. The results suggest that multi-view phase-space fusion can capture subtle spatio-temporal changes associated with ischemia. The proposed lightweight framework may support the development of portable SERF-MCG systems with embedded AI screening.",
+  "pmcid": "PMC13113846",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 0
+ },
+ {
+  "pmid": "41876774",
+  "doi": "10.3389/fbioe.2024.1346365",
+  "year": "2026",
+  "journal": "Communications medicine",
+  "title": "Smartphone-derived joint angular velocities in sit-to-stand motion provide a spatiotemporal marker for symptomatic knee osteoarthritis.",
+  "dev": 2,
+  "edge": 0,
+  "domains": [
+   "activity/mobility"
+  ],
+  "abs": "Knee osteoarthritis (OA) is a debilitating condition that compromises mobility and exacerbates knee pain, necessitating accurate and accessible diagnostic tools. Traditional motion capture technology, while effective, is often cost-prohibitive and limited to laboratory settings. In response, we developed a smartphone-based approach utilizing spatiotemporal analysis of joint angular velocities and angles in sit-to-stand (STS) motion to detect symptomatic knee OA. We analyzed 2063 sagittal-viewed sit-to-stand motion videos from 309 participants and proposed a STS-D Index based on a deep learning model, STS Dynamics Net, which provides a nuanced quantification of joint dynamics and temporal interactions in trunk, knee, and ankle angles and velocities for detection of symptomatic knee OA. Here we show that joint angular velocities are a robust spatiotemporal biomarker for symptomatic knee OA detection (AUC 0.7759\u2009\u00b1\u20090.0219), not only do they outperform the STS pace (AUC 0.6554\u2009\u00b1\u20090.0268, p\u2009=\u20098.6 \u00d7 10-5) and maximum trunk angle (AUC 0.7025\u2009\u00b1\u20090.0253, p\u2009=\u20092.1 \u00d7 10-3) in diagnostic accuracy and rival the performance of gold-standard 3D marker-based systems (AUC 0.7855\u2009\u00b1\u20090.0229), but they also show significant correlations with WOMAC sub-scores (p\u2009<\u20090.0001). Furthermore, our analysis reveals a significant correlation between angular velocities and muscle volumes and fat-to-muscle ratios in the quadriceps and hamstrings, underscoring the role of muscle weakness in knee OA pathogenesis. This innovative approach has the potential to revolutionize knee OA detection, enabling reliable, cost-effective, and self-administered assessments in community settings and bridging the gap in accessible healthcare monitoring.",
+  "pmcid": "PMC13187289",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 2
+ },
+ {
+  "pmid": "41872275",
+  "doi": "10.1007/s40279-017-0714-2",
+  "year": "2026",
+  "journal": "Scientific reports",
+  "title": "Wearable sensor big data analysis reveals spatiotemporal injury patterns in professional tennis players.",
+  "dev": 2,
+  "edge": 0,
+  "domains": [
+   "epidemic/population"
+  ],
+  "abs": "This study establishes a comprehensive analytical framework for characterizing spatiotemporal distribution patterns of sports injuries in professional tennis through advanced big data analysis of wearable device measurements. A multi-sensor integration system was developed to continuously monitor biomechanical parameters, physiological indicators, and movement patterns during training and competition. The research employed machine learning algorithms including LSTM networks, clustering analysis, and ensemble methods to identify injury patterns across temporal and spatial dimensions. Results revealed distinct seasonal periodicity in injury occurrence with peak frequencies during intensive training phases, while spatial analysis identified dominant injury concentrations in the shoulder-elbow complex (47.3%) and lumbar-hip region (31.8%). The spatiotemporal coupling analysis demonstrated that 73.2% of injury variance can be explained by the interaction between temporal patterns and spatial distributions. The Transformer-based prediction model achieved 91.5% accuracy with 0.956 AUC, significantly outperforming traditional statistical methods. These findings provide evidence-based foundations for developing intelligent injury prevention systems and optimizing training protocols in professional tennis environments.",
+  "pmcid": "PMC13168672",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 0
+ },
+ {
+  "pmid": "41847548",
+  "doi": "10.1039/d5ra09713d",
+  "year": "2026",
+  "journal": "RSC advances",
+  "title": "Robust and anti-swelling MXene composite hydrogel sensors for intelligent gait monitoring via a CNN-LSTM network.",
+  "dev": 2,
+  "edge": 0,
+  "domains": [
+   "neuro/mental",
+   "activity/mobility"
+  ],
+  "abs": "Although flexible hydrogel sensors hold great promise in health monitoring, their reliability in long-term wearable scenarios is severely compromised by intrinsic hydrophilicity-induced uncontrollable swelling and signal drift. To address this critical bottleneck, we developed an MXene-poly(acrylic acid) (PAAc)-gelatin (MPG) composite hydrogel featuring superior anti-swelling properties. By incorporating Zr4+ coordination crosslinking, a robust \"covalent-physical-coordination\" triple network was constructed. This design not only endows the hydrogel with excellent mechanical toughness but also significantly restricts water uptake, achieving an ultralow 30-day cumulative swelling degree of 1.74%, thereby ensuring structural stability in humid environments. Based on this advanced material, a smart insole sensing system was fabricated. Benefiting from the high signal-to-noise-ratio and temporal stability of the MPG sensors, the proposed CNN-LSTM hybrid deep-learning model effectively extracts spatiotemporal features from complex gait signals. The system achieves a gait phase recognition accuracy of 88.0%, significantly outperforming conventional machine learning algorithms. This work demonstrates that the integration of high-performance anti-swelling materials with advanced deep learning algorithms represents an effective strategy for achieving next-generation precision wearable diagnostics.",
+  "pmcid": "PMC12989949",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 2
+ },
+ {
+  "pmid": "41779656",
+  "doi": "10.1109/jbhi.2026.3670141",
+  "year": "2026",
+  "journal": "IEEE journal of biomedical and health informatics",
+  "title": "STAND-Net: A Spiking Temporal Attention autoeNcoDer Network for Efficient EEG Artifact Removal.",
+  "dev": 2,
+  "edge": 0,
+  "domains": [
+   "neuro/mental"
+  ],
+  "abs": "Electroencephalography (EEG)-based brain computer interface (BCI) systems hold significant promise across diverse applications; however, their performance is compromised by pervasive physiological artifacts that degrade signal fidelity. While current deep neural networks (DNNs) improve artifact rejection, their high computational cost precludes deployment in wearable BCIs systems. Here, we introduce STAND-Net (Spiking Temporal Attention autoeNcoDer Network), a neuromorphic architecture that leverages event-driven spiking neurons to achieve ultra-efficient, high-fidelity EEG artifact removal. STAND-Net combines a spike-convolution encoder-decoder with leaky integrate-and-fire neurons to model spatiotemporal EEG dynamics, a dilation-enhanced residual backbone capturing long-range dependencies, and a spike-rate attention mechanism dynamically localizing artifacts via neuronal firing patterns. The system demonstrates >3.7 dB improvement in signal-to-distortion ratio over state-of-the-art methods across diverse artifacts while consuming 97.98% less power than comparable DNNs. Crucially, downstream BCI classification accuracy increased by 6.64% using STAND-Net-processed signals. This work establishes a neuromorphic framework for low-power and high quality EEG artifact removal in wearable BCI systems.",
+  "pmcid": null,
+  "inEPMC": "N",
+  "isOA": "N",
+  "cites": 0
+ },
+ {
+  "pmid": "41734192",
+  "doi": "10.1109/ms.2022.3212033",
+  "year": "2026",
+  "journal": "PloS one",
+  "title": "A deep learning framework for gait-based frailty classification using inertial measurement units.",
+  "dev": 2,
+  "edge": 0,
+  "domains": [
+   "activity/mobility",
+   "imaging"
+  ],
+  "abs": "Frailty in older adults leads to heightened vulnerability to adverse health outcomes, significantly burdening individuals and society by increasing healthcare costs and dependency. To address this issue, an advanced frailty assessment method combining wearable sensors measurements with Deep Learning (DL) techniques is proposed to classify individuals into frail or non-frail stages. Wearable sensors provide real-time monitoring, facilitating early detection and timely interventions. Two diverse datasets, i.e., GSTRIDE and FRAILPOL, were utilized for enhanced frailty analysis, employing one to five Inertial Measurement Unit (IMU) sensors with varying configurations and mounting positions. A participant-centric data partitioning framework based on signal windows segmentation is proposed and applied to DL algorithms. Among the DL algorithms, InceptionTime outperformed, achieving 82% accuracy on GSTRIDE and 79% on the FRAILPOL dataset. Furthermore, the area under the ROC curve (AUC) and evaluation metrics such as precision, recall, and F1-score confirm InceptionTime's effectiveness in classifying frail and non-frail stages by capturing spatio-temporal features from raw IMU signals.",
+  "pmcid": "PMC12931800",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 0
+ },
+ {
+  "pmid": "41725855",
+  "doi": "10.48550/arxiv.2409.07589",
+  "year": "2026",
+  "journal": "Frontiers in neuroscience",
+  "title": "MSGM: a multi-scale spatiotemporal graph Mamba for EEG emotion recognition.",
+  "dev": 1,
+  "edge": 2,
+  "domains": [
+   "neuro/mental",
+   "imaging"
+  ],
+  "abs": "Electroencephalography (EEG) based emotion recognition is pivotal for advancing mobile health monitoring and real-time affective interaction. However, current methodologies face a critical trade-off between modeling the complex, multi-scale dynamics of brain activity and maintaining the computational efficiency necessary for edge deployment. Existing approaches often rely on fixed temporal scales and neglect hierarchical spatial connectivity, which limits both classification robustness and scalability in practical settings. To address these challenges, we propose the Multi-Scale Spatiotemporal Graph Mamba (MSGM). Specifically, it employs multi-window temporal segmentation to extract relative power spectral density (rPSD) features, mimicking the brain's multi-scale processing to capture both transient emotional fluctuations and sustained mood. Spatially, it constructs bimodal global and local graphs refined by multi-depth Graph Convolutional Networks (GCNs), intuitively modeling hierarchical brain connectivity rather than isolated sensors. These features are synthesized via a token embedding fusion module and processed by a single-layer MSST-Mamba module, which leverages state-space modeling to ensure linear computational complexity, avoiding Transformer latency bottlenecks to facilitate real-time clinical monitoring. Assessed on the SEED, THU-EP, and FACED datasets under subject-independent protocols, MSGM outperforms baseline approaches, attaining competitive accuracy and F1 scores (e.g., 83.43% accuracy and 85.03% F1 score on SEED). Leveraging a single MSST-Mamba layer, MSGM demonstrates robust generalization and efficiency, achieving millisecond-level inference (151 ms) on the NVIDIA Jetson Xavier NX edge device, confirming its suitability for real-time applications. The capability of MSGM to capture complex spatiotemporal dynamics with low computational overhead highlights its suitability for real-time monitoring and interactive interfaces. By integrating neuroanatomical priors into the selective state-space modeling, the framework effectively maintains spatial intelligence and topological consistency throughout the classification process. This approach not only improves recognition accuracy but also ensures neurophysiologically grounded interpretability. Future research will focus on multimodal integration and further optimization of hierarchical spatial modeling to address the challenges of cross-subject variability. To support research reproducibility, the source code of MSGM will be made available at https://github.com/liuguangyunjizero/MSGM.",
+  "pmcid": "PMC12916687",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 0
+ },
+ {
+  "pmid": "41401501",
+  "doi": "10.1088/1361-6560/ae2db8",
+  "year": "2026",
+  "journal": "Physics in medicine and biology",
+  "title": "Robust CNN multi-nested-LSTM framework with compound loss for patch-based multi-push ultrasound shear wave imaging and segmentation.",
+  "dev": 2,
+  "edge": 0,
+  "domains": [
+   "neuro/mental",
+   "epidemic/population",
+   "imaging"
+  ],
+  "abs": "Objective.Ultrasound shear wave imaging enables noninvasive, quantitative assessment of tissue pathology with mechanical elasticity measurements. However, shear wave elastography (SWE) reconstructions are challenged by noise sensitivity, inefficient multi-push strategies for scalable region of interest coverage, and limited annotated data, leading to suboptimal reconstruction and unreliable inclusion segmentation.Approach.In this work, we present a novel two-stage deep learning framework that addresses these limitations through a convolutional neural network (CNN)-based multi-nested-LSTM reconstruction network followed by a compound-loss-driven CNN-denoiser. The reconstruction stage begins with a ResNet3D-encoder that extracts spatiotemporal features from sequential multi-push acoustic radiation force data. These features are temporally windowed with Nested CNN-LSTM, converted from 3D to 2D with temporal attention module, and enhanced by fast Fourier transform-based frequency attention. The resulting 2D maps are subsequently decoded into primary 2D elasticity reconstructions. To mitigate data-scarcity and improve generalization, a patch-based training regime is also proposed. The second stage introduces a dual-decoder denoising network that separately processes inclusion and background stiffness features, followed by a fusion module that produces a denoised modulus map and a segmentation mask. A multi-objective compound loss is designed to accommodate the denoising, fusing, and mask generation. The method is validated on sequential multi-push (simulation and experimental) SWE motion data with multiple overlapping regions.Results.The method was tested on simulated and CIRS phantom datasets with four overlapping push regions, yielding 26.33\u2009dB peak-signal-to-noise-ratio (PSNR), 30.73\u2009dB contrast-to-noise-ratio (CNR), and 0.813 intersection over union (IoU) in simulation, and 22.44\u2009dB PSNR, 36.88\u2009dB CNR, and 0.781 IoU experimentally. Evaluation on anex vivoswine liver confirmed elasticity estimates within reported biological stiffness ranges. Compared to DSWE-Net and spatio-temporal CNNs, our approach shows superior reconstruction, segmentation, and noise insensitivity.Significance.This framework provides a robust approach to SWE reconstruction and inclusion segmentation, demonstrating strong potential for clinical translation.",
+  "pmcid": null,
+  "inEPMC": "N",
+  "isOA": "N",
+  "cites": 0
+ },
+ {
+  "pmid": "40039859",
+  "doi": "10.1109/embc53108.2024.10782799",
+  "year": "2024",
+  "journal": "Annual International Conference of the IEEE Engineering in Medicine and Biology Society. IEEE Engineering in Medicine and Biology Society. Annual International Conference",
+  "title": "Enhanced In-Home Human Activity Recognition Using Multimodal Sensing and Spatiotemporal Machine Learning Architecture.",
+  "dev": 2,
+  "edge": 0,
+  "domains": [
+   "neuro/mental",
+   "activity/mobility"
+  ],
+  "abs": "In this research, we present an enhanced human activity recognition (HAR) framework using advanced machine learning models incorporating temporal dynamics, leveraging multimodal sensor data. Data from wearable wristbands and real-time location systems (RTLS) were used to detect human activities within a home environment. A key advancement is the development of a spatiotemporal machine learning model combining convolutional neural networks (CNN), bidirectional long short-term memory (BiLSTM), and neural structured learning (NSL), which significantly surpasses traditional machine learning baseline models like RF, SVM. We also highlight the efficacy of sensor fusion achieving an accuracy of 86.21% and an F1 score of 87.40% for routine daily activities by combining IMU and RTLS sensors, compared to using each sensor modality independently. The proposed model paves the way for developing smart environments that can intelligently adapt to the varying routines and behaviors of daily life. Our investigation shows potential applications across diverse domains, including elderly care, smart home technologies, and healthcare monitoring, suggesting the broad applicability and benefits of the developed HAR system.",
+  "pmcid": null,
+  "inEPMC": "N",
+  "isOA": "N",
+  "cites": 1
+ },
+ {
+  "pmid": "39160216",
+  "doi": "10.1109/tbme.2015.2481896",
+  "year": "2024",
+  "journal": "Scientific reports",
+  "title": "Innovative approaches in imaging photoplethysmography for remote blood oxygen monitoring.",
+  "dev": 2,
+  "edge": 0,
+  "domains": [
+   "neuro/mental",
+   "respiratory",
+   "imaging"
+  ],
+  "abs": "Peripheral Capillary Oxygen Saturation (SpO2) has received increasing attention during the COVID-19 pandemic. Clinical investigations have demonstrated that individuals afflicted with COVID-19 exhibit notably reduced levels of SpO2 before the deterioration of their health status. To cost-effectively enable individuals to monitor their SpO2, this paper proposes a novel neural network model named \"ITSCAN\" based on Temporal Shift Module. Benefiting from the widespread use of smartphones, this model can assess an individual's SpO2 in real time, utilizing standard facial video footage, with a temporal granularity of seconds. The model is interweaved by two distinct branches: the motion branch, responsible for extracting spatiotemporal data features and the appearance branch, focusing on the correlation between feature channels and the location information of feature map using coordinate attention mechanisms. Accordingly, the SpO2 estimator generates the corresponding SpO2 value. This paper summarizes for the first time 5 loss functions commonly used in the SpO2 estimation model. Subsequently, a novel loss function has been contributed through the examination of various combinations and careful selection of hyperparameters. Comprehensive ablation experiments analyze the independent impact of each module on the overall model performance. Finally, the experimental results based on the public dataset (VIPL-HR) show that our model has obvious advantages in MAE (1.10%) and RMSE (1.19%) compared with related work, which implies more accuracy of the proposed method to contribute to public health.",
+  "pmcid": "PMC11333616",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 2
+ },
+ {
+  "pmid": "37695969",
+  "doi": "10.1109/tnsre.2023.3314100",
+  "year": "2023",
+  "journal": "IEEE transactions on neural systems and rehabilitation engineering : a publication of the IEEE Engineering in Medicine and Biology Society",
+  "title": "An Interpretable Deep Learning Optimized Wearable Daily Detection System for Parkinson's Disease.",
+  "dev": 2,
+  "edge": 0,
+  "domains": [
+   "neuro/mental"
+  ],
+  "abs": "Walking detection in the daily life of patients with Parkinson's disease (PD) is of great significance for tracking the progress of the disease. This study aims to implement an accurate, objective, and passive detection algorithm optimized based on an interpretable deep learning architecture for the daily walking of patients with PD and to explore the most representative spatiotemporal motor features. Five inertial measurement units attached to the wrist, ankle, and waist are used to collect motion data from 100 subjects during a 10-meter walking test. The raw data of each sensor are subjected to the continuous wavelet transform to train the classification model of the constructed 6-channel convolutional neural network (CNN). The results show that the sensor located at the waist has the best classification performance with an accuracy of 98.01%\u00b10.85% and the area under the receiver operating characteristic curve (AUC) of 0.9981\u00b10.0017 under ten-fold cross-validation. The gradient-weighted class activation mapping shows that the feature points with greater contribution to PD were concentrated in the lower frequency band (0.5~3Hz) compared with healthy controls. The visual maps of the 3D CNN show that only three out of the six time series have a greater contribution, which is used as a basis to further optimize the model input, greatly reducing the raw data processing costs (50%) while ensuring its performance (AUC=0.9929\u00b10.0019). To the best of our knowledge, this is the first study to consider the visual interpretation-based optimization of an intelligent classification model in the intelligent diagnosis of PD.",
+  "pmcid": null,
+  "inEPMC": "N",
+  "isOA": "N",
+  "cites": 10
+ },
+ {
+  "pmid": "36709517",
+  "doi": "10.1016/j.compbiomed.2023.106592",
+  "year": "2023",
+  "journal": "Computers in biology and medicine",
+  "title": "X-iPPGNet: A novel one stage deep learning architecture based on depthwise separable convolutions for video-based pulse rate estimation.",
+  "dev": 2,
+  "edge": 0,
+  "domains": [
+   "neuro/mental"
+  ],
+  "abs": "Pulse rate (PR) is one of the most important markers for assessing a person's health. With the increasing demand for long-term health monitoring, much attention is being paid to contactless PR estimation using imaging photoplethysmography (iPPG). This non-invasive technique is based on the analysis of subtle changes in skin color. Despite efforts to improve iPPG, the existing algorithms are vulnerable to less-constrained scenarios (i.e., head movements, facial expressions, and environmental conditions). In this article, we propose a novel end-to-end spatio-temporal network, namely X-iPPGNet, for instantaneous PR estimation directly from facial video recordings. Unlike most existing systems, our model learns the iPPG concept from scratch without incorporating any prior knowledge or going through the extraction of blood volume pulse signals. Inspired by the Xception network architecture, color channel decoupling is used to learn additional photoplethysmographic information and to effectively reduce the computational cost and memory requirements. Moreover, X-iPPGNet predicts the pulse rate from a short time window (2\u00a0s), which has advantages with high and sharply fluctuating pulse rates. The experimental results revealed high performance under all conditions including head motions, facial expressions, and skin tone. Our approach significantly outperforms all current state-of-the-art methods on three benchmark datasets: MMSE-HR (MAE = 4.10 ; RMSE = 5.32 ; r = 0.85), UBFC-rPPG (MAE = 4.99 ; RMSE = 6.26 ; r = 0.67), MAHNOB-HCI (MAE = 3.17 ; RMSE = 3.93 ; r = 0.88).",
+  "pmcid": null,
+  "inEPMC": "N",
+  "isOA": "N",
+  "cites": 10
+ },
+ {
+  "pmid": "36709349",
+  "doi": "10.1038/s42256-019-0089-1",
+  "year": "2023",
+  "journal": "Nature communications",
+  "title": "Wearable in-sensor reservoir computing using optoelectronic polymers with through-space charge-transport characteristics for multi-task learning.",
+  "dev": 2,
+  "edge": 0,
+  "domains": [],
+  "abs": "In-sensor multi-task learning is not only the key merit of biological visions but also a primary goal of artificial-general-intelligence. However, traditional silicon-vision-chips suffer from large time/energy overheads. Further, training conventional deep-learning models is neither scalable nor affordable on edge-devices. Here, a material-algorithm co-design is proposed to emulate human retina and the affordable learning paradigm. Relying on a bottle-brush-shaped semiconducting p-NDI with efficient exciton-dissociations and through-space charge-transport characteristics, a wearable transistor-based dynamic in-sensor Reservoir-Computing system manifesting excellent separability, fading memory, and echo state property on different tasks is developed. Paired with a 'readout function' on memristive organic diodes, the RC recognizes handwritten letters and numbers, and classifies diverse costumes with accuracies of 98.04%, 88.18%, and 91.76%, respectively (higher than all reported organic semiconductors). In addition to 2D images, the spatiotemporal dynamics of RC naturally extract features of event-based videos, classifying 3 types of hand gestures at an accuracy of 98.62%. Further, the computing cost is significantly lower than that of the conventional artificial-neural-networks. This work provides a promising material-algorithm co-design for affordable and highly efficient photonic neuromorphic systems.",
+  "pmcid": "PMC9884246",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 48
+ },
+ {
+  "pmid": "42344846",
+  "doi": "10.1609/aaai.v32i1.12328",
+  "year": "2026",
+  "journal": "Frontiers in bioengineering and biotechnology",
+  "title": "A multimodal spatio-temporal graph neural network framework for fatigue detection in tennis serving.",
+  "dev": 1,
+  "edge": 1,
+  "domains": [
+   "neuro/mental"
+  ],
+  "abs": "The tennis serve is a complex, high-velocity motion dependent on the efficient transfer of energy through the kinetic chain, from the lower extremities to the racquet. Fatigue-induced alterations in this chain are primary precursors to overuse injuries, such as rotator cuff tendinopathy and elbow medial collateral ligament stress. However, current wearable monitoring solutions predominantly rely on unimodal kinematic data, failing to capture the neuromuscular compensatory mechanisms that precede mechanical performance degradation. This study introduces a novel multimodal framework integrating inertial measurement units (IMUs) and surface electromyography (sEMG) with a Spatio-Temporal Graph Convolutional Network (ST-GCN). We recruited 15 high-performance tennis players to perform a standardized specific endurance protocol (serving to exhaustion). A graph topology representing the human skeletal structure was constructed to model spatial dependencies, while sEMG signals were fused as node attributes to capture neural drive intensity. Statistical significance was assessed using paired t -tests with Bonferroni correction, and model performance differences were evaluated by one-way repeated measures ANOVA with post-hoc pairwise comparisons. The proposed ST-GCN framework achieved a fatigue state classification accuracy of 95.2% (F1-score: 0.94), significantly outperforming traditional Long Short-Term Memory (LSTM) (88.1%) and Convolutional Neural Network (CNN) architectures (85.6%), as well as a Spatial-Temporal Transformer network (ST-TR) (93.1%) ( p < 0.001 for all pairwise comparisons). Biomechanical analysis revealed a significant \"neuromechanical lag\" (p < 0.01) and a compensatory pattern characterized by reduced knee flexion (-12.4\u00b0) during the fatigued state, accompanied by a non-significant upward trend in shoulder internal rotation velocity (+8.5%, p = 0.012). By decoding the hidden dependencies within the kinetic chain, this system provides a computationally efficient fatigue detection framework with a model inference latency of 8.4\u00a0ms, constituting a technically feasible step toward on-court deployment and offering a potential paradigm for smart sports engineering and precision rehabilitation.",
+  "pmcid": "PMC13287845",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 0
+ },
+ {
+  "pmid": "42393483",
+  "doi": "10.1016/j.bspc.2024.106491",
+  "year": "2026",
+  "journal": "Medical & biological engineering & computing",
+  "title": "Deep multi-modal features based spatio-temporal video regression for non-invasive hemoglobin estimation.",
+  "dev": 1,
+  "edge": 0,
+  "domains": [
+   "neuro/mental"
+  ],
+  "abs": "The hemoglobin concentration in blood is vital for diagnosing anemia and monitoring the various health conditions. However, conventional measurement methods need invasive blood sampling so that they might have limited accessibility and uncomfortable for patients. Today, non-invasive alternatives powered by machine learning techniques provide promising solutions for point-of-care facilities and remote healthcare systems. This paper presents a methodology through a comprehensive research and development process to estimate hemoglobin levels from facial videos using multi-modal feature extraction and ensemble learning techniques. A dataset of 260 participants with various blood hemoglobin levels was processed to extract the features from pre-trained convolutional neural-networks (MobileNetV2, ResNet152), remote photoplethysmography (rPPG) signals, and color statistical features. Using these features, hemoglobin concentration was estimated via a number of machine learning models including XGBoost, Random Forest, and Stacking Regressor, respectively. Stacking Regressor provided the best estimation scores with a mean-absolute error of 0.7754 g/dL, Pearson correlation-coefficient of 0.7878, and [Formula: see text] score of 0.5852. ResNet152 model based features were combined with XGBoost, which achieved comparable performance (MAE: 0.6635 g/dL, [Formula: see text]: 0.4977). Experimental results demonstrated that multi-modal feature strategy outperformed single-modality approaches in terms of prediction accuracy and robustness. The proposed video-based estimation of hemoglobin concentration system achieves clinically relevant accuracy levels, outperforms to literature methods, comparable to point-of-care instruments demonstrating strong potential for use in anemia screening and remote patient monitoring.",
+  "pmcid": null,
+  "inEPMC": "N",
+  "isOA": "N",
+  "cites": 0
+ },
+ {
+  "pmid": "42330981",
+  "doi": "10.1088/2057-1976/ae802c",
+  "year": "2026",
+  "journal": "Biomedical physics & engineering express",
+  "title": "EEG-EMG spatiotemporal cross-attention fusion network for functional upper-limb movement classification.",
+  "dev": 1,
+  "edge": 0,
+  "domains": [
+   "neuro/mental"
+  ],
+  "abs": "Objective. Electroencephalography (EEG) and electromyography (EMG) are widely used for decoding motor intentions, yet unimodal approaches often suffer from low robustness and limited representational information. EEG-EMG hybrid brain-computer interfaces (BCIs) can bridge cortical intention and muscular execution, but challenges remain in signal alignment, fusion modeling, and clinical generalization.Approach. To address these issues, we propose spatio-temporal cross-attention fusion (STCAFusion), a spatiotemporal cross-attention (CA) framework that integrates EEG and EMG through multi-band based dual-branch convolutional encoders and parallel temporal and spatial CA modules. This design enables detailed modeling of inter-modal correlations across both time and space. We evaluate STCAFusion on a newly collected dataset of synchronous EEG-EMG recordings from 12 subjects, where the data were acquired under two paradigms (Reaching and Lifting) designed from daily functional upper-limb activities to emphasize directional and strength control.Main results. With leave-one-run-out cross-validation, STCAFusion achieves average accuracies of 84.15% and 95.22% in the two paradigms, outperforming the strongest competing EEG-EMG fusion baselines by 3.4% in the Reaching paradigm and 1.8% in the Lifting paradigm. Visualization of learned attention weights further reveals meaningful spatiotemporal EEG-EMG coupling patterns, offering insights into neural-muscular coordination patterns relevant to rehabilitation-oriented BCI design.Significance. These results highlight the potential of CA-based multimodal physiological signal fusion in building reliable hybrid BCI and wearable devices for upper-limb control and rehabilitation.",
+  "pmcid": null,
+  "inEPMC": "N",
+  "isOA": "N",
+  "cites": 0
+ },
+ {
+  "pmid": "41756517",
+  "doi": "10.1016/j.ijrobp.2024.02.016",
+  "year": "2026",
+  "journal": "Physics and imaging in radiation oncology",
+  "title": "Deep learning-based head and neck deformable image registration using spatio-temporal analysis and self attention.",
+  "dev": 1,
+  "edge": 0,
+  "domains": [
+   "imaging"
+  ],
+  "abs": "Significant anatomical changes during head and neck cancer (HNC) radiotherapy challenge accurate dose delivery. Deformable image registration (DIR) is essential for adaptive radiotherapy (ART), yet conventional methods are too slow for online clinical use. This study proposed a novel deep learning-based DIR algorithm for longitudinal HNC imaging. We used sixty HNC patient datasets, each containing a planning CT (pCT) and six weekly cone-beam CTs (CBCTs). Fifty datasets were used for training with cross-validation, and the remaining ten were reserved for testing. The proposed DIR algorithm is a patch-based model that integrates 3D convolutional neural networks, self-attention, and a convolutional Long Short Term Memory to model temporal deformations. The model predicted bidirectional deformation vector fields and was trained with a composite loss function combining image similarity, DVF smoothness, and inverse consistency. Performance was benchmarked against the large deformation diffeomorphic metric mapping (LDDMM) algorithm using Dice similarity coefficient (DSC), Hausdorff distance, and Jacobian analysis. The proposed method achieved significantly faster inference, performing bidirectional DIR between the pCT and all six weekly CBCTs in under 3\u00a0min and averaging about 30\u00a0s per patient, while matching or exceeding LDDMM's accuracy. DSC remained above 0.8 for all key structures, and the method demonstrated improved DVF consistency with lower mean and 95th percentile Hausdorff distances. Unlike LDDMM, it required no manual parameter tuning, providing consistent results. The proposed DIR algorithm enabled rapid, accurate, and consistent image registration, supporting real-time ART workflows and retrospective dose accumulation in personalized radiotherapy.",
+  "pmcid": "PMC12933849",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 0
+ },
+ {
+  "pmid": "41600297",
+  "doi": "10.1109/access.2022.3159339",
+  "year": "2026",
+  "journal": "Sensors (Basel, Switzerland)",
+  "title": "Comparative Study of Different Algorithms for Human Motion Direction Prediction Based on Multimodal Data.",
+  "dev": 1,
+  "edge": 0,
+  "domains": [
+   "activity/mobility"
+  ],
+  "abs": "The accurate prediction of human movement direction plays a crucial role in fields such as rehabilitation monitoring, sports science, and intelligent military systems. Based on plantar pressure and inertial sensor data, this study developed a hybrid deep learning model integrating a Convolutional Neural Network (CNN) and a Bidirectional Long Short-Term Memory (BiLSTM) network to enable joint spatiotemporal feature learning. Systematic comparative experiments involving four distinct deep learning models-CNN, BiLSTM, CNN-LSTM, and CNN-BiLSTM-were conducted to evaluate their convergence performance and prediction accuracy comprehensively. Results show that the CNN-BiLSTM model outperforms the other three models, achieving the lowest RMSE (0.26) and MAE (0.14) on the test set, with an R2 of 0.86, which indicates superior fitting accuracy and generalization ability. The superior performance of the CNN-BiLSTM model is attributed to its ability to effectively capture local spatial features via CNN and model bidirectional temporal dependencies via BiLSTM, thus demonstrating strong adaptability for complex motion scenarios. This work focuses on the optimization and comparison of deep learning algorithms for spatiotemporal feature extraction, providing a reliable framework for real-time human motion prediction and offering potential applications in intelligent gait analysis, wearable monitoring, and adaptive human-machine interaction.",
+  "pmcid": "PMC12845797",
+  "inEPMC": "Y",
+  "isOA": "Y",
+  "cites": 1
+ },
+ {
+  "pmid": "41056153",
+  "doi": "10.1109/tmi.2025.3618711",
+  "year": "2026",
+  "journal": "IEEE transactions on medical imaging",
+  "title": "MACE Risk Prediction in ARVC Patients via CMR: A Three-Tier Spatiotemporal Transformer With Pericardial Adipose Tissue Embedding.",
+  "dev": 1,
+  "edge": 0,
+  "domains": [
+   "cardio",
+   "neuro/mental",
+   "epidemic/population"
+  ],
+  "abs": "Major adverse cardiac events (MACE) pose a high life-threatening risk to patients with arrhythmogenic right ventricular cardiomyopathy (ARVC). Cardiac magnetic resonance (CMR) has been proven to reflect the risk of MACE, but two challenges remain: limited dataset size due to the rarity of ARVC and overlapping image distributions between non-MACE and MACE patients. To address these challenges by fully leveraging the dynamic and spatial information in the limited CMR dataset, a deep learning-based risk prediction model named Three-Tier Spatiotemporal Transformer (TTST) is proposed in this paper, which utilizes three transformer-based tiers to sequentially extract and fuse features from three domains: the 2D spatial domain of each slice, the temporal dimension of slice sequence and the inter-slice depth dimension. In TTST, a pericardial adipose tissue (PAT) embedding unit is proposed to incorporate the dynamic and positional information of PAT, a key biomarker for distinguishing MACE from non-MACE based on its thickening and reduced motion, as prior knowledge to reduce reliance on large-scale datasets. Additionally, a patch voting unit is introduced to pick out local features that highlight more indicative regions in the heart, guided by the PAT embedding information. Experimental results demonstrate that TTST outperforms existing classification methods in MACE prediction (internal: AUC = 0.89, ACC = 84.02%; external: AUC = 0.87, ACC = 86.21%). Clinically, TTST achieves effective risk prediction performance either independently (C-index = 0.744) or in combination with the existing 5-year risk score model (increasing C-index from 0.686 to 0.777). Code and dataset are accessible at https://github.com/DFLAG-NEU.",
+  "pmcid": null,
+  "inEPMC": "N",
+  "isOA": "N",
+  "cites": 0
+ },
+ {
+  "pmid": "41336364",
+  "doi": "10.1109/embc58623.2025.11252970",
+  "year": "2025",
+  "journal": "Annual International Conference of the IEEE Engineering in Medicine and Biology Society. IEEE Engineering in Medicine and Biology Society. Annual International Conference",
+  "title": "Personalized Sleep Prediction via Deep Adaptive Spatiotemporal Modeling and Sparse Data.",
+  "dev": 1,
+  "edge": 0,
+  "domains": [
+   "neuro/mental"
+  ],
+  "abs": "A sleep forecast allows individuals, and healthcare providers to anticipate and proactively address factors influencing restful rest, ultimately improving mental and physical well-being. This work presents an adaptive spatial and temporal model (AdaST-Sleep) for predicting sleep scores. Our proposed model combines convolutional layers to capture spatial feature interactions between multiple features and recurrent neural network layers to handle longer-term temporal health-related data. A domain classifier is further integrated to generalize across different subjects. We conducted several experiments using five input window sizes (3, 5, 7, 9, 11 days) and five predicting window sizes (1, 3, 5, 7, 9 days). Our approach consistently outperformed four baseline models, achieving its lowest RMSE (0.282) with a seven-day input window and a one-day predicting window. Moreover, the method maintained strong performance even when forecasting multiple days into the future, demonstrating its versatility for real-world applications. Visual comparisons reveal that the model accurately tracks both the overall sleep score level and daily fluctuations. These findings prove that the proposed framework provides a robust and adaptable solution for personalized sleep forecasting using sparse data from commercial wearable devices and domain adaptation techniques.Clinical relevance- This is a method that could be used to inform participants and therapists in life-style interventions with the aim of improving sleep patterns about the participant's progress.",
+  "pmcid": null,
+  "inEPMC": "N",
+  "isOA": "N",
+  "cites": 0
+ },
+ {
+  "pmid": "41069080",
+  "doi": "10.1002/rcs.70115",
+  "year": "2025",
+  "journal": "The international journal of medical robotics + computer assisted surgery : MRCAS",
+  "title": "BSCAL: Gesture Recognition Network Based on Dual-Stream Information Fusion of EMG and IMU Signals.",
+  "dev": 1,
+  "edge": 0,
+  "domains": [
+   "neuro/mental"
+  ],
+  "abs": "Surface electromyography (sEMG) enables gesture recognition for rehabilitation and human-computer interaction but faces challenges from noise, inter-subject variability, and limited motion dynamics characterisation. We propose BSCAL, a dual-stream network integrating sEMG and inertial measurement unit (IMU) signals. The architecture combines convolutional neural networks (CNNs), long short-term memory (LSTM) networks, and spatiotemporal attention to process eight-channel sEMG and six-channel IMU data from 20 participants performing six gestures. Kalman filtering, Z-score normalisation, and gated fusion optimise multimodal feature integration. BSCAL achieved 90.41%\u00a0\u00b1\u00a01.54% recognition accuracy, surpassing single-modality models and state-of-the-art approaches. Ablation studies validated contributions from CNN (local features), LSTM (temporal dependencies), and attention (key feature enhancement). By synergistically integrating neuromuscular patterns from EMG and kinematic data from IMU, BSCAL delivers a precise and scalable solution for gesture recognition, thereby advancing the development of wearable hand rehabilitation robots and assistive technologies for motor function recovery.",
+  "pmcid": null,
+  "inEPMC": "N",
+  "isOA": "N",
+  "cites": 0
+ }
+]

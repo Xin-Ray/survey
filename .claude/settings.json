@@ -1,0 +1,22 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"/Users/xiangxin/survey paper/review/check_comments.py\" --json 2>/dev/null || true",
+            "timeout": 30,
+            "statusMessage": "Checking against the reviewer's comment list"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"/Users/xiangxin/survey paper/review/check_supplement.py\" --json 2>/dev/null || true",
+            "timeout": 20,
+            "statusMessage": "Checking supplement table integrity"
+          }
+        ]
+      }
+    ]
+  }
+}

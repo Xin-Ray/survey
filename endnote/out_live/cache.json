@@ -1,0 +1,2782 @@
+{
+ "wang2022deep": {
+  "key": "wang2022deep",
+  "status": "verified",
+  "doi": "10.1109/tkde.2020.3025580",
+  "link": "https://doi.org/10.1109/tkde.2020.3025580",
+  "source": "crossref:doi",
+  "ext_title": "Deep Learning for Spatio-Temporal Data Mining: A Survey",
+  "ext_authors": [
+   [
+    "Wang",
+    "Senzhang"
+   ],
+   [
+    "Cao",
+    "Jiannong"
+   ],
+   [
+    "Yu",
+    "Philip S."
+   ]
+  ],
+  "ext_year": 2022,
+  "ext_venue": "IEEE Transactions on Knowledge and Data Engineering",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "samani2026stdl": {
+  "key": "samani2026stdl",
+  "status": "verified",
+  "doi": "10.1007/s11063-026-11874-x",
+  "link": "https://doi.org/10.1007/s11063-026-11874-x",
+  "source": "crossref:doi",
+  "ext_title": "Deep Learning: A Game Changer for Spatio\u2011Temporal Prediction \u2013 A Review of Methods and Applications",
+  "ext_authors": [
+   [
+    "Samani",
+    "Saeideh"
+   ],
+   [
+    "Vadiati",
+    "Meysam"
+   ],
+   [
+    "Kisi",
+    "Ozgur"
+   ],
+   [
+    "Molaei",
+    "Fatemeh"
+   ]
+  ],
+  "ext_year": 2026,
+  "ext_venue": "Neural Processing Letters",
+  "title_sim": 0.995,
+  "author_check": "match",
+  "note": ""
+ },
+ "swinckels2024ehr": {
+  "key": "swinckels2024ehr",
+  "status": "verified",
+  "doi": "10.2196/48320",
+  "link": "https://doi.org/10.2196/48320",
+  "source": "crossref:doi",
+  "ext_title": "The Use of Deep Learning and Machine Learning on Longitudinal Electronic Health Records for the Early Detection and Prevention of Diseases: Scoping Review",
+  "ext_authors": [
+   [
+    "Swinckels",
+    "Laura"
+   ],
+   [
+    "Bennis",
+    "Frank C"
+   ],
+   [
+    "Ziesemer",
+    "Kirsten A"
+   ],
+   [
+    "Scheerman",
+    "Janneke F M"
+   ],
+   [
+    "Bijwaard",
+    "Harmen"
+   ],
+   [
+    "de Keijzer",
+    "Ander"
+   ],
+   [
+    "Bruers",
+    "Josef Jan"
+   ]
+  ],
+  "ext_year": 2024,
+  "ext_venue": "Journal of Medical Internet Research",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "Busnatu2022": {
+  "key": "Busnatu2022",
+  "status": "verified",
+  "doi": "10.3390/jpm12101656",
+  "link": "https://doi.org/10.3390/jpm12101656",
+  "source": "crossref:search",
+  "ext_title": "A Review of Digital Health and Biotelemetry: Modern Approaches towards Personalized Medicine and Remote Health Assessment",
+  "ext_authors": [
+   [
+    "Busnatu",
+    "\u0218tefan Sebastian"
+   ],
+   [
+    "Niculescu",
+    "Adelina-Gabriela"
+   ],
+   [
+    "Bolocan",
+    "Alexandra"
+   ],
+   [
+    "Andronic",
+    "Octavian"
+   ],
+   [
+    "Pantea Stoian",
+    "Anca Mihaela"
+   ],
+   [
+    "Scafa-Udri\u0219te",
+    "Alexandru"
+   ],
+   [
+    "St\u0103nescu",
+    "Ana Maria Alexandra"
+   ],
+   [
+    "P\u0103duraru",
+    "Dan Nicolae"
+   ],
+   [
+    "Nicolescu",
+    "Mihnea Ioan"
+   ],
+   [
+    "Grumezescu",
+    "Alexandru Mihai"
+   ],
+   [
+    "Jinga",
+    "Viorel"
+   ]
+  ],
+  "ext_year": 2022,
+  "ext_venue": "Journal of Personalized Medicine",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "DOI found by title search"
+ },
+ "sun2026irregularmedical": {
+  "key": "sun2026irregularmedical",
+  "status": "verified",
+  "doi": "10.34133/hds.0456",
+  "link": "https://doi.org/10.34133/hds.0456",
+  "source": "crossref:doi",
+  "ext_title": "A Review of Deep Learning Methods for Irregularly Sampled Medical Time Series Data",
+  "ext_authors": [
+   [
+    "Sun",
+    "Chenxi"
+   ],
+   [
+    "Song",
+    "Moxian"
+   ],
+   [
+    "Cai",
+    "Derun"
+   ],
+   [
+    "Zhang",
+    "Baofeng"
+   ],
+   [
+    "Li",
+    "Hongyan"
+   ],
+   [
+    "Hong",
+    "Shenda"
+   ]
+  ],
+  "ext_year": 2026,
+  "ext_venue": "Health Data Science",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "Wang2023Survey": {
+  "key": "Wang2023Survey",
+  "status": "verified",
+  "doi": "10.1109/jiot.2023.3263909",
+  "link": "https://doi.org/10.1109/jiot.2023.3263909",
+  "source": "crossref:doi",
+  "ext_title": "A Survey on Digital Twins: Architecture, Enabling Technologies, Security and Privacy, and Future Prospects",
+  "ext_authors": [
+   [
+    "Wang",
+    "Yuntao"
+   ],
+   [
+    "Su",
+    "Zhou"
+   ],
+   [
+    "Guo",
+    "Shaolong"
+   ],
+   [
+    "Dai",
+    "Minghui"
+   ],
+   [
+    "Luan",
+    "Tom H."
+   ],
+   [
+    "Liu",
+    "Yiliang"
+   ]
+  ],
+  "ext_year": 2023,
+  "ext_venue": "IEEE Internet of Things Journal",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "Sel2025VVUQ": {
+  "key": "Sel2025VVUQ",
+  "status": "verified",
+  "doi": "10.1038/s41746-025-01447-y",
+  "link": "https://doi.org/10.1038/s41746-025-01447-y",
+  "source": "crossref:doi",
+  "ext_title": "Survey and perspective on verification, validation, and uncertainty quantification of digital twins for precision medicine",
+  "ext_authors": [
+   [
+    "Sel",
+    "Kaan"
+   ],
+   [
+    "Hawkins-Daarud",
+    "Andrea"
+   ],
+   [
+    "Chaudhuri",
+    "Anirban"
+   ],
+   [
+    "Osman",
+    "Deen"
+   ],
+   [
+    "Bahai",
+    "Ahmad"
+   ],
+   [
+    "Paydarfar",
+    "David"
+   ],
+   [
+    "Willcox",
+    "Karen"
+   ],
+   [
+    "Chung",
+    "Caroline"
+   ],
+   [
+    "Jafari",
+    "Roozbeh"
+   ]
+  ],
+  "ext_year": 2025,
+  "ext_venue": "npj Digital Medicine",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "Zheng2026DTtoWM": {
+  "key": "Zheng2026DTtoWM",
+  "status": "verified",
+  "doi": "10.48550/arXiv.2603.17420",
+  "link": "https://arxiv.org/abs/2603.17420v1",
+  "source": "arxiv:id",
+  "ext_title": "From Digital Twins to World Models:Opportunities, Challenges, and Applications for Mobile Edge General Intelligence",
+  "ext_authors": [
+   [
+    "Zheng",
+    "Jie"
+   ],
+   [
+    "Niyato",
+    "Dusit"
+   ],
+   [
+    "Zhao",
+    "Changyuan"
+   ],
+   [
+    "Kang",
+    "Jiawen"
+   ],
+   [
+    "Wang",
+    "Jiacheng"
+   ]
+  ],
+  "ext_year": "2026",
+  "ext_venue": "arXiv",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "chen2024genaitwin": {
+  "key": "chen2024genaitwin",
+  "status": "verified",
+  "doi": "10.1109/jiot.2024.3421918",
+  "link": "https://doi.org/10.1109/jiot.2024.3421918",
+  "source": "crossref:doi",
+  "ext_title": "Generative-AI-Driven Human Digital Twin in IoT Healthcare: A Comprehensive Survey",
+  "ext_authors": [
+   [
+    "Chen",
+    "Jiayuan"
+   ],
+   [
+    "Shi",
+    "You"
+   ],
+   [
+    "Yi",
+    "Changyan"
+   ],
+   [
+    "Du",
+    "Hongyang"
+   ],
+   [
+    "Kang",
+    "Jiawen"
+   ],
+   [
+    "Niyato",
+    "Dusit"
+   ]
+  ],
+  "ext_year": 2024,
+  "ext_venue": "IEEE Internet of Things Journal",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "amin2021edgeintel": {
+  "key": "amin2021edgeintel",
+  "status": "verified",
+  "doi": "10.1109/access.2020.3045115",
+  "link": "https://doi.org/10.1109/access.2020.3045115",
+  "source": "crossref:doi",
+  "ext_title": "Edge Intelligence and Internet of Things in Healthcare: A Survey",
+  "ext_authors": [
+   [
+    "Amin",
+    "Syed Umar"
+   ],
+   [
+    "Hossain",
+    "M. Shamim"
+   ]
+  ],
+  "ext_year": 2021,
+  "ext_venue": "IEEE Access",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "nguyen2022FLsmarthealthcare": {
+  "key": "nguyen2022FLsmarthealthcare",
+  "status": "verified",
+  "doi": "10.1145/3501296",
+  "link": "https://doi.org/10.1145/3501296",
+  "source": "crossref:doi",
+  "ext_title": "Federated Learning for Smart Healthcare: A Survey",
+  "ext_authors": [
+   [
+    "Nguyen",
+    "Dinh C."
+   ],
+   [
+    "Pham",
+    "Quoc-Viet"
+   ],
+   [
+    "Pathirana",
+    "Pubudu N."
+   ],
+   [
+    "Ding",
+    "Ming"
+   ],
+   [
+    "Seneviratne",
+    "Aruna"
+   ],
+   [
+    "Lin",
+    "Zihuai"
+   ],
+   [
+    "Dobre",
+    "Octavia"
+   ],
+   [
+    "Hwang",
+    "Won-Joo"
+   ]
+  ],
+  "ext_year": 2023,
+  "ext_venue": "ACM Computing Surveys",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "zhang2022harreview": {
+  "key": "zhang2022harreview",
+  "status": "verified",
+  "doi": "10.3390/s22041476",
+  "link": "https://doi.org/10.3390/s22041476",
+  "source": "crossref:doi",
+  "ext_title": "Deep Learning in Human Activity Recognition with Wearable Sensors: A Review on Advances",
+  "ext_authors": [
+   [
+    "Zhang",
+    "Shibo"
+   ],
+   [
+    "Li",
+    "Yaxuan"
+   ],
+   [
+    "Zhang",
+    "Shen"
+   ],
+   [
+    "Shahabi",
+    "Farzad"
+   ],
+   [
+    "Xia",
+    "Stephen"
+   ],
+   [
+    "Deng",
+    "Yu"
+   ],
+   [
+    "Alshurafa",
+    "Nabil"
+   ]
+  ],
+  "ext_year": 2022,
+  "ext_venue": "Sensors",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "McCullough2022Diet": {
+  "key": "McCullough2022Diet",
+  "status": "verified",
+  "doi": "10.1001/jamanetworkopen.2022.16406",
+  "link": "https://doi.org/10.1001/jamanetworkopen.2022.16406",
+  "source": "crossref:search",
+  "ext_title": "Association of Socioeconomic and Geographic Factors With Diet Quality in US Adults",
+  "ext_authors": [
+   [
+    "McCullough",
+    "Marjorie L."
+   ],
+   [
+    "Chantaprasopsuk",
+    "Sicha"
+   ],
+   [
+    "Islami",
+    "Farhad"
+   ],
+   [
+    "Rees-Punia",
+    "Erika"
+   ],
+   [
+    "Um",
+    "Caroline Y."
+   ],
+   [
+    "Wang",
+    "Ying"
+   ],
+   [
+    "Leach",
+    "Corinne R."
+   ],
+   [
+    "Sullivan",
+    "Kristen R."
+   ],
+   [
+    "Patel",
+    "Alpa V."
+   ]
+  ],
+  "ext_year": 2022,
+  "ext_venue": "JAMA Network Open",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "DOI found by title search"
+ },
+ "Vaughan2025CGMPrediction": {
+  "key": "Vaughan2025CGMPrediction",
+  "status": "verified",
+  "doi": "10.1038/s41598-025-29169-x",
+  "link": "https://doi.org/10.1038/s41598-025-29169-x",
+  "source": "crossref:search",
+  "ext_title": "Continuous blood glucose monitoring prediction for diabetes using evolving neural network",
+  "ext_authors": [
+   [
+    "Vaughan",
+    "Neil"
+   ]
+  ],
+  "ext_year": 2025,
+  "ext_venue": "Scientific Reports",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "DOI found by title search"
+ },
+ "atluri2018stdm": {
+  "key": "atluri2018stdm",
+  "status": "verified",
+  "doi": "10.1145/3161602",
+  "link": "https://doi.org/10.1145/3161602",
+  "source": "crossref:doi",
+  "ext_title": "Spatio-Temporal Data Mining",
+  "ext_authors": [
+   [
+    "Atluri",
+    "Gowtham"
+   ],
+   [
+    "Karpatne",
+    "Anuj"
+   ],
+   [
+    "Kumar",
+    "Vipin"
+   ]
+  ],
+  "ext_year": 2019,
+  "ext_venue": "ACM Computing Surveys",
+  "title_sim": 0.621,
+  "author_check": "match",
+  "note": "title variant on record: 'Spatio-Temporal Data Mining'"
+ },
+ "miotto2018deeplearning": {
+  "key": "miotto2018deeplearning",
+  "status": "verified",
+  "doi": "10.1093/bib/bbx044",
+  "link": "https://doi.org/10.1093/bib/bbx044",
+  "source": "crossref:search",
+  "ext_title": "Deep learning for healthcare: review, opportunities and challenges",
+  "ext_authors": [
+   [
+    "Miotto",
+    "Riccardo"
+   ],
+   [
+    "Wang",
+    "Fei"
+   ],
+   [
+    "Wang",
+    "Shuang"
+   ],
+   [
+    "Jiang",
+    "Xiaoqian"
+   ],
+   [
+    "Dudley",
+    "Joel T"
+   ]
+  ],
+  "ext_year": 2018,
+  "ext_venue": "Briefings in Bioinformatics",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "DOI found by title search"
+ },
+ "shukla2021irregular": {
+  "key": "shukla2021irregular",
+  "status": "verified",
+  "doi": "",
+  "link": "https://arxiv.org/abs/2012.00168v2",
+  "source": "arxiv:id",
+  "ext_title": "A Survey on Principles, Models and Methods for Learning from Irregularly Sampled Time Series",
+  "ext_authors": [
+   [
+    "Shukla",
+    "Satya Narayan"
+   ],
+   [
+    "Marlin",
+    "Benjamin M."
+   ]
+  ],
+  "ext_year": "2020",
+  "ext_venue": "arXiv",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "page2021prisma": {
+  "key": "page2021prisma",
+  "status": "verified",
+  "doi": "10.1136/bmj.n71",
+  "link": "https://doi.org/10.1136/bmj.n71",
+  "source": "crossref:doi",
+  "ext_title": "The PRISMA 2020 statement: an updated guideline for reporting systematic reviews",
+  "ext_authors": [
+   [
+    "Page",
+    "Matthew J"
+   ],
+   [
+    "McKenzie",
+    "Joanne E"
+   ],
+   [
+    "Bossuyt",
+    "Patrick M"
+   ],
+   [
+    "Boutron",
+    "Isabelle"
+   ],
+   [
+    "Hoffmann",
+    "Tammy C"
+   ],
+   [
+    "Mulrow",
+    "Cynthia D"
+   ],
+   [
+    "Shamseer",
+    "Larissa"
+   ],
+   [
+    "Tetzlaff",
+    "Jennifer M"
+   ],
+   [
+    "Akl",
+    "Elie A"
+   ],
+   [
+    "Brennan",
+    "Sue E"
+   ],
+   [
+    "Chou",
+    "Roger"
+   ],
+   [
+    "Glanville",
+    "Julie"
+   ],
+   [
+    "Grimshaw",
+    "Jeremy M"
+   ],
+   [
+    "Hr\u00f3bjartsson",
+    "Asbj\u00f8rn"
+   ],
+   [
+    "Lalu",
+    "Manoj M"
+   ],
+   [
+    "Li",
+    "Tianjing"
+   ],
+   [
+    "Loder",
+    "Elizabeth W"
+   ],
+   [
+    "Mayo-Wilson",
+    "Evan"
+   ],
+   [
+    "McDonald",
+    "Steve"
+   ],
+   [
+    "McGuinness",
+    "Luke A"
+   ],
+   [
+    "Stewart",
+    "Lesley A"
+   ],
+   [
+    "Thomas",
+    "James"
+   ],
+   [
+    "Tricco",
+    "Andrea C"
+   ],
+   [
+    "Welch",
+    "Vivian A"
+   ],
+   [
+    "Whiting",
+    "Penny"
+   ],
+   [
+    "Moher",
+    "David"
+   ]
+  ],
+  "ext_year": 2021,
+  "ext_venue": "BMJ",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "metzger2023crop": {
+  "key": "metzger2023crop",
+  "status": "verified",
+  "doi": "10.1109/tgrs.2021.3101965",
+  "link": "https://doi.org/10.1109/tgrs.2021.3101965",
+  "source": "crossref:doi",
+  "ext_title": "Crop Classification Under Varying Cloud Cover With Neural Ordinary Differential Equations",
+  "ext_authors": [
+   [
+    "Metzger",
+    "Nando"
+   ],
+   [
+    "Turkoglu",
+    "Mehmet Ozgur"
+   ],
+   [
+    "D'Aronco",
+    "Stefano"
+   ],
+   [
+    "Wegner",
+    "Jan Dirk"
+   ],
+   [
+    "Schindler",
+    "Konrad"
+   ]
+  ],
+  "ext_year": 2022,
+  "ext_venue": "IEEE Transactions on Geoscience and Remote Sensing",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "shi2015convolutional": {
+  "key": "shi2015convolutional",
+  "status": "verified",
+  "doi": "10.48550/arxiv.1506.04214",
+  "link": "https://doi.org/10.48550/arxiv.1506.04214",
+  "source": "openalex",
+  "ext_title": "Convolutional LSTM Network: A Machine Learning Approach for Precipitation Nowcasting",
+  "ext_authors": [
+   [
+    "Shi",
+    "Xingjian"
+   ],
+   [
+    "Chen",
+    "Zhourong"
+   ],
+   [
+    "Wang",
+    "Hao"
+   ],
+   [
+    "Yeung",
+    "Dit\u2010Yan"
+   ],
+   [
+    "Wong",
+    "Wai Kin"
+   ],
+   [
+    "Woo",
+    "Wang\u2010chun"
+   ]
+  ],
+  "ext_year": 2015,
+  "ext_venue": "arXiv (Cornell University)",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "matched on OpenAlex"
+ },
+ "gu2023mamba": {
+  "key": "gu2023mamba",
+  "status": "verified",
+  "doi": "",
+  "link": "https://arxiv.org/abs/2312.00752v2",
+  "source": "arxiv:id",
+  "ext_title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+  "ext_authors": [
+   [
+    "Gu",
+    "Albert"
+   ],
+   [
+    "Dao",
+    "Tri"
+   ]
+  ],
+  "ext_year": "2023",
+  "ext_venue": "arXiv",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "shao2022longterm": {
+  "key": "shao2022longterm",
+  "status": "verified",
+  "doi": "10.24963/ijcai.2022/309",
+  "link": "https://doi.org/10.24963/ijcai.2022/309",
+  "source": "crossref:doi",
+  "ext_title": "Long-term Spatio-Temporal Forecasting via Dynamic Multiple-Graph Attention",
+  "ext_authors": [
+   [
+    "Shao",
+    "Wei"
+   ],
+   [
+    "Jin",
+    "Zhiling"
+   ],
+   [
+    "Wang",
+    "Shuo"
+   ],
+   [
+    "Kang",
+    "Yufan"
+   ],
+   [
+    "Xiao",
+    "Xiao"
+   ],
+   [
+    "Menouar",
+    "Hamid"
+   ],
+   [
+    "Zhang",
+    "Zhaofeng"
+   ],
+   [
+    "Zhang",
+    "Junshan"
+   ],
+   [
+    "Salim",
+    "Flora"
+   ]
+  ],
+  "ext_year": 2022,
+  "ext_venue": "Proceedings of the Thirty-First International Joint Conference on Artificial Intelligence",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "xu2020stransformer": {
+  "key": "xu2020stransformer",
+  "status": "verified",
+  "doi": "",
+  "link": "https://arxiv.org/abs/2001.02908v2",
+  "source": "arxiv:id",
+  "ext_title": "Spatial-Temporal Transformer Networks for Traffic Flow Forecasting",
+  "ext_authors": [
+   [
+    "Xu",
+    "Mingxing"
+   ],
+   [
+    "Dai",
+    "Wenrui"
+   ],
+   [
+    "Liu",
+    "Chunmiao"
+   ],
+   [
+    "Gao",
+    "Xing"
+   ],
+   [
+    "Lin",
+    "Weiyao"
+   ],
+   [
+    "Qi",
+    "Guo-Jun"
+   ],
+   [
+    "Xiong",
+    "Hongkai"
+   ]
+  ],
+  "ext_year": "2020",
+  "ext_venue": "arXiv",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "saha2022mcuml": {
+  "key": "saha2022mcuml",
+  "status": "verified",
+  "doi": "10.1109/jsen.2022.3210773",
+  "link": "https://doi.org/10.1109/jsen.2022.3210773",
+  "source": "crossref:doi",
+  "ext_title": "Machine Learning for Microcontroller-Class Hardware: A Review",
+  "ext_authors": [
+   [
+    "Saha",
+    "Swapnil Sayan"
+   ],
+   [
+    "Sandha",
+    "Sandeep Singh"
+   ],
+   [
+    "Srivastava",
+    "Mani"
+   ]
+  ],
+  "ext_year": 2022,
+  "ext_venue": "IEEE Sensors Journal",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "wong2022binarizedecg": {
+  "key": "wong2022binarizedecg",
+  "status": "verified",
+  "doi": "10.1109/tbcas.2022.3152623",
+  "link": "https://doi.org/10.1109/tbcas.2022.3152623",
+  "source": "crossref:doi",
+  "ext_title": "An Energy Efficient ECG Ventricular Ectopic Beat Classifier Using Binarized CNN for Edge AI Devices",
+  "ext_authors": [
+   [
+    "Wong",
+    "David Liang Tai"
+   ],
+   [
+    "Li",
+    "Yongfu"
+   ],
+   [
+    "John",
+    "Deepu"
+   ],
+   [
+    "Ho",
+    "Weng Khuen"
+   ],
+   [
+    "Heng",
+    "Chun-Huat"
+   ]
+  ],
+  "ext_year": 2022,
+  "ext_venue": "IEEE Transactions on Biomedical Circuits and Systems",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "frey2023biogap": {
+  "key": "frey2023biogap",
+  "status": "verified",
+  "doi": "10.1109/coins57856.2023.10189286",
+  "link": "https://doi.org/10.1109/coins57856.2023.10189286",
+  "source": "crossref:doi",
+  "ext_title": "BioGAP: a 10-Core FP-capable Ultra-Low Power IoT Processor, with Medical-Grade AFE and BLE Connectivity for Wearable Biosignal Processing",
+  "ext_authors": [
+   [
+    "Frey",
+    "Sebastian"
+   ],
+   [
+    "Guermandi",
+    "Marco"
+   ],
+   [
+    "Benatti",
+    "Simone"
+   ],
+   [
+    "Kartsch",
+    "Victor"
+   ],
+   [
+    "Cossettini",
+    "Andrea"
+   ],
+   [
+    "Benini",
+    "Luca"
+   ]
+  ],
+  "ext_year": 2023,
+  "ext_venue": "2023 IEEE International Conference on Omni-layer Intelligent Systems (COINS)",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "che2018grud": {
+  "key": "che2018grud",
+  "status": "verified",
+  "doi": "10.1038/s41598-018-24271-9",
+  "link": "https://doi.org/10.1038/s41598-018-24271-9",
+  "source": "crossref:doi",
+  "ext_title": "Recurrent Neural Networks for Multivariate Time Series with Missing Values",
+  "ext_authors": [
+   [
+    "Che",
+    "Zhengping"
+   ],
+   [
+    "Purushotham",
+    "Sanjay"
+   ],
+   [
+    "Cho",
+    "Kyunghyun"
+   ],
+   [
+    "Sontag",
+    "David"
+   ],
+   [
+    "Liu",
+    "Yan"
+   ]
+  ],
+  "ext_year": 2018,
+  "ext_venue": "Scientific Reports",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "ayaz2021fhir": {
+  "key": "ayaz2021fhir",
+  "status": "verified",
+  "doi": "10.2196/21929",
+  "link": "https://doi.org/10.2196/21929",
+  "source": "crossref:doi",
+  "ext_title": "The Fast Health Interoperability Resources (FHIR) Standard: Systematic Literature Review of Implementations, Applications, Challenges and Opportunities",
+  "ext_authors": [
+   [
+    "Ayaz",
+    "Muhammad"
+   ],
+   [
+    "Pasha",
+    "Muhammad F"
+   ],
+   [
+    "Alzahrani",
+    "Mohammed Y"
+   ],
+   [
+    "Budiarto",
+    "Rahmat"
+   ],
+   [
+    "Stiawan",
+    "Deris"
+   ]
+  ],
+  "ext_year": 2021,
+  "ext_venue": "JMIR Medical Informatics",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "ieee11073std": {
+  "key": "ieee11073std",
+  "status": "verified",
+  "doi": "10.1109/ieeestd.2019.8936639",
+  "link": "https://doi.org/10.1109/ieeestd.2019.8936639",
+  "source": "crossref:doi",
+  "ext_title": "IEEE Health informatics--Personal health device communication - Part 20601: Application profile--Optimized Exchange Protocol",
+  "ext_authors": [],
+  "ext_year": 2019,
+  "ext_venue": "",
+  "title_sim": 0.979,
+  "author_check": "n/a",
+  "note": ""
+ },
+ "2": {
+  "key": "2",
+  "status": "verified",
+  "doi": "10.3390/brainsci12050630",
+  "link": "https://doi.org/10.3390/brainsci12050630",
+  "source": "crossref:search",
+  "ext_title": "A Depression Prediction Algorithm Based on Spatiotemporal Feature of EEG Signal",
+  "ext_authors": [
+   [
+    "Liu",
+    "Wei"
+   ],
+   [
+    "Jia",
+    "Kebin"
+   ],
+   [
+    "Wang",
+    "Zhuozheng"
+   ],
+   [
+    "Ma",
+    "Zhuo"
+   ]
+  ],
+  "ext_year": 2022,
+  "ext_venue": "Brain Sciences",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "DOI found by title search"
+ },
+ "9": {
+  "key": "9",
+  "status": "verified",
+  "doi": "10.3390/tomography10120138",
+  "link": "https://doi.org/10.3390/tomography10120138",
+  "source": "crossref:search",
+  "ext_title": "STANet: A Novel Spatio-Temporal Aggregation Network for Depression Classification with Small and Unbalanced FMRI Data",
+  "ext_authors": [
+   [
+    "Zhang",
+    "Wei"
+   ],
+   [
+    "Zeng",
+    "Weiming"
+   ],
+   [
+    "Chen",
+    "Hongyu"
+   ],
+   [
+    "Liu",
+    "Jie"
+   ],
+   [
+    "Yan",
+    "Hongjie"
+   ],
+   [
+    "Zhang",
+    "Kaile"
+   ],
+   [
+    "Tao",
+    "Ran"
+   ],
+   [
+    "Siok",
+    "Wai Ting"
+   ],
+   [
+    "Wang",
+    "Nizhuan"
+   ]
+  ],
+  "ext_year": 2024,
+  "ext_venue": "Tomography",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "DOI found by title search"
+ },
+ "Lim2025VirtualCGM": {
+  "key": "Lim2025VirtualCGM",
+  "status": "verified",
+  "doi": "10.1038/s41598-025-01367-7",
+  "link": "https://doi.org/10.1038/s41598-025-01367-7",
+  "source": "crossref:doi",
+  "ext_title": "A deep learning framework for virtual continuous glucose monitoring and glucose prediction based on life-log data",
+  "ext_authors": [
+   [
+    "Lim",
+    "Min Hyuk"
+   ],
+   [
+    "Chae",
+    "Hyocheol"
+   ],
+   [
+    "Yoon",
+    "Jeongwon"
+   ],
+   [
+    "Shin",
+    "Insik"
+   ]
+  ],
+  "ext_year": 2025,
+  "ext_venue": "Scientific Reports",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "glaser2022deep": {
+  "key": "glaser2022deep",
+  "status": "verified",
+  "doi": "10.1038/s43856-022-00166-9",
+  "link": "https://doi.org/10.1038/s43856-022-00166-9",
+  "source": "crossref:doi",
+  "ext_title": "Deep learning predicts all-cause mortality from longitudinal total-body DXA imaging",
+  "ext_authors": [
+   [
+    "Glaser",
+    "Yannik"
+   ],
+   [
+    "Shepherd",
+    "John"
+   ],
+   [
+    "Leong",
+    "Lambert"
+   ],
+   [
+    "Wolfgruber",
+    "Thomas"
+   ],
+   [
+    "Lui",
+    "Li-Yung"
+   ],
+   [
+    "Sadowski",
+    "Peter"
+   ],
+   [
+    "Cummings",
+    "Steven R."
+   ]
+  ],
+  "ext_year": 2022,
+  "ext_venue": "Communications Medicine",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "XiaoLi2016DiabetesSpatiotemporal": {
+  "key": "XiaoLi2016DiabetesSpatiotemporal",
+  "status": "verified",
+  "doi": "10.4081/gh.2016.439",
+  "link": "https://doi.org/10.4081/gh.2016.439",
+  "source": "crossref:doi",
+  "ext_title": "Identifying counties vulnerable to diabetes from obesity prevalence in the United States: a spatiotemporal analysis",
+  "ext_authors": [
+   [
+    "Li",
+    "Xiao"
+   ],
+   [
+    "Staudt",
+    "Amanda"
+   ],
+   [
+    "Chien",
+    "Lung-Chang"
+   ]
+  ],
+  "ext_year": 2016,
+  "ext_venue": "Geospatial Health",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "Fang2021iPAT": {
+  "key": "Fang2021iPAT",
+  "status": "unverified-url",
+  "doi": "",
+  "link": "https://nihvip-ipat.yu.edu/",
+  "source": "bib:url",
+  "ext_title": "",
+  "ext_authors": [],
+  "ext_year": null,
+  "ext_venue": "",
+  "title_sim": 0.0,
+  "author_check": "n/a",
+  "note": "not indexed by Crossref/arXiv; using URL from bib"
+ },
+ "sudlow2015ukbiobank": {
+  "key": "sudlow2015ukbiobank",
+  "status": "verified",
+  "doi": "10.1371/journal.pmed.1001779",
+  "link": "https://doi.org/10.1371/journal.pmed.1001779",
+  "source": "crossref:doi",
+  "ext_title": "UK Biobank: An Open Access Resource for Identifying the Causes of a Wide Range of Complex Diseases of Middle and Old Age",
+  "ext_authors": [
+   [
+    "Sudlow",
+    "Cathie"
+   ],
+   [
+    "Gallacher",
+    "John"
+   ],
+   [
+    "Allen",
+    "Naomi"
+   ],
+   [
+    "Beral",
+    "Valerie"
+   ],
+   [
+    "Burton",
+    "Paul"
+   ],
+   [
+    "Danesh",
+    "John"
+   ],
+   [
+    "Downey",
+    "Paul"
+   ],
+   [
+    "Elliott",
+    "Paul"
+   ],
+   [
+    "Green",
+    "Jane"
+   ],
+   [
+    "Landray",
+    "Martin"
+   ],
+   [
+    "Liu",
+    "Bette"
+   ],
+   [
+    "Matthews",
+    "Paul"
+   ],
+   [
+    "Ong",
+    "Giok"
+   ],
+   [
+    "Pell",
+    "Jill"
+   ],
+   [
+    "Silman",
+    "Alan"
+   ],
+   [
+    "Young",
+    "Alan"
+   ],
+   [
+    "Sprosen",
+    "Tim"
+   ],
+   [
+    "Peakman",
+    "Tim"
+   ],
+   [
+    "Collins",
+    "Rory"
+   ]
+  ],
+  "ext_year": 2015,
+  "ext_venue": "PLOS Medicine",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "caroprese2018deepehr": {
+  "key": "caroprese2018deepehr",
+  "status": "verified",
+  "doi": "10.1109/iisa.2018.8633647",
+  "link": "https://doi.org/10.1109/iisa.2018.8633647",
+  "source": "crossref:doi",
+  "ext_title": "Deep Learning Techniques for Electronic Health Record Analysis",
+  "ext_authors": [
+   [
+    "Caroprese",
+    "Luciano"
+   ],
+   [
+    "Veltri",
+    "Pierangelo"
+   ],
+   [
+    "Vocaturo",
+    "Eugenio"
+   ],
+   [
+    "Zumpano",
+    "Ester"
+   ]
+  ],
+  "ext_year": 2018,
+  "ext_venue": "2018 9th International Conference on Information, Intelligence, Systems and Applications (IISA)",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "liu2024temporallearning": {
+  "key": "liu2024temporallearning",
+  "status": "verified",
+  "doi": "10.1016/j.aei.2024.102604",
+  "link": "https://doi.org/10.1016/j.aei.2024.102604",
+  "source": "crossref:search",
+  "ext_title": "Temporal learning in predictive health management using channel-spatial attention-based deep neural networks",
+  "ext_authors": [
+   [
+    "Liu",
+    "Chien-Liang"
+   ],
+   [
+    "Su",
+    "Huan-Ci"
+   ]
+  ],
+  "ext_year": 2024,
+  "ext_venue": "Advanced Engineering Informatics",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "DOI found by title search"
+ },
+ "liu2022convectionDiffusion": {
+  "key": "liu2022convectionDiffusion",
+  "status": "verified",
+  "doi": "10.1080/01621459.2020.1863223",
+  "link": "https://doi.org/10.1080/01621459.2020.1863223",
+  "source": "crossref:doi",
+  "ext_title": "Statistical Modeling for Spatio-Temporal Data From Stochastic Convection-Diffusion Processes",
+  "ext_authors": [
+   [
+    "Liu",
+    "Xiao"
+   ],
+   [
+    "Yeo",
+    "Kyongmin"
+   ],
+   [
+    "Lu",
+    "Siyuan"
+   ]
+  ],
+  "ext_year": 2022,
+  "ext_venue": "Journal of the American Statistical Association",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "gasperoni2023scoreDriven": {
+  "key": "gasperoni2023scoreDriven",
+  "status": "verified",
+  "doi": "10.1080/01621459.2021.1970571",
+  "link": "https://doi.org/10.1080/01621459.2021.1970571",
+  "source": "crossref:doi",
+  "ext_title": "Score-Driven Modeling of Spatio-Temporal Data",
+  "ext_authors": [
+   [
+    "Gasperoni",
+    "Francesca"
+   ],
+   [
+    "Luati",
+    "Alessandra"
+   ],
+   [
+    "Paci",
+    "Lucia"
+   ],
+   [
+    "D\u2019Innocenzo",
+    "Enzo"
+   ]
+  ],
+  "ext_year": 2023,
+  "ext_venue": "Journal of the American Statistical Association",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "castroMorales2025dynamicDeformation": {
+  "key": "castroMorales2025dynamicDeformation",
+  "status": "verified",
+  "doi": "10.1093/jrsssc/qlae076",
+  "link": "https://doi.org/10.1093/jrsssc/qlae076",
+  "source": "crossref:doi",
+  "ext_title": "Spatiotemporal modelling with dynamic deformation for nonstationary covariance structures",
+  "ext_authors": [
+   [
+    "Morales",
+    "Fidel Ernesto Castro"
+   ],
+   [
+    "Paez",
+    "Marina Silva"
+   ]
+  ],
+  "ext_year": 2025,
+  "ext_venue": "Journal of the Royal Statistical Society Series C: Applied Statistics",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "wikle2023statisticalDeepLearning": {
+  "key": "wikle2023statisticalDeepLearning",
+  "status": "verified",
+  "doi": "10.1146/annurev-statistics-033021-112628",
+  "link": "https://doi.org/10.1146/annurev-statistics-033021-112628",
+  "source": "crossref:doi",
+  "ext_title": "Statistical Deep Learning for Spatial and Spatiotemporal Data",
+  "ext_authors": [
+   [
+    "Wikle",
+    "Christopher K."
+   ],
+   [
+    "Zammit-Mangion",
+    "Andrew"
+   ]
+  ],
+  "ext_year": 2023,
+  "ext_venue": "Annual Review of Statistics and Its Application",
+  "title_sim": 0.992,
+  "author_check": "match",
+  "note": ""
+ },
+ "scarselli2009gnn": {
+  "key": "scarselli2009gnn",
+  "status": "verified",
+  "doi": "10.1109/tnn.2008.2005605",
+  "link": "https://doi.org/10.1109/tnn.2008.2005605",
+  "source": "crossref:doi",
+  "ext_title": "The Graph Neural Network Model",
+  "ext_authors": [
+   [
+    "Scarselli",
+    "F."
+   ],
+   [
+    "Gori",
+    "M."
+   ],
+   [
+    "Ah Chung Tsoi",
+    ""
+   ],
+   [
+    "Hagenbuchner",
+    "M."
+   ],
+   [
+    "Monfardini",
+    "G."
+   ]
+  ],
+  "ext_year": 2009,
+  "ext_venue": "IEEE Transactions on Neural Networks",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "rumelhart1986rnn": {
+  "key": "rumelhart1986rnn",
+  "status": "verified",
+  "doi": "10.21236/ada164453",
+  "link": "https://doi.org/10.21236/ada164453",
+  "source": "crossref:search",
+  "ext_title": "Learning Internal Representations by Error Propagation",
+  "ext_authors": [
+   [
+    "Rumelhart",
+    "David E."
+   ],
+   [
+    "Hinton",
+    "Geoffrey E."
+   ],
+   [
+    "Williams",
+    "Ronald J."
+   ]
+  ],
+  "ext_year": 1985,
+  "ext_venue": "",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "DOI found by title search"
+ },
+ "vaswani2017attention": {
+  "key": "vaswani2017attention",
+  "status": "verified",
+  "doi": "",
+  "link": "https://arxiv.org/abs/1706.03762v7",
+  "source": "arxiv",
+  "ext_title": "Attention Is All You Need",
+  "ext_authors": [
+   [
+    "Vaswani",
+    "Ashish"
+   ],
+   [
+    "Shazeer",
+    "Noam"
+   ],
+   [
+    "Parmar",
+    "Niki"
+   ],
+   [
+    "Uszkoreit",
+    "Jakob"
+   ],
+   [
+    "Jones",
+    "Llion"
+   ],
+   [
+    "Gomez",
+    "Aidan N."
+   ],
+   [
+    "Kaiser",
+    "Lukasz"
+   ],
+   [
+    "Polosukhin",
+    "Illia"
+   ]
+  ],
+  "ext_year": "2017",
+  "ext_venue": "arXiv",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "matched on arXiv"
+ },
+ "hinton2006reducing": {
+  "key": "hinton2006reducing",
+  "status": "verified",
+  "doi": "10.1126/science.1127647",
+  "link": "https://doi.org/10.1126/science.1127647",
+  "source": "crossref:doi",
+  "ext_title": "Reducing the Dimensionality of Data with Neural Networks",
+  "ext_authors": [
+   [
+    "Hinton",
+    "G. E."
+   ],
+   [
+    "Salakhutdinov",
+    "R. R."
+   ]
+  ],
+  "ext_year": 2006,
+  "ext_venue": "Science",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "goodfellow2014gan": {
+  "key": "goodfellow2014gan",
+  "status": "verified",
+  "doi": "10.48550/arxiv.1406.2661",
+  "link": "https://doi.org/10.48550/arxiv.1406.2661",
+  "source": "openalex",
+  "ext_title": "Generative Adversarial Networks",
+  "ext_authors": [
+   [
+    "Goodfellow",
+    "Ian"
+   ],
+   [
+    "Pouget-Abadie",
+    "Jean"
+   ],
+   [
+    "Mirza",
+    "Mehdi"
+   ],
+   [
+    "Xu",
+    "Bing"
+   ],
+   [
+    "Warde-Farley",
+    "David"
+   ],
+   [
+    "Ozair",
+    "Sherjil"
+   ],
+   [
+    "Courville",
+    "Aaron"
+   ],
+   [
+    "Bengio",
+    "Yoshua"
+   ]
+  ],
+  "ext_year": 2014,
+  "ext_venue": "arXiv (Cornell University)",
+  "title_sim": 0.931,
+  "author_check": "match",
+  "note": "matched on OpenAlex"
+ },
+ "ho2020ddpm": {
+  "key": "ho2020ddpm",
+  "status": "verified",
+  "doi": "",
+  "link": "https://arxiv.org/abs/2006.11239v2",
+  "source": "arxiv",
+  "ext_title": "Denoising Diffusion Probabilistic Models",
+  "ext_authors": [
+   [
+    "Ho",
+    "Jonathan"
+   ],
+   [
+    "Jain",
+    "Ajay"
+   ],
+   [
+    "Abbeel",
+    "Pieter"
+   ]
+  ],
+  "ext_year": "2020",
+  "ext_venue": "arXiv",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "title matches this record but bib authors differ: Jonathan, Ho,; Jain, Ajay N.; Abbeel, Pietermatched on arXiv"
+ },
+ "maes2026leworldmodel": {
+  "key": "maes2026leworldmodel",
+  "status": "verified",
+  "doi": "",
+  "link": "https://arxiv.org/abs/2603.19312v3",
+  "source": "arxiv:id",
+  "ext_title": "LeWorldModel: Stable End-to-End Joint-Embedding Predictive Architecture from Pixels",
+  "ext_authors": [
+   [
+    "Maes",
+    "Lucas"
+   ],
+   [
+    "Lidec",
+    "Quentin Le"
+   ],
+   [
+    "Scieur",
+    "Damien"
+   ],
+   [
+    "LeCun",
+    "Yann"
+   ],
+   [
+    "Balestriero",
+    "Randall"
+   ]
+  ],
+  "ext_year": "2026",
+  "ext_venue": "arXiv",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "rubanova2019latent": {
+  "key": "rubanova2019latent",
+  "status": "verified",
+  "doi": "",
+  "link": "https://arxiv.org/abs/1907.03907v1",
+  "source": "arxiv",
+  "ext_title": "Latent ODEs for Irregularly-Sampled Time Series",
+  "ext_authors": [
+   [
+    "Rubanova",
+    "Yulia"
+   ],
+   [
+    "Chen",
+    "Ricky T. Q."
+   ],
+   [
+    "Duvenaud",
+    "David"
+   ]
+  ],
+  "ext_year": "2019",
+  "ext_venue": "arXiv",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "matched on arXiv"
+ },
+ "chen2023contiformer": {
+  "key": "chen2023contiformer",
+  "status": "verified",
+  "doi": "10.52202/075280-2042",
+  "link": "https://doi.org/10.52202/075280-2042",
+  "source": "crossref:search",
+  "ext_title": "ContiFormer: Continuous-Time Transformer for Irregular Time Series Modeling",
+  "ext_authors": [
+   [
+    "Chen",
+    "Yuqi"
+   ],
+   [
+    "Ren",
+    "Kan"
+   ],
+   [
+    "Wang",
+    "Yansen"
+   ],
+   [
+    "Fang",
+    "Yuchen"
+   ],
+   [
+    "Sun",
+    "Weiwei"
+   ],
+   [
+    "Li",
+    "Dongsheng"
+   ]
+  ],
+  "ext_year": 2023,
+  "ext_venue": "Advances in Neural Information Processing Systems 36",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "DOI found by title search"
+ },
+ "morenopino2024rough": {
+  "key": "morenopino2024rough",
+  "status": "verified",
+  "doi": "",
+  "link": "https://arxiv.org/abs/2405.20799v3",
+  "source": "arxiv:id",
+  "ext_title": "Rough Transformers: Lightweight and Continuous Time Series Modelling through Signature Patching",
+  "ext_authors": [
+   [
+    "Moreno-Pino",
+    "Fernando"
+   ],
+   [
+    "Arroyo",
+    "\u00c1lvaro"
+   ],
+   [
+    "Waldon",
+    "Harrison"
+   ],
+   [
+    "Dong",
+    "Xiaowen"
+   ],
+   [
+    "Cartea",
+    "\u00c1lvaro"
+   ]
+  ],
+  "ext_year": "2024",
+  "ext_venue": "arXiv",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "zhou2022fedformer": {
+  "key": "zhou2022fedformer",
+  "status": "verified",
+  "doi": "",
+  "link": "https://arxiv.org/abs/2201.12740v3",
+  "source": "arxiv:id",
+  "ext_title": "FEDformer: Frequency Enhanced Decomposed Transformer for Long-term Series Forecasting",
+  "ext_authors": [
+   [
+    "Zhou",
+    "Tian"
+   ],
+   [
+    "Ma",
+    "Ziqing"
+   ],
+   [
+    "Wen",
+    "Qingsong"
+   ],
+   [
+    "Wang",
+    "Xue"
+   ],
+   [
+    "Sun",
+    "Liang"
+   ],
+   [
+    "Jin",
+    "Rong"
+   ]
+  ],
+  "ext_year": "2022",
+  "ext_venue": "arXiv",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "wang2023micn": {
+  "key": "wang2023micn",
+  "status": "manual-link",
+  "doi": "",
+  "link": "https://openreview.net/forum?id=zt53IDUR1U",
+  "source": "manual",
+  "ext_title": "",
+  "ext_authors": [],
+  "ext_year": null,
+  "ext_venue": "",
+  "title_sim": 0.0,
+  "author_check": "n/a",
+  "note": "ICLR 2023 OpenReview page, supplied manually (OpenReview blocks automated checks) - please confirm"
+ },
+ "Rouast2020IntakeGesture": {
+  "key": "Rouast2020IntakeGesture",
+  "status": "verified",
+  "doi": "10.1109/jbhi.2019.2942845",
+  "link": "https://doi.org/10.1109/jbhi.2019.2942845",
+  "source": "crossref:doi",
+  "ext_title": "Learning Deep Representations for Video-Based Intake Gesture Detection",
+  "ext_authors": [
+   [
+    "Rouast",
+    "Philipp V."
+   ],
+   [
+    "Adam",
+    "Marc T. P."
+   ]
+  ],
+  "ext_year": 2020,
+  "ext_venue": "IEEE Journal of Biomedical and Health Informatics",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "Li2020GluNet": {
+  "key": "Li2020GluNet",
+  "status": "verified",
+  "doi": "10.1109/jbhi.2019.2931842",
+  "link": "https://doi.org/10.1109/jbhi.2019.2931842",
+  "source": "crossref:doi",
+  "ext_title": "GluNet: A Deep Learning Framework for Accurate Glucose Forecasting",
+  "ext_authors": [
+   [
+    "Li",
+    "Kezhi"
+   ],
+   [
+    "Liu",
+    "Chengyuan"
+   ],
+   [
+    "Zhu",
+    "Taiyu"
+   ],
+   [
+    "Herrero",
+    "Pau"
+   ],
+   [
+    "Georgiou",
+    "Pantelis"
+   ]
+  ],
+  "ext_year": 2020,
+  "ext_venue": "IEEE Journal of Biomedical and Health Informatics",
+  "title_sim": 1.0,
+  "author_check": "partial",
+  "note": ""
+ },
+ "3": {
+  "key": "3",
+  "status": "verified",
+  "doi": "10.1016/j.heliyon.2024.e36877",
+  "link": "https://doi.org/10.1016/j.heliyon.2024.e36877",
+  "source": "crossref:search",
+  "ext_title": "MONDEP: A unified SpatioTemporal MONitoring Framework for National DEPression Forecasting",
+  "ext_authors": [
+   [
+    "Thaipisutikul",
+    "Tipajin"
+   ],
+   [
+    "Vitoochuleechoti",
+    "Pasinpat"
+   ],
+   [
+    "Thaipisutikul",
+    "Papan"
+   ],
+   [
+    "Tuarob",
+    "Suppawong"
+   ]
+  ],
+  "ext_year": 2024,
+  "ext_venue": "Heliyon",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "DOI found by title search"
+ },
+ "4": {
+  "key": "4",
+  "status": "verified",
+  "doi": "10.1002/hbm.25529",
+  "link": "https://doi.org/10.1002/hbm.25529",
+  "source": "crossref:doi",
+  "ext_title": "Spatio\u2010temporal graph convolutional network for diagnosis and treatment response prediction of major depressive disorder from functional connectivity",
+  "ext_authors": [
+   [
+    "Kong",
+    "Youyong"
+   ],
+   [
+    "Gao",
+    "Shuwen"
+   ],
+   [
+    "Yue",
+    "Yingying"
+   ],
+   [
+    "Hou",
+    "Zhenhua"
+   ],
+   [
+    "Shu",
+    "Huazhong"
+   ],
+   [
+    "Xie",
+    "Chunming"
+   ],
+   [
+    "Zhang",
+    "Zhijun"
+   ],
+   [
+    "Yuan",
+    "Yonggui"
+   ]
+  ],
+  "ext_year": 2021,
+  "ext_venue": "Human Brain Mapping",
+  "title_sim": 0.997,
+  "author_check": "match",
+  "note": ""
+ },
+ "5": {
+  "key": "5",
+  "status": "verified",
+  "doi": "10.1038/s41598-023-48986-6",
+  "link": "https://doi.org/10.1038/s41598-023-48986-6",
+  "source": "crossref:search",
+  "ext_title": "Resource efficient aortic distensibility calculation by end to end spatiotemporal learning of aortic lumen from multicentre multivendor multidisease CMR images",
+  "ext_authors": [
+   [
+    "Bohoran",
+    "Tuan Aqeel"
+   ],
+   [
+    "Parke",
+    "Kelly S."
+   ],
+   [
+    "Graham-Brown",
+    "Matthew P. M."
+   ],
+   [
+    "Meisuria",
+    "Mitul"
+   ],
+   [
+    "Singh",
+    "Anvesha"
+   ],
+   [
+    "Wormleighton",
+    "Joanne"
+   ],
+   [
+    "Adlam",
+    "David"
+   ],
+   [
+    "Gopalan",
+    "Deepa"
+   ],
+   [
+    "Davies",
+    "Melanie J."
+   ],
+   [
+    "Williams",
+    "Bryan"
+   ],
+   [
+    "Brown",
+    "Morris"
+   ],
+   [
+    "McCann",
+    "Gerry P."
+   ],
+   [
+    "Giannakidis",
+    "Archontis"
+   ]
+  ],
+  "ext_year": 2023,
+  "ext_venue": "Scientific Reports",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "DOI found by title search"
+ },
+ "6": {
+  "key": "6",
+  "status": "verified",
+  "doi": "10.1016/j.compbiomed.2020.104200",
+  "link": "https://doi.org/10.1016/j.compbiomed.2020.104200",
+  "source": "crossref:doi",
+  "ext_title": "Deep learning in spatiotemporal cardiac imaging: A review of methodologies and clinical usability",
+  "ext_authors": [
+   [
+    "Lara Hernandez",
+    "Karen Andrea"
+   ],
+   [
+    "Rienm\u00fcller",
+    "Theresa"
+   ],
+   [
+    "Baumgartner",
+    "Daniela"
+   ],
+   [
+    "Baumgartner",
+    "Christian"
+   ]
+  ],
+  "ext_year": 2021,
+  "ext_venue": "Computers in Biology and Medicine",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "7": {
+  "key": "7",
+  "status": "verified",
+  "doi": "10.1016/j.compbiomed.2022.105586",
+  "link": "https://doi.org/10.1016/j.compbiomed.2022.105586",
+  "source": "crossref:doi",
+  "ext_title": "Physics-constrained deep active learning for spatiotemporal modeling of cardiac electrodynamics",
+  "ext_authors": [
+   [
+    "Xie",
+    "Jianxin"
+   ],
+   [
+    "Yao",
+    "Bing"
+   ]
+  ],
+  "ext_year": 2022,
+  "ext_venue": "Computers in Biology and Medicine",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "jain2019attention": {
+  "key": "jain2019attention",
+  "status": "verified",
+  "doi": "10.18653/v1/n19-1357",
+  "link": "https://doi.org/10.18653/v1/n19-1357",
+  "source": "crossref:search",
+  "ext_title": "Attention is not Explanation",
+  "ext_authors": [
+   [
+    "Jain",
+    "Sarthak"
+   ],
+   [
+    "Wallace",
+    "Byron C."
+   ]
+  ],
+  "ext_year": 2019,
+  "ext_venue": "Proceedings of the 2019 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "DOI found by title search"
+ },
+ "serrano2019attention": {
+  "key": "serrano2019attention",
+  "status": "verified",
+  "doi": "10.18653/v1/p19-1282",
+  "link": "https://doi.org/10.18653/v1/p19-1282",
+  "source": "crossref:search",
+  "ext_title": "Is Attention Interpretable?",
+  "ext_authors": [
+   [
+    "Serrano",
+    "Sofia"
+   ],
+   [
+    "Smith",
+    "Noah A."
+   ]
+  ],
+  "ext_year": 2019,
+  "ext_venue": "Proceedings of the 57th Annual Meeting of the Association for Computational Linguistics",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "DOI found by title search"
+ },
+ "wiegreffe2019attention": {
+  "key": "wiegreffe2019attention",
+  "status": "verified",
+  "doi": "10.18653/v1/d19-1002",
+  "link": "https://doi.org/10.18653/v1/d19-1002",
+  "source": "crossref:search",
+  "ext_title": "Attention is not not Explanation",
+  "ext_authors": [
+   [
+    "Wiegreffe",
+    "Sarah"
+   ],
+   [
+    "Pinter",
+    "Yuval"
+   ]
+  ],
+  "ext_year": 2019,
+  "ext_venue": "Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing (EMNLP-IJCNLP)",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "DOI found by title search"
+ },
+ "tonekaboni2019clinicians": {
+  "key": "tonekaboni2019clinicians",
+  "status": "verified",
+  "doi": "10.48550/arxiv.1905.05134",
+  "link": "https://doi.org/10.48550/arxiv.1905.05134",
+  "source": "openalex",
+  "ext_title": "What Clinicians Want: Contextualizing Explainable Machine Learning for Clinical End Use",
+  "ext_authors": [
+   [
+    "Tonekaboni",
+    "Sana"
+   ],
+   [
+    "Joshi",
+    "Shalmali"
+   ],
+   [
+    "McCradden",
+    "Melissa D."
+   ],
+   [
+    "Goldenberg",
+    "Anna"
+   ]
+  ],
+  "ext_year": 2019,
+  "ext_venue": "arXiv (Cornell University)",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": "matched on OpenAlex"
+ },
+ "rudin2019stopexplaining": {
+  "key": "rudin2019stopexplaining",
+  "status": "verified",
+  "doi": "10.1038/s42256-019-0048-x",
+  "link": "https://doi.org/10.1038/s42256-019-0048-x",
+  "source": "crossref:doi",
+  "ext_title": "Stop explaining black box machine learning models for high stakes decisions and use interpretable models instead",
+  "ext_authors": [
+   [
+    "Rudin",
+    "Cynthia"
+   ]
+  ],
+  "ext_year": 2019,
+  "ext_venue": "Nature Machine Intelligence",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "lin2022deep": {
+  "key": "lin2022deep",
+  "status": "verified",
+  "doi": "10.1002/sim.9392",
+  "link": "https://doi.org/10.1002/sim.9392",
+  "source": "crossref:doi",
+  "ext_title": "Deep learning for the dynamic prediction of multivariate longitudinal and survival data",
+  "ext_authors": [
+   [
+    "Lin",
+    "Jeffrey"
+   ],
+   [
+    "Luo",
+    "Sheng"
+   ]
+  ],
+  "ext_year": 2022,
+  "ext_venue": "Statistics in Medicine",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "nitski2021long": {
+  "key": "nitski2021long",
+  "status": "verified",
+  "doi": "10.1016/s2589-7500(21)00040-6",
+  "link": "https://doi.org/10.1016/s2589-7500(21)00040-6",
+  "source": "crossref:doi",
+  "ext_title": "Long-term mortality risk stratification of liver transplant recipients: real-time application of deep learning algorithms on longitudinal data",
+  "ext_authors": [
+   [
+    "Nitski",
+    "Osvald"
+   ],
+   [
+    "Azhie",
+    "Amirhossein"
+   ],
+   [
+    "Qazi-Arisar",
+    "Fakhar Ali"
+   ],
+   [
+    "Wang",
+    "Xueqi"
+   ],
+   [
+    "Ma",
+    "Shihao"
+   ],
+   [
+    "Lilly",
+    "Leslie"
+   ],
+   [
+    "Watt",
+    "Kymberly D"
+   ],
+   [
+    "Levitsky",
+    "Josh"
+   ],
+   [
+    "Asrani",
+    "Sumeet K"
+   ],
+   [
+    "Lee",
+    "Douglas S"
+   ],
+   [
+    "Rubin",
+    "Barry B"
+   ],
+   [
+    "Bhat",
+    "Mamatha"
+   ],
+   [
+    "Wang",
+    "Bo"
+   ]
+  ],
+  "ext_year": 2021,
+  "ext_venue": "The Lancet Digital Health",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "Tao2018": {
+  "key": "Tao2018",
+  "status": "verified",
+  "doi": "10.1016/j.cirp.2018.04.055",
+  "link": "https://doi.org/10.1016/j.cirp.2018.04.055",
+  "source": "crossref:doi",
+  "ext_title": "Digital twin driven prognostics and health management for complex equipment",
+  "ext_authors": [
+   [
+    "Tao",
+    "Fei"
+   ],
+   [
+    "Zhang",
+    "Meng"
+   ],
+   [
+    "Liu",
+    "Yushan"
+   ],
+   [
+    "Nee",
+    "A.Y.C."
+   ]
+  ],
+  "ext_year": 2018,
+  "ext_venue": "CIRP Annals",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "NIST2021": {
+  "key": "NIST2021",
+  "status": "verified",
+  "doi": "10.6028/nist.sp.1500-201",
+  "link": "https://doi.org/10.6028/nist.sp.1500-201",
+  "source": "crossref:doi",
+  "ext_title": "Framework for cyber-physical systems: volume 1, overview",
+  "ext_authors": [
+   [
+    "Griffor",
+    "Edward R"
+   ],
+   [
+    "Greer",
+    "Chris"
+   ],
+   [
+    "Wollman",
+    "David A"
+   ],
+   [
+    "Burns",
+    "Martin J"
+   ]
+  ],
+  "ext_year": 2017,
+  "ext_venue": "",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "Faruqui2024": {
+  "key": "Faruqui2024",
+  "status": "verified",
+  "doi": "",
+  "link": "https://arxiv.org/abs/2401.02661v1",
+  "source": "arxiv:id",
+  "ext_title": "Nurse-in-the-Loop Artificial Intelligence for Precision Management of Type 2 Diabetes in a Clinical Trial Utilizing Transfer-Learned Predictive Digital Twin",
+  "ext_authors": [
+   [
+    "Faruqui",
+    "Syed Hasib Akhter"
+   ],
+   [
+    "Alaeddini",
+    "Adel"
+   ],
+   [
+    "Du",
+    "Yan"
+   ],
+   [
+    "Li",
+    "Shiyu"
+   ],
+   [
+    "Sharma",
+    "Kumar"
+   ],
+   [
+    "Wang",
+    "Jing"
+   ]
+  ],
+  "ext_year": "2024",
+  "ext_venue": "arXiv",
+  "title_sim": 0.841,
+  "author_check": "match",
+  "note": ""
+ },
+ "Seh2020HealthcareDataBreaches": {
+  "key": "Seh2020HealthcareDataBreaches",
+  "status": "verified",
+  "doi": "10.3390/healthcare8020133",
+  "link": "https://doi.org/10.3390/healthcare8020133",
+  "source": "crossref:doi",
+  "ext_title": "Healthcare Data Breaches: Insights and Implications",
+  "ext_authors": [
+   [
+    "Seh",
+    "Adil Hussain"
+   ],
+   [
+    "Zarour",
+    "Mohammad"
+   ],
+   [
+    "Alenezi",
+    "Mamdouh"
+   ],
+   [
+    "Sarkar",
+    "Amal Krishna"
+   ],
+   [
+    "Agrawal",
+    "Alka"
+   ],
+   [
+    "Kumar",
+    "Rajeev"
+   ],
+   [
+    "Ahmad Khan",
+    "Raees"
+   ]
+  ],
+  "ext_year": 2020,
+  "ext_venue": "Healthcare",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "prayitno2021FLhealthcare": {
+  "key": "prayitno2021FLhealthcare",
+  "status": "verified",
+  "doi": "10.3390/app112311191",
+  "link": "https://doi.org/10.3390/app112311191",
+  "source": "crossref:doi",
+  "ext_title": "A Systematic Review of Federated Learning in the Healthcare Area: From the Perspective of Data Properties and Applications",
+  "ext_authors": [
+   [
+    "Prayitno",
+    ""
+   ],
+   [
+    "Shyu",
+    "Chi-Ren"
+   ],
+   [
+    "Putra",
+    "Karisma Trinanda"
+   ],
+   [
+    "Chen",
+    "Hsing-Chung"
+   ],
+   [
+    "Tsai",
+    "Yuan-Yu"
+   ],
+   [
+    "Hossain",
+    "K. S. M. Tozammel"
+   ],
+   [
+    "Jiang",
+    "Wei"
+   ],
+   [
+    "Shae",
+    "Zon-Yin"
+   ]
+  ],
+  "ext_year": 2021,
+  "ext_venue": "Applied Sciences",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "aouedi2022FLmedical": {
+  "key": "aouedi2022FLmedical",
+  "status": "verified",
+  "doi": "10.1109/jbhi.2022.3185673",
+  "link": "https://doi.org/10.1109/jbhi.2022.3185673",
+  "source": "crossref:doi",
+  "ext_title": "Handling Privacy-Sensitive Medical Data With Federated Learning: Challenges and Future Directions",
+  "ext_authors": [
+   [
+    "Aouedi",
+    "Ons"
+   ],
+   [
+    "Sacco",
+    "Alessio"
+   ],
+   [
+    "Piamrat",
+    "Kandaraj"
+   ],
+   [
+    "Marchetto",
+    "Guido"
+   ]
+  ],
+  "ext_year": 2023,
+  "ext_venue": "IEEE Journal of Biomedical and Health Informatics",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "Auvinet2018AR": {
+  "key": "Auvinet2018AR",
+  "status": "verified",
+  "doi": "10.1007/978-3-030-24243-5_27",
+  "link": "https://doi.org/10.1007/978-3-030-24243-5_27",
+  "source": "crossref:doi",
+  "ext_title": "Augmented Reality Technology for Joint Replacement",
+  "ext_authors": [
+   [
+    "Auvinet",
+    "Edouard"
+   ],
+   [
+    "Maillot",
+    "Cedric"
+   ],
+   [
+    "Uzoho",
+    "Chukwudi"
+   ]
+  ],
+  "ext_year": 2020,
+  "ext_venue": "Personalized Hip and Knee Joint Replacement",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "Louis2021VR": {
+  "key": "Louis2021VR",
+  "status": "verified",
+  "doi": "10.1093/neuopn/okaa004",
+  "link": "https://doi.org/10.1093/neuopn/okaa004",
+  "source": "crossref:doi",
+  "ext_title": "Impact of Neurosurgical Consultation With 360-Degree Virtual Reality Technology on Patient Engagement and Satisfaction",
+  "ext_authors": [
+   [
+    "Louis",
+    "Robert"
+   ],
+   [
+    "Cagigas",
+    "Jeanine"
+   ],
+   [
+    "Brant-Zawadzki",
+    "Michael"
+   ],
+   [
+    "Ricks",
+    "Michael"
+   ]
+  ],
+  "ext_year": 2020,
+  "ext_venue": "Neurosurgery Open",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ },
+ "Sadee2025MedicalDT": {
+  "key": "Sadee2025MedicalDT",
+  "status": "verified",
+  "doi": "10.1016/j.landig.2025.02.004",
+  "link": "https://doi.org/10.1016/j.landig.2025.02.004",
+  "source": "crossref:doi",
+  "ext_title": "Medical digital twins: enabling precision medicine and medical artificial intelligence",
+  "ext_authors": [
+   [
+    "Sad\u00e9e",
+    "Christoph"
+   ],
+   [
+    "Testa",
+    "Stefano"
+   ],
+   [
+    "Barba",
+    "Thomas"
+   ],
+   [
+    "Hartmann",
+    "Katherine"
+   ],
+   [
+    "Schuessler",
+    "Maximilian"
+   ],
+   [
+    "Thieme",
+    "Alexander"
+   ],
+   [
+    "Church",
+    "George M"
+   ],
+   [
+    "Okoye",
+    "Ifeoma"
+   ],
+   [
+    "Hernandez-Boussard",
+    "Tina"
+   ],
+   [
+    "Hood",
+    "Leroy"
+   ],
+   [
+    "Shmulevich",
+    "Ilya"
+   ],
+   [
+    "Kuhl",
+    "Ellen"
+   ],
+   [
+    "Gevaert",
+    "Olivier"
+   ]
+  ],
+  "ext_year": 2025,
+  "ext_venue": "The Lancet Digital Health",
+  "title_sim": 1.0,
+  "author_check": "match",
+  "note": ""
+ }
+}

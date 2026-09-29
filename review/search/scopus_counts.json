@@ -1,0 +1,15 @@
+{
+ "run_date": "2026-09-22",
+ "database": "Scopus",
+ "status": "NOT AVAILABLE - personal account signed in but no institutional entitlement (Scopus Preview)",
+ "evidence": "scopus.com shows the 'Preview' badge with 'Check access'/'Contact sales'; only Author Search and Sources are offered, and any /results/results.uri document search redirects to /pages/home",
+ "queries_prepared": {
+  "A_spatiotemporal": "TITLE-ABS-KEY(spatiotemporal OR \"spatio-temporal\" OR \"space-time\" OR \"space time\") AND TITLE-ABS-KEY(\"deep learning\" OR \"neural network\" OR \"neural networks\" OR transformer OR transformers OR \"graph network\" OR \"graph neural\") AND TITLE-ABS-KEY(health OR clinical OR patient OR patients OR wearable OR wearables) AND PUBYEAR > 2014 AND PUBYEAR < 2027",
+  "B_twin_worldmodel": "TITLE-ABS-KEY(\"digital twin\" OR \"digital twins\" OR \"world model\" OR \"world models\") AND TITLE-ABS-KEY(\"deep learning\" OR \"neural network\" OR \"neural networks\" OR transformer OR transformers OR \"graph network\" OR \"graph neural\") AND TITLE-ABS-KEY(health OR clinical OR patient OR patients OR wearable OR wearables) AND PUBYEAR > 2014 AND PUBYEAR < 2027"
+ },
+ "counts": null,
+ "implication": "Section II currently states the search covered IEEE Xplore, PubMed and Scopus. Scopus cannot be count-logged or exported without a subscription, so either access must be obtained via the YU library, or the claim must be corrected.",
+ "rechecked": "2026-09-22",
+ "evidence_2": "Yeshiva University Libraries A-Z database list returns '0 Databases found' for scopus (also 0 for 'web of science' and 'embase'), checked at library.yu.edu/az.php",
+ "conclusion": "No institutional Scopus entitlement at YU. Scopus cannot be searched, count-logged or exported."
+}

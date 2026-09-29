@@ -1,0 +1,13 @@
+{
+ "input_records": 2457,
+ "run_date": "2026-09-21",
+ "input_file": "pubmed_records.jsonl",
+ "excluded_non_research": 17,
+ "excluded_review": 298,
+ "excluded_no_abstract": 2,
+ "excluded_ii_not_human_health": 496,
+ "excluded_i_no_spacetime_structure": 244,
+ "excluded_iii_no_quantitative_comparison": 568,
+ "eligible": 832,
+ "screened_on_title_abstract": 2140
+}
