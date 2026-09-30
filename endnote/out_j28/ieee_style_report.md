@@ -1,10 +1,10 @@
 # IEEE reference style, cited entries
 
-Cited by the submission build: **77** entries. Checked against the publisher's Crossref record, field by field.
+Cited by the submission build: **76** entries. Checked against the publisher's Crossref record, field by field.
 
 - Fields backfilled from the publisher record: **0** (dry run; rerun with --apply)
 - Entries with an unjustified gap: **outstanding: 0**
-- Entries carrying at least one documented exemption: **24**
+- Entries carrying at least one documented exemption: **22**
 
 ## Documented exemptions
 
@@ -36,8 +36,6 @@ Each line states why IEEE style cannot supply the field for that entry. An exemp
   - number: no publisher record to take it from --- the title is not registered with Crossref
   - pages: no publisher record to take it from --- the title is not registered with Crossref
   - doi: no publisher record to take it from --- the title is not registered with Crossref
-**`shao2022longterm`** (article)
-  - number: the publisher record carries no value for it
 **`xu2020stransformer`** (article)
   - volume: no publisher record to take it from --- the title is not registered with Crossref
   - number: no publisher record to take it from --- the title is not registered with Crossref
@@ -48,12 +46,10 @@ Each line states why IEEE style cannot supply the field for that entry. An exemp
   - number: no publisher record to take it from --- the title is not registered with Crossref
   - pages: no publisher record to take it from --- the title is not registered with Crossref
   - doi: no publisher record to take it from --- the title is not registered with Crossref
-**`XiaoLi2016DiabetesSpatiotemporal`** (article)
-  - pages: the publisher record carries no value for it
 **`Fang2021iPAT`** (misc)
   - doi: project web page; not a Crossref-indexed publication, so no volume, issue, pages or DOI exists
-**`liu2024temporallearning`** (article)
-  - number: no publisher record to take it from --- the DOI in the bib does not resolve at Crossref
+**`rumelhart1986rnn`** (incollection)
+  - doi: MIT Press book chapter in Parallel Distributed Processing; the only DOI Crossref offers for this title is the 1985 DTIC technical report 10.21236/ada164453, a different document, so no DOI is claimed
 **`vaswani2017attention`** (inproceedings)
   - pages: no publisher record to take it from --- the only Crossref record with this title is a different document (2025, no venue, DOI 10.65215/r5bs2d54) and citing its DOI would misattribute the work
   - doi: no publisher record to take it from --- the only Crossref record with this title is a different document (2025, no venue, DOI 10.65215/r5bs2d54) and citing its DOI would misattribute the work
@@ -78,8 +74,8 @@ Each line states why IEEE style cannot supply the field for that entry. An exemp
   - pages: no publisher record to take it from --- the title is not registered with Crossref
   - doi: no publisher record to take it from --- the title is not registered with Crossref
 **`Faruqui2024`** (article)
-  - volume: no publisher record to take it from --- the title is not registered with Crossref
-  - number: no publisher record to take it from --- the title is not registered with Crossref
-  - pages: no publisher record to take it from --- the title is not registered with Crossref
-  - doi: no publisher record to take it from --- the title is not registered with Crossref
+  - volume: no publisher record to take it from --- not searched: --no-net
+  - number: no publisher record to take it from --- not searched: --no-net
+  - pages: no publisher record to take it from --- not searched: --no-net
+  - doi: no publisher record to take it from --- not searched: --no-net
 

@@ -26,6 +26,12 @@
             "command": "python3 \"/Users/xiangxin/survey paper/review/check_consistency.py\" --json 2>/dev/null || true",
             "timeout": 40,
             "statusMessage": "Auditing whole-paper consistency"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"/Users/xiangxin/survey paper/endnote/strict_refcheck.py\" --no-net 2>/dev/null | tail -1 | python3 -c \"import sys,json; s=sys.stdin.read().strip(); print(json.dumps({'systemMessage': 'References: '+s, 'suppressOutput': True}))\" || true",
+            "timeout": 60,
+            "statusMessage": "Re-checking references against publisher records"
           }
         ]
       }

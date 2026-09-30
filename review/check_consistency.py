@@ -252,7 +252,7 @@ def main_cli():
             body = ents[k]
             fs = [f for f in ("volume", "number", "pages", "doi", "journal") if body.get(f)]
             del fs
-        check("SUM", f"cited reference count is {len(keys)}", len(keys) == 77, f"{len(keys)} cited")
+        check("SUM", f"cited reference count is {len(keys)}", len(keys) == 76, f"{len(keys)} cited")
     except Exception as e:
         check("SUM", "bib parsed", False, str(e))
 

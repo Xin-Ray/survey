@@ -43,6 +43,9 @@ NEEDED = {
 # Exemptions we assert ourselves, with the reason. Everything else must be
 # justified by the publisher record having no value for the field.
 SELF_EXEMPT = {
+    "rumelhart1986rnn": ("MIT Press book chapter in Parallel Distributed Processing; the only "
+                         "DOI Crossref offers for this title is the 1985 DTIC technical report "
+                         "10.21236/ada164453, a different document, so no DOI is claimed"),
     "Fang2021iPAT": "project web page; not a Crossref-indexed publication, so no volume, issue, pages or DOI exists",
 }
 
@@ -79,7 +82,7 @@ def crossref_find(title, author, year, cache, net):
     k = "q:" + re.sub(r"\W+", " ", title.lower()).strip()[:120]
     if k not in cache:
         if not net:
-            return None
+            return None, "not searched: --no-net"
         hit = None
         try:
             for item in b.crossref_search(title, author, rows=5) or []:
@@ -216,7 +219,8 @@ def main():
                     edits.append((key, "journal", short))
                     exempt.append(f"journal name abbreviated to `{short}` (Crossref ISO short title)")
             for f in ("volume", "number", "pages", "doi"):
-                if f in want and not (e.get(f) or "").strip() and cr.get(f):
+                if (f in want and key not in SELF_EXEMPT
+                        and not (e.get(f) or "").strip() and cr.get(f)):
                     edits.append((key, f, cr[f]))
 
         for f in want:
