@@ -1,0 +1,65 @@
+{
+ "studies": 22,
+ "split": {
+  "whole subjects or a later window": 14,
+  "unit smaller than a person": 4,
+  "level not stated": 3,
+  "no hold-out at all": 1
+ },
+ "split_detail": {
+  "whole subjects or a later window": [
+   "\\midrule\nKyritsis et al.",
+   "\\addlinespace[2pt]\nThaipisutikul et al.",
+   "\\addlinespace[2pt]\nZhang et al.",
+   "\\addlinespace[2pt]\nLi et al.",
+   "\\addlinespace[2pt]\nLim et al.",
+   "\\addlinespace[2pt]\nLin and Luo",
+   "\\addlinespace[2pt]\nNitski et al.",
+   "\\addlinespace[2pt]\nGlaser et al.",
+   "\\midrule\nLiu et al.",
+   "\\addlinespace[1pt]\nLi et al.",
+   "\\addlinespace[1pt]\nVerbiest et al.",
+   "\\addlinespace[1pt]\nHerath et al.",
+   "\\addlinespace[1pt]\nChan et al.",
+   "\\addlinespace[1pt]\nWang et al."
+  ],
+  "unit smaller than a person": [
+   "\\addlinespace[2pt]\nLiu et al.",
+   "\\addlinespace[2pt]\nBohoran et al.",
+   "\\addlinespace[1pt]\nLin et al.",
+   "\\addlinespace[1pt]\nHussein et al."
+  ],
+  "level not stated": [
+   "\\addlinespace[2pt]\nKong et al.",
+   "\\addlinespace[1pt]\nLiu et al.",
+   "\\addlinespace[1pt]\nZhu et al."
+  ],
+  "no hold-out at all": [
+   "\\addlinespace[2pt]\nLi et al."
+  ]
+ },
+ "calibration_not_reported": 20,
+ "calibration_curve_reported": 0,
+ "any_interval_or_bounds": [
+  "\\addlinespace[2pt]\nGlaser et al.",
+  "\\addlinespace[2pt]\nLi et al.",
+  "\\addlinespace[2pt]\nLi et al.",
+  "\\addlinespace[2pt]\nLin and Luo",
+  "\\addlinespace[2pt]\nNitski et al."
+ ],
+ "subgroup_any_cell": 7,
+ "subgroup_demographic_or_clinical": [
+  "\\addlinespace[1pt]\nChan et al.",
+  "\\addlinespace[1pt]\nHerath et al.",
+  "\\addlinespace[2pt]\nGlaser et al.",
+  "\\addlinespace[2pt]\nNitski et al.",
+  "\\midrule\nLiu et al."
+ ],
+ "code_released": [
+  "\\addlinespace[2pt]\nBohoran et al.",
+  "\\addlinespace[2pt]\nGlaser et al.",
+  "\\addlinespace[2pt]\nNitski et al.",
+  "\\addlinespace[2pt]\nThaipisutikul et al."
+ ],
+ "clinical_validation_none": 22
+}

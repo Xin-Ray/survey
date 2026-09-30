@@ -963,9 +963,12 @@ Hussein et al.~\cite{hussein2022seizure} & Sampled from the 363 & Fills epilepsy
 
 \section{Citation chasing}
 \label{sec:chasing}
-Citation chasing was run through OpenAlex on 11 of the twelve reviews compared in
-Table~I of the main paper; the twelfth is an arXiv preprint without a registered
-DOI and could not be resolved. Backward chasing took the reference list of each
+Citation chasing was run through OpenAlex on the twelve reviews compared in Table~I
+of the main paper. Ten of them have an OpenAlex record carrying a reference list or
+citing works and are used as seeds. The other two return neither: one is an arXiv
+preprint whose record lists no references and no citing works, and one is a
+journal-first article indexed without either. Both are resolvable by DOI; what they
+lack is the citation graph the chase needs. Backward chasing took the reference list of each
 seed and forward chasing took the works citing it, restricted to 2015 onwards.
 The same three eligibility criteria were then applied to the title and abstract
 text OpenAlex supplies.
