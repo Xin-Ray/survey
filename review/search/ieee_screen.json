@@ -1,5 +1,5 @@
 {
- "run_date": "2026-09-29",
+ "run_date": "2026-10-01",
  "method": "records paged from the Xplore search endpoint that the results page itself calls; the same three recovered rules as the PubMed arm, applied to title plus abstract",
  "rule_source": "replicate_rules.py (regexes recovered verbatim 2026-09-22)",
  "arm_a": {
@@ -7,28 +7,30 @@
   "total_reported": 932,
   "excluded_non_article": 1,
   "excluded_no_abstract": 0,
-  "excluded_ii_not_human_health": 109,
-  "excluded_i_no_spacetime_structure": 5,
-  "excluded_iii_no_quantitative_comparison": 533,
-  "eligible": 284,
+  "excluded_review": 18,
+  "excluded_ii_not_human_health": 104,
+  "excluded_i_no_spacetime_structure": 3,
+  "excluded_iii_no_quantitative_comparison": 524,
+  "eligible": 282,
   "abstracts_shorter_than_450_chars": 0,
-  "screened_on_title_abstract": 931
+  "screened_on_title_abstract": 913
  },
  "arm_b": {
   "records": 277,
   "total_reported": 277,
   "excluded_non_article": 10,
   "excluded_no_abstract": 0,
-  "excluded_ii_not_human_health": 82,
-  "excluded_i_no_spacetime_structure": 153,
+  "excluded_review": 19,
+  "excluded_ii_not_human_health": 73,
+  "excluded_i_no_spacetime_structure": 143,
   "excluded_iii_no_quantitative_comparison": 25,
   "eligible": 7,
   "abstracts_shorter_than_450_chars": 0,
-  "screened_on_title_abstract": 267
+  "screened_on_title_abstract": 248
  },
- "eligible_before_dedup": 291,
+ "eligible_before_dedup": 289,
  "duplicates_within_ieee": 5,
- "eligible_unique_within_ieee": 286,
+ "eligible_unique_within_ieee": 284,
  "deduplicated_against_pubmed": {
   "pubmed_comparison_set": 1456,
   "pubmed_counts": {
@@ -36,8 +38,8 @@
    "dtwm": 279
   },
   "pubmed_overlap_between_arms": 3,
-  "also_in_pubmed": 55,
-  "ieee_only": 231
+  "also_in_pubmed": 54,
+  "ieee_only": 230
  },
  "ieee_only_records": [
   {
@@ -598,14 +600,6 @@
    "year": "2025",
    "venue": "IEEE Transactions on Intelligent Vehicles",
    "contentType": "IEEE Journals",
-   "arm": "a"
-  },
-  {
-   "title": "A Comparative Study of Spatio-Temporal Deep Learning Architectures for Eeg-Based Alcohol Use Disorder Classification",
-   "doi": "10.1109/QPAIN69676.2026.11545957",
-   "year": "2026",
-   "venue": "2026 IEEE 2nd International Conference on Quantum Photonics, Artificial Intelligence & Networking (QPAIN)",
-   "contentType": "IEEE Conferences",
    "arm": "a"
   },
   {
@@ -1889,5 +1883,21 @@
    "arm": "b"
   }
  ],
- "difference_from_the_pubmed_screen": "Xplore metadata carries no review flag, so the 'review' exclusion the PubMed arm applied has no equivalent here and reviews remain among the IEEE eligible records."
+ "reviews_excluded": {
+  "rule": "title or the first 700 characters of the abstract presents the work as a survey, review, overview, tutorial or meta-analysis; applied before the three criteria, at the same stage the PubMed arm removed 194 reviews by PublicationType",
+  "arm_a": 18,
+  "arm_b": 19,
+  "total": 37,
+  "examples": [
+   "Deep Learning for Spatio-Temporal Data Mining: A Survey",
+   "A Comparative Study of CNN and Transformer Based Models for Dengue Prediction Using Remote Sensing Data",
+   "Graph Neural Networks for IoMT Intrusion Detection: Modeling Architectures, Learning Paradigms, and Deployment Challenges",
+   "State-of-the-Art and Emerging Trends in Deep Learning for Air Quality Forecasting and Health Impact Modeling: A Comprehensive Review",
+   "A Comparative Study of Spatio-Temporal Deep Learning Architectures for Eeg-Based Alcohol Use Disorder Classification",
+   "A Comparative Study of Ensemble and Spatio-Temporal Graph Models for Robust PM2.5 Forecasting Across Urban Monitoring Stations",
+   "Deep Learning for Monitoring of Human Gait: A Review",
+   "Toward Low-Cost Parkinson\u2019s Disease Classification: A Comparative Study of VR and Clinical Eye-Tracking Systems"
+  ]
+ },
+ "difference_from_the_pubmed_screen": "Xplore exposes no publication-type metadata, so the review exclusion is made by a textual rule over title and abstract rather than from a publication-type field. It can only catch a review that describes itself as one."
 }

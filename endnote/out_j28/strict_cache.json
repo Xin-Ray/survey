@@ -49825,5 +49825,26 @@
 }
 ],
 "article-number": "100864"
+},
+"ti:convolutional lstm network a machine learning approach for precipitation nowcasting": {
+"title": "Convolutional LSTM Network: A Machine Learning Approach for Precipitation Nowcasting",
+"n_authors": 6
+},
+"ti:learning internal representations by error propagation": null,
+"ti:attention is all you need": {
+"title": "Attention Is All You Need",
+"n_authors": 8
+},
+"ti:denoising diffusion probabilistic models": {
+"title": "Denoising Diffusion Probabilistic Models",
+"n_authors": 3
+},
+"ti:latent odes for irregularly sampled time series": {
+"title": "Latent ODEs for Irregularly-Sampled Time Series",
+"n_authors": 3
+},
+"ti:what clinicians want contextualizing explainable machine learning for clinical end use": {
+"title": "What Clinicians Want: Contextualizing Explainable Machine Learning for Clinical End Use",
+"n_authors": 4
 }
 }

@@ -140,6 +140,27 @@ def load_ieee(arm, net):
 # Non-article item types, the IEEE analogue of PubMed's non-research item types.
 NON_ARTICLE = re.compile(r"\b(Books?|Standards?|Courses?)\b", re.I)
 
+# Reviews. The PubMed arm removed 194 of them by PublicationType before applying the
+# three criteria. Xplore exposes no publication-type field, so the same exclusion has
+# to be made textually, from the title and the opening of the abstract. The rule is
+# deliberately broad: over-removing a primary study costs us a record, while leaving a
+# review in makes the two arms non-equivalent, which is the defect being repaired.
+REVIEW_TITLE = re.compile(
+    r"\b(survey|review|overview|tutorial|systematic|scoping|bibliometric|"
+    r"state[- ]of[- ]the[- ]art|taxonomy|comparative study|meta[- ]analys\w+)\b", re.I)
+REVIEW_ABSTRACT = re.compile(
+    r"\b(this (survey|review|article reviews|paper reviews)|we (review|survey)|"
+    r"a (comprehensive|systematic|literature|scoping|narrative|critical) review|"
+    r"this paper (surveys|reviews|provides an overview)|we provide an overview|"
+    r"review of (the )?(literature|existing|recent|current)|"
+    r"(survey|review) (of|on) (recent|existing|current|the))\b", re.I)
+
+
+def is_review(title, abstract):
+    """True when the record presents itself as a review rather than a primary study."""
+    return bool(REVIEW_TITLE.search(title or "")
+                or REVIEW_ABSTRACT.search((abstract or "")[:700]))
+
 
 def screen_arm(d, arm):
     """The search endpoint truncates abstracts at about 400 characters, which makes
@@ -152,11 +173,11 @@ def screen_arm(d, arm):
     short = sum(1 for r in recs
                 if len((full.get(str(r.get("articleNumber")), {}) or {}).get("abstract", "")) < 450)
     out = {"records": len(recs), "total_reported": d.get("total_reported"),
-           "excluded_non_article": 0, "excluded_no_abstract": 0,
+           "excluded_non_article": 0, "excluded_no_abstract": 0, "excluded_review": 0,
            "excluded_ii_not_human_health": 0, "excluded_i_no_spacetime_structure": 0,
            "excluded_iii_no_quantitative_comparison": 0, "eligible": 0,
            "abstracts_shorter_than_450_chars": short}
-    kept = []
+    kept, reviews = [], []
     for r in recs:
         ct = r.get("contentType") or ""
         if NON_ARTICLE.search(ct):
@@ -167,6 +188,10 @@ def screen_arm(d, arm):
         if not ab.strip():
             out["excluded_no_abstract"] += 1
             continue
+        if is_review(ti, ab):
+            out["excluded_review"] += 1
+            reviews.append({"title": ti, "doi": r.get("doi") or ""})
+            continue
         v, r1, r2, r3 = verdict(ti + " " + ab)
         out[v] += 1
         if v == "eligible":
@@ -175,8 +200,9 @@ def screen_arm(d, arm):
                           "venue": r.get("publicationTitle") or r.get("displayPublicationTitle") or "",
                           "contentType": ct})
     out["screened_on_title_abstract"] = (out["records"] - out["excluded_non_article"]
-                                         - out["excluded_no_abstract"])
-    return out, kept
+                                         - out["excluded_no_abstract"]
+                                         - out["excluded_review"])
+    return out, kept, reviews
 
 
 def main():
@@ -189,10 +215,10 @@ def main():
     pdoi = {ndoi(r["doi"]) for r in pub["records"] if r["doi"]}
     ptit = {ntitle(r["title"]) for r in pub["records"] if r["title"]}
 
-    arms, kept = {}, {}
+    arms, kept, reviews = {}, {}, {}
     for arm in ("a", "b"):
         d = load_ieee(arm, net)
-        arms[arm], kept[arm] = screen_arm(d, arm)
+        arms[arm], kept[arm], reviews[arm] = screen_arm(d, arm)
 
     # dedupe within IEEE across the two arms, then against PubMed
     seen_doi, seen_tit, uniq = set(), set(), []
@@ -229,9 +255,20 @@ def main():
             "ieee_only": len(new_only),
         },
         "ieee_only_records": new_only,
+        "reviews_excluded": {
+            "rule": ("title or the first 700 characters of the abstract presents the work as a "
+                     "survey, review, overview, tutorial or meta-analysis; applied before the "
+                     "three criteria, at the same stage the PubMed arm removed 194 reviews by "
+                     "PublicationType"),
+            "arm_a": arms["a"]["excluded_review"],
+            "arm_b": arms["b"]["excluded_review"],
+            "total": arms["a"]["excluded_review"] + arms["b"]["excluded_review"],
+            "examples": [r["title"] for r in (reviews["a"] + reviews["b"])[:8]],
+        },
         "difference_from_the_pubmed_screen": (
-            "Xplore metadata carries no review flag, so the 'review' exclusion the PubMed arm "
-            "applied has no equivalent here and reviews remain among the IEEE eligible records."),
+            "Xplore exposes no publication-type metadata, so the review exclusion is made by a "
+            "textual rule over title and abstract rather than from a publication-type field. It "
+            "can only catch a review that describes itself as one."),
     }
     json.dump(res, open(OUT, "w"), indent=1)
     print(json.dumps({k: v for k, v in res.items() if k != "ieee_only_records"}, indent=1))

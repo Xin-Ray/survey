@@ -10,6 +10,21 @@
 
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
+%% Float placement. The main paper loosens these; the supplement did not, so it ran on
+%% the LaTeX defaults, where a float page is accepted at 50 per cent full and a tall
+%% double-column float cannot share a page with text. That is what left the sparse
+%% pages. These let a page carry more floats and demand that a float page be nearly full.
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.90}
+\renewcommand{\dbltopfraction}{0.95}
+\renewcommand{\dblfloatpagefraction}{0.90}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{dbltopnumber}{3}
+\setcounter{totalnumber}{5}
+
 %% Supplement tables are numbered S1, S2, S3 so the main paper can point at them.
 \renewcommand{\thetable}{S\arabic{table}}
 
@@ -71,12 +86,73 @@ spatiotemporal arm:  A AND B AND C AND Y
 digital-twin arm:    D AND B AND C AND Y
 \end{verbatim}}
 
-\noindent The spatiotemporal arm returned 1{,}171 records and the digital-twin arm
-268, with 3 records on both, giving the 1{,}436 unique records of the main
-paper's Figure~1. Re-running the identical strings on 22--23 September 2026
-returned 1{,}173, 274 and 3, a union of 1{,}444; the 8-record difference is new
-indexing inside the open 2026 window, so the manuscript's counts stand as the
-11 September 2026 snapshot rather than as a discrepancy.
+\noindent The same two strings were submitted three times. Each run is a snapshot
+of an index that keeps growing inside the open 2026 window, so the three totals
+differ slightly and each is used for a different purpose:
+
+\begin{table*}[tbp]
+\centering
+\caption{The same PubMed query, run three times. The totals differ only by new
+indexing; each snapshot is used where it is contemporaneous with the records it
+is compared against.}
+\label{tab:snapshots}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{llrrrr}
+\toprule
+\textbf{Run} & \textbf{Used for} & \textbf{Spatiot.} & \textbf{Twin} & \textbf{Both} & \textbf{Union} \\
+\midrule
+11 September 2026 & the counts reported in the paper and Figure~1 & 1{,}171 & 268 & 3 & \textbf{1{,}436} \\
+22--23 September 2026 & reproducibility check of the strings & 1{,}173 & 274 & 3 & 1{,}444 \\
+29 September 2026 & the cross-database comparison of Section~\ref{sec:ieeescreen} & 1{,}180 & 279 & 3 & 1{,}456 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\noindent The screening counts, the eligible pool and Figure~1 all come from the
+\textbf{11 September 2026} snapshot. The \textbf{29 September 2026} snapshot is used
+only as the comparison set when the IEEE Xplore records are deduplicated against
+PubMed, because it was taken on the same day as the Xplore export and so describes
+the same state of the literature. Using the largest of the three there is the
+conservative choice: a larger PubMed set can only move records out of the
+\emph{Xplore-only} count and never into it, so the Xplore-only figure reported in
+Section~\ref{sec:ieeescreen} is an upper bound on what a same-day comparison would
+give with any of the three.
+
+\subsubsection*{Paste-ready form}
+The blocks above are written out below as two single strings, one per arm, which
+paste into the PubMed search box unchanged. They were verified by submitting the
+block form and the expanded form separately through \texttt{esearch} on
+2026-10-01 and confirming identical counts (1{,}181 and 281); the
+expansion is generated from the same constants the screening script uses, so it
+cannot drift from the query that was run.
+
+\noindent Spatiotemporal arm:
+
+{\scriptsize\begin{verbatim}
+(spatiotemporal[tiab] OR "spatio-temporal"[tiab] OR
+"space-time"[tiab] OR "space time"[tiab]) AND ("deep
+learning"[tiab] OR "neural network"[tiab] OR "neural
+networks"[tiab] OR transformer[tiab] OR transformers[tiab]
+OR "graph network"[tiab] OR "graph neural"[tiab]) AND
+(health[tiab] OR clinical[tiab] OR patient[tiab] OR
+patients[tiab] OR wearable[tiab] OR wearables[tiab]) AND
+2015:2026[dp]
+\end{verbatim}}
+
+\noindent Digital-twin and world-model arm:
+
+{\scriptsize\begin{verbatim}
+("digital twin"[tiab] OR "digital twins"[tiab] OR "world
+model"[tiab] OR "world models"[tiab]) AND ("deep
+learning"[tiab] OR "neural network"[tiab] OR "neural
+networks"[tiab] OR transformer[tiab] OR transformers[tiab]
+OR "graph network"[tiab] OR "graph neural"[tiab]) AND
+(health[tiab] OR clinical[tiab] OR patient[tiab] OR
+patients[tiab] OR wearable[tiab] OR wearables[tiab]) AND
+2015:2026[dp]
+\end{verbatim}}
+
 
 \subsection{IEEE Xplore, 22 September 2026}
 Issued through the Command Search interface with the publication-year filter set
@@ -140,7 +216,7 @@ network" OR "Document Title":"graph neural" OR
 The IEEE Xplore arm was originally reported as header counts alone, which
 presented the search as a two-database review without a two-database screen.
 Both arms have since been screened under the same three rules as the PubMed arm,
-re-run on 2026-09-29.
+re-run on 2026-10-01.
 
 Records were paged from the search endpoint that the Xplore results page itself
 calls, 100 at a time, because the export interface will not hand over an arm of
@@ -156,28 +232,51 @@ One correction matters for anyone reproducing this. The search endpoint returns
 abstracts truncated to about 400 characters. Criterion~(iii) asks for a metric, a
 number and a comparison against a named alternative, and in most abstracts those
 sit past that cut. Screening the truncated text returned \emph{zero} eligible
-records out of 931 on the spatiotemporal arm, against
+records out of 913 on the spatiotemporal arm, against
 roughly thirty per cent on the PubMed arm --- an artefact of the truncation, not a
 finding. The full abstract of every record was therefore fetched from its own
 document endpoint (median length 1487 characters on the
 spatiotemporal arm and 1457 on the twin arm, against 1{,}452 in the
 interface export) and the screen applied to that.
 
-Of the 1{,}209 records across the two arms, 11 are non-article item types
-and 0 carry no abstract, leaving \textbf{1{,}198} screened on title and
-abstract. Applying criteria~(i)--(iii) as the same textual rules, 191 records
-failed~(ii), 158 failed~(i) and 558 failed~(iii), leaving
-\textbf{286} eligible records after deduplication within Xplore
+Of the 1{,}209 records across the two arms, 11 are non-article item types,
+0 carry no abstract and 37 are reviews, leaving \textbf{1{,}161}
+screened on title and abstract. Applying criteria~(i)--(iii) as the same textual
+rules, 177 records failed~(ii), 146 failed~(i) and 549 failed~(iii),
+leaving \textbf{284} eligible records after deduplication within Xplore
 (5 records appear on both arms). Resolved by DOI and
 by normalized title against the 1{,}456 records of the
-PubMed union, 55 of these are already in the PubMed set
-and \textbf{231} are Xplore only.
+29 September 2026 PubMed snapshot, 54 of these are already
+in the PubMed set and \textbf{230} are Xplore only.
 
-One difference from the PubMed screen cannot be removed: Xplore metadata carries
-no review flag, so the review exclusion that removed 194 records from the PubMed
-arm has no equivalent here, and reviews remain among the IEEE eligible records.
-The eligible count above is therefore an upper bound in a way the PubMed figure is
-not.
+\subsection{Removing reviews, and what it changed}
+The PubMed arm removed 194 reviews by publication type before the criteria were
+applied. Xplore exposes no publication-type metadata, so the same exclusion is made
+here by a textual rule: a record is treated as a review when its title, or the first
+700 characters of its abstract, presents the work as a survey, review, overview,
+tutorial, scoping study or meta-analysis. The rule removed 37 records
+(18 from the spatiotemporal arm and 19 from the
+twin arm), applied at the same stage as on the PubMed side.
+
+It is worth recording how little this changed, because it says something about the
+criteria. Screening without the review rule left 286 eligible records; screening with
+it leaves 284. Only two of the reviews would have survived criteria~(i)--(iii)
+anyway, because criterion~(iii) asks for a quantitative result against a named
+baseline and a review rarely reports one of its own. The exclusion matters for making
+the two arms procedurally equivalent, not because it moved the number. One difference
+remains and cannot be removed: the rule is textual, so it catches only a review that
+describes itself as one, whereas the PubMed exclusion reads an indexed field.
+
+\subsection{Matching rules}
+Two records are the same when their DOIs agree after lowercasing and stripping any
+trailing period, or when their titles agree after normalization. A title is
+normalized by lowercasing it and deleting every non-alphanumeric character, so
+differences in punctuation, hyphenation, spacing and capitalization between the two
+databases do not create spurious distinct records. Within Xplore the two arms are
+merged in the order A then B and the first occurrence of a record is kept, so a
+record retrieved by both arms is counted once. Against PubMed, a match marks the
+record as already present and it is not added to the pool; only the unmatched
+remainder is reported as Xplore-only.
 
 \section{Evidence behind the survey comparison}
 \label{sec:surveyevidence}
@@ -204,7 +303,7 @@ appraisal was not systematically carried out,'' so its evaluation mark is
 removed. Both corrections favour our own survey, which is why we give the
 section evidence for each of them here.
 
-\begin{table*}[t]
+\begin{table*}[tbp]
 \centering
 \caption{Section-level evidence for every mark in Table~I of the main paper. Section numbers are
 those of the compared review, not of this document. Columns credited are listed with the section
@@ -301,7 +400,7 @@ rows. Second, the world-model layer is the only one where a successful attack
 yields a wrong \emph{action} rather than a wrong number, which is why the safety
 filter and the action-provenance requirements appear only there.
 
-\begin{table*}[t]
+\begin{table*}[tbp]
 \centering
 \caption{Threats and protections across the layers of the connected-health pipeline.
 Columns give the security property principally at stake; the final column gives the
@@ -392,14 +491,14 @@ case: no dataset carries the position of a person or a device in a built
 environment, which is the spatial variable a deployed connected-health service
 would actually observe.
 
-\begin{table*}[!t]
+\begin{table*}[tbp]
 \centering
 \renewcommand{\thetable}{S2a}
 \caption{Datasets underlying the twelve studies of Table~II that were assembled while drafting.
 One row per dataset. Entries are as reported by the study or the dataset provider, and
 \emph{n/r} means the source reports nothing on that field. Panel a: population, modality, device, sampling and spatial unit.}
 \label{tab:S2a}
-\scriptsize
+\footnotesize
 \setlength{\tabcolsep}{2.5pt}
 \renewcommand{\arraystretch}{1.05}
 \begin{tabularx}{\textwidth}{L{2.5cm} L{2.6cm} L{2.4cm} L{2.8cm} L{2.9cm} X}
@@ -438,7 +537,7 @@ Health ABC DXA (Glaser et al.~\cite{glaser2022deep}) & Over 3000 adults, over 15
 \end{tabularx}
 \end{table*}
 
-\begin{table*}[!t]
+\begin{table*}[tbp]
 \centering
 \addtocounter{table}{-1}
 \renewcommand{\thetable}{S2b}
@@ -446,7 +545,7 @@ Health ABC DXA (Glaser et al.~\cite{glaser2022deep}) & Over 3000 adults, over 15
 One row per dataset. Entries are as reported by the study or the dataset provider, and
 \emph{n/r} means the source reports nothing on that field. Panel b: missingness, access, supported tasks, suitability and principal limitation.}
 \label{tab:S2b}
-\scriptsize
+\footnotesize
 \setlength{\tabcolsep}{2.5pt}
 \renewcommand{\arraystretch}{1.05}
 \begin{tabularx}{\textwidth}{L{2.5cm} L{3.4cm} L{2.2cm} L{2.9cm} L{0.75cm} X}
@@ -526,14 +625,14 @@ a separate model per benchmark dataset~\cite{hussein2022seizure}, and one tests
 on unseen subjects but within a single cohort~\cite{Li2020GluNet}. None of the
 twenty-two reports a prospective or in-service clinical evaluation.
 
-\begin{table*}[!t]
+\begin{table*}[tbp]
 \centering
 \renewcommand{\thetable}{S3a}
 \caption{Quality assessment of the twelve studies of Table~II that were assembled while drafting,
 in the order of that table. Entries record what the source states, and \emph{n/r}
 means the source reports nothing on that field. Panel a: split, leakage risk, missing data and external validation.}
 \label{tab:S3a}
-\scriptsize
+\footnotesize
 \setlength{\tabcolsep}{2.5pt}
 \renewcommand{\arraystretch}{1.05}
 \begin{tabularx}{\textwidth}{L{2.6cm} L{3.6cm} L{3.2cm} L{3.4cm} X}
@@ -570,7 +669,7 @@ Glaser et al.~\cite{glaser2022deep} & Split by participant, 70/10/20 & Low; spli
 \end{tabularx}
 \end{table*}
 
-\begin{table*}[!t]
+\begin{table*}[tbp]
 \centering
 \addtocounter{table}{-1}
 \renewcommand{\thetable}{S3b}
@@ -578,7 +677,7 @@ Glaser et al.~\cite{glaser2022deep} & Split by participant, 70/10/20 & Low; spli
 in the order of that table. Entries record what the source states, and \emph{n/r}
 means the source reports nothing on that field. Panel b: calibration and uncertainty, subgroups, comparators, reproducibility and clinical validation.}
 \label{tab:S3b}
-\scriptsize
+\footnotesize
 \setlength{\tabcolsep}{2.5pt}
 \renewcommand{\arraystretch}{1.05}
 \begin{tabularx}{\textwidth}{L{2.5cm} L{3.4cm} L{2.2cm} L{2.8cm} L{2.3cm} X}
@@ -616,13 +715,13 @@ Glaser et al.~\cite{glaser2022deep} & Calibration n/r; bootstrap intervals over 
 \end{table*}
 
 
-\begin{table*}[!t]
+\begin{table*}[tbp]
 \centering
 \renewcommand{\thetable}{S4a}
 \caption{Datasets underlying the ten studies sampled from the rule-eligible pool. Conventions are
 those of Table~\ref{tab:S2a}. Panel a: population, modality, device, sampling and spatial unit.}
 \label{tab:S4a}
-\scriptsize
+\footnotesize
 \setlength{\tabcolsep}{2.5pt}
 \renewcommand{\arraystretch}{1.05}
 \begin{tabularx}{\textwidth}{L{2.5cm} L{2.6cm} L{2.4cm} L{2.8cm} L{2.9cm} X}
@@ -631,7 +730,7 @@ those of Table~\ref{tab:S2a}. Panel a: population, modality, device, sampling an
 \midrule
 Three cuffless-BP cohorts (Liu et al.~\cite{liu2024cignn}) & 305 subjects, 102 hypertensive & ECG and PPG with derived beat features & Clinical multi-parameter monitors; Finapres reference & 1000\,Hz; 10\,min per subject & None \\
 \addlinespace[1pt]
-Single-channel SERF-MCG (Li et al.~\cite{li2026edgeischemia}) & 2118 subjects, 983 with ischemia & Magnetocardiography & Optically pumped magnetometer, 0--100\,Hz & n/r; one cardiac cycle per sample & None \\
+Single-channel SERF-MCG (Li et al.~\cite{li2026edgeischemia}) & 2118 subjects, 983 with ischemia & Magneto\-cardio\-graphy & Optically pumped magnetometer, 0--100\,Hz & n/r; one cardiac cycle per sample & None \\
 \addlinespace[1pt]
 IMU gait strides (Verbiest et al.~\cite{verbiest2023gaitstride}) & 4467 strides from 15 healthy adults & Foot inertial signals & IMU with Cortex-M4F microcontroller; GAITRite reference & 102.4\,Hz; stride-length windows & None \\
 \addlinespace[1pt]
@@ -653,14 +752,14 @@ CHB-MIT and Freiburg EEG (Hussein et al.~\cite{hussein2022seizure}) & 22 scalp a
 \end{tabularx}
 \end{table*}
 
-\begin{table*}[!t]
+\begin{table*}[tbp]
 \centering
 \addtocounter{table}{-1}
 \renewcommand{\thetable}{S4b}
 \caption{Datasets underlying the ten studies sampled from the rule-eligible pool. Conventions are
 those of Table~\ref{tab:S2a}. Panel b: missingness, access, supported tasks, suitability and principal limitation.}
 \label{tab:S4b}
-\scriptsize
+\footnotesize
 \setlength{\tabcolsep}{2.5pt}
 \renewcommand{\arraystretch}{1.05}
 \begin{tabularx}{\textwidth}{L{2.5cm} L{3.4cm} L{2.2cm} L{2.9cm} L{0.75cm} X}
@@ -692,13 +791,13 @@ CHB-MIT and Freiburg EEG (Hussein et al.~\cite{hussein2022seizure}) & n/r & Publ
 \end{table*}
 
 
-\begin{table*}[!t]
+\begin{table*}[tbp]
 \centering
 \renewcommand{\thetable}{S5a}
 \caption{Quality assessment of the ten studies sampled from the rule-eligible pool, in the order of
 Table~II of the main paper. Conventions are those of Table~\ref{tab:S3a}. Panel a: split, leakage risk, missing data and external validation.}
 \label{tab:S5a}
-\scriptsize
+\footnotesize
 \setlength{\tabcolsep}{2.5pt}
 \renewcommand{\arraystretch}{1.05}
 \begin{tabularx}{\textwidth}{L{2.6cm} L{3.6cm} L{3.2cm} L{3.4cm} X}
@@ -729,14 +828,14 @@ Hussein et al.~\cite{hussein2022seizure} & Per-patient models; clips split into 
 \end{tabularx}
 \end{table*}
 
-\begin{table*}[!t]
+\begin{table*}[tbp]
 \centering
 \addtocounter{table}{-1}
 \renewcommand{\thetable}{S5b}
 \caption{Quality assessment of the ten studies sampled from the rule-eligible pool, in the order of
 Table~II of the main paper. Conventions are those of Table~\ref{tab:S3a}. Panel b: calibration and uncertainty, subgroups, comparators, reproducibility and clinical validation.}
 \label{tab:S5b}
-\scriptsize
+\footnotesize
 \setlength{\tabcolsep}{2.5pt}
 \renewcommand{\arraystretch}{1.05}
 \begin{tabularx}{\textwidth}{L{2.5cm} L{3.4cm} L{2.2cm} L{2.8cm} L{2.3cm} X}
@@ -784,7 +883,7 @@ of the application protocol decides whether a lost sample is silently absent or
 retried, which is the difference between a gap the model can detect and one it
 cannot.
 
-\begin{table*}[t]
+\begin{table*}[tbp]
 \centering
 \caption{Communication options for connected health, with the consequence for sampling rate,
 loss and model-update cadence. Values are typical published figures for the technology, not
@@ -852,11 +951,11 @@ its principal methodological limitation. The table is mostly empty, and that is 
 including the placements we ourselves infer in Table~II of the main paper,
 therefore rest on plausibility rather than on measurement.
 
-\begin{table*}[t]
+\begin{table*}[tbp]
 \centering
 \caption{System and privacy reporting in the twenty-two studies. \emph{n/r}: not reported.}
 \label{tab:deployrep}
-\scriptsize
+\footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.0}
 \begin{tabularx}{\textwidth}{L{2.0cm} L{2.6cm} L{1.5cm} L{2.4cm} L{1.9cm} X}
@@ -922,7 +1021,7 @@ run three months later; the last ten were drawn from the 363 rule-eligible recor
 and stopping rule stated there. Neither part is a random sample, so the table is an audit trail
 rather than a claim of representativeness.
 
-\begin{table*}[t]
+\begin{table*}[tbp]
 \centering
 \caption{How each study entered the survey, and the reason it is included.}
 \label{tab:provenance}
@@ -991,7 +1090,7 @@ population as the primary literature. Most of the fifteen are
 human-activity-recognition papers citing the wearable-sensing review, which is
 consistent with that bias.
 
-\begin{table}[t]
+\begin{table}[tbp]
 \centering
 \caption{Citation-chasing seeds and their yield. References are the seed's own reference list;
 cited-by is its OpenAlex citation count at the time of the chase.}

@@ -34,8 +34,18 @@ TEX = os.path.join(ROOT, "live", "STmodel.tex")
 OUT = os.path.join(HERE, "out_j28")
 CACHE = os.path.join(OUT, "strict_cache.json")
 
+# A proceedings title that legitimately differs from its preprint title. The NeurIPS
+# version is "Nets"; only the arXiv preprint says "Networks". We cite the proceedings.
+TITLE_OK = {
+    "goodfellow2014gan": "the NeurIPS proceedings title is \"Nets\"; only the arXiv preprint "
+                         "says \"Networks\", and the proceedings version is what is cited",
+}
+
 # Entries with no publisher record to compare against, and why.
 SKIP = {
+    "rumelhart1986rnn": "1986 MIT Press book chapter; neither Crossref nor arXiv carries it, "
+                        "and the only Crossref record with this title is the 1985 DTIC "
+                        "technical report, a different document",
     "Fang2021iPAT": "NIH/NIDDK grant R01DK129432, not a publication",
     "ieee11073std": "IEEE standard; Crossref carries no title or page metadata for it",
 }
@@ -67,6 +77,38 @@ def arxiv_record(aid, cache, net):
         except Exception:
             cache[k] = None
         time.sleep(0.4)
+    return cache[k]
+
+
+def arxiv_by_title(title, cache, net):
+    """Last resort for proceedings papers that register no DOI: find the preprint.
+
+    NeurIPS before 2022, ICML/PMLR and the ACL Anthology's older volumes deposit no
+    Crossref record, so without this the entry is simply never checked. Searching
+    arXiv by exact title at least verifies the title and the author count.
+    """
+    k = "ti:" + re.sub(r"\W+", " ", title.lower()).strip()[:110]
+    if k not in cache:
+        if not net:
+            return None
+        try:
+            q = urllib.parse.urlencode({"search_query": 'ti:"' + title + '"', "max_results": 5})
+            with urllib.request.urlopen("http://export.arxiv.org/api/query?" + q, timeout=60) as r:
+                x = r.read().decode("utf-8", "replace")
+            entries = re.findall(r"<entry>(.*?)</entry>", x, re.S)
+            best = None
+            for ent in entries:
+                tm = re.search(r"<title>(.*?)</title>", ent, re.S)
+                if not tm:
+                    continue
+                ti = re.sub(r"\s+", " ", html.unescape(tm.group(1))).strip()
+                if norm(ti) == norm(title):
+                    best = {"title": ti, "n_authors": len(re.findall(r"<name>", ent))}
+                    break
+            cache[k] = best
+        except Exception:
+            cache[k] = None
+        time.sleep(3.2)          # arXiv asks for one query every three seconds
     return cache[k]
 
 
@@ -162,8 +204,18 @@ def main():
                 kind = "TRUNCATED" if norm(rec["title"]).startswith(norm(bt)) else "differs"
                 issues.append(f"title {kind}; arXiv says: {rec['title']}")
         else:
-            skipped.append((i, key, "no DOI and no arXiv identifier to check against"))
-            continue
+            if key in TITLE_OK:
+                skipped.append((i, key, TITLE_OK[key]))
+                continue
+            rec = arxiv_by_title(bt, cache, net)
+            if rec is None:
+                skipped.append((i, key, "registers no DOI and no arXiv record carries this "
+                                        "exact title; proceedings volumes of this era deposit "
+                                        "neither DOI nor page numbers"))
+                continue
+            if rec["n_authors"] and n_bib != rec["n_authors"] and not etal:
+                issues.append(f"author list has {n_bib} of {rec['n_authors']} names "
+                              f"and no 'and others'")
 
         if issues:
             problems.append((i, key, issues))

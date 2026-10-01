@@ -77,24 +77,36 @@ def main_cli():
           m and words.get(m.group(1)) == cls_a,
           f"table has {cls_a} class-A rows; prose says {m.group(1) if m else 'nothing'}")
 
-    # Deployment cell: "reported / ours". Anything said about cost sits before the slash;
-    # only some of those are numbers. Bohoran et al. state network pruning without one, so
-    # "five report a figure" and "five state anything" are not the same claim.
-    reported = [re.split(r"\s/\s", r[4])[0] for r in ev_rows]   # " / " separates reported from ours
-    # A reported side may name a placement ("App backend"), a cost, or nothing ("n/r").
-    # Only a quantity or the words "model cost" count as saying something about cost.
-    any_cost = [d for d in reported
-                if re.search(r"\d\s*\\,?(ms|MB|kB|s)\b|model cost", d, re.I)]
-    num_cost = [d for d in any_cost if re.search(r"\d", d)]
-    check("TABLE", "studies saying anything about cost or latency match the prose",
-          len(any_cost) == 5 and len(re.findall(r"five (?:state anything about model cost|of the twenty-two state anything about model cost)", prose)) >= 2,
-          f"table has {len(any_cost)}: " + "; ".join(d[:26] for d in any_cost))
-    check("TABLE", "studies giving a numeric cost or latency match the prose",
-          len(num_cost) == 4 and "four of them as a number" in prose,
-          f"table has {len(num_cost)} numeric: " + "; ".join(d[:26] for d in num_cost))
-    check("TABLE", "no sentence still claims five report a figure",
-          not re.search(r"five (?:of the twenty-two )?report a (?:deployment )?cost or latency figure", prose),
-          "a sentence still says five report a figure")
+    # The deployment column was moved out of Table II on 2026-10-01, so the cost and
+    # latency claims are now checked against Supplement Table S7, which holds the
+    # per-study evidence: its Latency column plus the model-size sentence in its note.
+    s7_hdr, s7_rows, s7_blk = table(supp_raw, "tab:deployrep")
+    lat_i = next((i for i, c in enumerate(s7_hdr) if "Latency" in c), None)
+    lat = [r[lat_i] for r in s7_rows] if lat_i is not None else []
+    lat_reported = [c for c in lat if not re.match(r"^n/r", c.strip(), re.I)]
+
+    def cites(pattern):
+        m2 = re.search(pattern, prose)
+        return re.findall(r"[\w:.-]+", m2.group(1)) if m2 else []
+
+    five = cites(r"five state anything about model cost or latency~\\cite\{([^}]*)\}")
+    three = cites(r"three of those four measured on a phone, a microcontroller or a portable "
+                  r"board~\\cite\{([^}]*)\}")
+    check("TABLE", "the prose cites five studies for cost or latency",
+          len(five) == 5, f"it cites {len(five)}: {five}")
+    check("TABLE", "the prose cites three of them as measured on a device",
+          len(three) == 3 and set(three) <= set(five),
+          f"it cites {len(three)}: {three}")
+    check("TABLE", "S7 carries a latency figure for the studies that report one",
+          len(lat_reported) == 4,
+          f"S7 reports latency for {len(lat_reported)} studies")
+    check("TABLE", "S7's note records the studies reporting model size",
+          re.search(r"Model size: \w+ studies report anything", s7_blk) is not None,
+          "S7 has no model-size sentence, so the fifth study's evidence is unrecorded")
+    check("TABLE", "the deployment column is gone from Table II and its content points at S7",
+          "Deployment: reported / ours" not in prose
+          and re.search(r"Supplement Table~S7 gives this per study", prose) is not None,
+          "Table II still carries deployment, or the prose does not redirect to S7")
 
     # the three longitudinal rows: the supplement gives their datasets no spatial index
     # across sites, but one of the three is a series of scans, so "no spatial component"
@@ -281,8 +293,8 @@ def main_cli():
     check("XREF", "split panels come in a/b pairs",
           all(f"{s}a" in nums and f"{s}b" in nums for s in stems), str(nums))
     n_caps = supp_raw.count("\\caption{")
-    check("XREF", f"supplement holds {n_caps} table captions in ten numbered slots",
-          n_caps == 14, f"{n_caps} captions")
+    check("XREF", f"supplement holds {n_caps} table captions, S0--S9 plus split panels",
+          n_caps >= 14, f"{n_caps} captions")
 
     # no stray claim that the evidence set is twelve studies
     stray = re.findall(r"twelve studies of Table|the twelve studies in Table", prose)
