@@ -103,6 +103,17 @@ def main_cli():
     check("TABLE", "S7's note records the studies reporting model size",
           re.search(r"Model size: \w+ studies report anything", s7_blk) is not None,
           "S7 has no model-size sentence, so the fifth study's evidence is unrecorded")
+    # The main text claims S7 keeps reported separate from inferred. Check that S7 really
+    # carries an inferred column: the sentence alone passed for a week while the data had
+    # been deleted with the Table II column, which is the hole this closes.
+    ours_col = next((i for i, c in enumerate(s7_hdr) if "Inference placement" in c), None)
+    ours_vals = [r[ours_col] for r in s7_rows] if ours_col is not None else []
+    check("TABLE", "S7 carries the inferred placement the main text says it does",
+          ours_col is not None and len(ours_vals) == 22
+          and all(v.strip() for v in ours_vals),
+          "S7 has no 'Inference placement (ours)' column, so the sentence pointing at it is false"
+          if ours_col is None else f"{sum(1 for v in ours_vals if not v.strip())} rows are blank")
+
     check("TABLE", "the deployment column is gone from Table II and its content points at S7",
           "Deployment: reported / ours" not in prose
           and re.search(r"Supplement Table~S7 gives this per study", prose) is not None,

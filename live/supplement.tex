@@ -956,60 +956,60 @@ therefore rest on plausibility rather than on measurement.
 
 \begin{table*}[tbp]
 \centering
-\caption{System and privacy reporting in the twenty-two studies. \emph{n/r}: not reported.}
+\caption{System and privacy reporting in the twenty-two studies. Every column but \emph{Inference placement} records what the study itself reports; that column is \emph{our} reading of where the model could run and is not evidence of deployment. \emph{n/r}: not reported.}
 \label{tab:deployrep}
 \footnotesize
 \setlength{\tabcolsep}{2pt}
 \renewcommand{\arraystretch}{1.0}
-\begin{tabularx}{\textwidth}{L{2.0cm} L{2.6cm} L{1.5cm} L{2.4cm} L{1.9cm} X}
+\begin{tabularx}{\textwidth}{L{1.9cm} L{2.9cm} L{2.6cm} L{1.5cm} L{1.9cm} L{1.9cm} X}
 \toprule
-\textbf{Study} & \textbf{Privacy or security method} & \textbf{Latency} & \textbf{Energy} & \textbf{Bandwidth or data rate} & \textbf{Principal methodological limitation} \\
+\textbf{Study} & \textbf{Privacy or security method} & \textbf{Latency} & \textbf{Energy} & \textbf{Bandwidth or data rate} & \textbf{Inference placement (ours)} & \textbf{Principal methodological limitation} \\
 \midrule
-Kyritsis et al.~\cite{Kyritsis2019EatingBehavior} & n/r & n/r & n/r & n/r & Twelve subjects, staged meals; no free-living data \\
+Kyritsis et al.~\cite{Kyritsis2019EatingBehavior} & n/r & n/r & n/r & n/r & wrist device & Twelve subjects, staged meals; no free-living data \\
 \addlinespace[1pt]
-Liu et al.~\cite{2} & n/r & n/r & n/r & n/r & Split by sample, so a subject can appear on both sides \\
+Liu et al.~\cite{2} & n/r & n/r & n/r & n/r & server & Split by sample, so a subject can appear on both sides \\
 \addlinespace[1pt]
-Thaipisutikul et al.~\cite{3} & n/r & n/r & n/r & n/r & Seventy monthly aggregates; no individual-level data \\
+Thaipisutikul et al.~\cite{3} & n/r & n/r & n/r & n/r & server & Seventy monthly aggregates; no individual-level data \\
 \addlinespace[1pt]
-Kong et al.~\cite{4} & n/r & n/r & n/r & n/r & Each site evaluated on its own; no cross-site result \\
+Kong et al.~\cite{4} & n/r & n/r & n/r & n/r & server & Each site evaluated on its own; no cross-site result \\
 \addlinespace[1pt]
-Zhang et al.~\cite{9} & n/r & n/r & n/r & n/r & Seventy-two subjects from one public cohort \\
+Zhang et al.~\cite{9} & n/r & n/r & n/r & n/r & server & Seventy-two subjects from one public cohort \\
 \addlinespace[1pt]
-Li et al.~\cite{Li2020GluNet} & n/r & 6\,ms per prediction on an Android phone; 0.79\,s on the comparison hardware & n/r & n/r & Two of three sets are simulated or single-project; the app was demonstrated, not trialled \\
+Li et al.~\cite{Li2020GluNet} & n/r & 6\,ms per prediction on an Android phone; 0.79\,s on the comparison hardware & n/r & n/r & phone & Two of three sets are simulated or single-project; the app was demonstrated, not trialled \\
 \addlinespace[1pt]
-Lim et al.~\cite{Lim2025VirtualCGM} & n/r & n/r & n/r & n/r & Healthy adults only, and the split holds out days rather than subjects \\
+Lim et al.~\cite{Lim2025VirtualCGM} & n/r & n/r & n/r & n/r & gateway & Healthy adults only, and the split holds out days rather than subjects \\
 \addlinespace[1pt]
-Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & n/r & n/r & n/r & n/r & Ecological analysis with no predictive hold-out \\
+Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & n/r & n/r & n/r & n/r & server, batch & Ecological analysis with no predictive hold-out \\
 \addlinespace[1pt]
-Bohoran et al.~\cite{5} & n/r & n/r & Energy and carbon-equivalent cost reported for the pruned model & n/r & Scans split at random, and 48 patients contribute more than one \\
+Bohoran et al.~\cite{5} & n/r & n/r & Energy and carbon-equivalent cost reported for the pruned model & n/r & scanner-side & Scans split at random, and 48 patients contribute more than one \\
 \addlinespace[1pt]
-Lin and Luo~\cite{lin2022deep} & n/r & n/r & n/r & n/r & The second cohort is refitted, so it is not an untouched external test \\
+Lin and Luo~\cite{lin2022deep} & n/r & n/r & n/r & n/r & server, per visit & The second cohort is refitted, so it is not an untouched external test \\
 \addlinespace[1pt]
-Nitski et al.~\cite{nitski2021long} & Anonymized registry records; no privacy mechanism in the method & n/r & n/r & n/r & Best result follows fine-tuning on the second registry \\
+Nitski et al.~\cite{nitski2021long} & Anonymized registry records; no privacy mechanism in the method & n/r & n/r & n/r & server, per visit & Best result follows fine-tuning on the second registry \\
 \addlinespace[1pt]
-Glaser et al.~\cite{glaser2022deep} & n/r & n/r & n/r & n/r & One cohort; calibration of the displayed risk not reported \\
+Glaser et al.~\cite{glaser2022deep} & n/r & n/r & n/r & n/r & server, per visit & One cohort; calibration of the displayed risk not reported \\
 \addlinespace[1pt]
-Liu et al.~\cite{liu2024cignn} & n/r & n/r & n/r & n/r & Reference blood pressure comes from a laboratory Finapres, not ambulatory use \\
+Liu et al.~\cite{liu2024cignn} & n/r & n/r & n/r & n/r & wearable & Reference blood pressure comes from a laboratory Finapres, not ambulatory use \\
 \addlinespace[1pt]
-Li et al.~\cite{li2026edgeischemia} & n/r & 4.7\,ms per cycle, on a desktop CPU, not on an edge board & n/r & n/r & Edge claim not validated on a device; a faster 1D-CNN reaches a similar AUC \\
+Li et al.~\cite{li2026edgeischemia} & n/r & 4.7\,ms per cycle, on a desktop CPU, not on an edge board & n/r & n/r & edge & Edge claim not validated on a device; a faster 1D-CNN reaches a similar AUC \\
 \addlinespace[1pt]
-Verbiest et al.~\cite{verbiest2023gaitstride} & n/r & Toolchain estimate; no measured figure & n/r & n/r & Fifteen healthy adults; nothing shown for pathological gait \\
+Verbiest et al.~\cite{verbiest2023gaitstride} & n/r & Toolchain estimate; no measured figure & n/r & n/r & device & Fifteen healthy adults; nothing shown for pathological gait \\
 \addlinespace[1pt]
-Herath et al.~\cite{herath2026parkinson} & n/r & n/r & n/r & n/r & One cohort; the pretrained encoder is a fixed feature extractor, not a calibrated model \\
+Herath et al.~\cite{herath2026parkinson} & n/r & n/r & n/r & n/r & wrist or trunk device & One cohort; the pretrained encoder is a fixed feature extractor, not a calibrated model \\
 \addlinespace[1pt]
-Liu et al.~\cite{liu2025sleepposture} & n/r & n/r & n/r & n/r & Split not stated at subject level; accuracy may be optimistic \\
+Liu et al.~\cite{liu2025sleepposture} & n/r & n/r & n/r & n/r & bedside gateway & Split not stated at subject level; accuracy may be optimistic \\
 \addlinespace[1pt]
-Chan et al.~\cite{chan2026sitstand} & n/r & n/r & n/r & n/r & One sagittal view at a fixed distance, which a home setting would not guarantee \\
+Chan et al.~\cite{chan2026sitstand} & n/r & n/r & n/r & n/r & smartphone & One sagittal view at a fixed distance, which a home setting would not guarantee \\
 \addlinespace[1pt]
-Wang et al.~\cite{wang2025vo2} & n/r & n/r & n/r & n/r & Twenty-one young adults on a laboratory protocol \\
+Wang et al.~\cite{wang2025vo2} & n/r & n/r & n/r & n/r & wearable gateway & Twenty-one young adults on a laboratory protocol \\
 \addlinespace[1pt]
-Zhu et al.~\cite{zhu2024ippg} & n/r & n/r & n/r & n/r & No split is described, and the labels come from a finger oximeter \\
+Zhu et al.~\cite{zhu2024ippg} & n/r & n/r & n/r & n/r & smartphone camera & No split is described, and the labels come from a finger oximeter \\
 \addlinespace[1pt]
-Lin et al.~\cite{lin2024smapen} & n/r & 97.93\,ms on a portable device & n/r & n/r & Able-bodied subjects and scripted movements; no unseen-subject evaluation \\
+Lin et al.~\cite{lin2024smapen} & n/r & 97.93\,ms on a portable device & n/r & n/r & device & Able-bodied subjects and scripted movements; no unseen-subject evaluation \\
 \addlinespace[1pt]
-Hussein et al.~\cite{hussein2022seizure} & n/r & n/r & n/r & n/r & Clips split into segments; protocol not stated at clip level \\
+Hussein et al.~\cite{hussein2022seizure} & n/r & n/r & n/r & n/r & server & Clips split into segments; protocol not stated at clip level \\
 \bottomrule
-\multicolumn{6}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize Model size: three studies report anything. Bohoran et al.~\cite{5} give filter counts for a pruned network, Verbiest et al.~\cite{verbiest2023gaitstride} 92\,kB of flash and 14\,kB of RAM for an int8 model on a Cortex-M4F, and Li et al.~\cite{Li2020GluNet} 14{,}592 parameters with about 100\,MB of phone memory while forecasting. No other study reports parameter count or memory footprint, so the column is omitted rather than filled with nineteen identical entries.}
+\multicolumn{7}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize Model size: three studies report anything. Bohoran et al.~\cite{5} give filter counts for a pruned network, Verbiest et al.~\cite{verbiest2023gaitstride} 92\,kB of flash and 14\,kB of RAM for an int8 model on a Cortex-M4F, and Li et al.~\cite{Li2020GluNet} 14{,}592 parameters with about 100\,MB of phone memory while forecasting. No other study reports parameter count or memory footprint, so the column is omitted rather than filled with nineteen identical entries.}
 \end{tabularx}
 \end{table*}
 
