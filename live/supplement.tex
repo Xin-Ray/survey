@@ -92,10 +92,13 @@ differ slightly and each is used for a different purpose:
 
 \begin{table*}[tbp]
 \centering
-\caption{The same PubMed query, run three times. The totals differ only by new
-indexing; each snapshot is used where it is contemporaneous with the records it
-is compared against.}
-\label{tab:snapshots}
+%% Deliberately uncaptioned: issuing a \caption here would consume an S-number and
+%% shift every plain-numbered table after it, which is what broke the main paper's
+%% pointers to S0, S1 and S6--S9 on the first attempt.
+{\footnotesize\textbf{The same PubMed query, run three times.} The totals differ only by
+new indexing; each snapshot is used where it is contemporaneous with the records it is
+compared against.}
+\smallskip
 \footnotesize
 \setlength{\tabcolsep}{4pt}
 \begin{tabular}{llrrrr}

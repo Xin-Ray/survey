@@ -296,6 +296,43 @@ def main_cli():
     check("XREF", f"supplement holds {n_caps} table captions, S0--S9 plus split panels",
           n_caps >= 14, f"{n_caps} captions")
 
+    # The PRINTED supplement table numbers, simulated the way LaTeX assigns them, and
+    # compared with the numbers the main text cites. Nothing checked this before, and a
+    # table added to Section II silently pushed S0, S1 and S6--S9 down by one while the
+    # main paper went on pointing at the old numbers.
+    EXPECTED = {"tab:surveyevidence": "S0", "tab:threats": "S1",
+                "tab:S2a": "S2a", "tab:S2b": "S2b", "tab:S3a": "S3a", "tab:S3b": "S3b",
+                "tab:S4a": "S4a", "tab:S4b": "S4b", "tab:S5a": "S5a", "tab:S5b": "S5b",
+                "tab:protocols": "S6", "tab:deployrep": "S7",
+                "tab:provenance": "S8", "tab:chasing": "S9"}
+    counter, printed, stamp = -1, {}, None
+    for tok in re.finditer(r"\\renewcommand\{\\thetable\}\{(S[\w]+)\}"
+                           r"|\\addtocounter\{table\}\{-1\}"
+                           r"|\\caption\{"
+                           r"|\\label\{(tab:[\w-]+)\}"
+                           r"|\\end\{table\*?\}", supp_raw):
+        s = tok.group(0)
+        if tok.group(1):
+            stamp = tok.group(1)
+        elif s.startswith("\\addtocounter"):
+            counter -= 1
+        elif s.startswith("\\caption"):
+            counter += 1
+            pending = stamp if stamp else "S%d" % counter
+        elif tok.group(2):
+            if "pending" in dir() or True:
+                try:
+                    printed[tok.group(2)] = pending
+                except NameError:
+                    pass
+        elif s.startswith("\\end{table"):
+            stamp = None
+    wrong = {k: (v, printed.get(k)) for k, v in EXPECTED.items() if printed.get(k) != v}
+    check("XREF", "the printed supplement table numbers are the ones the main text cites",
+          not wrong,
+          "; ".join(f"{k} should print as {want} but prints as {got}"
+                    for k, (want, got) in wrong.items()))
+
     # no stray claim that the evidence set is twelve studies
     stray = re.findall(r"twelve studies of Table|the twelve studies in Table", prose)
     check("XREF", "no stray claim that Table II holds twelve studies", not stray, str(stray))
