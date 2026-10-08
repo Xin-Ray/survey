@@ -10,7 +10,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage{url}
 \usepackage[T1]{fontenc}
-\usepackage{xcolor}
+%% [table] gives \rowcolor; loaded before tikz, which pulls xcolor in itself
+\usepackage[table]{xcolor}
+\definecolor{tablestripe}{gray}{0.92}
+\definecolor{tablegroup}{gray}{0.88}
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta,positioning,calc,fit,backgrounds}
 \usepackage{booktabs}
@@ -109,27 +112,27 @@ Spatiotemporal models, deep neural networks, digital health, Internet of Things,
 \midrule
 Wang et al.~\cite{wang2022deep} & -- & $\bullet$ & $\circ$ & -- & -- & -- & -- & -- & -- & Traffic and climate; no clinical task, no named dataset \\
 \addlinespace[1pt]
-Samani et al.~\cite{samani2026stdl} & -- & $\bullet$ & -- & -- & -- & -- & -- & $\circ$ & -- & General prediction; abstract only (see S0) \\
+\rowcolor{tablestripe}Samani et al.~\cite{samani2026stdl} & -- & $\bullet$ & -- & -- & -- & -- & -- & $\circ$ & -- & General prediction; abstract only (see S0) \\
 \addlinespace[1pt]
 Swinckels et al.~\cite{swinckels2024ehr} & -- & $\circ$ & $\bullet$ & -- & -- & -- & -- & $\bullet$ & -- & Longitudinal EHR; no sensing tier, no critical appraisal \\
 \addlinespace[1pt]
-Busnatu et al.~\cite{Busnatu2022} & $\bullet$ & -- & $\bullet$ & -- & -- & $\circ$ & -- & -- & -- & Biotelemetry devices; no model families \\
+\rowcolor{tablestripe}Busnatu et al.~\cite{Busnatu2022} & $\bullet$ & -- & $\bullet$ & -- & -- & $\circ$ & -- & -- & -- & Biotelemetry devices; no model families \\
 \addlinespace[1pt]
 Sun et al.~\cite{sun2026irregularmedical} & -- & $\circ$ & $\bullet$ & -- & -- & -- & -- & $\bullet$ & $\bullet$ & Irregular medical series; temporal only \\
 \addlinespace[1pt]
-Wang et al.~\cite{Wang2023Survey} & $\bullet$ & -- & -- & $\bullet$ & -- & $\bullet$ & $\bullet$ & -- & -- & Industrial IoT twins, not patient twins \\
+\rowcolor{tablestripe}Wang et al.~\cite{Wang2023Survey} & $\bullet$ & -- & -- & $\bullet$ & -- & $\bullet$ & $\bullet$ & -- & -- & Industrial IoT twins, not patient twins \\
 \addlinespace[1pt]
 Sel et al.~\cite{Sel2025VVUQ} & -- & -- & $\circ$ & $\bullet$ & -- & $\circ$ & -- & -- & $\bullet$ & Twin validation; two clinical domains only \\
 \addlinespace[1pt]
-Zheng et al.~\cite{Zheng2026DTtoWM} & $\circ$ & -- & -- & $\bullet$ & $\bullet$ & $\circ$ & $\bullet$ & -- & -- & Mobile edge intelligence, not clinical care \\
+\rowcolor{tablestripe}Zheng et al.~\cite{Zheng2026DTtoWM} & $\circ$ & -- & -- & $\bullet$ & $\bullet$ & $\circ$ & $\bullet$ & -- & -- & Mobile edge intelligence, not clinical care \\
 \addlinespace[1pt]
 Chen et al.~\cite{chen2024genaitwin} & $\bullet$ & -- & $\bullet$ & $\bullet$ & -- & $\circ$ & -- & -- & -- & Generative human twins; no model comparison \\
 \addlinespace[1pt]
-Amin \& Hossain~\cite{amin2021edgeintel} & $\bullet$ & -- & $\bullet$ & -- & -- & $\circ$ & $\bullet$ & -- & -- & Edge-AI offloading; no model families or twins \\
+\rowcolor{tablestripe}Amin \& Hossain~\cite{amin2021edgeintel} & $\bullet$ & -- & $\bullet$ & -- & -- & $\circ$ & $\bullet$ & -- & -- & Edge-AI offloading; no model families or twins \\
 \addlinespace[1pt]
 Nguyen et al.~\cite{nguyen2022FLsmarthealthcare} & $\bullet$ & -- & $\bullet$ & -- & -- & $\bullet$ & $\circ$ & -- & -- & Federated aggregation; no spatiotemporal learning \\
 \addlinespace[1pt]
-Zhang et al.~\cite{zhang2022harreview} & $\circ$ & $\bullet$ & $\bullet$ & -- & -- & $\circ$ & $\circ$ & $\bullet$ & -- & Wearable activity recognition; no twin layer \\
+\rowcolor{tablestripe}Zhang et al.~\cite{zhang2022harreview} & $\circ$ & $\bullet$ & $\bullet$ & -- & -- & $\circ$ & $\circ$ & $\bullet$ & -- & Wearable activity recognition; no twin layer \\
 \addlinespace[1pt]
 \textbf{This survey} & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & Sensing-to-decision mapping (Fig.~\ref{fig:taxonomy}); logged search; reported vs inferred deployment \\
 \bottomrule
@@ -144,19 +147,19 @@ Zhang et al.~\cite{zhang2022harreview} & $\circ$ & $\bullet$ & $\bullet$ & -- & 
 \midrule
 Wang et al.~\cite{wang2022deep} & Generic spatiotemporal data mining & Taxonomy of spatiotemporal data types and deep architectures & Targets traffic and climate; no clinical tasks, no device-to-data relation, no twins \\
 \addlinespace[2pt]
-Atluri et al.~\cite{atluri2018stdm} & Generic spatiotemporal data mining & Problem and method taxonomy for spatiotemporal mining & Predates current deep spatiotemporal families; not health; no deployment view \\
+\rowcolor{tablestripe}Atluri et al.~\cite{atluri2018stdm} & Generic spatiotemporal data mining & Problem and method taxonomy for spatiotemporal mining & Predates current deep spatiotemporal families; not health; no deployment view \\
 \addlinespace[2pt]
 Miotto et al.~\cite{miotto2018deeplearning} & Deep learning for healthcare & Clinical deep learning tasks and data modalities & Records treated as sequences; no spatial context, no sensing or placement layer \\
 \addlinespace[2pt]
-Busnatu et al.~\cite{Busnatu2022} & Digital health and biotelemetry & Remote monitoring devices for personalized medicine & Device oriented; no spatiotemporal model families and no quantitative synthesis \\
+\rowcolor{tablestripe}Busnatu et al.~\cite{Busnatu2022} & Digital health and biotelemetry & Remote monitoring devices for personalized medicine & Device oriented; no spatiotemporal model families and no quantitative synthesis \\
 \addlinespace[2pt]
 Shukla \& Marlin~\cite{shukla2021irregular} & Irregularly sampled time series & Principles and models for irregular sampling and missingness & Temporal only; no spatial support, no twin or simulation layer \\
 \addlinespace[2pt]
-Wang et al.~\cite{Wang2023Survey} & Digital twins (IoT) & Twin architecture, enabling technologies, security and privacy & General IoT twins rather than patient twins; no health spatiotemporal model comparison \\
+\rowcolor{tablestripe}Wang et al.~\cite{Wang2023Survey} & Digital twins (IoT) & Twin architecture, enabling technologies, security and privacy & General IoT twins rather than patient twins; no health spatiotemporal model comparison \\
 \addlinespace[2pt]
 Sel et al.~\cite{Sel2025VVUQ} & Digital twins for precision medicine & Verification, validation, and uncertainty quantification & Validation methodology only; no model family comparison, no world models \\
 \addlinespace[2pt]
-Zheng et al.~\cite{Zheng2026DTtoWM} & Digital twins to world models & Conceptual transfer from twins to world models & Framed for mobile edge general intelligence, not clinical care; no health evaluation \\
+\rowcolor{tablestripe}Zheng et al.~\cite{Zheng2026DTtoWM} & Digital twins to world models & Conceptual transfer from twins to world models & Framed for mobile edge general intelligence, not clinical care; no health evaluation \\
 \bottomrule
 \end{tabularx}
 \fi
@@ -558,19 +561,19 @@ Transformer based longitudinal models further add global temporal attention and 
 \midrule
 CNN--RNN hybrid & CNN over grids; RNN or ConvLSTM over steps & Moderate--high; gridded data with temporal order & Image sequences; wearable forecasting; regional incidence \\
 \addlinespace[2pt]
-STGNN & Graph aggregation (GCN, GAT); temporal layers & High; needs an explicit graph & Patient flow; multi-sensor monitoring; epidemic spread \\
+\rowcolor{tablestripe}STGNN & Graph aggregation (GCN, GAT); temporal layers & High; needs an explicit graph & Patient flow; multi-sensor monitoring; epidemic spread \\
 \addlinespace[2pt]
 Transformer ST & Attention over spatial tokens and time; no spatial prior & High--very high; large data, pre-training helps & Longitudinal records; climate--health; multimodal fusion \\
 \addlinespace[2pt]
-3D-CNN and hybrids & Joint convolution over space and depth or time & High; volumetric or video data & Echocardiography; fMRI sequences; motion assessment \\
+\rowcolor{tablestripe}3D-CNN and hybrids & Joint convolution over space and depth or time & High; volumetric or video data & Echocardiography; fMRI sequences; motion assessment \\
 \addlinespace[2pt]
 AE / SAE / VAE & Latent compression; sequential encoder for time & Low--moderate; can exploit unlabeled data & Vitals anomaly detection; imputation; phenotype discovery \\
 \addlinespace[2pt]
-State space / Mamba & Spatial structure via tokenization; linear-time recurrence & Low--moderate; efficient on very long sequences & CGM, ECG, EEG streams; long-horizon trajectories \\
+\rowcolor{tablestripe}State space / Mamba & Spatial structure via tokenization; linear-time recurrence & Low--moderate; efficient on very long sequences & CGM, ECG, EEG streams; long-horizon trajectories \\
 \addlinespace[2pt]
 GAN & CNN or GNN backbones; temporal or conditional generators & Moderate--high; augments scarce cohorts & Synthetic images and signals; imputation \\
 \addlinespace[2pt]
-DDPM (diffusion) & U-Net denoiser conditioned on time or sequence context & High; moderate--large data & High-fidelity synthesis; irregular measurement imputation \\
+\rowcolor{tablestripe}DDPM (diffusion) & U-Net denoiser conditioned on time or sequence context & High; moderate--large data & High-fidelity synthesis; irregular measurement imputation \\
 \addlinespace[2pt]
 World model & Encoder to latent state; action-conditioned rollout & High; needs observation--action sequences & Patient-state simulation; counterfactual planning \\
 \bottomrule
@@ -597,7 +600,7 @@ STGNN
 & Temporal modules (LSTM, GRU, or temporal convolution) capture evolution along the time axis
 & High
 & Requires explicit graph structure (e.g., adjacency matrix); moderate to large labeled data
-& Hospital network patient flow; multi-sensor physiological monitoring; epidemic spread over contact/mobility networks \\
+\rowcolor{tablestripe}& Hospital network patient flow; multi-sensor physiological monitoring; epidemic spread over contact/mobility networks \\
  
 \addlinespace[4pt]
  
@@ -615,7 +618,7 @@ Transformer-based ST
 & Temporal dynamics learned implicitly through the depth axis of 3D convolution kernels
 & High
 & High-dimensional volumetric or video-like data (e.g., $H \times W \times T$)
-& Medical video analysis (e.g., echocardiography, surgical video); fMRI/brain imaging sequences; motion-based rehabilitation assessment \\
+\rowcolor{tablestripe}& Medical video analysis (e.g., echocardiography, surgical video); fMRI/brain imaging sequences; motion-based rehabilitation assessment \\
 
 \addlinespace[4pt]
 
@@ -633,7 +636,7 @@ State-Space Models / Mamba
 & Selective state-space recurrence captures long-range temporal dependencies in linear time
 & Low to Moderate
 & Efficient on very long sequences; moderate labeled data
-& Long continuous physiological streams (CGM, ECG, EEG); long-horizon longitudinal trajectories; long medical video \\
+\rowcolor{tablestripe}& Long continuous physiological streams (CGM, ECG, EEG); long-horizon longitudinal trajectories; long medical video \\
 
 \addlinespace[4pt]
 
@@ -651,7 +654,7 @@ DDPM (Diffusion)
 & Temporal or spatiotemporal dynamics modeled by conditioning the denoiser on time or sequence context
 & High
 & Moderate to large data; stable training with high sample fidelity
-& High-fidelity medical image and signal synthesis and denoising; imputation of irregular measurements; data augmentation \\
+\rowcolor{tablestripe}& High-fidelity medical image and signal synthesis and denoising; imputation of irregular measurements; data augmentation \\
 
 \addlinespace[4pt]
 
@@ -715,19 +718,19 @@ Across these domains, several recurring patterns guide model selection and deplo
 \midrule
 Dietary behavior~\cite{Rouast2020IntakeGesture,Kyritsis2019EatingBehavior} & Body worn inertial sensors and cameras, free living & n/r (offline) $\rightarrow$ on-device or phone gateway; gesture models are small enough for the wearable tier & Sample (individual) & n/r \\
 \addlinespace[2pt]
-Diabetes, CGM forecasting~\cite{Li2020GluNet,Lim2025VirtualCGM} & Continuous glucose monitor plus life-log on the body & n/r (offline) $\rightarrow$ phone gateway; 30--60\,min horizons tolerate gateway latency & Sample (individual) & n/r \\
+\rowcolor{tablestripe}Diabetes, CGM forecasting~\cite{Li2020GluNet,Lim2025VirtualCGM} & Continuous glucose monitor plus life-log on the body & n/r (offline) $\rightarrow$ phone gateway; 30--60\,min horizons tolerate gateway latency & Sample (individual) & n/r \\
 \addlinespace[2pt]
 Diabetes, spatial epidemiology~\cite{XiaoLi2016DiabetesSpatiotemporal} & Survey and census registries; no personal device & Server or cloud, batch & Population (48 states) & n/a \\
 \addlinespace[2pt]
-Depression, EEG~\cite{2} & Clinical EEG cap, in-clinic session & n/r $\rightarrow$ edge inference plausible with consumer EEG headsets & Sample (individual) & n/r \\
+\rowcolor{tablestripe}Depression, EEG~\cite{2} & Clinical EEG cap, in-clinic session & n/r $\rightarrow$ edge inference plausible with consumer EEG headsets & Sample (individual) & n/r \\
 \addlinespace[2pt]
 Depression, fMRI~\cite{4,9} & Hospital scanner; intermittent, not a continuous stream & Server & Sample (individual) & n/r \\
 \addlinespace[2pt]
-Depression, population counts~\cite{3} & National surveillance reporting & Server or cloud, batch & Population (national) & n/a \\
+\rowcolor{tablestripe}Depression, population counts~\cite{3} & National surveillance reporting & Server or cloud, batch & Population (national) & n/a \\
 \addlinespace[2pt]
 Cardiac imaging~\cite{5,6} & Hospital CMR, CT, echocardiography & Server $\rightarrow$ scanner-side edge & Sample (individual) & Network pruning reported~\cite{5}; latency and memory n/r \\
 \addlinespace[2pt]
-Cardiac electrophysiology~\cite{7} & Simulation and intracardiac electrodes & Server & Sample (simulated) & n/r \\
+\rowcolor{tablestripe}Cardiac electrophysiology~\cite{7} & Simulation and intracardiac electrodes & Server & Sample (simulated) & n/r \\
 \addlinespace[2pt]
 Longitudinal clinical and registry~\cite{lin2022deep,nitski2021long,glaser2022deep} & EHR, transplant registry, serial DXA; intermittent clinical acquisition & Server or cloud, batch at each visit & Sample (individual) & n/r \\
 \bottomrule
@@ -792,36 +795,36 @@ Glaser et al.~\cite{glaser2022deep} predict all-cause mortality from longitudina
 \toprule
 \textbf{Study} & \textbf{Cl.} & \textbf{Model} & \textbf{Validation} & \textbf{Task; reported metric} \\
 \midrule
-\multicolumn{5}{l}{\emph{Glycemic forecasting and inference}} \\
+\rowcolor{tablegroup}\multicolumn{5}{l}{\emph{Glycemic forecasting and inference}} \\
 Li et al.~\cite{Li2020GluNet} & A, D & Dilated CNN (GluNet) & Within-subject; also 5 subj.\ $\to$ unseen & Diabetes: 30/60-min forecast; RMSE 8.9/19.9 \\
-Lim et al.~\cite{Lim2025VirtualCGM} & A & BiLSTM $+$ attention & Within-subject, in time & Diabetes: Glucose inference; RMSE 19.5 mg/dL \\
+\rowcolor{tablestripe}Lim et al.~\cite{Lim2025VirtualCGM} & A & BiLSTM $+$ attention & Within-subject, in time & Diabetes: Glucose inference; RMSE 19.5 mg/dL \\
 \addlinespace[2pt]
-\multicolumn{5}{l}{\emph{Detection and estimation from wearable or ambient sensing}} \\
+\rowcolor{tablegroup}\multicolumn{5}{l}{\emph{Detection and estimation from wearable or ambient sensing}} \\
 Kyritsis et al.~\cite{Kyritsis2019EatingBehavior} & A & CNN $+$ LSTM & Leave-one-subject-out & Dietary: Intake-cycle detection; F1 0.913 \\
-Liu et al.~\cite{liu2024cignn} & A & Causality-informed STGNN & Leave-one-subject-out & Cardiac: BP estimation; MAD 3.2/1.9 mmHg \\
+\rowcolor{tablestripe}Liu et al.~\cite{liu2024cignn} & A & Causality-informed STGNN & Leave-one-subject-out & Cardiac: BP estimation; MAD 3.2/1.9 mmHg \\
 Verbiest et al.~\cite{verbiest2023gaitstride} & A & Embedded CNN (int8, MCU) & Subject-wise 10-fold & Gait: Stride length; bias 0.07 $\pm$ 4.3\,cm \\
-Herath et al.~\cite{herath2026parkinson} & A & Pretrained ST graph encoder & Subject-disjoint nested 5-fold & Parkinson's: PD detection; AUC 0.84 \\
+\rowcolor{tablestripe}Herath et al.~\cite{herath2026parkinson} & A & Pretrained ST graph encoder & Subject-disjoint nested 5-fold & Parkinson's: PD detection; AUC 0.84 \\
 Liu et al.~\cite{liu2025sleepposture} & A & Parallel CNN (accel.\ array) & Grid search, CV; subject split n/r & Sleep: Posture classification; acc.\ 98.4\% \\
-Chan et al.~\cite{chan2026sitstand} & A & STS Dynamics Net & Subject-level hold-out & Knee OA: OA detection; AUC 0.78 over pace 0.66 \\
+\rowcolor{tablestripe}Chan et al.~\cite{chan2026sitstand} & A & STS Dynamics Net & Subject-level hold-out & Knee OA: OA detection; AUC 0.78 over pace 0.66 \\
 Wang et al.~\cite{wang2025vo2} & A & CNN$+$LSTM $+$ attention & 3 held out, six-fold CV & Exercise: Oxygen uptake; $R^2$ 0.96 over LSTM 0.93 \\
-Zhu et al.~\cite{zhu2024ippg} & A & CNN $+$ temporal shift & Split n/r & Respiratory: SpO$_2$; MAE 1.10\%, RMSE 1.19\% \\
+\rowcolor{tablestripe}Zhu et al.~\cite{zhu2024ippg} & A & CNN $+$ temporal shift & Split n/r & Respiratory: SpO$_2$; MAE 1.10\%, RMSE 1.19\% \\
 Lin et al.~\cite{lin2024smapen} & A & Multi-scale patching encoder & Within-subject, per movement & Rehabilitation: Hand kinematics; $R^2$ 0.82, CC 0.91 \\
 \addlinespace[2pt]
-\multicolumn{5}{l}{\emph{Classification and segmentation from clinical instruments}} \\
+\rowcolor{tablegroup}\multicolumn{5}{l}{\emph{Classification and segmentation from clinical instruments}} \\
 Liu et al.~\cite{2} & B & CNN$+$GRU brain-map & Within-cohort & Depression, EEG: Classification; acc.\ 89.6\% \\
-Zhang et al.~\cite{9} & B & STANet (CNN$+$RNN) & Within-cohort & Depression, fMRI: Classification; acc.\ 82.4\% \\
+\rowcolor{tablestripe}Zhang et al.~\cite{9} & B & STANet (CNN$+$RNN) & Within-cohort & Depression, fMRI: Classification; acc.\ 82.4\% \\
 Kong et al.~\cite{4} & B & Spatiotemporal GCN & Two cohorts, within each & Depression, fMRI: Diagnosis; acc.\ 84.1\% \\
-Hussein et al.~\cite{hussein2022seizure} & B & Multi-channel ViT & Per-patient; segment split & Epilepsy: Seizure prediction; sens.\ 99.8\%/90.3\% \\
+\rowcolor{tablestripe}Hussein et al.~\cite{hussein2022seizure} & B & Multi-channel ViT & Per-patient; segment split & Epilepsy: Seizure prediction; sens.\ 99.8\%/90.3\% \\
 Li et al.~\cite{li2026edgeischemia} & B & Phase-space CNN fusion & Subject-level 70/10/20 & Cardiac MCG: Ischemia screening; AUC 0.865 \\
-Bohoran et al.~\cite{5} & B & Pruned BConvLSTM U-Net & Multicentre, random split & Cardiac CMR: Aortic segmentation; Dice 0.989 \\
+\rowcolor{tablestripe}Bohoran et al.~\cite{5} & B & Pruned BConvLSTM U-Net & Multicentre, random split & Cardiac CMR: Aortic segmentation; Dice 0.989 \\
 \addlinespace[2pt]
-\multicolumn{5}{l}{\emph{Population-level forecasting and mapping}} \\
+\rowcolor{tablegroup}\multicolumn{5}{l}{\emph{Population-level forecasting and mapping}} \\
 Thaipisutikul et al.~\cite{3} & C & Multivariate CNN & Hold-out in time & Depression, population: Forecasting; MAE 449.7 \\
-Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & C & Bayesian spatiotemporal & No split & Diabetes: Prevalence mapping; 8.7\%$\to$11.2\% \\
+\rowcolor{tablestripe}Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & C & Bayesian spatiotemporal & No split & Diabetes: Prevalence mapping; 8.7\%$\to$11.2\% \\
 \addlinespace[2pt]
-\multicolumn{5}{l}{\emph{Longitudinal risk prediction}} \\
+\rowcolor{tablegroup}\multicolumn{5}{l}{\emph{Longitudinal risk prediction}} \\
 Lin \& Luo~\cite{lin2022deep} & C & TransformerJM & Two cohorts, refitted & Dynamic survival; iAUC 0.89/0.81 \\
-Nitski et al.~\cite{nitski2021long} & C & Transformer & UHN, fine-tuned & 1/5-yr mortality; AUROC 0.80/0.73 \\
+\rowcolor{tablestripe}Nitski et al.~\cite{nitski2021long} & C & Transformer & UHN, fine-tuned & 1/5-yr mortality; AUROC 0.80/0.73 \\
 Glaser et al.~\cite{glaser2022deep} & B & DenseNet $+$ RNN & Within-cohort & All-cause mortality; AUROC 0.79 \\
 \bottomrule
 \multicolumn{5}{@{}>{\raggedright\arraybackslash}p{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize Cl.\ (evidence class): \textbf{A} body-worn or consumer device; \textbf{B} clinical instrument; \textbf{C} clinic-visit, registry or survey records; \textbf{D} simulation. \emph{Within-cohort}: one cohort and protocol, split internally. \emph{Two cohorts}: a second cohort was used but the model refitted or fine-tuned on it, which is not an untouched external test. Metrics are not comparable across rows; deployment, latency and privacy per study are in Table~S7; per-study detail in Tables~S2--S5.}
@@ -836,27 +839,27 @@ Glaser et al.~\cite{glaser2022deep} & B & DenseNet $+$ RNN & Within-cohort & All
 \midrule
 Liu et al.~\cite{2} & Depression, EEG & MODMA, 53 subjects; public & Clinical EEG cap & Sensing; server & Electrode montage as a brain map & Continuous EEG epochs \\
 \addlinespace[1pt]
-Thaipisutikul et al.~\cite{3} & Depression, population & Thai national, 70 months; public & Surveillance reporting & Cloud & Provincial areal units & Monthly counts \\
+\rowcolor{tablestripe}Thaipisutikul et al.~\cite{3} & Depression, population & Thai national, 70 months; public & Surveillance reporting & Cloud & Provincial areal units & Monthly counts \\
 \addlinespace[1pt]
 Kong et al.~\cite{4} & Depression, fMRI & 2 hospital cohorts, $\sim$277; private & Hospital MRI & Cloud & Functional connectivity graph & BOLD series \\
 \addlinespace[1pt]
-Zhang et al.~\cite{9} & Depression, fMRI & OpenNeuro DS002748, 72; public & Hospital MRI & Cloud & Voxel grid and connectivity & BOLD series \\
+\rowcolor{tablestripe}Zhang et al.~\cite{9} & Depression, fMRI & OpenNeuro DS002748, 72; public & Hospital MRI & Cloud & Voxel grid and connectivity & BOLD series \\
 \addlinespace[1pt]
 Li et al.~\cite{Li2020GluNet} & Diabetes, CGM & UVA/Padova sim.\ (10) $+$ clinical; mixed & CGM & Sensing; gateway feasible & None (single subject) & 5-min glucose stream \\
 \addlinespace[1pt]
-Lim et al.~\cite{Lim2025VirtualCGM} & Diabetes, life-log & 171 adults; n/r & CGM, life-log app & Sensing; gateway feasible & None (single subject) & Irregular life-log $+$ CGM \\
+\rowcolor{tablestripe}Lim et al.~\cite{Lim2025VirtualCGM} & Diabetes, life-log & 171 adults; n/r & CGM, life-log app & Sensing; gateway feasible & None (single subject) & Irregular life-log $+$ CGM \\
 \addlinespace[1pt]
 Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & Diabetes, spatial epi. & BRFSS $+$ ACS, 48 states; public & Survey registry & Cloud & State and county areal units & Annual, 2004--2011 \\
 \addlinespace[1pt]
-Bohoran et al.~\cite{5} & Cardiac, CMR & 424 scans / 376 patients; private & CMR scanner & Edge (scanner-side) & 3D image volume & Cine frames within a cycle \\
+\rowcolor{tablestripe}Bohoran et al.~\cite{5} & Cardiac, CMR & 424 scans / 376 patients; private & CMR scanner & Edge (scanner-side) & 3D image volume & Cine frames within a cycle \\
 \addlinespace[1pt]
 Xie \& Yao~\cite{7} & Cardiac, EP & Simulation; synthetic & Intracardiac electrodes & Cloud & Cardiac surface mesh & Electrical wave series \\
 \addlinespace[1pt]
-Lin \& Luo~\cite{lin2022deep} & Longitudinal, survival & ADNI 1068 $+$ NACC 5261; public & Clinical visit records & Cloud & None & Irregular visits \\
+\rowcolor{tablestripe}Lin \& Luo~\cite{lin2022deep} & Longitudinal, survival & ADNI 1068 $+$ NACC 5261; public & Clinical visit records & Cloud & None & Irregular visits \\
 \addlinespace[1pt]
 Nitski et al.~\cite{nitski2021long} & Longitudinal, mortality & SRTR 42{,}146 $+$ UHN 3269; registry & Registry records & Cloud & None & Irregular visits \\
 \addlinespace[1pt]
-Glaser et al.~\cite{glaser2022deep} & Longitudinal, imaging & Health ABC, $>$15k scans; public & DXA scanner & Cloud & Whole-body image & Serial visits, years apart \\
+\rowcolor{tablestripe}Glaser et al.~\cite{glaser2022deep} & Longitudinal, imaging & Health ABC, $>$15k scans; public & DXA scanner & Cloud & Whole-body image & Serial visits, years apart \\
 \bottomrule
 \end{tabularx}
 \fi
@@ -876,27 +879,27 @@ Glaser et al.~\cite{glaser2022deep} & Longitudinal, imaging & Health ABC, $>$15k
 \midrule
 Liu et al.~\cite{2} & CNN$+$GRU brain-map & Within-cohort & Classification; accuracy 89.6\%, F1 90.2\% & SVM, TCN & Server; n/r \\
 \addlinespace[1pt]
-Thaipisutikul et al.~\cite{3} & Multivariate CNN (MONDEP) & Hold-out & Forecasting; MAE 449.7, RMSE 528.1 & SARIMAX, LSTM, TS-Transformer & Server; n/r \\
+\rowcolor{tablestripe}Thaipisutikul et al.~\cite{3} & Multivariate CNN (MONDEP) & Hold-out & Forecasting; MAE 449.7, RMSE 528.1 & SARIMAX, LSTM, TS-Transformer & Server; n/r \\
 \addlinespace[1pt]
 Kong et al.~\cite{4} & Spatiotemporal GCN & Two cohorts & Diagnosis acc.\ 84.1\%; treatment response 89.6\% & SVM, RF, GCN & Server; n/r \\
 \addlinespace[1pt]
-Zhang et al.~\cite{9} & STANet (CNN$+$RNN, AFGRU) & Within-cohort & Classification; accuracy 82.4\%, AUC 90.7\% & SVM, LSTM, Conv-GRU & Server; n/r \\
+\rowcolor{tablestripe}Zhang et al.~\cite{9} & STANet (CNN$+$RNN, AFGRU) & Within-cohort & Classification; accuracy 82.4\%, AUC 90.7\% & SVM, LSTM, Conv-GRU & Server; n/r \\
 \addlinespace[1pt]
 Li et al.~\cite{Li2020GluNet} & Dilated CNN (GluNet) & Simulation $+$ clinical & 30/60-min forecast; RMSE 8.9/19.9 mg/dL (sim.) & SVR, ARX, NNPG & Gateway feasible; n/r \\
 \addlinespace[1pt]
-Lim et al.~\cite{Lim2025VirtualCGM} & BiLSTM $+$ dual attention & Within-cohort & Glucose inference; RMSE 19.5 mg/dL & n/r & Gateway feasible; n/r \\
+\rowcolor{tablestripe}Lim et al.~\cite{Lim2025VirtualCGM} & BiLSTM $+$ dual attention & Within-cohort & Glucose inference; RMSE 19.5 mg/dL & n/r & Gateway feasible; n/r \\
 \addlinespace[1pt]
 Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & Bayesian spatiotemporal (STAR) & n/r & Prevalence mapping; 8.7\%$\to$11.2\% (2004--11) & n/r (epidemiological) & Server, batch; n/r \\
 \addlinespace[1pt]
-Bohoran et al.~\cite{5} & Pruned BConvLSTM U-Net & Multicentre, random split & Aortic segmentation; Dice 0.989/0.991 & Bai et al.\ (2018) & Scanner-side; pruned model (only cost figure reported in this table) \\
+\rowcolor{tablestripe}Bohoran et al.~\cite{5} & Pruned BConvLSTM U-Net & Multicentre, random split & Aortic segmentation; Dice 0.989/0.991 & Bai et al.\ (2018) & Scanner-side; pruned model (only cost figure reported in this table) \\
 \addlinespace[1pt]
 Xie \& Yao~\cite{7} & Physics-constrained deep active learning & Simulation & Wave reconstruction; rel.\ error $\downarrow$ up to 48\% & Spatiotemporal GP & Server; n/r \\
 \addlinespace[1pt]
-Lin \& Luo~\cite{lin2022deep} & TransformerJM & Two cohorts & Dynamic survival; iAUC 0.89/0.81, best calibration & MFPCA-Cox, MATCH-net (mixed) & Server, per visit; n/r \\
+\rowcolor{tablestripe}Lin \& Luo~\cite{lin2022deep} & TransformerJM & Two cohorts & Dynamic survival; iAUC 0.89/0.81, best calibration & MFPCA-Cox, MATCH-net (mixed) & Server, per visit; n/r \\
 \addlinespace[1pt]
 Nitski et al.~\cite{nitski2021long} & Transformer & UHN, fine-tuned & 1/5-yr mortality; AUROC 0.80/0.73 & MLP, RNN, TCN, LR & Server, per visit; n/r \\
 \addlinespace[1pt]
-Glaser et al.~\cite{glaser2022deep} & DenseNet $+$ RNN & Within-cohort & All-cause mortality; AUROC 0.79 & Single-scan models & Server, per visit; n/r \\
+\rowcolor{tablestripe}Glaser et al.~\cite{glaser2022deep} & DenseNet $+$ RNN & Within-cohort & All-cause mortality; AUROC 0.79 & Single-scan models & Server, per visit; n/r \\
 \bottomrule
 \end{tabularx}
 \end{table*}
@@ -1006,19 +1009,19 @@ A world model, in the sense used here, learns a compact latent state together wi
 \midrule
 State-space / disease-progression model & $\circ$ & $\bullet$ & $\bullet$ & $\circ$ & $\bullet$ & -- & -- & 7--8 & Latent dynamics fitted to observed trajectories; identifiability and interpretability are the goal \\
 \addlinespace[2pt]
-Generative model & $\circ$ & $\bullet$ & $\circ$ & -- & $\bullet$ & -- & -- & 4--5 & Models the data distribution and can sample from it; carries no notion of intervention \\
+\rowcolor{tablestripe}Generative model & $\circ$ & $\bullet$ & $\circ$ & -- & $\bullet$ & -- & -- & 4--5 & Models the data distribution and can sample from it; carries no notion of intervention \\
 \addlinespace[2pt]
 Mechanistic simulator & -- & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\circ$ & $\circ$ & 8--9 & Transition specified from domain theory rather than learned; parameters are physically meaningful \\
 \addlinespace[2pt]
-Causal model & $\circ$ & $\circ$ & $\circ$ & $\bullet$ & $\bullet$ & -- & -- & 5--6 & Answers interventional and counterfactual queries under stated identification assumptions \\
+\rowcolor{tablestripe}Causal model & $\circ$ & $\circ$ & $\circ$ & $\bullet$ & $\bullet$ & -- & -- & 5--6 & Answers interventional and counterfactual queries under stated identification assumptions \\
 \addlinespace[2pt]
 World model & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\circ$ & -- & 3--4 & Learned \emph{action-conditioned} latent transition that can be rolled forward without the real system \\
 \addlinespace[2pt]
-Model-based reinforcement learning & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & -- & 3--4 & A world model plus an explicit reward and planner or policy that it is used to optimize \\
+\rowcolor{tablestripe}Model-based reinforcement learning & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & -- & 3--4 & A world model plus an explicit reward and planner or policy that it is used to optimize \\
 \addlinespace[2pt]
 Digital shadow & $\bullet$ & $\circ$ & $\circ$ & -- & $\bullet$ & -- & $\bullet$ & 6--7 & Automatic one-way flow from the physical instance to the virtual one; no feedback to the physical side \\
 \addlinespace[2pt]
-Digital twin & $\bullet$ & $\bullet$ & $\circ$ & $\circ$ & $\bullet$ & $\circ$ & $\bullet$ & 4--5 & Bound to one specific instance and kept synchronized, with feedback returning to that instance \\
+\rowcolor{tablestripe}Digital twin & $\bullet$ & $\bullet$ & $\circ$ & $\circ$ & $\bullet$ & $\circ$ & $\bullet$ & 4--5 & Bound to one specific instance and kept synchronized, with feedback returning to that instance \\
 \bottomrule
 \end{tabularx}
 \end{table*}
@@ -1148,31 +1151,31 @@ Future systems will likely benefit most from constrained world models synchroniz
 \midrule
 MODMA & EEG & Electrode montage as a brain map; continuous epochs & 53 subjects & Public & Liu et al.~\cite{2} \\
 \addlinespace[1pt]
-Thai national depression surveillance & Reported case counts & Provincial areal units; monthly & 70 months & Public & Thaipisutikul et al.~\cite{3} \\
+\rowcolor{tablestripe}Thai national depression surveillance & Reported case counts & Provincial areal units; monthly & 70 months & Public & Thaipisutikul et al.~\cite{3} \\
 \addlinespace[1pt]
 Two hospital cohorts (unnamed) & Resting-state fMRI & Connectivity graph; BOLD series & $\sim$277 subjects & Private & Kong et al.~\cite{4} \\
 \addlinespace[1pt]
-OpenNeuro DS002748 & Resting-state fMRI & Voxel grid; BOLD series & 72 subjects & Public & Zhang et al.~\cite{9} \\
+\rowcolor{tablestripe}OpenNeuro DS002748 & Resting-state fMRI & Voxel grid; BOLD series & 72 subjects & Public & Zhang et al.~\cite{9} \\
 \addlinespace[1pt]
 UVA/Padova T1D simulator & Simulated CGM & None; 5-min stream & 10 virtual subjects & Simulator output & Li et al.~\cite{Li2020GluNet} \\
 \addlinespace[1pt]
-Clinical CGM records (unnamed) & CGM & None; 5-min stream & n/r & Mixed & Li et al.~\cite{Li2020GluNet} \\
+\rowcolor{tablestripe}Clinical CGM records (unnamed) & CGM & None; 5-min stream & n/r & Mixed & Li et al.~\cite{Li2020GluNet} \\
 \addlinespace[1pt]
 Life-log and CGM cohort (unnamed) & CGM, life-log & None; irregular entries & 171 adults & n/r & Lim et al.~\cite{Lim2025VirtualCGM} \\
 \addlinespace[1pt]
-BRFSS $+$ ACS & Survey and census & State and county areal units; annual & 48 states, 2004--2011 & Public & Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} \\
+\rowcolor{tablestripe}BRFSS $+$ ACS & Survey and census & State and county areal units; annual & 48 states, 2004--2011 & Public & Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} \\
 \addlinespace[1pt]
 Multicentre CMR cohort (unnamed) & Cardiac MR & 3D volume; cine frames & 424 scans / 376 patients & Private & Bohoran et al.~\cite{5} \\
 \addlinespace[1pt]
-Simulated cardiac electrophysiology & Electrical potential & Cardiac surface mesh; wave series & Synthetic & Synthetic & Xie \& Yao~\cite{7} \\
+\rowcolor{tablestripe}Simulated cardiac electrophysiology & Electrical potential & Cardiac surface mesh; wave series & Synthetic & Synthetic & Xie \& Yao~\cite{7} \\
 \addlinespace[1pt]
 ADNI & Clinical visit records & None; irregular visits & 1068 subjects & Public & Lin \& Luo~\cite{lin2022deep} \\
 \addlinespace[1pt]
-NACC & Clinical visit records & None; irregular visits & 5261 subjects & Public & Lin \& Luo~\cite{lin2022deep} \\
+\rowcolor{tablestripe}NACC & Clinical visit records & None; irregular visits & 5261 subjects & Public & Lin \& Luo~\cite{lin2022deep} \\
 \addlinespace[1pt]
 SRTR & Transplant registry & None; irregular visits & 42{,}146 recipients & Registry & Nitski et al.~\cite{nitski2021long} \\
 \addlinespace[1pt]
-UHN cohort & Transplant registry & None; irregular visits & 3269 recipients & Registry & Nitski et al.~\cite{nitski2021long} \\
+\rowcolor{tablestripe}UHN cohort & Transplant registry & None; irregular visits & 3269 recipients & Registry & Nitski et al.~\cite{nitski2021long} \\
 \addlinespace[1pt]
 Health ABC & Total-body DXA & Whole-body image; serial visits & $>$15{,}000 scans & Public & Glaser et al.~\cite{glaser2022deep} \\
 \bottomrule

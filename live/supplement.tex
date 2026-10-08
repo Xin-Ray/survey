@@ -7,6 +7,9 @@
 \usepackage{amsmath,amssymb}
 \usepackage[hidelinks]{hyperref}
 \usepackage{cite}
+\usepackage[table]{xcolor}
+\definecolor{tablestripe}{gray}{0.92}
+\definecolor{tablegroup}{gray}{0.88}
 
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
@@ -106,7 +109,7 @@ compared against.}
 \textbf{Run} & \textbf{Used for} & \textbf{Spatiot.} & \textbf{Twin} & \textbf{Both} & \textbf{Union} \\
 \midrule
 11 September 2026 & the counts reported in the paper and Figure~1 & 1{,}171 & 268 & 3 & \textbf{1{,}436} \\
-22--23 September 2026 & reproducibility check of the strings & 1{,}173 & 274 & 3 & 1{,}444 \\
+\rowcolor{tablestripe}22--23 September 2026 & reproducibility check of the strings & 1{,}173 & 274 & 3 & 1{,}444 \\
 29 September 2026 & the cross-database comparison of Section~\ref{sec:ieeescreen} & 1{,}180 & 279 & 3 & 1{,}456 \\
 \bottomrule
 \end{tabular}
@@ -510,27 +513,27 @@ One row per dataset. Entries are as reported by the study or the dataset provide
 \midrule
 FIC intake cycles (Kyritsis et al.~\cite{Kyritsis2019EatingBehavior}) & 12 subjects, 21 meals & Wrist acceleration and orientation velocity & Off-the-shelf smartwatch; model n/r & 100\,Hz; one meal per recording & None; wrist frame \\
 \addlinespace[1pt]
-MODMA EEG (Liu et al.~\cite{2}) & 53 subjects, 24 with depression & Resting-state EEG & 128-channel HydroCel Geodesic Sensor Net & 250\,Hz; session length n/r & 128 scalp electrodes \\
+\rowcolor{tablestripe}MODMA EEG (Liu et al.~\cite{2}) & 53 subjects, 24 with depression & Resting-state EEG & 128-channel HydroCel Geodesic Sensor Net & 250\,Hz; session length n/r & 128 scalp electrodes \\
 \addlinespace[1pt]
 OpenNeuro DS002748 (Zhang et al.~\cite{9}) & 72 subjects, 51 with depression & Resting-state fMRI & 3\,T scanner, echo-planar imaging & TR 2500\,ms; 6\,min per subject & Voxels 2 by 2 by 5\,mm \\
 \addlinespace[1pt]
-Two-site clinical rs-fMRI (Kong et al.~\cite{4}) & 277 subjects across two hospitals & Resting-state fMRI and T1 & 3\,T hospital MRI, two sites & TR 2000\,ms, 240 volumes; 8\,min & In-plane 3.75\,mm; 4\,mm slices \\
+\rowcolor{tablestripe}Two-site clinical rs-fMRI (Kong et al.~\cite{4}) & 277 subjects across two hospitals & Resting-state fMRI and T1 & 3\,T hospital MRI, two sites & TR 2000\,ms, 240 volumes; 8\,min & In-plane 3.75\,mm; 4\,mm slices \\
 \addlinespace[1pt]
 Thai Area Health District depression counts (Thaipisutikul et al.~\cite{3}) & National; 13 districts plus country level & Administrative case counts & None; surveillance reporting & Monthly; Oct.\ 2016 to Jul.\ 2022, 70 points & Area Health District \\
 \addlinespace[1pt]
-UVA/Padova simulator, ABC4D and OhioT1DM (Li et al.~\cite{Li2020GluNet}) & 10 virtual adults and 10 adolescents; 10 and 6 subjects with type 1 diabetes & CGM, insulin doses, meal records, and a fitness band in OhioT1DM & Dexcom CGM with a patient-facing app; insulin pumps & Every 5\,min (288 points per day); 180 simulated days, about 180 days in ABC4D and 8 weeks in OhioT1DM & None \\
+\rowcolor{tablestripe}UVA/Padova simulator, ABC4D and OhioT1DM (Li et al.~\cite{Li2020GluNet}) & 10 virtual adults and 10 adolescents; 10 and 6 subjects with type 1 diabetes & CGM, insulin doses, meal records, and a fitness band in OhioT1DM & Dexcom CGM with a patient-facing app; insulin pumps & Every 5\,min (288 points per day); 180 simulated days, about 180 days in ABC4D and 8 weeks in OhioT1DM & None \\
 \addlinespace[1pt]
 Life-log and CGM app cohort (Lim et al.~\cite{Lim2025VirtualCGM}) & 171 healthy adults & CGM with app-entered diet, exercise and weight & Dexcom G7 and a smartphone app & Every 15\,min; at least 12 days per subject & None \\
 \addlinespace[1pt]
-BRFSS small-area estimates with ACS covariates (Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal}) & 3109 counties in 48 contiguous states & Survey prevalence plus socioeconomic covariates & None; survey instruments & Annual, 2004--2011; ACS five-year estimate 2007--2011 & County \\
+\rowcolor{tablestripe}BRFSS small-area estimates with ACS covariates (Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal}) & 3109 counties in 48 contiguous states & Survey prevalence plus socioeconomic covariates & None; survey instruments & Annual, 2004--2011; ACS five-year estimate 2007--2011 & County \\
 \addlinespace[1pt]
 Multicentre aortic CMR (Bohoran et al.~\cite{5}) & 376 patients, 424 scans & Cine cardiovascular MRI & 1.5\,T and 3\,T, four scanners at three centres & Frames within one cardiac cycle; rate n/r & Image plane through the aorta \\
 \addlinespace[1pt]
-ADNI (Lin and Luo~\cite{lin2022deep}) & 1068 patients with mild cognitive impairment & Clinical, cognitive and imaging-derived visit data & None; clinic visits & Six-monthly then annual; mean follow-up 3.3\,y & None \\
+\rowcolor{tablestripe}ADNI (Lin and Luo~\cite{lin2022deep}) & 1068 patients with mild cognitive impairment & Clinical, cognitive and imaging-derived visit data & None; clinic visits & Six-monthly then annual; mean follow-up 3.3\,y & None \\
 \addlinespace[1pt]
 NACC (Lin and Luo~\cite{lin2022deep}) & 5261 patients with mild cognitive impairment & Clinical visit variables & None; clinic visits & Typically annual; mean follow-up 2.8\,y & None \\
 \addlinespace[1pt]
-SRTR and UHN registries (Nitski et al.~\cite{nitski2021long}) & 42\,146 and 3269 liver transplant recipients & Registry clinical and laboratory records & None; registry and hospital records & Six-monthly then annual (SRTR), every 1--3 months (UHN); median follow-up 8.0 and 5.8\,y & None \\
+\rowcolor{tablestripe}SRTR and UHN registries (Nitski et al.~\cite{nitski2021long}) & 42\,146 and 3269 liver transplant recipients & Registry clinical and laboratory records & None; registry and hospital records & Six-monthly then annual (SRTR), every 1--3 months (UHN); median follow-up 8.0 and 5.8\,y & None \\
 \addlinespace[1pt]
 Health ABC DXA (Glaser et al.~\cite{glaser2022deep}) & Over 3000 adults, over 15\,000 scans & Whole-body DXA plus questionnaire and exam & Hologic QDR 4500 & Up to eight occasions over 16 years & Scan image \\
 \bottomrule
@@ -557,27 +560,27 @@ One row per dataset. Entries are as reported by the study or the dataset provide
 \midrule
 FIC intake cycles (Kyritsis et al.~\cite{Kyritsis2019EatingBehavior}) & n/r & Public, author web page & In-meal intake-cycle and eating-behaviour detection & D & Twelve subjects and staged meals; no free-living sessions \\
 \addlinespace[1pt]
-MODMA EEG (Liu et al.~\cite{2}) & Label taken from the BDI score where a diagnosis was absent & Public on application & Depression classification & -- & Clinical cap rather than a wearable; 53 subjects \\
+\rowcolor{tablestripe}MODMA EEG (Liu et al.~\cite{2}) & Label taken from the BDI score where a diagnosis was absent & Public on application & Depression classification & -- & Clinical cap rather than a wearable; 53 subjects \\
 \addlinespace[1pt]
 OpenNeuro DS002748 (Zhang et al.~\cite{9}) & n/r & Public, OpenNeuro & Depression classification & -- & Scanner-bound single session; no device stream \\
 \addlinespace[1pt]
-Two-site clinical rs-fMRI (Kong et al.~\cite{4}) & Scans discarded for head motion or ghosting & Private, two hospitals & Diagnosis and two-week treatment response & M & Not obtainable; response labels only at one of the two sites \\
+\rowcolor{tablestripe}Two-site clinical rs-fMRI (Kong et al.~\cite{4}) & Scans discarded for head motion or ghosting & Private, two hospitals & Diagnosis and two-week treatment response & M & Not obtainable; response labels only at one of the two sites \\
 \addlinespace[1pt]
 Thai Area Health District depression counts (Thaipisutikul et al.~\cite{3}) & Mean imputation & Public; authors release code & District and national forecasting & -- & Seventy monthly aggregates; no individual or device data \\
 \addlinespace[1pt]
-UVA/Padova simulator, ABC4D and OhioT1DM (Li et al.~\cite{Li2020GluNet}) & Outliers removed, CGM interpolated across short gaps, insulin and meal entries filled or estimated & Simulator under licence; OhioT1DM on request; ABC4D not public & Glucose forecasting at 30 and 60\,min & D, T & Two of the three sets are simulated or single-project; accuracy degrades with long data gaps, as the authors note \\
+\rowcolor{tablestripe}UVA/Padova simulator, ABC4D and OhioT1DM (Li et al.~\cite{Li2020GluNet}) & Outliers removed, CGM interpolated across short gaps, insulin and meal entries filled or estimated & Simulator under licence; OhioT1DM on request; ABC4D not public & Glucose forecasting at 30 and 60\,min & D, T & Two of the three sets are simulated or single-project; accuracy degrades with long data gaps, as the authors note \\
 \addlinespace[1pt]
 Life-log and CGM app cohort (Lim et al.~\cite{Lim2025VirtualCGM}) & Kept only where coverage exceeded 50\% of points & Not public & Glucose inference and short-horizon prediction from life-log & D, T & Healthy adults only; self-entered diet and exercise \\
 \addlinespace[1pt]
-BRFSS small-area estimates with ACS covariates (Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal}) & Five-year ACS estimates reduce county-level gaps & Public, CDC and US Census & Prevalence mapping and vulnerability ranking & -- & Ecological aggregates; no individual or device data \\
+\rowcolor{tablestripe}BRFSS small-area estimates with ACS covariates (Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal}) & Five-year ACS estimates reduce county-level gaps & Public, CDC and US Census & Prevalence mapping and vulnerability ranking & -- & Ecological aggregates; no individual or device data \\
 \addlinespace[1pt]
 Multicentre aortic CMR (Bohoran et al.~\cite{5}) & n/r & On request to the principal investigator; code public & Aortic lumen segmentation and distensibility & M & Not public; the unit of record is a scan, not a patient \\
 \addlinespace[1pt]
-ADNI (Lin and Luo~\cite{lin2022deep}) & NA on a fixed six-month grid & Public on application & Dynamic survival prediction & M & Visit cadence set by a protocol, not by a device \\
+\rowcolor{tablestripe}ADNI (Lin and Luo~\cite{lin2022deep}) & NA on a fixed six-month grid & Public on application & Dynamic survival prediction & M & Visit cadence set by a protocol, not by a device \\
 \addlinespace[1pt]
 NACC (Lin and Luo~\cite{lin2022deep}) & Visits with any missing variable dropped & Public on application & Dynamic survival prediction, second cohort & M & Sparse annual records; no device stream \\
 \addlinespace[1pt]
-SRTR and UHN registries (Nitski et al.~\cite{nitski2021long}) & Forward filled, else training-set mean; 73 excluded & SRTR on request; UHN not available; code public & Cause-specific mortality risk at each visit & M & Only 15\% of variables are shared between the two registries \\
+\rowcolor{tablestripe}SRTR and UHN registries (Nitski et al.~\cite{nitski2021long}) & Forward filled, else training-set mean; 73 excluded & SRTR on request; UHN not available; code public & Cause-specific mortality risk at each visit & M & Only 15\% of variables are shared between the two registries \\
 \addlinespace[1pt]
 Health ABC DXA (Glaser et al.~\cite{glaser2022deep}) & Backfilled with the most recent value or an out-of-range default & On request from the study; code public & All-cause mortality prediction & -- & Scanner-bound; the temporal unit is a study visit \\
 \bottomrule
@@ -644,27 +647,27 @@ means the source reports nothing on that field. Panel a: split, leakage risk, mi
 \midrule
 Kyritsis et al.~\cite{Kyritsis2019EatingBehavior} & Leave-one-subject-out over 12 subjects & Low; whole subjects held out & n/r & None; one dataset \\
 \addlinespace[2pt]
-Liu et al.~\cite{2} & Two thirds of samples for training, chosen at random, with LOOCV inside & High; samples, not subjects, were split & Label taken from the BDI score where a diagnosis was absent & A second private cohort, but the model is retrained on it \\
+\rowcolor{tablestripe}Liu et al.~\cite{2} & Two thirds of samples for training, chosen at random, with LOOCV inside & High; samples, not subjects, were split & Label taken from the BDI score where a diagnosis was absent & A second private cohort, but the model is retrained on it \\
 \addlinespace[2pt]
 Thaipisutikul et al.~\cite{3} & First 90\% of months for training, last 10\% for test; also five-fold CV & Low for the temporal split; the five-fold CV is not time-ordered & Mean imputation & None; one country \\
 \addlinespace[2pt]
-Kong et al.~\cite{4} & Ten-fold CV, run separately within each site & Low at subject level; no cross-site test & Scans discarded for head motion or ghosting & None; the two sites are evaluated separately \\
+\rowcolor{tablestripe}Kong et al.~\cite{4} & Ten-fold CV, run separately within each site & Low at subject level; no cross-site test & Scans discarded for head motion or ghosting & None; the two sites are evaluated separately \\
 \addlinespace[2pt]
 Zhang et al.~\cite{9} & Ten-fold CV at the subject level & Low; SMOTE applied to training folds only & n/r & None; one public cohort \\
 \addlinespace[2pt]
-Li et al.~\cite{Li2020GluNet} & Per subject: about 90 days for training and 90 for test in two sets, and the challenge split of 40 and 10 days in the third & Low within a subject; a separate test trains on five subjects and predicts the rest, giving one unseen-subject result (RMSE 24.9 against 20.6 personalized) & Outliers removed, CGM interpolated across short gaps, insulin and meal filled or estimated & Three datasets, one simulated and two clinical, with a personalized model refitted for each subject \\
+\rowcolor{tablestripe}Li et al.~\cite{Li2020GluNet} & Per subject: about 90 days for training and 90 for test in two sets, and the challenge split of 40 and 10 days in the third & Low within a subject; a separate test trains on five subjects and predicts the rest, giving one unseen-subject result (RMSE 24.9 against 20.6 personalized) & Outliers removed, CGM interpolated across short gaps, insulin and meal filled or estimated & Three datasets, one simulated and two clinical, with a personalized model refitted for each subject \\
 \addlinespace[2pt]
 Lim et al.~\cite{Lim2025VirtualCGM} & Within each subject in time: 7 days train, 1 day gap, 4 days test & Low within a subject; no held-out subjects & Subjects kept only where coverage exceeded 50\% of possible points & None; one app cohort \\
 \addlinespace[2pt]
-Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & None; posterior estimation on the full sample & Not applicable; no predictive hold-out & Five-year ACS estimates used to reduce county-level missingness & None \\
+\rowcolor{tablestripe}Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & None; posterior estimation on the full sample & Not applicable; no predictive hold-out & Five-year ACS estimates used to reduce county-level missingness & None \\
 \addlinespace[2pt]
 Bohoran et al.~\cite{5} & Random split of 424 scans into 272, 68 and 84 & Moderate; scans, not patients, were split, and 48 patients contribute more than one & n/r & None; the multicentre pool is split at random rather than by centre \\
 \addlinespace[2pt]
-Lin and Luo~\cite{lin2022deep} & Subjects split into training and test, evaluated at landmark times & Low; only data before each landmark are used & NA on a fixed six-month grid & A second cohort (NACC), with the model refitted there \\
+\rowcolor{tablestripe}Lin and Luo~\cite{lin2022deep} & Subjects split into training and test, evaluated at landmark times & Low; only data before each landmark are used & NA on a fixed six-month grid & A second cohort (NACC), with the model refitted there \\
 \addlinespace[2pt]
 Nitski et al.~\cite{nitski2021long} & Random split by patient, 80/10/10, in SRTR; five-fold CV in UHN & Low; split by patient & Forward filled, otherwise the training-set mean; 73 patients excluded & UHN evaluated, but the best model was fine-tuned on UHN first \\
 \addlinespace[2pt]
-Glaser et al.~\cite{glaser2022deep} & Split by participant, 70/10/20 & Low; split by participant & Backfilled with the most recent value or an out-of-distribution default & None; one cohort \\
+\rowcolor{tablestripe}Glaser et al.~\cite{glaser2022deep} & Split by participant, 70/10/20 & Low; split by participant & Backfilled with the most recent value or an out-of-distribution default & None; one cohort \\
 \bottomrule
 \multicolumn{5}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize LOOCV: leave-one-out cross-validation. CV: cross-validation.} \\
 \multicolumn{5}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize SMOTE: synthetic minority over-sampling technique. AUROC: area under the receiver operating characteristic curve.} \\
@@ -689,27 +692,27 @@ means the source reports nothing on that field. Panel b: calibration and uncerta
 \midrule
 Kyritsis et al.~\cite{Kyritsis2019EatingBehavior} & Calibration n/r; no interval reported & n/r & Three prior published methods & Dataset public; code n/r & None; staged meals in a laboratory \\
 \addlinespace[2pt]
-Liu et al.~\cite{2} & Calibration n/r; no interval reported & n/r & SVM, TCN and further classifiers & Data public on application; code n/r & None \\
+\rowcolor{tablestripe}Liu et al.~\cite{2} & Calibration n/r; no interval reported & n/r & SVM, TCN and further classifiers & Data public on application; code n/r & None \\
 \addlinespace[2pt]
 Thaipisutikul et al.~\cite{3} & Calibration n/r; no interval reported & Results given per district, not per population group & SARIMAX, RNN, LSTM, GRU, BiLSTM, CNN and attention variants & Source code and results released & None; administrative counts \\
 \addlinespace[2pt]
-Kong et al.~\cite{4} & Calibration n/r; no interval reported & n/r & SVM, random forest, deep autoencoder, GCN & Data private; code n/r & None; response scored at two weeks \\
+\rowcolor{tablestripe}Kong et al.~\cite{4} & Calibration n/r; no interval reported & n/r & SVM, random forest, deep autoencoder, GCN & Data private; code n/r & None; response scored at two weeks \\
 \addlinespace[2pt]
 Zhang et al.~\cite{9} & Calibration n/r; no interval reported & n/r & AdaBoost, naive Bayes, decision tree and prior work & Data public; code n/r & None \\
 \addlinespace[2pt]
-Li et al.~\cite{Li2020GluNet} & Predicts a distribution and displays 95\% bounds, but their coverage is never assessed; RMSE given as mean and standard deviation & n/r & NNPG, SVR, LVX and ARX, with computational time for all five on the same hardware & Simulator licensed, OhioT1DM public; code n/r & None; retrospective, but implemented as an Android app \\
+\rowcolor{tablestripe}Li et al.~\cite{Li2020GluNet} & Predicts a distribution and displays 95\% bounds, but their coverage is never assessed; RMSE given as mean and standard deviation & n/r & NNPG, SVR, LVX and ARX, with computational time for all five on the same hardware & Simulator licensed, OhioT1DM public; code n/r & None; retrospective, but implemented as an Android app \\
 \addlinespace[2pt]
 Lim et al.~\cite{Lim2025VirtualCGM} & Calibration n/r; error grows with horizon, no interval reported & n/r; healthy adults only & Ablations and variants of the same model; no published baseline & Data not public; code n/r & None \\
 \addlinespace[2pt]
-Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & Calibration n/r; 95\% intervals from the posterior & Estimates adjusted for age, sex and race & Two model specifications; no predictive comparator & Data public; analysis scripts n/r & None; ecological analysis \\
+\rowcolor{tablestripe}Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & Calibration n/r; 95\% intervals from the posterior & Estimates adjusted for age, sex and race & Two model specifications; no predictive comparator & Data public; analysis scripts n/r & None; ecological analysis \\
 \addlinespace[2pt]
 Bohoran et al.~\cite{5} & Calibration n/r; no interval reported & n/r; the authors note untested ages, ethnic groups and scanners & Prior state-of-the-art aortic segmentation & Code public; data on request & None; agreement with reference contours, plus energy and carbon cost \\
 \addlinespace[2pt]
-Lin and Luo~\cite{lin2022deep} & Integrated Brier score reported; 95\% intervals & n/r & Joint models and other deep survival models & Data public on application; code n/r & None \\
+\rowcolor{tablestripe}Lin and Luo~\cite{lin2022deep} & Integrated Brier score reported; 95\% intervals & n/r & Joint models and other deep survival models & Data public on application; code n/r & None \\
 \addlinespace[2pt]
 Nitski et al.~\cite{nitski2021long} & Calibration n/r; 99\% intervals by bootstrap & Hepatitis C and post-2014 subgroups; race absent from UHN & Logistic regression, MLP, RNN and TCN & Code public; SRTR on request, UHN unavailable & None; retrospective, with an illustrative dashboard \\
 \addlinespace[2pt]
-Glaser et al.~\cite{glaser2022deep} & Calibration n/r; bootstrap intervals over 1000 samples & AUROC reported for subpopulations & Metadata and single-modality models of the authors' own; no published baseline & Code public on GitHub and Zenodo; data on request & None; retrospective \\
+\rowcolor{tablestripe}Glaser et al.~\cite{glaser2022deep} & Calibration n/r; bootstrap intervals over 1000 samples & AUROC reported for subpopulations & Metadata and single-modality models of the authors' own; no published baseline & Code public on GitHub and Zenodo; data on request & None; retrospective \\
 \bottomrule
 \multicolumn{6}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize LOOCV: leave-one-out cross-validation. CV: cross-validation.} \\
 \multicolumn{6}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize SMOTE: synthetic minority over-sampling technique. AUROC: area under the receiver operating characteristic curve.} \\
@@ -733,23 +736,23 @@ those of Table~\ref{tab:S2a}. Panel a: population, modality, device, sampling an
 \midrule
 Three cuffless-BP cohorts (Liu et al.~\cite{liu2024cignn}) & 305 subjects, 102 hypertensive & ECG and PPG with derived beat features & Clinical multi-parameter monitors; Finapres reference & 1000\,Hz; 10\,min per subject & None \\
 \addlinespace[1pt]
-Single-channel SERF-MCG (Li et al.~\cite{li2026edgeischemia}) & 2118 subjects, 983 with ischemia & Magneto\-cardio\-graphy & Optically pumped magnetometer, 0--100\,Hz & n/r; one cardiac cycle per sample & None \\
+\rowcolor{tablestripe}Single-channel SERF-MCG (Li et al.~\cite{li2026edgeischemia}) & 2118 subjects, 983 with ischemia & Magneto\-cardio\-graphy & Optically pumped magnetometer, 0--100\,Hz & n/r; one cardiac cycle per sample & None \\
 \addlinespace[1pt]
 IMU gait strides (Verbiest et al.~\cite{verbiest2023gaitstride}) & 4467 strides from 15 healthy adults & Foot inertial signals & IMU with Cortex-M4F microcontroller; GAITRite reference & 102.4\,Hz; stride-length windows & None \\
 \addlinespace[1pt]
-WearGait-PD (Herath et al.~\cite{herath2026parkinson}) & 181 subjects, 100 with Parkinson's & Wearable inertial signals & Movella DOT IMUs & 100\,Hz; walking bouts & Body-segment placement \\
+\rowcolor{tablestripe}WearGait-PD (Herath et al.~\cite{herath2026parkinson}) & 181 subjects, 100 with Parkinson's & Wearable inertial signals & Movella DOT IMUs & 100\,Hz; walking bouts & Body-segment placement \\
 \addlinespace[1pt]
 Smart-bed accelerometer array (Liu et al.~\cite{liu2025sleepposture}) & 30 healthy students, 15 of each sex & Triaxial acceleration under the mattress & Distributed accelerometer array in a bed mattress & 240\,Hz; staged postures & Array positions across the mattress \\
 \addlinespace[1pt]
-Smartphone sit-to-stand videos (Chan et al.~\cite{chan2026sitstand}) & 2063 videos from 309 participants & Sagittal video with pose-derived joint angular velocity & Consumer smartphone at 2.4\,m & 30\,Hz, 1080p; seven trials each & Joint positions in the sagittal plane \\
+\rowcolor{tablestripe}Smartphone sit-to-stand videos (Chan et al.~\cite{chan2026sitstand}) & 2063 videos from 309 participants & Sagittal video with pose-derived joint angular velocity & Consumer smartphone at 2.4\,m & 30\,Hz, 1080p; seven trials each & Joint positions in the sagittal plane \\
 \addlinespace[1pt]
 Wearable exercise cohort (Wang et al.~\cite{wang2025vo2}) & 21 adults, 14 male & Heart rate, acceleration and gas exchange & Polar chest strap, accelerometer, gas analyzer & 1\,Hz; graded exercise test & None \\
 \addlinespace[1pt]
-VIPL-HR (Zhu et al.~\cite{zhu2024ippg}) & Public face-video cohort & RGB face video & Consumer cameras and webcams & 25\,fps & Face region \\
+\rowcolor{tablestripe}VIPL-HR (Zhu et al.~\cite{zhu2024ippg}) & Public face-video cohort & RGB face video & Consumer cameras and webcams & 25\,fps & Face region \\
 \addlinespace[1pt]
 Ninapro DB2 (Lin et al.~\cite{lin2024smapen}) & 40 able-bodied subjects, 40 movements & Surface EMG with glove kinematics & Delsys sEMG array; CyberGlove II & 2000\,Hz sEMG, glove resampled to match & Twelve electrode sites \\
 \addlinespace[1pt]
-CHB-MIT and Freiburg EEG (Hussein et al.~\cite{hussein2022seizure}) & 22 scalp and 18 intracranial patients & Scalp and intracranial EEG & Clinical EEG systems & 256\,Hz; 9--42 one-hour recordings per patient & Electrode montage \\
+\rowcolor{tablestripe}CHB-MIT and Freiburg EEG (Hussein et al.~\cite{hussein2022seizure}) & 22 scalp and 18 intracranial patients & Scalp and intracranial EEG & Clinical EEG systems & 256\,Hz; 9--42 one-hour recordings per patient & Electrode montage \\
 \bottomrule
 \multicolumn{6}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize Conventions, column keys and the meaning of the Fit codes are given with Table~\ref{tab:S2a}. SERF: spin-exchange relaxation-free. PPG: photoplethysmography. sEMG: surface electromyography.}
 \end{tabularx}
@@ -771,23 +774,23 @@ those of Table~\ref{tab:S2a}. Panel b: missingness, access, supported tasks, sui
 \midrule
 Three cuffless-BP cohorts (Liu et al.~\cite{liu2024cignn}) & n/r & Mixed; one cohort public & Cuffless beat-to-beat blood pressure & D & Reference is a laboratory Finapres, not ambulatory use \\
 \addlinespace[1pt]
-Single-channel SERF-MCG (Li et al.~\cite{li2026edgeischemia}) & Arrhythmia and pacemaker cases excluded & Private & Ischemia screening & -- & Shielded-room quantum sensor, not a wearable \\
+\rowcolor{tablestripe}Single-channel SERF-MCG (Li et al.~\cite{li2026edgeischemia}) & Arrhythmia and pacemaker cases excluded & Private & Ischemia screening & -- & Shielded-room quantum sensor, not a wearable \\
 \addlinespace[1pt]
 IMU gait strides (Verbiest et al.~\cite{verbiest2023gaitstride}) & n/r & n/r & On-device stride-length estimation & D & Fifteen healthy adults; no pathological gait \\
 \addlinespace[1pt]
-WearGait-PD (Herath et al.~\cite{herath2026parkinson}) & No imputation; per-fold standardization & Public & Parkinson's detection and severity tasks & D & One cohort; no second site \\
+\rowcolor{tablestripe}WearGait-PD (Herath et al.~\cite{herath2026parkinson}) & No imputation; per-fold standardization & Public & Parkinson's detection and severity tasks & D & One cohort; no second site \\
 \addlinespace[1pt]
 Smart-bed accelerometer array (Liu et al.~\cite{liu2025sleepposture}) & Transitional postures excluded & On request & Sleep-posture classification & D & Healthy young adults holding staged postures \\
 \addlinespace[1pt]
-Smartphone sit-to-stand videos (Chan et al.~\cite{chan2026sitstand}) & Low-quality videos excluded & n/r & Symptomatic knee osteoarthritis detection & D & One camera view at a fixed distance \\
+\rowcolor{tablestripe}Smartphone sit-to-stand videos (Chan et al.~\cite{chan2026sitstand}) & Low-quality videos excluded & n/r & Symptomatic knee osteoarthritis detection & D & One camera view at a fixed distance \\
 \addlinespace[1pt]
 Wearable exercise cohort (Wang et al.~\cite{wang2025vo2}) & Participants with implants excluded & On request & Oxygen-uptake estimation & D & Twenty-one young adults in a laboratory protocol \\
 \addlinespace[1pt]
-VIPL-HR (Zhu et al.~\cite{zhu2024ippg}) & n/r & Public & Remote SpO$_2$ and heart-rate estimation & D & Labels come from a finger oximeter; illumination and motion differ from clinical use \\
+\rowcolor{tablestripe}VIPL-HR (Zhu et al.~\cite{zhu2024ippg}) & n/r & Public & Remote SpO$_2$ and heart-rate estimation & D & Labels come from a finger oximeter; illumination and motion differ from clinical use \\
 \addlinespace[1pt]
 Ninapro DB2 (Lin et al.~\cite{lin2024smapen}) & n/r & Public & Continuous hand-kinematics estimation & D & Able-bodied subjects performing scripted movements \\
 \addlinespace[1pt]
-CHB-MIT and Freiburg EEG (Hussein et al.~\cite{hussein2022seizure}) & n/r & Public & Seizure prediction & M & Per-patient models; recordings are in-hospital, not ambulatory \\
+\rowcolor{tablestripe}CHB-MIT and Freiburg EEG (Hussein et al.~\cite{hussein2022seizure}) & n/r & Public & Seizure prediction & M & Per-patient models; recordings are in-hospital, not ambulatory \\
 \bottomrule
 \multicolumn{6}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize Conventions, column keys and the meaning of the Fit codes are given with Table~\ref{tab:S2a}. SERF: spin-exchange relaxation-free. PPG: photoplethysmography. sEMG: surface electromyography.}
 \end{tabularx}
@@ -809,23 +812,23 @@ Table~II of the main paper. Conventions are those of Table~\ref{tab:S3a}. Panel 
 \midrule
 Liu et al.~\cite{liu2024cignn} & Leave-one-subject-out across three cohorts & Low; whole subjects held out & n/r & Three cohorts pooled, not held out by cohort \\
 \addlinespace[1pt]
-Li et al.~\cite{li2026edgeischemia} & Subject-level 70/10/20, stratified & Low; split by subject & Arrhythmia and pacemaker cases excluded & None; one private cohort \\
+\rowcolor{tablestripe}Li et al.~\cite{li2026edgeischemia} & Subject-level 70/10/20, stratified & Low; split by subject & Arrhythmia and pacemaker cases excluded & None; one private cohort \\
 \addlinespace[1pt]
 Verbiest et al.~\cite{verbiest2023gaitstride} & Subject-wise split, ten-fold cross-validation & Low; split on the subject identifier & n/r & None; fifteen healthy adults \\
 \addlinespace[1pt]
-Herath et al.~\cite{herath2026parkinson} & Subject-disjoint stratified five-fold, nested, five seeds & Low; explicitly leakage-free & No imputation; per-fold standardization & None; one cohort \\
+\rowcolor{tablestripe}Herath et al.~\cite{herath2026parkinson} & Subject-disjoint stratified five-fold, nested, five seeds & Low; explicitly leakage-free & No imputation; per-fold standardization & None; one cohort \\
 \addlinespace[1pt]
 Liu et al.~\cite{liu2025sleepposture} & Grid search with cross-validation; split not stated at subject level & High; with 30 subjects and staged postures a random split can place one subject on both sides & Transitional postures excluded & None \\
 \addlinespace[1pt]
-Chan et al.~\cite{chan2026sitstand} & Subject-level hold-out, 1731 training and 410 test videos & Low; split by subject & Low-quality videos excluded & None; one cohort \\
+\rowcolor{tablestripe}Chan et al.~\cite{chan2026sitstand} & Subject-level hold-out, 1731 training and 410 test videos & Low; split by subject & Low-quality videos excluded & None; one cohort \\
 \addlinespace[1pt]
 Wang et al.~\cite{wang2025vo2} & Three subjects held out; six-fold cross-validation on the other 18 & Low; held out by participant & Participants with implants excluded & None; one cohort \\
 \addlinespace[1pt]
-Zhu et al.~\cite{zhu2024ippg} & n/r & Unknown; no split is described anywhere in the paper & n/r & None; one public dataset \\
+\rowcolor{tablestripe}Zhu et al.~\cite{zhu2024ippg} & n/r & Unknown; no split is described anywhere in the paper & n/r & None; one public dataset \\
 \addlinespace[1pt]
 Lin et al.~\cite{lin2024smapen} & Within subject, across movement repetitions & Moderate; no unseen-subject evaluation & n/r & None; one public dataset \\
 \addlinespace[1pt]
-Hussein et al.~\cite{hussein2022seizure} & Per-patient models; clips split into segments & High; segments of one clip can fall on both sides and the protocol is not stated at the clip level & n/r & Three benchmark datasets, each with its own models \\
+\rowcolor{tablestripe}Hussein et al.~\cite{hussein2022seizure} & Per-patient models; clips split into segments & High; segments of one clip can fall on both sides and the protocol is not stated at the clip level & n/r & Three benchmark datasets, each with its own models \\
 \bottomrule
 \multicolumn{5}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize Conventions are those of Table~\ref{tab:S3a}. AAMI: Association for the Advancement of Medical Instrumentation.}
 \end{tabularx}
@@ -847,23 +850,23 @@ Table~II of the main paper. Conventions are those of Table~\ref{tab:S3a}. Panel 
 \midrule
 Liu et al.~\cite{liu2024cignn} & Calibration n/r; error reported as mean and SD against AAMI and IEEE 1708 limits & Results given across age groups & Granger-causality, GCN and GRU variants & Data partly public; code n/r & None; Finapres reference in a laboratory \\
 \addlinespace[1pt]
-Li et al.~\cite{li2026edgeischemia} & Calibration n/r; no interval reported & n/r & 1D-CNN and single-modality models; the 1D-CNN is faster at similar AUC & Data private; code n/r & None; screening scenario only \\
+\rowcolor{tablestripe}Li et al.~\cite{li2026edgeischemia} & Calibration n/r; no interval reported & n/r & 1D-CNN and single-modality models; the 1D-CNN is faster at similar AUC & Data private; code n/r & None; screening scenario only \\
 \addlinespace[1pt]
 Verbiest et al.~\cite{verbiest2023gaitstride} & Calibration n/r; agreement reported as bias with limits of agreement and minimal detectable change & n/r & GAITRite instrumented walkway as reference & Data n/r; Edge Impulse pipeline described & None; healthy gait only \\
 \addlinespace[1pt]
-Herath et al.~\cite{herath2026parkinson} & Calibration n/r; standard deviations over 25 estimates & Age-matched and age-stratified analyses with a per-sex evaluation & Six classical baselines and a spectrogram CNN; two beat it on some metrics & Public data; pretrained encoder from a public repository & None \\
+\rowcolor{tablestripe}Herath et al.~\cite{herath2026parkinson} & Calibration n/r; standard deviations over 25 estimates & Age-matched and age-stratified analyses with a per-sex evaluation & Six classical baselines and a spectrogram CNN; two beat it on some metrics & Public data; pretrained encoder from a public repository & None \\
 \addlinespace[1pt]
 Liu et al.~\cite{liu2025sleepposture} & Calibration n/r; no interval reported & n/r; sexes balanced by design & Several published deep models on the same data & Data on request; code n/r & None \\
 \addlinespace[1pt]
-Chan et al.~\cite{chan2026sitstand} & Calibration n/r; standard deviations reported & AUC reported separately for male and female subgroups & Sit-to-stand pace and body-mass index as comparators & Data n/r; supplementary tables released & None; cross-sectional detection \\
+\rowcolor{tablestripe}Chan et al.~\cite{chan2026sitstand} & Calibration n/r; standard deviations reported & AUC reported separately for male and female subgroups & Sit-to-stand pace and body-mass index as comparators & Data n/r; supplementary tables released & None; cross-sectional detection \\
 \addlinespace[1pt]
 Wang et al.~\cite{wang2025vo2} & Calibration n/r; no interval reported & n/r & Plain LSTM and attention ablations & Data on request; code n/r & None; laboratory exercise test \\
 \addlinespace[1pt]
-Zhu et al.~\cite{zhu2024ippg} & Calibration n/r; no interval reported & n/r & Related published methods on the same dataset, and module ablations & Public dataset; code n/r & None \\
+\rowcolor{tablestripe}Zhu et al.~\cite{zhu2024ippg} & Calibration n/r; no interval reported & n/r & Related published methods on the same dataset, and module ablations & Public dataset; code n/r & None \\
 \addlinespace[1pt]
 Lin et al.~\cite{lin2024smapen} & Calibration n/r; significance tests against baselines & n/r; able-bodied subjects only & State-of-the-art sEMG regression methods, with $p<0.01$ & Public dataset; code n/r & None; portable-device timing only \\
 \addlinespace[1pt]
-Hussein et al.~\cite{hussein2022seizure} & Calibration n/r; false-alarm rate per hour reported & n/r & Published seizure-prediction methods & Public datasets; code n/r & None; retrospective recordings \\
+\rowcolor{tablestripe}Hussein et al.~\cite{hussein2022seizure} & Calibration n/r; false-alarm rate per hour reported & n/r & Published seizure-prediction methods & Public datasets; code n/r & None; retrospective recordings \\
 \bottomrule
 \multicolumn{6}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize Conventions are those of Table~\ref{tab:S3a}. AAMI: Association for the Advancement of Medical Instrumentation.}
 \end{tabularx}
@@ -967,47 +970,47 @@ therefore rest on plausibility rather than on measurement.
 \midrule
 Kyritsis et al.~\cite{Kyritsis2019EatingBehavior} & n/r & n/r & n/r & n/r & wrist device & Twelve subjects, staged meals; no free-living data \\
 \addlinespace[1pt]
-Liu et al.~\cite{2} & n/r & n/r & n/r & n/r & server & Split by sample, so a subject can appear on both sides \\
+\rowcolor{tablestripe}Liu et al.~\cite{2} & n/r & n/r & n/r & n/r & server & Split by sample, so a subject can appear on both sides \\
 \addlinespace[1pt]
 Thaipisutikul et al.~\cite{3} & n/r & n/r & n/r & n/r & server & Seventy monthly aggregates; no individual-level data \\
 \addlinespace[1pt]
-Kong et al.~\cite{4} & n/r & n/r & n/r & n/r & server & Each site evaluated on its own; no cross-site result \\
+\rowcolor{tablestripe}Kong et al.~\cite{4} & n/r & n/r & n/r & n/r & server & Each site evaluated on its own; no cross-site result \\
 \addlinespace[1pt]
 Zhang et al.~\cite{9} & n/r & n/r & n/r & n/r & server & Seventy-two subjects from one public cohort \\
 \addlinespace[1pt]
-Li et al.~\cite{Li2020GluNet} & n/r & 6\,ms per prediction on an Android phone; 0.79\,s on the comparison hardware & n/r & n/r & phone & Two of three sets are simulated or single-project; the app was demonstrated, not trialled \\
+\rowcolor{tablestripe}Li et al.~\cite{Li2020GluNet} & n/r & 6\,ms per prediction on an Android phone; 0.79\,s on the comparison hardware & n/r & n/r & phone & Two of three sets are simulated or single-project; the app was demonstrated, not trialled \\
 \addlinespace[1pt]
 Lim et al.~\cite{Lim2025VirtualCGM} & n/r & n/r & n/r & n/r & gateway & Healthy adults only, and the split holds out days rather than subjects \\
 \addlinespace[1pt]
-Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & n/r & n/r & n/r & n/r & server, batch & Ecological analysis with no predictive hold-out \\
+\rowcolor{tablestripe}Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & n/r & n/r & n/r & n/r & server, batch & Ecological analysis with no predictive hold-out \\
 \addlinespace[1pt]
 Bohoran et al.~\cite{5} & n/r & n/r & Energy and carbon-equivalent cost reported for the pruned model & n/r & scanner-side & Scans split at random, and 48 patients contribute more than one \\
 \addlinespace[1pt]
-Lin and Luo~\cite{lin2022deep} & n/r & n/r & n/r & n/r & server, per visit & The second cohort is refitted, so it is not an untouched external test \\
+\rowcolor{tablestripe}Lin and Luo~\cite{lin2022deep} & n/r & n/r & n/r & n/r & server, per visit & The second cohort is refitted, so it is not an untouched external test \\
 \addlinespace[1pt]
 Nitski et al.~\cite{nitski2021long} & Anonymized registry records; no privacy mechanism in the method & n/r & n/r & n/r & server, per visit & Best result follows fine-tuning on the second registry \\
 \addlinespace[1pt]
-Glaser et al.~\cite{glaser2022deep} & n/r & n/r & n/r & n/r & server, per visit & One cohort; calibration of the displayed risk not reported \\
+\rowcolor{tablestripe}Glaser et al.~\cite{glaser2022deep} & n/r & n/r & n/r & n/r & server, per visit & One cohort; calibration of the displayed risk not reported \\
 \addlinespace[1pt]
 Liu et al.~\cite{liu2024cignn} & n/r & n/r & n/r & n/r & wearable & Reference blood pressure comes from a laboratory Finapres, not ambulatory use \\
 \addlinespace[1pt]
-Li et al.~\cite{li2026edgeischemia} & n/r & 4.7\,ms per cycle, on a desktop CPU, not on an edge board & n/r & n/r & edge & Edge claim not validated on a device; a faster 1D-CNN reaches a similar AUC \\
+\rowcolor{tablestripe}Li et al.~\cite{li2026edgeischemia} & n/r & 4.7\,ms per cycle, on a desktop CPU, not on an edge board & n/r & n/r & edge & Edge claim not validated on a device; a faster 1D-CNN reaches a similar AUC \\
 \addlinespace[1pt]
 Verbiest et al.~\cite{verbiest2023gaitstride} & n/r & Toolchain estimate; no measured figure & n/r & n/r & device & Fifteen healthy adults; nothing shown for pathological gait \\
 \addlinespace[1pt]
-Herath et al.~\cite{herath2026parkinson} & n/r & n/r & n/r & n/r & wrist or trunk device & One cohort; the pretrained encoder is a fixed feature extractor, not a calibrated model \\
+\rowcolor{tablestripe}Herath et al.~\cite{herath2026parkinson} & n/r & n/r & n/r & n/r & wrist or trunk device & One cohort; the pretrained encoder is a fixed feature extractor, not a calibrated model \\
 \addlinespace[1pt]
 Liu et al.~\cite{liu2025sleepposture} & n/r & n/r & n/r & n/r & bedside gateway & Split not stated at subject level; accuracy may be optimistic \\
 \addlinespace[1pt]
-Chan et al.~\cite{chan2026sitstand} & n/r & n/r & n/r & n/r & smartphone & One sagittal view at a fixed distance, which a home setting would not guarantee \\
+\rowcolor{tablestripe}Chan et al.~\cite{chan2026sitstand} & n/r & n/r & n/r & n/r & smartphone & One sagittal view at a fixed distance, which a home setting would not guarantee \\
 \addlinespace[1pt]
 Wang et al.~\cite{wang2025vo2} & n/r & n/r & n/r & n/r & wearable gateway & Twenty-one young adults on a laboratory protocol \\
 \addlinespace[1pt]
-Zhu et al.~\cite{zhu2024ippg} & n/r & n/r & n/r & n/r & smartphone camera & No split is described, and the labels come from a finger oximeter \\
+\rowcolor{tablestripe}Zhu et al.~\cite{zhu2024ippg} & n/r & n/r & n/r & n/r & smartphone camera & No split is described, and the labels come from a finger oximeter \\
 \addlinespace[1pt]
 Lin et al.~\cite{lin2024smapen} & n/r & 97.93\,ms on a portable device & n/r & n/r & device & Able-bodied subjects and scripted movements; no unseen-subject evaluation \\
 \addlinespace[1pt]
-Hussein et al.~\cite{hussein2022seizure} & n/r & n/r & n/r & n/r & server & Clips split into segments; protocol not stated at clip level \\
+\rowcolor{tablestripe}Hussein et al.~\cite{hussein2022seizure} & n/r & n/r & n/r & n/r & server & Clips split into segments; protocol not stated at clip level \\
 \bottomrule
 \multicolumn{7}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize Model size: three studies report anything. Bohoran et al.~\cite{5} give filter counts for a pruned network, Verbiest et al.~\cite{verbiest2023gaitstride} 92\,kB of flash and 14\,kB of RAM for an int8 model on a Cortex-M4F, and Li et al.~\cite{Li2020GluNet} 14{,}592 parameters with about 100\,MB of phone memory while forecasting. No other study reports parameter count or memory footprint, so the column is omitted rather than filled with nineteen identical entries.}
 \end{tabularx}
@@ -1036,28 +1039,28 @@ rather than a claim of representativeness.
 \textbf{Study} & \textbf{Provenance} & \textbf{Reason for inclusion} \\
 \midrule
 Kyritsis et al.~\cite{Kyritsis2019EatingBehavior} & Assembled while drafting & The only wearable dietary study we found reporting a quantitative in-meal metric against prior methods \\
-Liu et al.~\cite{2} & Assembled while drafting & Public clinical EEG cohort with an explicit spatial montage \\
+\rowcolor{tablestripe}Liu et al.~\cite{2} & Assembled while drafting & Public clinical EEG cohort with an explicit spatial montage \\
 Thaipisutikul et al.~\cite{3} & Assembled while drafting & The population-level temporal case, with an administrative spatial unit and a released code base \\
-Kong et al.~\cite{4} & Assembled while drafting & Two-site imaging with a treatment-response outcome rather than diagnosis alone \\
+\rowcolor{tablestripe}Kong et al.~\cite{4} & Assembled while drafting & Two-site imaging with a treatment-response outcome rather than diagnosis alone \\
 Zhang et al.~\cite{9} & Assembled while drafting & Public imaging cohort evaluated at the subject level \\
-Li et al.~\cite{Li2020GluNet} & Assembled while drafting & The continuous-glucose forecasting case, combining a simulator with clinical data \\
+\rowcolor{tablestripe}Li et al.~\cite{Li2020GluNet} & Assembled while drafting & The continuous-glucose forecasting case, combining a simulator with clinical data \\
 Lim et al.~\cite{Lim2025VirtualCGM} & Assembled while drafting & The only life-log and glucose cohort with an explicit gap period against window leakage \\
-Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & Assembled while drafting & The ecological spatial case, and the one study with no predictive hold-out \\
+\rowcolor{tablestripe}Li et al.~\cite{XiaoLi2016DiabetesSpatiotemporal} & Assembled while drafting & The ecological spatial case, and the one study with no predictive hold-out \\
 Bohoran et al.~\cite{5} & Assembled while drafting & Multi-vendor imaging with a pruned model and a reported resource cost \\
-Lin and Luo~\cite{lin2022deep} & Assembled while drafting & Irregular longitudinal survival modelling, and the only study reporting a calibration score \\
+\rowcolor{tablestripe}Lin and Luo~\cite{lin2022deep} & Assembled while drafting & Irregular longitudinal survival modelling, and the only study reporting a calibration score \\
 Nitski et al.~\cite{nitski2021long} & Assembled while drafting & The largest registry case, and the study that raises the external-validation question directly \\
-Glaser et al.~\cite{glaser2022deep} & Assembled while drafting & Serial imaging with subpopulation results and released code \\
+\rowcolor{tablestripe}Glaser et al.~\cite{glaser2022deep} & Assembled while drafting & Serial imaging with subpopulation results and released code \\
 \addlinespace[3pt]
 Liu et al.~\cite{liu2024cignn} & Sampled from the 363 & Fills the cardiovascular sensing cell: wearable-grade signals with an error reported against device standards \\
-Li et al.~\cite{li2026edgeischemia} & Sampled from the 363 & Fills the edge-inference cell and reports a latency figure, which almost nothing else in the pool does \\
+\rowcolor{tablestripe}Li et al.~\cite{li2026edgeischemia} & Sampled from the 363 & Fills the edge-inference cell and reports a latency figure, which almost nothing else in the pool does \\
 Verbiest et al.~\cite{verbiest2023gaitstride} & Sampled from the 363 & The only study we found running inference on a microcontroller with memory figures reported \\
-Herath et al.~\cite{herath2026parkinson} & Sampled from the 363 & Fills wearable neurology, and has the strictest validation protocol in the set \\
+\rowcolor{tablestripe}Herath et al.~\cite{herath2026parkinson} & Sampled from the 363 & Fills wearable neurology, and has the strictest validation protocol in the set \\
 Liu et al.~\cite{liu2025sleepposture} & Sampled from the 363 & Fills ambient sensing, with a spatial sensor array rather than a body-worn device \\
-Chan et al.~\cite{chan2026sitstand} & Sampled from the 363 & Fills smartphone camera sensing, with a clinical endpoint and subgroup results \\
+\rowcolor{tablestripe}Chan et al.~\cite{chan2026sitstand} & Sampled from the 363 & Fills smartphone camera sensing, with a clinical endpoint and subgroup results \\
 Wang et al.~\cite{wang2025vo2} & Sampled from the 363 & Fills multi-source wearable regression against a laboratory reference \\
-Zhu et al.~\cite{zhu2024ippg} & Sampled from the 363 & Fills contactless respiratory sensing from ordinary video \\
+\rowcolor{tablestripe}Zhu et al.~\cite{zhu2024ippg} & Sampled from the 363 & Fills contactless respiratory sensing from ordinary video \\
 Lin et al.~\cite{lin2024smapen} & Sampled from the 363 & Fills rehabilitation sensing, and reports measured on-device latency \\
-Hussein et al.~\cite{hussein2022seizure} & Sampled from the 363 & Fills epilepsy, and is the one study evaluated across three benchmark datasets \\
+\rowcolor{tablestripe}Hussein et al.~\cite{hussein2022seizure} & Sampled from the 363 & Fills epilepsy, and is the one study evaluated across three benchmark datasets \\
 \bottomrule
 \multicolumn{3}{@{}L{\dimexpr\textwidth-4\tabcolsep\relax}@{}}{\scriptsize The stopping rule was saturation, not a target count: sampling stopped when three consecutive candidates from the pool added no new data type, model family, clinical domain or IoT layer. Cells are our judgement of what each row contributes, and are not claims made by the studies themselves.}
 \end{tabularx}
@@ -1107,23 +1110,23 @@ cited-by is its OpenAlex citation count at the time of the chase.}
 \midrule
 Wang et al.~\cite{wang2022deep} & 202 & 819 \\
 \addlinespace[1pt]
-Samani et al.~\cite{samani2026stdl} & 0 & 0 \\
+\rowcolor{tablestripe}Samani et al.~\cite{samani2026stdl} & 0 & 0 \\
 \addlinespace[1pt]
 Swinckels et al.~\cite{swinckels2024ehr} & 66 & 73 \\
 \addlinespace[1pt]
-Busnatu et al.~\cite{Busnatu2022} & 130 & 47 \\
+\rowcolor{tablestripe}Busnatu et al.~\cite{Busnatu2022} & 130 & 47 \\
 \addlinespace[1pt]
 Sun et al.~\cite{sun2026irregularmedical} & 94 & 3 \\
 \addlinespace[1pt]
-Wang et al.~\cite{Wang2023Survey} & 141 & 315 \\
+\rowcolor{tablestripe}Wang et al.~\cite{Wang2023Survey} & 141 & 315 \\
 \addlinespace[1pt]
 Sel et al.~\cite{Sel2025VVUQ} & 111 & 105 \\
 \addlinespace[1pt]
-Chen et al.~\cite{chen2024genaitwin} & 185 & 131 \\
+\rowcolor{tablestripe}Chen et al.~\cite{chen2024genaitwin} & 185 & 131 \\
 \addlinespace[1pt]
 Amin and Hossain~\cite{amin2021edgeintel} & 107 & 260 \\
 \addlinespace[1pt]
-Nguyen et al.~\cite{nguyen2022FLsmarthealthcare} & 137 & 802 \\
+\rowcolor{tablestripe}Nguyen et al.~\cite{nguyen2022FLsmarthealthcare} & 137 & 802 \\
 \addlinespace[1pt]
 Zhang et al.~\cite{zhang2022harreview} & 350 & 565 \\
 \bottomrule
