@@ -210,6 +210,24 @@ def check():
             ("caroprese2018deepehr", "Proc. 9th Int. Conf.", "IISA name in the common style")):
         if not has(key, needle):
             notes.append(f"{key} is missing its {what}")
+    # Naming consistency. Crossref had no shorter form for one journal and the NeurIPS
+    # proceedings kept their full name while every other conference was abbreviated, so
+    # the reviewer's "naming is inconsistent" survived the first pass. Assert it directly.
+    import importlib.util as _iu
+    _bs = _iu.spec_from_file_location("bb", os.path.join(ROOT, "endnote", "bib2endnote.py"))
+    _bb = _iu.module_from_spec(_bs); _bs.loader.exec_module(_bb)
+    FULL_FORM = re.compile(r"\b(Proceedings of the|International Conference on|Transactions on|"
+                           r"Journal of the|Journal of |Advances in Neural)\b")
+    ents_b = _bb.parse_bib(os.path.join(ROOT, "live", "newST.bib"))
+    unabbrev = []
+    for k in _bb.cited_keys(os.path.join(ROOT, "live", "STmodel.tex")):
+        v = _bb.delatex((ents_b.get(k) or {}).get("journal")
+                        or (ents_b.get(k) or {}).get("booktitle") or "")
+        if v and FULL_FORM.search(v):
+            unabbrev.append(f"{k}: {v[:48]}")
+    if unabbrev:
+        notes.append("venue names still in full form while the rest are abbreviated: "
+                     + "; ".join(unabbrev[:4]) + (f" (+{len(unabbrev)-4} more)" if len(unabbrev) > 4 else ""))
     task("O8", "Every cited reference complete and checked against a publisher record", notes)
 
     # ---- O9: grants ----

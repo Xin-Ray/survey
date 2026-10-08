@@ -122,6 +122,9 @@ def pages_of(item):
 # and occasionally a bare acronym. IEEE style wants each abbreviated word closed
 # with a period. These are the cases the alignment below cannot derive.
 JOURNAL_OVERRIDE = {
+    # Crossref's short-container-title for JASA is the full name, so there is nothing
+    # shorter to take; the IEEE abbreviation has to be supplied here.
+    "Journal of the American Statistical Association": "J. Amer. Statist. Assoc.",
     "Journal of Personalized Medicine": "J. Personalized Med.",
     "IEEE Transactions on Geoscience and Remote Sensing": "IEEE Trans. Geosci. Remote Sens.",
     "Journal of NeuroEngineering and Rehabilitation": "J. NeuroEng. Rehabil.",
