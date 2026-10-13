@@ -12,9 +12,12 @@ https://www.overleaf.com/project/67d9bc605fe6221e6aadc7a4
 
 | Path | What it is |
 |---|---|
-| `live/` | **Current submission files.** `STmodel.tex` (8-page IoT-J build), `supplement.tex` (14 pages, tables S0–S9), `newST.bib` |
+| `live/` | **Current submission files.** `STmodel.tex` (8-page IoT-J build), `supplement.tex` (16 pages, tables S0–S9), `newST.bib` |
 | `review/check_comments.py` | Acceptance check with 50 sub-items evaluated against the live files |
-| `review/check_j28.py` | Acceptance check for the five items of the 2026-09-28 review round |
+| `review/check_j28.py` | Acceptance check for the five items of the 2026-09-28 round |
+| `review/check_oct1.py` | Acceptance check for the four items of the 2026-10-01 round, plus the grants |
+| `review/check_consistency.py` | Cross-document audit: counted claims against table cells, arithmetic chains, labels and the printed supplement numbers |
+| `endnote/strict_refcheck.py` | Exact field-by-field reference check against Crossref and arXiv |
 | `review/check_supplement.py` | Structural check of the ten supplement tables against Table II |
 | `review/search/` | Search and screening pipeline: query definitions, PubMed and IEEE records, the rule-based screen, the 60-record hand check, citation chasing, and the seed-recall repair of the query |
 | `endnote/` | `bib2endnote.py` reference verifier (Crossref / arXiv / DBLP) and `ieee_style.py`, which backfills volume, issue, pages and DOI from the publisher record and abbreviates journal names to IEEE style |
@@ -22,25 +25,32 @@ https://www.overleaf.com/project/67d9bc605fe6221e6aadc7a4
 
 ## State of the manuscript
 
-- 22 synthesized studies in Table II, at six columns, grouped into five comparable task groups
-- Fourteen supplement tables in ten numbered slots S0–S9, the four widest split into an a and a b
-  panel sharing one number: survey-comparison evidence, threats by IoT layer, datasets, quality
+See **[PROGRESS.md](PROGRESS.md)** for what each review round asked for and what was done.
+
+- Submission build 8 pages, supplement 16 pages, both with no errors and no overfull boxes
+- 22 synthesized studies in Table II, at five columns, grouped into five comparable task groups
+- 14 supplement tables in ten numbered slots S0–S9, the four widest split into an a and a b panel
+  sharing one number: survey-comparison evidence, threats by IoT layer, datasets, quality
   assessment, communication substrate, per-study system and privacy reporting, provenance and
   inclusion reason, citation chasing
-- The verbatim PubMed and IEEE Xplore search strings, and both IEEE arms screened under the same
-  three rules as the PubMed arm
-- 77 cited references, each checked field by field against its Crossref record, with journal names
-  abbreviated to IEEE style and every remaining gap justified against the publisher's own record
+- Both search strings printed verbatim and verified by re-submission; both IEEE arms screened
+  under the same rules as the PubMed arm, reviews excluded on both sides
+- 76 cited references, each compared field by field against its publisher record; four cannot be
+  compared and each is named with its reason
 
 ## Reproducing the checks
 
 ```bash
-python3 review/check_comments.py
-python3 review/check_j28.py
-python3 review/check_supplement.py
-python3 endnote/ieee_style.py --no-net
-python3 endnote/bib2endnote.py --bib live/newST.bib --tex live/STmodel.tex --out endnote/out_r3
+python3 review/check_comments.py      # 50/50  round of 2026-09-21
+python3 review/check_j28.py           #   5/5  round of 2026-09-28
+python3 review/check_oct1.py          #   9/9  round of 2026-10-01
+python3 review/check_consistency.py   # 47/47  cross-document consistency
+python3 review/check_supplement.py    #  pass  supplement table integrity
+python3 endnote/strict_refcheck.py    # references against publisher records
 ```
+
+Each one reads the live `.tex` files and asserts against them, and each is wired as a Stop hook
+in `.claude/settings.json`.
 
 ## Not in this repository
 
