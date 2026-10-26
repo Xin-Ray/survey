@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="181mm" height="39mm" viewBox="0 0 181 39" font-family="'Times New Roman', Times, serif">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1a1a1a"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<rect x="0.00" y="4.00" width="23.00" height="13.00" rx="1.00" fill="#dcebf8" stroke="#3f73a8" stroke-width="0.30"/>
+<text x="11.50" y="9.00" font-size="2.82" text-anchor="middle" fill="#1a1a1a">Offline</text>
+<text x="11.50" y="12.40" font-size="2.82" text-anchor="middle" fill="#1a1a1a">prediction</text>
+<text x="11.50" y="20.60" font-size="2.55" text-anchor="middle" fill="#1a1a1a">retrospective hold-out</text>
+<text x="11.50" y="24.30" font-size="2.82" text-anchor="middle" fill="#1a1a1a">21 of 22</text>
+<path d="M 23.40 10.50 L 39.10 10.50" fill="none" stroke="#1a1a1a" stroke-width="0.30" marker-end="url(#ah)"/>
+<text x="31.25" y="30.00" font-size="2.55" text-anchor="middle" fill="#1a1a1a">shown: 3 at visit</text>
+<text x="31.25" y="33.00" font-size="2.55" text-anchor="middle" fill="#1a1a1a">cadence, 2 per-</text>
+<text x="31.25" y="36.00" font-size="2.55" text-anchor="middle" fill="#1a1a1a">subject CGM models</text>
+<rect x="39.50" y="4.00" width="23.00" height="13.00" rx="1.00" fill="#dcebf8" stroke="#3f73a8" stroke-width="0.30"/>
+<text x="51.00" y="9.00" font-size="2.82" text-anchor="middle" fill="#1a1a1a">Individually</text>
+<text x="51.00" y="12.40" font-size="2.82" text-anchor="middle" fill="#1a1a1a">updated model</text>
+<text x="51.00" y="20.60" font-size="2.55" text-anchor="middle" fill="#1a1a1a">re-prediction as data accrue</text>
+<text x="51.00" y="24.30" font-size="2.82" text-anchor="middle" fill="#1a1a1a">5 of 22</text>
+<path d="M 62.90 10.50 L 78.60 10.50" fill="none" stroke="#b5534a" stroke-width="0.30" stroke-dasharray="1.2,0.8" marker-end="url(#ah)"/>
+<path d="M 69.65 9.40 L 71.85 11.60 M 69.65 11.60 L 71.85 9.40" stroke="#b5534a" stroke-width="0.45"/>
+<text x="70.75" y="30.00" font-size="2.55" text-anchor="middle" fill="#1a1a1a">needs: external site</text>
+<text x="70.75" y="33.00" font-size="2.55" text-anchor="middle" fill="#1a1a1a">without adaptation;</text>
+<text x="70.75" y="36.00" font-size="2.55" text-anchor="middle" fill="#1a1a1a">synchronization</text>
+<rect x="79.00" y="4.00" width="23.00" height="13.00" rx="1.00" fill="#fbe1dd" stroke="#b5534a" stroke-width="0.30"/>
+<text x="90.50" y="9.00" font-size="2.82" text-anchor="middle" fill="#1a1a1a">Externally</text>
+<text x="90.50" y="12.40" font-size="2.82" text-anchor="middle" fill="#1a1a1a">validated twin</text>
+<text x="90.50" y="20.60" font-size="2.55" text-anchor="middle" fill="#1a1a1a">synchronized; unadapted site</text>
+<text x="90.50" y="24.30" font-size="2.82" text-anchor="middle" fill="#1a1a1a">0 of 22</text>
+<path d="M 102.40 10.50 L 118.10 10.50" fill="none" stroke="#b5534a" stroke-width="0.30" stroke-dasharray="1.2,0.8" marker-end="url(#ah)"/>
+<path d="M 109.15 9.40 L 111.35 11.60 M 109.15 11.60 L 111.35 9.40" stroke="#b5534a" stroke-width="0.45"/>
+<text x="110.25" y="30.00" font-size="2.55" text-anchor="middle" fill="#1a1a1a">needs: causal</text>
+<text x="110.25" y="33.00" font-size="2.55" text-anchor="middle" fill="#1a1a1a">identification;</text>
+<text x="110.25" y="36.00" font-size="2.55" text-anchor="middle" fill="#1a1a1a">action coverage</text>
+<rect x="118.50" y="4.00" width="23.00" height="13.00" rx="1.00" fill="#fbe1dd" stroke="#b5534a" stroke-width="0.30"/>
+<text x="130.00" y="9.00" font-size="2.82" text-anchor="middle" fill="#1a1a1a">Intervention</text>
+<text x="130.00" y="12.40" font-size="2.82" text-anchor="middle" fill="#1a1a1a">simulation</text>
+<text x="130.00" y="20.60" font-size="2.55" text-anchor="middle" fill="#1a1a1a">action-conditioned; identified</text>
+<text x="130.00" y="24.30" font-size="2.82" text-anchor="middle" fill="#1a1a1a">0 in health</text>
+<path d="M 141.90 10.50 L 157.60 10.50" fill="none" stroke="#b5534a" stroke-width="0.30" stroke-dasharray="1.2,0.8" marker-end="url(#ah)"/>
+<path d="M 148.65 9.40 L 150.85 11.60 M 148.65 11.60 L 150.85 9.40" stroke="#b5534a" stroke-width="0.45"/>
+<text x="149.75" y="30.00" font-size="2.55" text-anchor="middle" fill="#1a1a1a">needs: safety and</text>
+<text x="149.75" y="33.00" font-size="2.55" text-anchor="middle" fill="#1a1a1a">calibration under</text>
+<text x="149.75" y="36.00" font-size="2.55" text-anchor="middle" fill="#1a1a1a">intervention</text>
+<rect x="158.00" y="4.00" width="23.00" height="13.00" rx="1.00" fill="#fbe1dd" stroke="#b5534a" stroke-width="0.30"/>
+<text x="169.50" y="9.00" font-size="2.82" text-anchor="middle" fill="#1a1a1a">Prospective</text>
+<text x="169.50" y="12.40" font-size="2.82" text-anchor="middle" fill="#1a1a1a">evaluation</text>
+<text x="169.50" y="20.60" font-size="2.55" text-anchor="middle" fill="#1a1a1a">silent mode, then trial</text>
+<text x="169.50" y="24.30" font-size="2.82" text-anchor="middle" fill="#1a1a1a">0 of 22</text>
+</svg>

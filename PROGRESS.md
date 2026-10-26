@@ -1,139 +1,123 @@
 # Revision progress
 
-State of the IEEE IoT-J revision, and what each review round asked for. Review rounds are
-dated; the comments themselves are internal correspondence and are not reproduced here, so
-each item is stated as the requirement it placed on the manuscript.
+State of the IEEE IoT-J revision, and what each review round asked for. Rounds are dated; the
+review documents are internal correspondence and are not reproduced, so each item is stated as
+the requirement it placed on the manuscript, not as a quotation, and no reviewer is named.
 
-Last updated 2026-10-12. Overleaf is the source of truth for the two documents:
+Last updated 2026-10-26. Overleaf is the source of truth:
 https://www.overleaf.com/project/67d9bc605fe6221e6aadc7a4
 
-## Current state
+## Which manuscript is current
+
+**`expand25/` is the version under review.** It is a single 25-page document with no supplement.
+`live/` holds the earlier 8-page submission build and its 16-page supplement; `expand25` was built
+from it on 2026-10-12 (`expand25/CHANGES.md` records the base as byte-identical to `live/` before
+work began), and `live/` is kept only as the record of that stage.
 
 | | |
 |---|---|
-| Submission build (`live/STmodel.tex`) | **8 pages**, 0 errors, 0 overfull boxes |
-| Supplement (`live/supplement.tex`) | **16 pages**, 0 errors, 0 overfull boxes |
-| Synthesized studies in Table II | 22, in five comparable task groups, five columns |
-| Supplement tables | 14 tables in ten numbered slots, S0–S9 (the four widest split into a/b panels) |
-| Cited references | 76, each checked field by field against its publisher record |
-| Rule-eligible literature | 593 records across the two databases (363 PubMed + 230 Xplore-only) |
-
-Acceptance checks, all green as of the last commit:
+| Manuscript (`expand25/STmodel.tex`) | **25 pages** including references, 0 errors, 0 overfull boxes, 0 undefined references |
+| Structure | 10 sections, 8 tables, 7 figures, one document — no supplementary file |
+| Cited references | 114, from a 239-entry bibliography |
+| Illustrative studies | 22, identified E01–E22, plus an IoT-engineering complement C1–C7 kept outside the 22 |
+| Audit package | `expand25/audit/`, files A01–A14 with a manifest carrying dates and SHA-256 prefixes |
 
 ```bash
-python3 review/check_comments.py      # 50/50   round of 2026-09-21
-python3 review/check_j28.py           #   5/5   round of 2026-09-28
-python3 review/check_oct1.py          #   9/9   round of 2026-10-01
-python3 review/check_consistency.py   # 47/47   cross-document consistency
-python3 review/check_supplement.py    #  pass   supplement table integrity
-python3 endnote/strict_refcheck.py    # 76 cited, 0 discrepancies, 4 uncompared with a stated reason
+python3 review/verify_audit.py        # every audit file against the manifest; also checks coverage
 ```
 
-Each checker reads the live `.tex` files and asserts against them. They exist because an
-earlier checker verified the tables *we had decided to build* and reported everything green
-while most of the review comments were still untouched: the standard has to come from the
-review document, not from our own task list.
+## Rounds
 
-## Round of 2026-09-21 — ten comments
+### 2026-09-21 — ten comments, answered in the 8-page build
 
-All ten applied; `review/check_comments.py` holds the 50 sub-items.
+Selection and sample size; reproducibility; real IoT versus inferred feasibility; the
+"quantitative synthesis" claim; comparison-table completeness; novelty against prior surveys;
+quality assessment; datasets and benchmarks; networking, interoperability and security; claims,
+presentation and references. The evidence set went from 12 to 22 studies, citation chasing was
+actually run, and eleven of twelve compared reviews were read in full.
+Check: `python3 review/check_comments.py` (50 sub-items).
 
-1. **Selection and sample size.** Evidence set expanded from 12 to 22 studies. Table II states
-   two provenances, because they license different claims: twelve assembled while drafting, ten
-   drawn from the rule-eligible pool under a stated frame with saturation as the stopping rule.
-2. **Reproducibility.** Search strings, dates and per-database counts recorded; duplicate removal
-   explained; the paper states plainly that one author ran the searches with no second screener.
-   Forward and backward citation chasing was then actually run, surfacing 15 eligible records the
-   database query had missed.
-3. **Real IoT versus inferred feasibility.** Table II carries an evidence-class column
-   (A device-captured, B clinical instrument, C registry or survey, D simulation); what each study
-   *reports* about deployment is kept separate from the placement *we* infer.
-4. **"Quantitative synthesis."** The phrase is gone; rows are grouped into comparable task groups
-   and the table states that metrics are not comparable across rows.
-5. **Comparison-table completeness.** Sampling rate, duration, spatial unit, missingness, external
-   validation, calibration, uncertainty, subgroups and the principal limitation are recorded per
-   study in the supplement.
-6. **Novelty against prior surveys.** Eleven of the twelve compared reviews were read in full and
-   the supplement names the section behind every mark. Reading them moved eight marks, mostly in
-   the compared reviews' favour; two marks were withdrawn against our own interest.
-7. **Quality assessment.** All 22 studies assessed on split, leakage, missing data, external
-   validation, calibration, uncertainty, subgroups, comparators, reproducibility and clinical
-   validation. No adjusted second cohort is called external validation anywhere.
-8. **Datasets and benchmarks.** All 23 datasets described, with a suitability code for device or
-   edge evaluation, multisite validation, and twin or intervention evaluation. No dataset supports
-   all three.
-9. **Networking, interoperability and security.** Link technologies compared with the consequence
-   for sampling rate, loss and model-update cadence; threats and protections mapped across seven
-   layers; the paper states that federated learning supplies neither encryption nor a privacy
-   guarantee.
-10. **Claims, presentation and references.** RQ1–RQ4 answered explicitly; terminology standardized;
-    Figure 1 redrawn; references verified.
+### 2026-09-28 — five items, answered in the 8-page build
 
-## Round of 2026-09-28 — five items
+Verbatim search strings; both IEEE Xplore arms screened under the same rules as the PubMed arm;
+one inaccurate sentence replaced; Table II trimmed and the widest supplement tables split;
+every reference checked against the publisher record.
+Check: `python3 review/check_j28.py`.
 
-All five applied; `review/check_j28.py`.
+### 2026-10-01 — four items and the grants, answered in the 8-page build
 
-1. Both search strings printed verbatim in the supplement; duplicate removal explained; the 363
-   eligible records attributed to the PubMed screen; the database that was never searched is no
-   longer mentioned.
-2. Both IEEE Xplore arms exported and screened under the same three rules as the PubMed arm,
-   then deduplicated within Xplore and against PubMed.
-3. An inaccurate sentence about federated learning replaced with the reviewer's own wording.
-4. Table II trimmed; the four widest supplement tables split into a/b panels that share one
-   number, so the numbers the main text cites are unchanged.
-5. Every cited reference checked against the publisher record and standardized to IEEE style.
+Three dated PubMed snapshots reconciled; IEEE reviews excluded so the two arms screen alike;
+table density; reference completeness. Grants: NIH R56DK114514-01 and R01DK129432 (PI: Fang),
+NSF Award 2428595 (PI: Wang).
+Check: `python3 review/check_oct1.py`.
 
-## Round of 2026-10-01 — four items and the grants
+### 2026-10-12 — restructure, 8 pages to 25
 
-All applied; `review/check_oct1.py`.
+The `\ifsubmission` switch removed, the supplement merged into the body, the per-study records
+moved out to CSV files. This was a structural change, not a response to a comment, and it is the
+point after which the earlier 8-page checks no longer describe the manuscript under review.
 
-1. **Three PubMed totals reconciled.** They are three dated runs of the same query —
-   1,436 (11 Sep), 1,444 (22–23 Sep), 1,456 (29 Sep). The paper and Figure 1 report the 11 Sep
-   snapshot; the 29 Sep run is used only as the comparison set for the Xplore deduplication,
-   because it was taken the same day as that export. Using the largest set there is the
-   conservative choice: a larger PubMed set can only move records out of the Xplore-only count.
-   Both arms are also printed as paste-ready strings, verified by submitting the block form and
-   the expanded form separately and confirming identical counts
-   (`review/search/expand_queries.py`). Title normalization and duplicate-retention rules stated.
-2. **IEEE reviews excluded** rather than qualified: a textual rule at the same stage the PubMed
-   arm removed its reviews takes out 37 records. This moved the eligible count only from 286 to
-   284, because criterion (iii) wants a quantitative result against a named baseline and a review
-   rarely reports one of its own — the exclusion matters for procedural equivalence, not for the
-   number. The ten sampled studies are explicitly attributed to the 363 PubMed records.
-3. **Table density.** Table II reduced to five columns with the deployment detail moved to the
-   supplement. The supplement's sparse pages were a float-settings problem, not a table problem:
-   the main paper loosens the LaTeX float parameters and the supplement never did, so it ran on
-   the defaults where a float page is accepted at half full. With the parameters set and the table
-   bodies raised one size, the supplement is 16 pages instead of 17 at a larger font.
-4. **References.** Missing volume, issue and page details supplied; publication status confirmed;
-   venue naming brought to one style.
+### 2026-10-15 — manuscript evaluation, answered 2026-10-16
 
-   *No DOI appears in the reference list, by decision.* `IEEEtran.bst`, the official IEEE BibTeX
-   style, does not support a `doi` field at all — the current release (v1.14, 2015) contains no
-   "doi" handling anywhere in its source, while "url" occurs ninety times — and IEEE style omits
-   the DOI for a normally published article, requiring it only for an early-access item. 62 of the
-   76 cited entries carry a DOI in the `.bib` regardless, and
-   `endnote/out_j28/strict_refcheck.md` is the record that every entry was checked.
+Decisions taken with the authors: one document with no supplement; stay within the 25-page limit;
+keep the 22 studies and frame them as an illustrative focused synthesis; adopt the suggested
+title. The revision came to 20 pages with 10 tables and 7 figures.
+See `expand25/RESPONSE_TO_EVALUATION.md`.
 
-**Grants.** NIH R56DK114514-01 and R01DK129432 (PI: Fang); NSF Award 2428595 (PI: Wang).
+### 2026-10-22 — eight required updates, answered
 
-## Errors found and corrected while checking
+All eight are in the manuscript, verified against the file rather than against the response:
 
-Recorded because each one passed an earlier check, and the fix was to make the check real.
-
-| Found | What was wrong | Why it got through |
+| | Requirement | Where it landed |
 |---|---|---|
-| 2026-09-30 | Five counted claims contradicted the tables, including a leftover "(12)" from the twelve-study version where the tables support sixteen | Nothing compared prose counts against table cells. `check_consistency.py` now does, and found all five |
-| 2026-09-30 | Eleven citations had wrong bibliographic data; ten were truncated titles | The verifier accepted a title at 0.80 similarity once the DOI matched, and a truncated title is a high-similarity prefix. `strict_refcheck.py` now demands an exact title |
-| 2026-10-01 | Two bib edits were silently lost when a patch script aborted before writing | The strict checker skips entries with no publisher record, so it could not see them. `check_oct1.py` now asserts those fields directly |
-| 2026-10-08 | Every plain-numbered supplement table printed one number too high, so six pointers in the paper were wrong — a table added to Section II had consumed an S-number | Every `\ref` inside the supplement still resolved. `check_consistency.py` now simulates the table counter and compares the printed numbers with the ones the main text cites |
-| 2026-10-08 | Removing the deployment column deleted the inferred placement, while the main text claimed the supplement carried it | The comment checker looked for the sentence, not for a table backing it. It now asserts the column exists and all 22 rows are filled |
+| 1 | Expand the IoT evidence synthesis | 230 Xplore-only and 307 IoT-term records screened; C1–C7 in Table V and the `c` cells of Fig. 5; 52 exclusions with reasons in A12 |
+| 2 | Complete and label the audit package | A01–A14 with a manifest; filenames cannot be confused with table numbers; screening code included |
+| 3 | Reconcile Fig. 5 with its text | Text and caption now agree on which families show explicit spatial modelling, and the caption lists the studies behind every demonstrated cell |
+| 4 | Correct the Nitski extraction | Four deep models against logistic regression, AUROC 0.804 and 0.733, 99% CI, UHN only after fine-tuning |
+| 5 | Screening and numerical reporting | "False-omission fraction" named; 54 of 55 overlaps inside the 363 pool, giving 593 under PubMed's verdict and 594 if either database's sufficed; differences recomputed at source precision (GluNet 19.28 vs 21.54 = −2.26; bed 98.42 vs 92.16 = +6.26) |
+| 6 | Citations and illustrations | Target-trial emulation cites Hernán and Robins; Fig. 3 redrawn as a gridded field and ordered frames |
+| 7 | 2026 literature and novelty | All seven sources added and assessed, none entering the 22; Table VI separates implemented models, frameworks, simulation evidence, synchronized services and prospective benefit; a "Currency" paragraph added to the limitations |
+| 8 | Presentation and consistency | Decision branches in Fig. 2; E01–E22 and C1–C7 shared across Tables III and V with the A08 crosswalk; hardware stated as Raspberry Pi 4B, 97.93 ms throughout |
+
+Search currency: both databases were re-searched on 2026-10-22 with per-record Entrez and
+insertion dates logged (PubMed 50 new records, 9 rule-positive; Xplore 44 newly inserted, 12
+rule-positive). See `expand25/RESPONSE_IoT_v2.md`.
 
 ## Open
 
-- Whether the repaired search string becomes the search of record, or the validation is reported
-  with the search as actually run. Affects the eligible-pool denominator; a senior-author decision.
-- Citation-to-claim relevance: every reference is real and correctly described, but no pass has yet
-  confirmed that each one supports the sentence it is attached to. One cross-domain misuse was
-  found and fixed this way; a full pass needs the primary texts read.
-- Co-author verification of the tabulated numbers.
+1. **The hand check is not an independent check.** Its labelling sheet showed a
+   machine-generated suggested decision and reason for each of the 60 records, and the author
+   accepted the suggestion on 58 of the 59 records where the exposure was logged. The text now says
+   so and A11 deposits the suggestion beside each decision, but the precision (62%) and
+   false-omission (18%) estimates — and the ~375 pool estimate drawn from them — rest on a
+   confirmation pass, not an independent re-read. Relabelling the 60 records with the suggestions
+   hidden is the fix; it would change these numbers. **The highest-priority open item.**
+2. **Independent re-coding.** The manuscript states in the Table I note that the coding is by a
+   single reviewer and has not been independently re-audited, and the 10-22 round asked for
+   conclusion-driving codes to be rechecked independently. A second person has to re-code a
+   sample; this cannot be closed by tooling.
+3. **Author verification of AI-assisted decisions:** the complement screen (A12), the 10-22 search
+   update (A13), and the three new Table I codings (A01).
+4. **Search cutoff versus submission date.** Screened through 2026-10-22. If submission slips, the
+   searches need re-running: the standing position in this review is that citing 2026 papers does
+   not by itself establish coverage to the submission date.
+5. **Citation-to-claim relevance.** Every reference is real and bibliographically correct, but no
+   pass has confirmed that each supports the sentence it is attached to. One cross-domain misuse
+   was found this way earlier; a full pass needs the primary texts.
+6. A Zenodo deposit for a citable DOI, if the journal wants one. The package is on GitHub now,
+   which is addressable but not immutable.
+
+## Errors found while checking, and why a check had missed them
+
+Kept because the pattern matters more than the individual fixes: in each case a check reported
+success while the artifact behind the claim was wrong or absent.
+
+| Found | What was wrong | Why it got through |
+|---|---|---|
+| 2026-09-30 | Five counted claims contradicted the tables, including a leftover "(12)" where the tables support sixteen | Nothing compared prose counts against table cells |
+| 2026-09-30 | Eleven citations carried wrong bibliographic data; ten were truncated titles | A title was accepted at 0.80 similarity once the DOI matched, and a truncation is a high-similarity prefix |
+| 2026-10-01 | Two bib edits were lost when a patch script aborted before writing | The strict checker skips entries with no publisher record, so it could not see them |
+| 2026-10-08 | Every plain-numbered supplement table printed one number too high, so six pointers were wrong | Every `\ref` still resolved; nothing compared printed numbers with the numbers the text cites |
+| 2026-10-08 | Removing a column deleted the inferred deployment placement while the text claimed a table carried it | The checker looked for the sentence, not for a table backing it |
+| 2026-10-26 | Ten of the thirty-five audit checksums did not match their files: they had been computed over CRLF line endings while the files are LF | Nothing re-verified the manifest after it was written. `review/verify_audit.py` now does |
+| 2026-10-26 | The hand-check audit file A11 held a blank worksheet, not the labels behind the published 62%/18%. Recovering the real record showed the labelling sheet had displayed a machine-generated suggestion and reason for every record, which the author accepted on 58 of 59 — so the manuscript's "blind to the rule's verdict" was wrong | Nothing recomputed the published statistics from the deposited file, and no check asked how the labels were produced |

@@ -55,3 +55,7 @@ review/search/ieee_a_raw.json
 review/search/ieee_b_raw.json
 review/search/ieee_a_abstracts.json
 review/search/ieee_b_abstracts.json
+
+# Local pre-edit snapshots of the manuscript: they contain superseded claims
+# and must not appear in the public deposit beside the corrected manuscript.
+expand25/STmodel_before_*.tex

@@ -1,0 +1,14 @@
+{
+ "run_date": "2026-10-01",
+ "note": "the block form and the expanded form are submitted separately; equal counts are what verifies the printed string",
+ "main": {
+  "blocks": 1181,
+  "expanded": 1181,
+  "string": "(spatiotemporal[tiab] OR \"spatio-temporal\"[tiab] OR \"space-time\"[tiab] OR \"space time\"[tiab]) AND (\"deep learning\"[tiab] OR \"neural network\"[tiab] OR \"neural networks\"[tiab] OR transformer[tiab] OR transformers[tiab] OR \"graph network\"[tiab] OR \"graph neural\"[tiab]) AND (health[tiab] OR clinical[tiab] OR patient[tiab] OR patients[tiab] OR wearable[tiab] OR wearables[tiab]) AND 2015:2026[dp]"
+ },
+ "dtwm": {
+  "blocks": 281,
+  "expanded": 281,
+  "string": "(\"digital twin\"[tiab] OR \"digital twins\"[tiab] OR \"world model\"[tiab] OR \"world models\"[tiab]) AND (\"deep learning\"[tiab] OR \"neural network\"[tiab] OR \"neural networks\"[tiab] OR transformer[tiab] OR transformers[tiab] OR \"graph network\"[tiab] OR \"graph neural\"[tiab]) AND (health[tiab] OR clinical[tiab] OR patient[tiab] OR patients[tiab] OR wearable[tiab] OR wearables[tiab]) AND 2015:2026[dp]"
+ }
+}

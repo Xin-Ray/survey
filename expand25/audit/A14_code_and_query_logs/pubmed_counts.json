@@ -1,0 +1,14 @@
+{
+ "run_date": "2026-09-21",
+ "database": "PubMed (E-utilities)",
+ "queries": {
+  "A_spatiotemporal": "(\"spatiotemporal\"[tiab] OR \"spatio-temporal\"[tiab] OR \"spatial-temporal\"[tiab] OR \"space-time\"[tiab] OR \"spatial and temporal\"[tiab]) AND (\"deep learning\"[tiab] OR \"neural network*\"[tiab] OR \"transformer*\"[tiab] OR \"graph neural\"[tiab] OR \"LSTM\"[tiab] OR \"recurrent\"[tiab] OR \"convolutional\"[tiab] OR \"deep neural\"[tiab]) AND (\"digital health\"[tiab] OR \"wearable*\"[tiab] OR \"internet of things\"[tiab] OR \"IoT\"[tiab] OR \"mobile health\"[tiab] OR \"mHealth\"[tiab] OR \"remote monitoring\"[tiab] OR \"continuous glucose\"[tiab] OR \"electronic health record*\"[tiab] OR \"diabetes\"[tiab] OR \"depression\"[tiab] OR \"cardiac\"[tiab] OR \"cardiovascular\"[tiab] OR \"diet*\"[tiab] OR \"chronic disease*\"[tiab] OR \"public health\"[tiab] OR \"clinical prediction\"[tiab] OR \"disease prediction\"[tiab] OR \"clinical\"[tiab] OR \"patient*\"[tiab] OR \"health\"[tiab]) AND (\"2015/01/01\"[dp] : \"2026/12/31\"[dp])",
+  "B_twin_worldmodel": "(\"digital twin*\"[tiab] OR \"world model*\"[tiab]) AND (\"deep learning\"[tiab] OR \"neural network*\"[tiab] OR \"transformer*\"[tiab] OR \"graph neural\"[tiab] OR \"LSTM\"[tiab] OR \"recurrent\"[tiab] OR \"convolutional\"[tiab] OR \"deep neural\"[tiab]) AND (\"digital health\"[tiab] OR \"wearable*\"[tiab] OR \"internet of things\"[tiab] OR \"IoT\"[tiab] OR \"mobile health\"[tiab] OR \"mHealth\"[tiab] OR \"remote monitoring\"[tiab] OR \"continuous glucose\"[tiab] OR \"electronic health record*\"[tiab] OR \"diabetes\"[tiab] OR \"depression\"[tiab] OR \"cardiac\"[tiab] OR \"cardiovascular\"[tiab] OR \"diet*\"[tiab] OR \"chronic disease*\"[tiab] OR \"public health\"[tiab] OR \"clinical prediction\"[tiab] OR \"disease prediction\"[tiab] OR \"clinical\"[tiab] OR \"patient*\"[tiab] OR \"health\"[tiab]) AND (\"2015/01/01\"[dp] : \"2026/12/31\"[dp])"
+ },
+ "counts": {
+  "A_spatiotemporal": 2121,
+  "B_twin_worldmodel": 343,
+  "overlap_A_and_B": 7,
+  "union_unique": 2457
+ }
+}

@@ -1,0 +1,46 @@
+{
+ "run_date": "2026-10-22",
+ "pubmed_main_new": 27,
+ "pubmed_dtwm_new": 23,
+ "pubmed_update_window": "2026/09/12:2026/10/22[edat]",
+ "pubmed_update_unique": 50,
+ "pubmed_update_decisions": {
+  "excluded_non_research_or_review": 18,
+  "eligible": 9,
+  "excluded_i_no_spacetime_structure": 7,
+  "excluded_iii_no_quantitative_comparison": 14,
+  "excluded_ii_not_human_health": 2
+ },
+ "xplore_inserted_after_2026-09-22": {
+  "excluded_iii_no_quantitative_comparison": 16,
+  "eligible": 12,
+  "excluded_review": 1,
+  "excluded_ii_not_human_health": 7,
+  "excluded_i_no_spacetime_structure": 8
+ },
+ "xplore_rerun": {
+  "eligible_unique_within_ieee": 296,
+  "deduplicated_against_pubmed": {
+   "pubmed_comparison_set": 1485,
+   "pubmed_counts": {
+    "main": 1198,
+    "dtwm": 290
+   },
+   "pubmed_overlap_between_arms": 3,
+   "also_in_pubmed": 54,
+   "ieee_only": 242
+  },
+  "records": {
+   "a": 961,
+   "b": 289
+  }
+ },
+ "overlaps_matched": 55,
+ "overlaps_pubmed_side": {
+  "in_363_pool": 54,
+  "not_in_363_pool": 1
+ },
+ "overlaps_not_in_pool_reasons": {
+  "not_in_pool:excluded_iii_no_quantitative_comparison": 1
+ }
+}

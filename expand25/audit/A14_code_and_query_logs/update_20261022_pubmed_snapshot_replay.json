@@ -1,0 +1,31 @@
+{
+ "replayed": {
+  "unique": 1435,
+  "non_research": 12,
+  "reviews": 195,
+  "no_abstract": 1,
+  "fail_ii": 99,
+  "fail_i": 130,
+  "fail_iii": 635,
+  "eligible": 363,
+  "screened": 1227
+ },
+ "published": {
+  "unique": 1436,
+  "non_research": 36,
+  "reviews": 194,
+  "screened": 1206,
+  "fail_ii": 99,
+  "fail_i": 127,
+  "fail_iii": 617,
+  "eligible": 363
+ },
+ "arm_counts": {
+  "main": 1171,
+  "dtwm": 267
+ },
+ "eligible_in_published_363": 356,
+ "published_363_not_replayed": 7,
+ "replayed_eligible_not_in_363": 7,
+ "run_date": "2026-10-22"
+}

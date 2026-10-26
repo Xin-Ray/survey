@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="181mm" height="72mm" viewBox="0 0 181 72" font-family="'Times New Roman', Times, serif">
+<defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1a1a1a"/></marker></defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="32.90" y="3.00" font-size="2.82" text-anchor="middle" fill="#1a1a1a">§III</text>
+<rect x="20.00" y="4.60" width="25.80" height="9.00" rx="0.90" fill="#dcebf8" stroke="#3f73a8" stroke-width="0.30"/>
+<text x="32.90" y="8.50" font-size="2.82" text-anchor="middle" fill="#1a1a1a">Sensing &amp; device</text>
+<text x="32.90" y="11.80" font-size="2.60" text-anchor="middle" fill="#1a1a1a">wearable, CGM, home</text>
+<path d="M 45.85 9.10 L 46.75 9.10" fill="none" stroke="#1a1a1a" stroke-width="0.30" marker-end="url(#ah)"/>
+<text x="59.70" y="3.00" font-size="2.82" text-anchor="middle" fill="#1a1a1a">§VI-C</text>
+<rect x="46.80" y="4.60" width="25.80" height="9.00" rx="0.90" fill="#efefef" stroke="#7a7a7a" stroke-width="0.30"/>
+<text x="59.70" y="8.50" font-size="2.82" text-anchor="middle" fill="#1a1a1a">Link &amp; gateway</text>
+<text x="59.70" y="11.80" font-size="2.60" text-anchor="middle" fill="#1a1a1a">BLE, Wi-Fi, cellular</text>
+<path d="M 72.65 9.10 L 73.55 9.10" fill="none" stroke="#1a1a1a" stroke-width="0.30" marker-end="url(#ah)"/>
+<text x="86.50" y="3.00" font-size="2.82" text-anchor="middle" fill="#1a1a1a">§IV</text>
+<rect x="73.60" y="4.60" width="25.80" height="9.00" rx="0.90" fill="#d9f0ef" stroke="#2f7f84" stroke-width="0.30"/>
+<text x="86.50" y="8.50" font-size="2.82" text-anchor="middle" fill="#1a1a1a">Edge</text>
+<text x="86.50" y="11.80" font-size="2.60" text-anchor="middle" fill="#1a1a1a">gateway or clinic</text>
+<path d="M 99.45 9.10 L 100.35 9.10" fill="none" stroke="#1a1a1a" stroke-width="0.30" marker-end="url(#ah)"/>
+<text x="113.30" y="3.00" font-size="2.82" text-anchor="middle" fill="#1a1a1a">§V</text>
+<rect x="100.40" y="4.60" width="25.80" height="9.00" rx="0.90" fill="#dcebf8" stroke="#3f73a8" stroke-width="0.30"/>
+<text x="113.30" y="8.50" font-size="2.82" text-anchor="middle" fill="#1a1a1a">Cloud &amp; platform</text>
+<text x="113.30" y="11.80" font-size="2.60" text-anchor="middle" fill="#1a1a1a">multisite records</text>
+<path d="M 126.25 9.10 L 127.15 9.10" fill="none" stroke="#1a1a1a" stroke-width="0.30" marker-end="url(#ah)"/>
+<text x="140.10" y="3.00" font-size="2.82" text-anchor="middle" fill="#1a1a1a">§VI</text>
+<rect x="127.20" y="4.60" width="25.80" height="9.00" rx="0.90" fill="#e2f1da" stroke="#4f8d3e" stroke-width="0.30"/>
+<text x="140.10" y="8.50" font-size="2.82" text-anchor="middle" fill="#1a1a1a">Synchronized twin</text>
+<text x="140.10" y="11.80" font-size="2.60" text-anchor="middle" fill="#1a1a1a">one patient</text>
+<path d="M 153.05 9.10 L 153.95 9.10" fill="none" stroke="#1a1a1a" stroke-width="0.30" marker-end="url(#ah)"/>
+<text x="166.90" y="3.00" font-size="2.82" text-anchor="middle" fill="#1a1a1a">§VII</text>
+<rect x="154.00" y="4.60" width="25.80" height="9.00" rx="0.90" fill="#ece2f6" stroke="#7d5aa8" stroke-width="0.30"/>
+<text x="166.90" y="8.50" font-size="2.82" text-anchor="middle" fill="#1a1a1a">Clinician decision</text>
+<text x="166.90" y="11.80" font-size="2.60" text-anchor="middle" fill="#1a1a1a">human in the loop</text>
+<text x="0.50" y="9.90" font-size="2.82" text-anchor="start" fill="#1a1a1a">Stage</text>
+<rect x="0.00" y="15.20" width="181.00" height="11.90" rx="0.00" fill="#f7f7f7" stroke="none" stroke-width="0.00"/>
+<text x="0.50" y="18.70" font-size="2.82" text-anchor="start" fill="#1a1a1a">Data leaving</text>
+<text x="32.90" y="18.70" font-size="2.82" text-anchor="middle" fill="#1a1a1a">raw streams,</text>
+<text x="32.90" y="22.00" font-size="2.82" text-anchor="middle" fill="#1a1a1a">1 Hz–2 kHz; events,</text>
+<text x="32.90" y="25.30" font-size="2.82" text-anchor="middle" fill="#1a1a1a">video frames</text>
+<text x="59.70" y="20.35" font-size="2.82" text-anchor="middle" fill="#1a1a1a">windows, summaries;</text>
+<text x="59.70" y="23.65" font-size="2.82" text-anchor="middle" fill="#1a1a1a">gaps and loss</text>
+<text x="86.50" y="20.35" font-size="2.82" text-anchor="middle" fill="#1a1a1a">features, windowed</text>
+<text x="86.50" y="23.65" font-size="2.82" text-anchor="middle" fill="#1a1a1a">tensors</text>
+<text x="113.30" y="20.35" font-size="2.82" text-anchor="middle" fill="#1a1a1a">harmonized records,</text>
+<text x="113.30" y="23.65" font-size="2.82" text-anchor="middle" fill="#1a1a1a">grids, imaging</text>
+<text x="140.10" y="20.35" font-size="2.82" text-anchor="middle" fill="#1a1a1a">versioned latent</text>
+<text x="140.10" y="23.65" font-size="2.82" text-anchor="middle" fill="#1a1a1a">patient state</text>
+<text x="166.90" y="20.35" font-size="2.82" text-anchor="middle" fill="#1a1a1a">risk, forecast;</text>
+<text x="166.90" y="23.65" font-size="2.82" text-anchor="middle" fill="#1a1a1a">rollouts (proposed)</text>
+<rect x="0.00" y="27.10" width="181.00" height="11.90" rx="0.00" fill="#ffffff" stroke="none" stroke-width="0.00"/>
+<text x="0.50" y="30.60" font-size="2.82" text-anchor="start" fill="#1a1a1a">Model families</text>
+<text x="32.90" y="32.25" font-size="2.82" text-anchor="middle" fill="#1a1a1a">int8 CNN, TCN,</text>
+<text x="32.90" y="35.55" font-size="2.82" text-anchor="middle" fill="#1a1a1a">time-aware RNN</text>
+<text x="59.70" y="30.60" font-size="2.82" text-anchor="middle" fill="#1a1a1a">none required;</text>
+<text x="59.70" y="33.90" font-size="2.82" text-anchor="middle" fill="#1a1a1a">on-device</text>
+<text x="59.70" y="37.20" font-size="2.82" text-anchor="middle" fill="#1a1a1a">summarization</text>
+<text x="86.50" y="30.60" font-size="2.82" text-anchor="middle" fill="#1a1a1a">CNN–RNN,</text>
+<text x="86.50" y="33.90" font-size="2.82" text-anchor="middle" fill="#1a1a1a">ConvLSTM, state</text>
+<text x="86.50" y="37.20" font-size="2.82" text-anchor="middle" fill="#1a1a1a">space (Mamba)</text>
+<text x="113.30" y="30.60" font-size="2.82" text-anchor="middle" fill="#1a1a1a">STGNN,</text>
+<text x="113.30" y="33.90" font-size="2.82" text-anchor="middle" fill="#1a1a1a">Transformer, 3D-CNN,</text>
+<text x="113.30" y="37.20" font-size="2.82" text-anchor="middle" fill="#1a1a1a">GAN, DDPM</text>
+<text x="140.10" y="30.60" font-size="2.82" text-anchor="middle" fill="#1a1a1a">longitudinal</text>
+<text x="140.10" y="33.90" font-size="2.82" text-anchor="middle" fill="#1a1a1a">Transformer, disease-</text>
+<text x="140.10" y="37.20" font-size="2.82" text-anchor="middle" fill="#1a1a1a">progression model</text>
+<text x="166.90" y="32.25" font-size="2.82" text-anchor="middle" fill="#1a1a1a">world model and</text>
+<text x="166.90" y="35.55" font-size="2.82" text-anchor="middle" fill="#1a1a1a">planner (proposed)</text>
+<rect x="0.00" y="39.00" width="181.00" height="8.60" rx="0.00" fill="#f7f7f7" stroke="none" stroke-width="0.00"/>
+<text x="0.50" y="42.50" font-size="2.82" text-anchor="start" fill="#1a1a1a">Resource limits</text>
+<text x="32.90" y="42.50" font-size="2.82" text-anchor="middle" fill="#1a1a1a">kB–MB memory,</text>
+<text x="32.90" y="45.80" font-size="2.82" text-anchor="middle" fill="#1a1a1a">mW, battery</text>
+<text x="59.70" y="42.50" font-size="2.82" text-anchor="middle" fill="#1a1a1a">kb/s–Mb/s, duty</text>
+<text x="59.70" y="45.80" font-size="2.82" text-anchor="middle" fill="#1a1a1a">cycle, interval</text>
+<text x="86.50" y="42.50" font-size="2.82" text-anchor="middle" fill="#1a1a1a">latency, memory,</text>
+<text x="86.50" y="45.80" font-size="2.82" text-anchor="middle" fill="#1a1a1a">energy per inference</text>
+<text x="113.30" y="42.50" font-size="2.82" text-anchor="middle" fill="#1a1a1a">governance,</text>
+<text x="113.30" y="45.80" font-size="2.82" text-anchor="middle" fill="#1a1a1a">harmonization</text>
+<text x="140.10" y="42.50" font-size="2.82" text-anchor="middle" fill="#1a1a1a">update cadence,</text>
+<text x="140.10" y="45.80" font-size="2.82" text-anchor="middle" fill="#1a1a1a">privacy budget</text>
+<text x="166.90" y="42.50" font-size="2.82" text-anchor="middle" fill="#1a1a1a">safety filter,</text>
+<text x="166.90" y="45.80" font-size="2.82" text-anchor="middle" fill="#1a1a1a">review time</text>
+<rect x="0.00" y="47.60" width="181.00" height="11.90" rx="0.00" fill="#ffffff" stroke="none" stroke-width="0.00"/>
+<text x="0.50" y="51.10" font-size="2.82" text-anchor="start" fill="#1a1a1a">Validation gate</text>
+<text x="32.90" y="51.10" font-size="2.82" text-anchor="middle" fill="#1a1a1a">subject-disjoint test;</text>
+<text x="32.90" y="54.40" font-size="2.82" text-anchor="middle" fill="#1a1a1a">on-device latency</text>
+<text x="32.90" y="57.70" font-size="2.82" text-anchor="middle" fill="#1a1a1a">and memory</text>
+<text x="59.70" y="51.10" font-size="2.82" text-anchor="middle" fill="#1a1a1a">loss visible to the</text>
+<text x="59.70" y="54.40" font-size="2.82" text-anchor="middle" fill="#1a1a1a">model; bytes per</text>
+<text x="59.70" y="57.70" font-size="2.82" text-anchor="middle" fill="#1a1a1a">patient-day</text>
+<text x="86.50" y="51.10" font-size="2.82" text-anchor="middle" fill="#1a1a1a">p95 latency on target;</text>
+<text x="86.50" y="54.40" font-size="2.82" text-anchor="middle" fill="#1a1a1a">non-inferior to</text>
+<text x="86.50" y="57.70" font-size="2.82" text-anchor="middle" fill="#1a1a1a">server model</text>
+<text x="113.30" y="51.10" font-size="2.82" text-anchor="middle" fill="#1a1a1a">external site held</text>
+<text x="113.30" y="54.40" font-size="2.82" text-anchor="middle" fill="#1a1a1a">out unadapted;</text>
+<text x="113.30" y="57.70" font-size="2.82" text-anchor="middle" fill="#1a1a1a">calibration</text>
+<text x="140.10" y="51.10" font-size="2.82" text-anchor="middle" fill="#1a1a1a">synchronization</text>
+<text x="140.10" y="54.40" font-size="2.82" text-anchor="middle" fill="#1a1a1a">defined; per-patient</text>
+<text x="140.10" y="57.70" font-size="2.82" text-anchor="middle" fill="#1a1a1a">calibration</text>
+<text x="166.90" y="52.75" font-size="2.82" text-anchor="middle" fill="#1a1a1a">identified effects;</text>
+<text x="166.90" y="56.05" font-size="2.82" text-anchor="middle" fill="#1a1a1a">prospective study</text>
+<rect x="0.00" y="59.50" width="181.00" height="11.90" rx="0.00" fill="#f7f7f7" stroke="none" stroke-width="0.00"/>
+<text x="0.50" y="63.00" font-size="2.82" text-anchor="start" fill="#1a1a1a">Evidence in the</text>
+<text x="0.50" y="66.30" font-size="2.82" text-anchor="start" fill="#1a1a1a">22 studies</text>
+<rect x="20.00" y="60.00" width="25.80" height="10.90" rx="0.60" fill="#fdf3d6" stroke="#c9b27a" stroke-width="0.30"/>
+<text x="32.90" y="63.00" font-size="2.82" text-anchor="middle" fill="#1a1a1a">11 device-captured;</text>
+<text x="32.90" y="66.30" font-size="2.82" text-anchor="middle" fill="#1a1a1a">3 device-class</text>
+<text x="32.90" y="69.60" font-size="2.82" text-anchor="middle" fill="#1a1a1a">cost figures</text>
+<rect x="46.80" y="60.00" width="25.80" height="10.90" rx="0.60" fill="#fbe1dd" stroke="#c9a39e" stroke-width="0.30"/>
+<text x="59.70" y="64.65" font-size="2.82" text-anchor="middle" fill="#1a1a1a">0 report data rate</text>
+<text x="59.70" y="67.95" font-size="2.82" text-anchor="middle" fill="#1a1a1a">or bandwidth</text>
+<rect x="73.60" y="60.00" width="25.80" height="10.90" rx="0.60" fill="#fbe1dd" stroke="#c9a39e" stroke-width="0.30"/>
+<text x="86.50" y="63.00" font-size="2.82" text-anchor="middle" fill="#1a1a1a">1 latency, desktop</text>
+<text x="86.50" y="66.30" font-size="2.82" text-anchor="middle" fill="#1a1a1a">CPU; 0 on an edge</text>
+<text x="86.50" y="69.60" font-size="2.82" text-anchor="middle" fill="#1a1a1a">board</text>
+<rect x="100.40" y="60.00" width="25.80" height="10.90" rx="0.60" fill="#fbe1dd" stroke="#c9a39e" stroke-width="0.30"/>
+<text x="113.30" y="63.00" font-size="2.82" text-anchor="middle" fill="#1a1a1a">8 second cohorts</text>
+<text x="113.30" y="66.30" font-size="2.82" text-anchor="middle" fill="#1a1a1a">or sites, all</text>
+<text x="113.30" y="69.60" font-size="2.82" text-anchor="middle" fill="#1a1a1a">adapted; 0 untouched</text>
+<rect x="127.20" y="60.00" width="25.80" height="10.90" rx="0.60" fill="#fbe1dd" stroke="#c9a39e" stroke-width="0.30"/>
+<text x="140.10" y="63.00" font-size="2.82" text-anchor="middle" fill="#1a1a1a">3 visit-cadence</text>
+<text x="140.10" y="66.30" font-size="2.82" text-anchor="middle" fill="#1a1a1a">re-predictions; 0</text>
+<text x="140.10" y="69.60" font-size="2.82" text-anchor="middle" fill="#1a1a1a">sensor-synchronized</text>
+<rect x="154.00" y="60.00" width="25.80" height="10.90" rx="0.60" fill="#fbe1dd" stroke="#c9a39e" stroke-width="0.30"/>
+<text x="166.90" y="63.00" font-size="2.82" text-anchor="middle" fill="#1a1a1a">0 prospective;</text>
+<text x="166.90" y="66.30" font-size="2.82" text-anchor="middle" fill="#1a1a1a">world models</text>
+<text x="166.90" y="69.60" font-size="2.82" text-anchor="middle" fill="#1a1a1a">conceptual</text>
+<line x1="0" y1="71.40" x2="181.00" y2="71.40" stroke="#7a7a7a" stroke-width="0.25"/>
+</svg>
