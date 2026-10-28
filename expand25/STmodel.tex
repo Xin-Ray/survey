@@ -24,10 +24,10 @@
 \renewcommand{\floatpagefraction}{0.88}
 \renewcommand{\dbltopfraction}{0.92}
 \renewcommand{\dblfloatpagefraction}{0.88}
-\setlength{\textfloatsep}{12pt plus 2pt minus 2pt}
-\setlength{\dbltextfloatsep}{12pt plus 2pt minus 2pt}
-\setlength{\floatsep}{10pt plus 2pt minus 2pt}
-\setlength{\dblfloatsep}{10pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{14pt plus 3pt minus 2pt}
+\setlength{\dbltextfloatsep}{14pt plus 3pt minus 2pt}
+\setlength{\floatsep}{12pt plus 3pt minus 2pt}
+\setlength{\dblfloatsep}{12pt plus 3pt minus 2pt}
 \setcounter{topnumber}{3}
 \setcounter{dbltopnumber}{3}
 \setcounter{totalnumber}{5}
@@ -57,8 +57,8 @@ Spatiotemporal models, deep neural networks, digital health, Internet of Things,
 \label{tab:related-surveys}
 
 \footnotesize
-\setlength{\tabcolsep}{4pt}
-\renewcommand{\arraystretch}{1.22}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{2.15cm}|c|c|c|c|c|c|c|c|c|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{0.95cm}|}
 \hline
 Review & IoT & ST & App & DT & WM & Priv & Edge & Data & Eval & Note & Ref. \\
@@ -117,9 +117,9 @@ This is a focused critical synthesis of an illustrative set of studies, framed b
 \centering
 \caption{Search strings, reproduced exactly as issued. The PubMed strings carry the year limit; in IEEE Xplore it was set with the year filter (2015--2026). The IoT-term sensitivity variant of Section~\ref{sec:chasing} ORs the listed IoT terms into the health block of the PubMed spatiotemporal arm.}
 \label{tab:strings}
-ootnotesize
+\footnotesize
 \setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.1}
+\renewcommand{\arraystretch}{1.12}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.55cm}|S|}
 \hline
 Database, arm & Search string \\ \hline
@@ -236,45 +236,7 @@ alt/.style={draw=black!45,dashed,rounded corners=2pt,align=center,inner sep=2.5p
 \subsection{Five Data Types and Where They Enter the Pipeline}
 \begin{figure}[tp]
 \centering
-\begin{tikzpicture}[font=\footnotesize,>=Latex,x=1mm,y=1mm,
-  pan/.style={draw=black!45,rounded corners=1.5pt,minimum width=27mm,minimum height=21mm},
-  lab/.style={anchor=north,align=center,text width=26mm,inner sep=1pt}]
-% ---- (a) event: sparse marks in space, each with a time and type
-\node[pan] (pa) at (14,0) {};
-\foreach \x/\y/\t in {6/4/t_1,12/-5/t_2,19/2/t_3,23/-3/t_4} {\fill (\x,\y) circle (0.9); \node[font=\tiny,anchor=south west,inner sep=0.5pt] at (\x,\y) {$\t$};}
-\node[lab] at (14,-11.5) {(a) Event\\(site, time, type)};
-% ---- (b) trajectory: ordered positions of one person or device
-\node[pan] (pb) at (44,0) {};
-\draw[->,thick] (34,-6) .. controls (38,6) and (44,-6) .. (48,3) -- (54,5);
-\foreach \x/\y/\t in {34/-6/t_1,40.5/0.5/t_2,48/3/t_3,54/5/t_4} {\fill (\x,\y) circle (0.8); \node[font=\tiny,anchor=north west,inner sep=0.5pt] at (\x,\y) {$\t$};}
-\node[lab] at (44,-11.5) {(b) Trajectory\\ordered (site, time)};
-% ---- (c) point reference: fixed sensors, each with its own series
-\node[pan] (pc) at (74,0) {};
-\foreach \x/\y [count=\k] in {66/4,72/-4,79/3} {\draw[fill=white] (\x-1,\y-1) rectangle (\x+1,\y+1);
-  \draw[black!70] (\x+1.5,\y) -- ++(1.2,1.4) -- ++(1.2,-2.2) -- ++(1.2,1.6) -- ++(1.2,-0.8);}
-\node[lab] at (74,-11.5) {(c) Point reference\\series at fixed sites};
-\begin{scope}[yshift=-4mm]
-% ---- (d) raster: the same gridded spatial field at successive times
-\node[pan,minimum width=41mm] (pd) at (21,-27) {};
-\foreach \k/\ox in {0/5,1/18,2/31} {
-  \foreach \i in {0,...,3} \foreach \j in {0,...,3} {
-    \pgfmathsetmacro{\v}{int(mod(7*\i+5*\j+9*\k,23))*3+8}
-    \fill[blue!\v] (\ox+2.2*\i,-33+2.2*\j) rectangle ++(2.2,2.2);}
-  \draw[black!60,step=2.2] (\ox,-33) grid ++(8.8,8.8);
-  \node[font=\tiny,anchor=north] at (\ox+4.4,-33) {$t_{\k}$};}
-\node[lab,text width=40mm] at (21,-38.5) {(d) Raster: gridded field\\$X_t\in\mathbb{R}^{H\times W}$ at regular $t$};
-% ---- (e) video: ordered stack of image frames
-\node[pan,minimum width=41mm] (pe) at (67,-27) {};
-\foreach \k in {0,...,3} {
-  \pgfmathsetmacro{\ox}{50+8.5*\k}
-  \draw[fill=white] (\ox,-33) rectangle ++(7,8.8);
-  \draw[black!65] (\ox+3.5+0.6*\k,-27.5) circle (1.3);
-  \draw[black!65] (\ox+3.5+0.6*\k,-28.8) -- ++(0,-2.4);
-  \node[font=\tiny,anchor=north] at (\ox+3.5,-33) {$f_{\k}$};}
-\draw[->] (50,-21.5) -- node[above,font=\tiny,inner sep=0.5pt] {frame order, 25--30 per s} (84,-21.5);
-\node[lab,text width=40mm] at (67,-38.5) {(e) Video: ordered frames\\$I_{f}\in\mathbb{R}^{H\times W\times 3}$};
-\end{scope}
-\end{tikzpicture}
+\includegraphics[width=\linewidth]{fig3.pdf}
 \caption{The five spatiotemporal data types of connected digital health, each with the record form it takes: (a) sparse events; (b) an ordered trajectory; (c) series at fixed sites; (d) a raster, the same gridded spatial field observed at regular times; (e) video, an ordered sequence of image frames. Relational structure---brain connectivity, referral or sensor networks---is a layer over these types, not a sixth type.}
 \label{fig:fivecat}
 \end{figure}
@@ -305,7 +267,7 @@ Table~\ref{tab:datasets} describes the twenty-three dataset-description rows for
 \label{tab:datasets}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.22}
+\renewcommand{\arraystretch}{1.12}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3.6cm}|>{\raggedright\arraybackslash}p{3.0cm}|X|>{\raggedright\arraybackslash}p{2.6cm}|>{\raggedright\arraybackslash}p{0.75cm}|>{\raggedright\arraybackslash}p{0.65cm}|>{\raggedright\arraybackslash}p{1.6cm}|>{\raggedright\arraybackslash}p{0.95cm}|}
 \hline
 Dataset (ID, study) & Population & Signal; device & Sampling; duration & Sp. & Fit & Access & Ref. \\
@@ -446,7 +408,7 @@ Four considerations guide the comparison. \emph{Spatial prior}: convolution assu
 \label{tab:decision}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.22}
+\renewcommand{\arraystretch}{1.12}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{2.35cm}|>{\raggedright\arraybackslash}p{1.6cm}|>{\raggedright\arraybackslash}p{1.9cm}|>{\raggedright\arraybackslash}p{2.6cm}|>{\raggedright\arraybackslash}p{2.75cm}|X|>{\raggedright\arraybackslash}p{1.55cm}|}
 \hline
 Use case & Cadence & Spatial structure & Link and placement & Candidate families & Verification before use & Studies \\
@@ -520,8 +482,8 @@ The following design analyses apply the framework to conditions illustrated by t
 \caption{Integrated evidence for the twenty-two illustrative studies, grouped by task. Comparator types include matched baselines, ablations, literature values, and reference instruments; they support different inferences. Score pairs are printed at the precision of the source, and each difference is computed from the displayed pair. Values are not comparable across rows. E01--E22: the illustrative set; $^{\dagger}$ten records selected from the PubMed rule-positive pool, the other twelve retained from drafting. C1--C7: IoT-engineering complement from the Xplore-only and IoT-term screen, extracted from abstracts and not counted among the 22.}
 \label{tab:evidence}
 \footnotesize
-\setlength{\tabcolsep}{2.5pt}
-\renewcommand{\arraystretch}{1.02}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.7cm}|>{\raggedright\arraybackslash}p{0.4cm}|>{\raggedright\arraybackslash}p{0.7cm}|>{\raggedright\arraybackslash}p{2.25cm}|>{\raggedright\arraybackslash}p{3.1cm}|X|>{\raggedright\arraybackslash}p{0.7cm}|>{\raggedright\arraybackslash}p{0.95cm}|>{\raggedright\arraybackslash}p{1.55cm}|>{\raggedright\arraybackslash}p{0.62cm}|}
 \hline
 Study & IoT & Sp. & Model & Task; headline result & Reported comparator; difference & Val. & UQ; Sg & Resource & Ref. \\
@@ -561,8 +523,8 @@ E11 Lin$^{\dagger}$ & N & MC & Multi-scale patching encoder & Hand kinematics; $
 \addtocounter{table}{-1}
 \caption{(Continued) Integrated evidence for the twenty-two illustrative studies and the IoT-engineering complement.}
 \footnotesize
-\setlength{\tabcolsep}{2.5pt}
-\renewcommand{\arraystretch}{1.02}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.7cm}|>{\raggedright\arraybackslash}p{0.4cm}|>{\raggedright\arraybackslash}p{0.7cm}|>{\raggedright\arraybackslash}p{2.25cm}|>{\raggedright\arraybackslash}p{3.1cm}|X|>{\raggedright\arraybackslash}p{0.7cm}|>{\raggedright\arraybackslash}p{0.95cm}|>{\raggedright\arraybackslash}p{1.55cm}|>{\raggedright\arraybackslash}p{0.62cm}|}
 \hline
 Study & IoT & Sp. & Model & Task; headline result & Reported comparator; difference & Val. & UQ; Sg & Resource & Ref. \\
@@ -746,7 +708,7 @@ Two criteria separate the adjacent concepts; without them a survey renames laten
 \caption{Evidence type of the 2026 sources added at this revision, outside the 22. $\bullet$ established by the source; -- not established. Ret.: implemented model with retrospective evaluation; Fw.: proposed framework or review; Sim.: evidence from simulated data or rollouts; Sync.: synchronized patient service; Pro.: prospective clinical benefit.}
 \label{tab:recent}
 \footnotesize
-\setlength{\tabcolsep}{2.5pt}
+\setlength{\tabcolsep}{3pt}
 \renewcommand{\arraystretch}{1.12}
 \begin{tabularx}{\columnwidth}{|>{\raggedright\arraybackslash}X|c|c|c|c|c|>{\raggedright\arraybackslash}p{0.75cm}|}
 \hline
@@ -821,7 +783,7 @@ Section~\ref{sec:future} turns the observed gaps into measurable technical quest
 \label{tab:agenda-a}
 \footnotesize
 \setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.22}
+\renewcommand{\arraystretch}{1.12}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.55cm}|>{\raggedright\arraybackslash}p{3.6cm}|>{\raggedright\arraybackslash}p{3.7cm}|X|>{\raggedright\arraybackslash}p{3.6cm}|}
 \hline
 Pr. & Observed gap & Measurable question & Design and baselines & Metric and success criterion \\
