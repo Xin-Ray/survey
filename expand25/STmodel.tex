@@ -16,6 +16,11 @@
 \newcolumntype{S}{>{\raggedright\arraybackslash\hyphenpenalty=10000\exhyphenpenalty=10000}X}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+\usepackage{listings}
+%% Search strings are printed as listings, not as a table: they must stay
+%% character-exact and paste-able, which table line breaking cannot guarantee.
+\lstset{basicstyle=\ttfamily\scriptsize,breaklines=true,breakatwhitespace=false,
+  columns=fullflexible,keepspaces=true,frame=none,xleftmargin=0pt,aboveskip=4pt,belowskip=8pt}
 
 %% Float placement: let full-width tables share pages with body text.
 \renewcommand{\topfraction}{0.92}
@@ -24,10 +29,10 @@
 \renewcommand{\floatpagefraction}{0.88}
 \renewcommand{\dbltopfraction}{0.92}
 \renewcommand{\dblfloatpagefraction}{0.88}
-\setlength{\textfloatsep}{14pt plus 3pt minus 2pt}
-\setlength{\dbltextfloatsep}{14pt plus 3pt minus 2pt}
-\setlength{\floatsep}{12pt plus 3pt minus 2pt}
-\setlength{\dblfloatsep}{12pt plus 3pt minus 2pt}
+\setlength{\textfloatsep}{12pt plus 2pt minus 2pt}
+\setlength{\dbltextfloatsep}{12pt plus 2pt minus 2pt}
+\setlength{\floatsep}{10pt plus 2pt minus 2pt}
+\setlength{\dblfloatsep}{10pt plus 2pt minus 2pt}
 \setcounter{topnumber}{3}
 \setcounter{dbltopnumber}{3}
 \setcounter{totalnumber}{5}
@@ -57,7 +62,7 @@ Spatiotemporal models, deep neural networks, digital health, Internet of Things,
 \label{tab:related-surveys}
 
 \footnotesize
-\setlength{\tabcolsep}{3pt}
+\setlength{\tabcolsep}{2.5pt}
 \renewcommand{\arraystretch}{1.12}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{2.15cm}|c|c|c|c|c|c|c|c|c|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}p{0.95cm}|}
 \hline
@@ -113,25 +118,37 @@ This is a focused critical synthesis of an illustrative set of studies, framed b
 
 \subsection{Search Strategy and Search Strings}
 \label{sec:strings}
-\begin{table*}[tp]
-\centering
-\caption{Search strings, reproduced exactly as issued. The PubMed strings carry the year limit; in IEEE Xplore it was set with the year filter (2015--2026). The IoT-term sensitivity variant of Section~\ref{sec:chasing} ORs the listed IoT terms into the health block of the PubMed spatiotemporal arm.}
-\label{tab:strings}
-\footnotesize
-\setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.12}
-\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.55cm}|S|}
-\hline
-Database, arm & Search string \\ \hline
-PubMed, spatio\-temporal & (spatiotemporal[tiab] OR "spatio-temporal"[tiab] OR "space-time"[tiab] OR "space time"[tiab]) AND ("deep learning"[tiab] OR "neural network"[tiab] OR "neural networks"[tiab] OR transformer[tiab] OR transformers[tiab] OR "graph network"[tiab] OR "graph neural"[tiab]) AND (health[tiab] OR clinical[tiab] OR patient[tiab] OR patients[tiab] OR wearable[tiab] OR wearables[tiab]) AND 2015:2026[dp] \\ \hline
-PubMed, twin & ("digital twin"[tiab] OR "digital twins"[tiab] OR "world model"[tiab] OR "world models"[tiab]) AND ("deep learning"[tiab] OR "neural network"[tiab] OR "neural networks"[tiab] OR transformer[tiab] OR transformers[tiab] OR "graph network"[tiab] OR "graph neural"[tiab]) AND (health[tiab] OR clinical[tiab] OR patient[tiab] OR patients[tiab] OR wearable[tiab] OR wearables[tiab]) AND 2015:2026[dp] \\ \hline
-PubMed, IoT-term variant & health block extended with: OR "internet of things"[tiab] OR IoT[tiab] OR sensor[tiab] OR sensors[tiab] OR smartphone[tiab] OR smartphones[tiab] OR mHealth[tiab] OR "mobile health"[tiab] OR "edge computing"[tiab] OR "body area network"[tiab] OR "remote monitoring"[tiab] \\ \hline
-IEEE Xplore, spatio\-temporal & ("Document Title":spatiotemporal OR "Abstract":spatiotemporal OR "Document Title":"spatio-temporal" OR "Abstract":"spatio-temporal" OR "Document Title":"space-time" OR "Abstract":"space-time" OR "Document Title":"space time" OR "Abstract":"space time") AND ("Document Title":"deep learning" OR "Abstract":"deep learning" OR "Document Title":"neural network" OR "Abstract":"neural network" OR "Document Title":"neural networks" OR "Abstract":"neural networks" OR "Document Title":transformer OR "Abstract":transformer OR "Document Title":transformers OR "Abstract":transformers OR "Document Title":"graph network" OR "Abstract":"graph network" OR "Document Title":"graph neural" OR "Abstract":"graph neural") AND ("Document Title":health OR "Abstract":health OR "Document Title":clinical OR "Abstract":clinical OR "Document Title":patient OR "Abstract":patient OR "Document Title":patients OR "Abstract":patients OR "Document Title":wearable OR "Abstract":wearable OR "Document Title":wearables OR "Abstract":wearables) \\ \hline
-IEEE Xplore, twin & ("Document Title":"digital twin" OR "Abstract":"digital twin" OR "Document Title":"digital twins" OR "Abstract":"digital twins" OR "Document Title":"world model" OR "Abstract":"world model" OR "Document Title":"world models" OR "Abstract":"world models") AND ("Document Title":"deep learning" OR "Abstract":"deep learning" OR "Document Title":"neural network" OR "Abstract":"neural network" OR "Document Title":"neural networks" OR "Abstract":"neural networks" OR "Document Title":transformer OR "Abstract":transformer OR "Document Title":transformers OR "Abstract":transformers OR "Document Title":"graph network" OR "Abstract":"graph network" OR "Document Title":"graph neural" OR "Abstract":"graph neural") AND ("Document Title":health OR "Abstract":health OR "Document Title":clinical OR "Abstract":clinical OR "Document Title":patient OR "Abstract":patient OR "Document Title":patients OR "Abstract":patients OR "Document Title":wearable OR "Abstract":wearable OR "Document Title":wearables OR "Abstract":wearables) \\ \hline
-\end{tabularx}
-\end{table*}
 
-Two searches were logged over a 2015--2026 window: PubMed (E-utilities, 11 September 2026) and IEEE Xplore (command search, 22 September 2026). Both combine four title/abstract blocks---A spatiotemporal terms, B deep learning model families, C health terms, D digital twin and world model terms---as A\,AND\,B\,AND\,C for the spatiotemporal arm and D\,AND\,B\,AND\,C for the twin arm, and Table~\ref{tab:strings} reproduces the strings exactly as issued. The PubMed strings were run three times: on 11 September 2026 (1{,}171 spatiotemporal, 268 twin, 3 on both; 1{,}436), the snapshot behind the PubMed screening counts in this paper and Fig.~\ref{fig:prisma}; on 22--23 September 2026 (1{,}173, 274, 3; 1{,}444), as a reproducibility check; and on 29 September 2026 (1{,}180, 279, 3; 1{,}456), used only when the IEEE Xplore records are deduplicated against PubMed in the cross-database comparison, because it was taken on the same day as the Xplore export. The later snapshot was used to check cross-database overlap; being the larger set, it can only reduce the Xplore-only count, which makes it the conservative choice, and its total is not substituted for the original PubMed screening denominator. Submitted in block form and in the expanded form of Table~\ref{tab:strings} on 1 October 2026, the PubMed strings returned identical counts (1{,}181 and 281). In IEEE Xplore the year filter was set to 2015--2026 and each term is expanded over the Document Title and Abstract fields; the two arms returned 928 and 274 records on 22 September 2026.
+\begin{figure*}[tp]
+\centering
+\begin{minipage}{\textwidth}
+\footnotesize
+\textbf{PubMed, spatiotemporal}
+\begin{lstlisting}
+(spatiotemporal[tiab] OR "spatio-temporal"[tiab] OR "space-time"[tiab] OR "space time"[tiab]) AND ("deep learning"[tiab] OR "neural network"[tiab] OR "neural networks"[tiab] OR transformer[tiab] OR transformers[tiab] OR "graph network"[tiab] OR "graph neural"[tiab]) AND (health[tiab] OR clinical[tiab] OR patient[tiab] OR patients[tiab] OR wearable[tiab] OR wearables[tiab]) AND 2015:2026[dp]
+\end{lstlisting}
+\textbf{PubMed, twin}
+\begin{lstlisting}
+("digital twin"[tiab] OR "digital twins"[tiab] OR "world model"[tiab] OR "world models"[tiab]) AND ("deep learning"[tiab] OR "neural network"[tiab] OR "neural networks"[tiab] OR transformer[tiab] OR transformers[tiab] OR "graph network"[tiab] OR "graph neural"[tiab]) AND (health[tiab] OR clinical[tiab] OR patient[tiab] OR patients[tiab] OR wearable[tiab] OR wearables[tiab]) AND 2015:2026[dp]
+\end{lstlisting}
+\textbf{PubMed, IoT-term variant}
+\begin{lstlisting}
+health block extended with: OR "internet of things"[tiab] OR IoT[tiab] OR sensor[tiab] OR sensors[tiab] OR smartphone[tiab] OR smartphones[tiab] OR mHealth[tiab] OR "mobile health"[tiab] OR "edge computing"[tiab] OR "body area network"[tiab] OR "remote monitoring"[tiab]
+\end{lstlisting}
+\textbf{IEEE Xplore, spatiotemporal}
+\begin{lstlisting}
+("Document Title":spatiotemporal OR "Abstract":spatiotemporal OR "Document Title":"spatio-temporal" OR "Abstract":"spatio-temporal" OR "Document Title":"space-time" OR "Abstract":"space-time" OR "Document Title":"space time" OR "Abstract":"space time") AND ("Document Title":"deep learning" OR "Abstract":"deep learning" OR "Document Title":"neural network" OR "Abstract":"neural network" OR "Document Title":"neural networks" OR "Abstract":"neural networks" OR "Document Title":transformer OR "Abstract":transformer OR "Document Title":transformers OR "Abstract":transformers OR "Document Title":"graph network" OR "Abstract":"graph network" OR "Document Title":"graph neural" OR "Abstract":"graph neural") AND ("Document Title":health OR "Abstract":health OR "Document Title":clinical OR "Abstract":clinical OR "Document Title":patient OR "Abstract":patient OR "Document Title":patients OR "Abstract":patients OR "Document Title":wearable OR "Abstract":wearable OR "Document Title":wearables OR "Abstract":wearables)
+\end{lstlisting}
+\textbf{IEEE Xplore, twin}
+\begin{lstlisting}
+("Document Title":"digital twin" OR "Abstract":"digital twin" OR "Document Title":"digital twins" OR "Abstract":"digital twins" OR "Document Title":"world model" OR "Abstract":"world model" OR "Document Title":"world models" OR "Abstract":"world models") AND ("Document Title":"deep learning" OR "Abstract":"deep learning" OR "Document Title":"neural network" OR "Abstract":"neural network" OR "Document Title":"neural networks" OR "Abstract":"neural networks" OR "Document Title":transformer OR "Abstract":transformer OR "Document Title":transformers OR "Abstract":transformers OR "Document Title":"graph network" OR "Abstract":"graph network" OR "Document Title":"graph neural" OR "Abstract":"graph neural") AND ("Document Title":health OR "Abstract":health OR "Document Title":clinical OR "Abstract":clinical OR "Document Title":patient OR "Abstract":patient OR "Document Title":patients OR "Abstract":patients OR "Document Title":wearable OR "Abstract":wearable OR "Document Title":wearables OR "Abstract":wearables)
+\end{lstlisting}
+\end{minipage}
+\caption{Search strings, reproduced character for character as issued. The PubMed strings carry the year limit; in IEEE Xplore the window 2015--2026 was set with the year filter. The IoT-term sensitivity variant of Section~\ref{sec:chasing} ORs the listed IoT terms into the health block of the PubMed spatiotemporal arm. They are printed as listings rather than in a table so that they stay paste-able.}
+\label{fig:strings}
+\end{figure*}
+
+Two searches were logged over a 2015--2026 window: PubMed (E-utilities, 11 September 2026) and IEEE Xplore (command search, 22 September 2026). Both combine four title/abstract blocks---A spatiotemporal terms, B deep learning model families, C health terms, D digital twin and world model terms---as A\,AND\,B\,AND\,C for the spatiotemporal arm and D\,AND\,B\,AND\,C for the twin arm, and Fig.~\ref{fig:strings} reproduces the strings exactly as issued. The PubMed strings were run three times: on 11 September 2026 (1{,}171 spatiotemporal, 268 twin, 3 on both; 1{,}436), the snapshot behind the PubMed screening counts in this paper and Fig.~\ref{fig:prisma}; on 22--23 September 2026 (1{,}173, 274, 3; 1{,}444), as a reproducibility check; and on 29 September 2026 (1{,}180, 279, 3; 1{,}456), used only when the IEEE Xplore records are deduplicated against PubMed in the cross-database comparison, because it was taken on the same day as the Xplore export. The later snapshot was used to check cross-database overlap; being the larger set, it can only reduce the Xplore-only count, which makes it the conservative choice, and its total is not substituted for the original PubMed screening denominator. Submitted in block form and in the expanded form of Fig.~\ref{fig:strings} on 1 October 2026, the PubMed strings returned identical counts (1{,}181 and 281). In IEEE Xplore the year filter was set to 2015--2026 and each term is expanded over the Document Title and Abstract fields; the two arms returned 928 and 274 records on 22 September 2026.
 
 \subsection{Eligibility Criteria and the PubMed Screen}
 Three title-and-abstract rules governed search screening: a record passed when its text indicated that it (i) modeled data indexed by both time and space, or longitudinal data with an explicit temporal model; (ii) addressed a clinical or public-health task; and (iii) reported a quantitative result against a named baseline. One author ran the searches, applied the screening rules and extracted every field reported in this survey; there was no second independent screener.
@@ -170,7 +187,7 @@ For the full-text-assessed studies, the extraction covered dataset descriptors, 
 \label{sec:chasing}
 Forward and backward citation chasing was run through OpenAlex from ten of the twelve reviews then in Table~\ref{tab:related-surveys} whose records carry a reference list or citing works (the other two have none; the three 2026 additions postdate the chase), screening 3{,}472 distinct records under the same criteria and surfacing 15 eligible ones that the PubMed query had missed: backward, 1{,}523 references gave 1{,}362 retrievable records and 1 eligible; forward, 3{,}120 citing works fetched under a cap of 400 per seed gave 2{,}110 distinct records and 14 eligible. Most were rejected for lacking a spatial or temporal term (1{,}184 backward, 1{,}909 forward). The count is a lower bound: three seeds reached the cap, OpenAlex lacks many abstracts, and most of the fifteen are activity-recognition papers citing the wearable-sensing review.
 
-Block C names only two IoT terms, \emph{wearable} and \emph{wearables}. To size what this misses, we re-ran the PubMed spatiotemporal arm on 16 October 2026 with an IoT block---Internet of Things, IoT, sensor(s), smartphone(s), mHealth, mobile health, edge computing, body area network and remote monitoring---added by OR to block C: the arm grew from 1{,}194 to 1{,}501 records, so 307 records (26\%) carry an IoT term but no health term; repeated on 22 October 2026 (Table~\ref{tab:strings}) it gave 1{,}198 and 1{,}505, again 307 added records, which were screened as described next.
+Block C names only two IoT terms, \emph{wearable} and \emph{wearables}. To size what this misses, we re-ran the PubMed spatiotemporal arm on 16 October 2026 with an IoT block---Internet of Things, IoT, sensor(s), smartphone(s), mHealth, mobile health, edge computing, body area network and remote monitoring---added by OR to block C: the arm grew from 1{,}194 to 1{,}501 records, so 307 records (26\%) carry an IoT term but no health term; repeated on 22 October 2026 (Fig.~\ref{fig:strings}) it gave 1{,}198 and 1{,}505, again 307 added records, which were screened as described next.
 
 \subsection{IoT-Engineering Complement Screen}
 \label{sec:iotcomplement}
@@ -178,7 +195,7 @@ The 230 Xplore-only rule-positive records and the 307 IoT-term additions were sc
 
 \subsection{Search Update Through 22 October 2026}
 \label{sec:searchupdate}
-Both databases were re-searched on 22 October 2026 with the strings of Table~\ref{tab:strings}, and online dates were logged per record (audit file A13). PubMed records first indexed between 12 September and 22 October (Entrez date) numbered 50; 18 were reviews or non-research items and 9 passed criteria (i)--(iii). The Xplore arms returned 961 and 289 records; the 44 inserted after the 22 September export gave 12 rule-positive records, and the Xplore-only rule-positive set grew from 230 to 242. Under the selection frame of Section~\ref{sec:selection}, the 21 new rule-positive records were assessed like the complement candidates: one met E1, E2 and the health-endpoint test and was added as C7, and the rest were excluded with reasons (twin-labelled retrospective pipelines without a measured figure, single-subject feasibility platforms, or non-device tasks). The re-run also settled the question of the 54 cross-database overlaps, which had been matched against the full PubMed snapshot rather than the rule-eligible pool: re-identified, 54 of the 55 matched records are in the 363-record pool, and one fails criterion (iii) on its PubMed abstract, so the combined rule-positive count is 593 with PubMed's verdict and 594 if either database's verdict sufficed. The twenty-two are unchanged.
+Both databases were re-searched on 22 October 2026 with the strings of Fig.~\ref{fig:strings}, and online dates were logged per record (audit file A13). PubMed records first indexed between 12 September and 22 October (Entrez date) numbered 50; 18 were reviews or non-research items and 9 passed criteria (i)--(iii). The Xplore arms returned 961 and 289 records; the 44 inserted after the 22 September export gave 12 rule-positive records, and the Xplore-only rule-positive set grew from 230 to 242. Under the selection frame of Section~\ref{sec:selection}, the 21 new rule-positive records were assessed like the complement candidates: one met E1, E2 and the health-endpoint test and was added as C7, and the rest were excluded with reasons (twin-labelled retrospective pipelines without a measured figure, single-subject feasibility platforms, or non-device tasks). The re-run also settled the question of the 54 cross-database overlaps, which had been matched against the full PubMed snapshot rather than the rule-eligible pool: re-identified, 54 of the 55 matched records are in the 363-record pool, and one fails criterion (iii) on its PubMed abstract, so the combined rule-positive count is 593 with PubMed's verdict and 594 if either database's verdict sufficed. The twenty-two are unchanged.
 
 \subsection{Reporting Principles: What the Search and the Synthesis Can Establish}
 \label{sec:scopeaudit}
@@ -193,7 +210,6 @@ Five principles govern how the evidence is reported, and later sections rely on 
 \emph{Non-reporting is not negative evidence.} A field is coded as demonstrated only when the cited evaluation supports it directly; an unfavorable result means worse on a stated outcome and protocol; an unreported result means no supporting measurement in the assessed material; and an unclear protocol stays unclear. Another cohort's name does not establish an untouched transfer test, and an abstract identifies an endpoint without establishing leakage, calibration or external validity. Intervals on performance or predictions are never treated as calibration.
 
 \emph{Replay, not reconstruction.} The saturation rule states the authors' selection rationale but, without a candidate-by-candidate ordering, cannot be replayed to its stopping point, so it is not a claim that every model family or IoT deployment was captured. Database counts drift as records are indexed; a re-run of the same strings (Section~\ref{sec:searchupdate}) is a sensitivity check and an update, not a reconstruction of the historical snapshot. A record-level replay of the PubMed screen restricted to records indexed by 11 September (audit file A09) returns 1{,}435 of the 1{,}436 records and 363 rule-positive records, 356 of them in the original pool; the original run kept only aggregate counts, so the residual differences cannot be traced further. Method papers can establish computational structure but cannot supply patient-level validation for a family.
-
 
 \section{Spatiotemporal Data in Connected Digital Health}
 \label{sec:data}
@@ -260,13 +276,12 @@ Before joint modeling the data must be made comparable, and the reviewed studies
 
 Table~\ref{tab:datasets} describes the twenty-three dataset-description rows for the twenty-two studies; some rows combine cohorts and one study occupies two rows. Fourteen carry a continuous stream at a sensor rate, from 1\,Hz heart rate to intracranial EEG sampled at up to 5\,kHz, but only nine of those come from a body-worn, ambient or consumer device; the remaining nine are visit-, scan- or month-indexed. The largest populations are registries sampled on a clinic schedule, so population size and temporal resolution trade off across the set, and these descriptors do not establish a dataset that validates the complete sensor-to-decision workflow.
 
-
 \begin{table*}[tp]
 \centering
 \caption{Dataset-description rows underlying the twenty-two illustrative studies. Some rows combine cohorts; the 23 rows are not 23 independent datasets. Entries and access conditions are as reported, not newly verified availability; ``n/r'': not reported. Sp.: spatial structure the study's model uses (Section~\ref{sec:spatial}).}
 \label{tab:datasets}
 \footnotesize
-\setlength{\tabcolsep}{3pt}
+\setlength{\tabcolsep}{2.5pt}
 \renewcommand{\arraystretch}{1.12}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{3.6cm}|>{\raggedright\arraybackslash}p{3.0cm}|X|>{\raggedright\arraybackslash}p{2.6cm}|>{\raggedright\arraybackslash}p{0.75cm}|>{\raggedright\arraybackslash}p{0.65cm}|>{\raggedright\arraybackslash}p{1.6cm}|>{\raggedright\arraybackslash}p{0.95cm}|}
 \hline
@@ -407,7 +422,7 @@ Four considerations guide the comparison. \emph{Spatial prior}: convolution assu
 \caption{Use-case decision matrix: from acquisition conditions to candidate model families and the verification required before use. Candidate families follow Section~\ref{sec:history}; the last column gives the illustrative studies in each use case. Links and placements are proposed design choices; the retained evidence does not establish all verification requirements for any row.}
 \label{tab:decision}
 \footnotesize
-\setlength{\tabcolsep}{3pt}
+\setlength{\tabcolsep}{2.5pt}
 \renewcommand{\arraystretch}{1.12}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{2.35cm}|>{\raggedright\arraybackslash}p{1.6cm}|>{\raggedright\arraybackslash}p{1.9cm}|>{\raggedright\arraybackslash}p{2.6cm}|>{\raggedright\arraybackslash}p{2.75cm}|X|>{\raggedright\arraybackslash}p{1.55cm}|}
 \hline
@@ -433,7 +448,6 @@ Population surveillance & Monthly or annual & Administrative regions & Batch; cl
 \end{tabularx}
 \end{table*}
 Table~\ref{tab:decision} turns the taxonomy into a selection aid. The first decision is cadence and placement, not architecture: a constrained link or microcontroller may require features to be fixed at the sensing tier, depending on the raw payload and the available budget, while visit-cadence records make sequence length short and per-patient history the main signal. The second is the spatial structure actually present---a sensor layout or anatomical grid justifies a spatial prior; a set of channels without known geometry does not. The third is the verification the use case demands before a model is trusted, whose unit follows the use case: subjects for individual-level transfer, and appropriate time or regional holdouts for population forecasting, with target-device latency and memory for device placement. The final column shows how thin the support is: most rows rest on one to four studies, and the retained evidence does not establish all of the proposed verification conditions for any row.
-
 
 \subsection{Comparing Costs Under a Common Workload}
 \label{sec:workload}
@@ -482,7 +496,7 @@ The following design analyses apply the framework to conditions illustrated by t
 \caption{Integrated evidence for the twenty-two illustrative studies, grouped by task. Comparator types include matched baselines, ablations, literature values, and reference instruments; they support different inferences. Score pairs are printed at the precision of the source, and each difference is computed from the displayed pair. Values are not comparable across rows. E01--E22: the illustrative set; $^{\dagger}$ten records selected from the PubMed rule-positive pool, the other twelve retained from drafting. C1--C7: IoT-engineering complement from the Xplore-only and IoT-term screen, extracted from abstracts and not counted among the 22.}
 \label{tab:evidence}
 \footnotesize
-\setlength{\tabcolsep}{3pt}
+\setlength{\tabcolsep}{2.5pt}
 \renewcommand{\arraystretch}{1.12}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.7cm}|>{\raggedright\arraybackslash}p{0.4cm}|>{\raggedright\arraybackslash}p{0.7cm}|>{\raggedright\arraybackslash}p{2.25cm}|>{\raggedright\arraybackslash}p{3.1cm}|X|>{\raggedright\arraybackslash}p{0.7cm}|>{\raggedright\arraybackslash}p{0.95cm}|>{\raggedright\arraybackslash}p{1.55cm}|>{\raggedright\arraybackslash}p{0.62cm}|}
 \hline
@@ -523,7 +537,7 @@ E11 Lin$^{\dagger}$ & N & MC & Multi-scale patching encoder & Hand kinematics; $
 \addtocounter{table}{-1}
 \caption{(Continued) Integrated evidence for the twenty-two illustrative studies and the IoT-engineering complement.}
 \footnotesize
-\setlength{\tabcolsep}{3pt}
+\setlength{\tabcolsep}{2.5pt}
 \renewcommand{\arraystretch}{1.12}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{1.7cm}|>{\raggedright\arraybackslash}p{0.4cm}|>{\raggedright\arraybackslash}p{0.7cm}|>{\raggedright\arraybackslash}p{2.25cm}|>{\raggedright\arraybackslash}p{3.1cm}|X|>{\raggedright\arraybackslash}p{0.7cm}|>{\raggedright\arraybackslash}p{0.95cm}|>{\raggedright\arraybackslash}p{1.55cm}|>{\raggedright\arraybackslash}p{0.62cm}|}
 \hline
@@ -652,7 +666,6 @@ A(t)=t-u(t),
 \end{equation}
 where $u(t)$ is acquisition time of the newest valid observation available at decision time $t$. Fast inference on a delayed batch can have low processor latency and high $A(t)$. Report both with missed deadlines and valid-output coverage. During outages, explicitly choose local inference, buffering, or a stale-state fallback. Sequence IDs, timestamps, and deduplication are needed on reconnection; reconciliation must not overwrite the historical information state. The illustrative set does not establish this complete communication contract.
 
-
 \subsection{Privacy and Federated Learning}
 \label{sec:fl}
 \begin{figure}[tp]
@@ -679,7 +692,6 @@ where $u(t)$ is acquisition time of the newest valid observation available at de
 \end{figure}
 Healthcare data are a frequent target of fraud and ransomware~\cite{Seh2020HealthcareDataBreaches}, and centralized storage is especially exposed, motivating training without moving raw data~\cite{rieke2020digitalhealth}. Federated learning sends model updates rather than raw data; transport encryption, secure aggregation, and differential privacy must be implemented separately~\cite{aouedi2022FLmedical}. In the usual cycle (Fig.~\ref{fig:flcycle}) a global model is sent to participating sites, each trains it on its own records, and the returned updates---plain unless secure aggregation or encryption is added---are aggregated over many rounds. It costs communication, suffers when site data are not independent and identically distributed (non-IID), and remains open to adversarial exposure; on its own it supplies neither encryption nor a privacy guarantee. Inside a twin, the proposed design has local twins on edge or hospital servers refine a shared spatiotemporal network and send updates to an aggregator~\cite{aouedi2022FLmedical,nguyen2022FLsmarthealthcare}; quantitative evidence for such designs remains preliminary. A federated spatiotemporal twin should report at minimum client availability and participation, non-IID heterogeneity including site and device shift, rounds to convergence, update size and total bandwidth, round latency, client energy, compute and memory ceilings, straggler and dropout handling, personalization back to each site, the attacks of Section~\ref{sec:attack} evaluated, the differential-privacy budget with its accuracy cost, and comparison with centralized and local-only baselines.
 
-
 \subsection{Synchronizing State Without Silently Changing the Model}
 \label{sec:synchronization}
 \label{sec:federatedstate}
@@ -703,34 +715,8 @@ Two criteria separate the adjacent concepts; without them a survey renames laten
 
 \subsection{Implemented Medical World Models, 2026}
 \label{sec:recentwm}
-\begin{table}[tp]
-\centering
-\caption{Evidence type of the 2026 sources added at this revision, outside the 22. $\bullet$ established by the source; -- not established. Ret.: implemented model with retrospective evaluation; Fw.: proposed framework or review; Sim.: evidence from simulated data or rollouts; Sync.: synchronized patient service; Pro.: prospective clinical benefit.}
-\label{tab:recent}
-\footnotesize
-\setlength{\tabcolsep}{3pt}
-\renewcommand{\arraystretch}{1.12}
-\begin{tabularx}{\columnwidth}{|>{\raggedright\arraybackslash}X|c|c|c|c|c|>{\raggedright\arraybackslash}p{0.75cm}|}
-\hline
-Source (type, first online) & Ret. & Fw. & Sim. & Sync. & Pro. & Ref. \\
-\hline
-EHRWorld (preprint, Feb.\ 2026) & $\bullet$ & -- & $\bullet$ & -- & -- & \cite{mu2026ehrworld} \\
-\hline
-ChronoMedicalWorld (preprint, May 2026) & $\bullet$ & -- & $\bullet$ & -- & -- & \cite{wang2026chronomedicalworld} \\
-\hline
-Cerebral hemodynamics twin (Apr.\ 2026) & $\bullet$ & -- & $\bullet$ & -- & -- & \cite{briggs2026cerebral} \\
-\hline
-Edge AIoT twin (June 2026) & -- & $\bullet$ & $\bullet$ & -- & -- & \cite{jun2026aiottwin} \\
-\hline
-Closed-loop wearables review (July 2026) & -- & $\bullet$ & -- & -- & -- & \cite{gao2026closedloop} \\
-\hline
-Medical world-model review (preprint, July 2026) & -- & $\bullet$ & -- & -- & -- & \cite{chen2026medicalwm} \\
-\hline
-Imaging world-model verification (Oct.\ 2026) & -- & $\bullet$ & -- & -- & -- & \cite{wimalasiri2026verifiable} \\
-\hline
-\end{tabularx}
-\end{table}
-Two action-conditioned medical world models have now been implemented and evaluated retrospectively (Table~\ref{tab:recent}); both are arXiv preprints, outside the two databases searched, and neither enters the twenty-two. EHRWorld fine-tunes language models on 110{,}513 MIMIC-IV hospitalization episodes so that inquiry events return observations and intervention events update an implicit patient state, and on 579 held-out episodes it outscores general-purpose language models on simulated inquiry results and retains more accuracy over successive rounds~\cite{mu2026ehrworld}. ChronoMedicalWorld encodes structured interventions together with patient--coach messages into a recurrent latent transition over 2{,}232 patients of a kidney-care platform and, on a patient-level test split, lowers rollout error by about 7\% against a prompted language-model baseline~\cite{wang2026chronomedicalworld}. Both show that action semantics and rollout stability can be engineered and measured, which earlier versions of this section could only propose. Neither identifies treatment response: the actions are the ones recorded under routine care, so the models forecast trajectories under the historical policy, and ChronoMedicalWorld states that it does not adjust for confounding. Neither has external or prospective evaluation, a sensed IoT stream, or a synchronized feedback path to a patient.
+
+Seven 2026 sources were assessed at this revision, and they separate cleanly by what they establish. Three are implemented models carrying retrospective or simulated evidence only: EHRWorld~\cite{mu2026ehrworld}, ChronoMedicalWorld~\cite{wang2026chronomedicalworld} and the cerebral hemodynamics twin~\cite{briggs2026cerebral}. One is a framework whose cost figures come from simulation alone, the edge AIoT twin~\cite{jun2026aiottwin}. Three are frameworks or reviews that implement nothing and measure nothing: the closed-loop wearables review~\cite{gao2026closedloop}, the medical world-model review~\cite{chen2026medicalwm} and the imaging world-model verification framework~\cite{wimalasiri2026verifiable}, all three also compared as reviews in Table~\ref{tab:related-surveys}. None of the seven establishes a synchronized clinical service or prospective patient benefit. Two action-conditioned medical world models have now been implemented and evaluated retrospectively; both are arXiv preprints, outside the two databases searched, and neither enters the twenty-two. EHRWorld fine-tunes language models on 110{,}513 MIMIC-IV hospitalization episodes so that inquiry events return observations and intervention events update an implicit patient state, and on 579 held-out episodes it outscores general-purpose language models on simulated inquiry results and retains more accuracy over successive rounds~\cite{mu2026ehrworld}. ChronoMedicalWorld encodes structured interventions together with patient--coach messages into a recurrent latent transition over 2{,}232 patients of a kidney-care platform and, on a patient-level test split, lowers rollout error by about 7\% against a prompted language-model baseline~\cite{wang2026chronomedicalworld}. Both show that action semantics and rollout stability can be engineered and measured, which earlier versions of this section could only propose. Neither identifies treatment response: the actions are the ones recorded under routine care, so the models forecast trajectories under the historical policy, and ChronoMedicalWorld states that it does not adjust for confounding. Neither has external or prospective evaluation, a sensed IoT stream, or a synchronized feedback path to a patient.
 
 Two contemporaneous syntheses sharpen what an evaluation must show. A verification framework for imaging world models separates simulation fidelity, roll-out stability and clinical plausibility, defines an effective planning horizon as the last step before a stated loss quantile exceeds a clinical tolerance under the observed action policy, and finds that none of nine audited imaging models reports such a horizon, a counterfactual-consistency check or a clinically meaningful subgroup analysis~\cite{wimalasiri2026verifiable}; because that horizon is estimated on-policy, it does not certify off-policy plans. A review of 98 medical world-model sources finds most retrospective, task-specific or preclinical and lists inconsistent action semantics, limited causal identifiability and long-horizon error accumulation as the main barriers~\cite{chen2026medicalwm}. Our framework is consistent with both and differs in where it starts: from the acquisition contract, the link and the inference placement that decide what state such a model can observe, how fresh it is, and whether a connected service can act on it.
 
@@ -776,13 +762,12 @@ Section~\ref{sec:future} turns the observed gaps into measurable technical quest
 
 \emph{Networking directions.} The agenda assumes a communication layer that this literature leaves unspecified, although the bearer and protocol fix the achievable sampling rate, the tolerable loss and whether an update can be pushed (Section~\ref{sec:protocols}). Three questions are concrete enough to attack now: \emph{protocol fit}, including how a selected stack carries versioned model updates and provenance alongside measurements; \emph{a resource budget from model to deployment}, reporting bytes per patient-day at the sensor and after on-device summarization, model bytes per federated round, latency at each placement and energy at each hop as one chain; and \emph{shared testbeds}---needed, for example, to measure on hardware the energy and bandwidth savings that event-driven twin updates have so far shown only in simulation~\cite{jun2026aiottwin}---combining instrumented participants, an edge tier with controllable bandwidth, latency and loss, and a federated coordinator, with released traces so that a reported edge deployment can be replicated.
 
-
 \begin{table*}[tp]
 \centering
 \caption{Prioritized research agenda derived from the observed gaps G1--G8. Priority 1 questions can be answered with existing data and testbeds and gate the rest; priority 3 presupposes priorities 1 and 2.}
 \label{tab:agenda-a}
 \footnotesize
-\setlength{\tabcolsep}{3pt}
+\setlength{\tabcolsep}{2.5pt}
 \renewcommand{\arraystretch}{1.12}
 \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{0.55cm}|>{\raggedright\arraybackslash}p{3.6cm}|>{\raggedright\arraybackslash}p{3.7cm}|X|>{\raggedright\arraybackslash}p{3.6cm}|}
 \hline
@@ -822,7 +807,7 @@ Table~\ref{tab:agenda-a} links each gap to an experiment, comparator and measura
 
 \emph{Search constraints.} Registries, regulatory submissions, unpublished industrial deployments and non-English work are excluded, as is statistical spatiotemporal work before 2015.
 
-\emph{Currency.} The databases were re-searched through 22 October 2026 (Section~\ref{sec:searchupdate}), but arXiv was not a searched source; the 2026 world-model and twin sources of Table~\ref{tab:recent} were added from a targeted update, are assessed from their abstracts or accessible text, and do not enter the twenty-two. This literature is moving faster than any snapshot.
+\emph{Currency.} The databases were re-searched through 22 October 2026 (Section~\ref{sec:searchupdate}), but arXiv was not a searched source; the 2026 world-model and twin sources of Section~\ref{sec:recentwm} were added from a targeted update, are assessed from their abstracts or accessible text, and do not enter the twenty-two. This literature is moving faster than any snapshot.
 
 \emph{Preprints, publication bias and heterogeneity.} Part of the world model literature exists only as preprints and the published record over-represents positive results, which may make reported performance optimistic relative to less selected deployment populations; the studies differ in cohort, outcome, horizon and split, so we compare numbers only within a study and do not pool or rank them. One study could be verified only from its abstract.
 
