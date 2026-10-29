@@ -38,6 +38,12 @@
             "command": "python3 \"/Users/xiangxin/survey paper/review/check_oct1.py\" --json 2>/dev/null || true",
             "timeout": 30,
             "statusMessage": "Checking the 10-01 review items"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"/Users/xiangxin/survey paper/review/check_oct29.py\" --json 2>/dev/null || true",
+            "timeout": 30,
+            "statusMessage": "Checking the 10-29 review items"
           }
         ]
       }

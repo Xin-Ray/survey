@@ -11,7 +11,7 @@ Assembled 2026-10-22 by review/build_audit.py. There is no supplementary documen
 | A05_quality_split_leakage_missing_external.csv | Quality fields: split, leakage, missing data, external validation. | 2a3d3991e53df141 |
 | A06_quality_calibration_subgroups_comparators.csv | Quality fields: calibration and uncertainty, subgroups, comparators, reproducibility. | 1a56e1d3622faf1d |
 | A07_deployment_privacy_reporting.csv | Deployment, cost and privacy reporting. | e0c16088777e7cb1 |
-| A08_study_id_crosswalk.csv | Crosswalk: stable identifier -> BibTeX key, Table V (evidence) row, Table III (datasets) row, audit files. | aeb47cf652d4e9d8 |
+| A08_study_id_crosswalk.csv | Crosswalk: stable identifier -> BibTeX key, Table V (evidence) row, Table III (datasets) row, audit files. | e466480e53983798 |
 | A09_pubmed_snapshot_20260911_decisions.csv | Record-level replay (run 2026-10-22) of the 11 Sept 2026 PubMed screen: Entrez date <= 2026-09-11, item-type exclusion, rules (i)-(iii); column in_published_363 marks the original pool. Replay summary in A14. | 946350c7408fc1b9 |
 | A10_xplore_decisions_20261022.csv | Record-level IEEE Xplore decisions of the 22 Oct 2026 re-run (both arms), with insertion dates, duplicate and PubMed matches, and membership of the 1 Oct 2026 Xplore-only list. | d0d5f27738005fdd |
 | A11_handcheck_60.csv | Single-reviewer hand check of 60 PubMed records against the rule verdict, 23 September 2026. Carries the per-record rule flags, the author's decision, and the machine-generated suggestion and reason that the labelling sheet displayed, so the dependence of the check on that suggestion can be assessed (accepted on 58 of the 59 logged records). | 1aca361b1dff46a2 |

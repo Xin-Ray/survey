@@ -38,9 +38,9 @@ version2-shrink/DNN_Based_*.pdf
 # Other people's private correspondence and unsent drafts. Say the word and I will add them.
 feedback_iotsurvey.txt
 review/r3-julia-comments-2026-09-21.txt
-review/email-to-julia-draft.md
-review/email-to-fred-draft.md
-review/email-to-julia-2026-10-08.md
+# Email drafts are correspondence with third parties: never in the public repo.
+# A pattern, not a list, so a new draft is protected the moment it is created.
+review/email-to-*
 
 # Requirements register: derived from internal review correspondence, kept local
 REQUIREMENTS.md
