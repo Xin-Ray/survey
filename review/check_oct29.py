@@ -281,9 +281,10 @@ task("m7 world-model additions retain their limits", "pass" if vers else "fail",
      "the assessed arXiv versions are named" if vers else "the assessed source version is not identified")
 
 # m8: the disclosure.
-m = re.search(r"The authors disclose that[^\n]*", tex)
+m = re.search(r"The authors disclose[^\n]*", tex)
 words = len(m.group(0).split()) if m else 0
-roles = all(k in (m.group(0) if m else "") for k in ("screen", "extract", "figure", "verif"))
+seg = (m.group(0) if m else "").lower()
+roles = all(k in seg for k in ("screen", "extract", "fig", "verif"))
 task("m8 AI disclosure simplified but complete", "pass" if (m and words <= 90 and roles) else "pending",
      f"{words} words, four roles present: {roles}" if m else "disclosure not found")
 
