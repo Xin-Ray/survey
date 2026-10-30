@@ -120,58 +120,55 @@ def main():
     if missing:
         sys.exit(f"no audit row for {missing} -- refusing to draw a grid with invented cells")
 
-    # ---- layout
-    nrow, ncol = len(studies), len(FIELDS)
-    cw, ch = 44, 17
-    left, top = 146, 100   # the longest label is "E18 Thaipisutikul"
-    W = left + ncol * cw + 18
-    H = top + nrow * ch + 78
+    # ---- layout: fields down, studies across, so the grid fits one column
+    nrow, ncol = len(FIELDS), len(studies)
+    cw, ch = 13, 16
+    left, top = 104, 62
+    W = left + ncol * cw + 10
+    H = top + nrow * ch + 56
     F = "Helvetica Neue, Helvetica, Arial, sans-serif"
     s = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}">',
          f'<rect width="{W}" height="{H}" fill="#ffffff"/>']
 
-    for j, (label, *_rest) in enumerate(FIELDS):
-        x = left + j * cw + cw / 2
-        s.append(f'<text x="{x}" y="{top-8}" font-family="{F}" font-size="11" fill="#141414" '
-                 f'text-anchor="start" transform="rotate(-50 {x} {top-8})">{label}</text>')
+    for j, r in enumerate(studies):
+        x = left + j * cw + cw / 2 + 3
+        s.append(f'<text x="{x}" y="{top-6}" font-family="{F}" font-size="8.4" fill="#141414" '
+                 f'text-anchor="start" transform="rotate(-90 {x} {top-6})">{r["id"]}</text>')
 
     def glyph(x, y, st):
-        cx, cy, r = x + cw / 2, y + ch / 2, 4.9
+        cx, cy, r = x + cw / 2, y + ch / 2, 4.3
         if st == REPORTED:
-            return (f'<rect x="{cx-r}" y="{cy-r}" width="{2*r}" height="{2*r}" rx="1.2" '
-                    f'fill="#2f5d8a"/>')
+            return f'<rect x="{cx-r}" y="{cy-r}" width="{2*r}" height="{2*r}" rx="1" fill="#2f5d8a"/>'
         if st == NOT_REPORTED:
-            return (f'<rect x="{cx-r}" y="{cy-r}" width="{2*r}" height="{2*r}" rx="1.2" '
-                    f'fill="#ffffff" stroke="#9aa6b2" stroke-width="1.1"/>')
+            return (f'<rect x="{cx-r}" y="{cy-r}" width="{2*r}" height="{2*r}" rx="1" '
+                    f'fill="#ffffff" stroke="#9aa6b2" stroke-width="0.9"/>')
         if st == UNCLEAR:
-            return (f'<rect x="{cx-r}" y="{cy-r}" width="{2*r}" height="{2*r}" rx="1.2" '
-                    f'fill="#ffffff" stroke="#9aa6b2" stroke-width="1.1"/>'
-                    f'<path d="M {cx-r} {cy+r} L {cx+r} {cy-r}" stroke="#2f5d8a" stroke-width="1.6"/>')
-        return (f'<rect x="{cx-r}" y="{cy-r}" width="{2*r}" height="{2*r}" rx="1.2" '
-                f'fill="#ffffff" stroke="#2f5d8a" stroke-width="1.1" stroke-dasharray="2.2 1.6"/>')
+            return (f'<rect x="{cx-r}" y="{cy-r}" width="{2*r}" height="{2*r}" rx="1" '
+                    f'fill="#ffffff" stroke="#9aa6b2" stroke-width="0.9"/>'
+                    f'<path d="M {cx-r} {cy+r} L {cx+r} {cy-r}" stroke="#2f5d8a" stroke-width="1.3"/>')
+        return (f'<rect x="{cx-r}" y="{cy-r}" width="{2*r}" height="{2*r}" rx="1" '
+                f'fill="#ffffff" stroke="#2f5d8a" stroke-width="0.9" stroke-dasharray="1.8 1.3"/>')
 
-    for i, r in enumerate(studies):
-        sid = r["id"]
+    order = [r["id"] for r in studies]
+    for i, (label, *_rest) in enumerate(FIELDS):
         y = top + i * ch
         if i % 2 == 1:
             s.append(f'<rect x="{left}" y="{y}" width="{ncol*cw}" height="{ch}" fill="#f4f6f8"/>')
-        label = re.sub(r"\$\^\{?\\\\?[a-zA-Z]+\}?\$|\\\\[a-zA-Z]+|[${}^]", "",
-                       r["study_label"]).strip()
-        s.append(f'<text x="{left-8}" y="{y+ch/2+4}" font-family="{F}" font-size="11.5" '
-                 f'fill="#141414" text-anchor="end">{sid} {label}</text>')
-        for j, st in enumerate(grid[sid]):
-            s.append(glyph(left + j * cw, y, st))
+        s.append(f'<text x="{left-6}" y="{y+ch/2+3.4}" font-family="{F}" font-size="9.6" '
+                 f'fill="#141414" text-anchor="end">{label}</text>')
+        for j, sid in enumerate(order):
+            s.append(glyph(left + j * cw, y, grid[sid][i]))
 
-    s.append(f'<line x1="{left}" y1="{top}" x2="{left+ncol*cw}" y2="{top}" stroke="#141414" stroke-width="1"/>')
+    s.append(f'<line x1="{left}" y1="{top}" x2="{left+ncol*cw}" y2="{top}" stroke="#141414" stroke-width="0.9"/>')
     s.append(f'<line x1="{left}" y1="{top+nrow*ch}" x2="{left+ncol*cw}" y2="{top+nrow*ch}" '
-             f'stroke="#141414" stroke-width="1"/>')
+             f'stroke="#141414" stroke-width="0.9"/>')
 
-    ly = top + nrow * ch + 30
+    ly = top + nrow * ch + 22
     for k, (st, text) in enumerate([(REPORTED, "reported"), (NOT_REPORTED, "not reported"),
                                     (UNCLEAR, "unclear"), (ABSTRACT, "abstract-only")]):
-        x = left + k * 150
-        s.append(glyph(x - cw / 2 + 6, ly - ch / 2, st))
-        s.append(f'<text x="{x+20}" y="{ly+4}" font-family="{F}" font-size="11.5" '
+        x = left - 96 + k * 94
+        s.append(glyph(x, ly - ch / 2, st))
+        s.append(f'<text x="{x+16}" y="{ly+3}" font-family="{F}" font-size="9.2" '
                  f'fill="#141414">{text}</text>')
 
     s.append('</svg>')
@@ -181,7 +178,7 @@ def main():
     for row in grid.values():
         for st in row:
             counts[st] = counts.get(st, 0) + 1
-    print(f"wrote {os.path.basename(OUT)}: {nrow} studies x {ncol} fields = {nrow*ncol} glyphs")
+    print(f"wrote {os.path.basename(OUT)}: {ncol} studies x {nrow} fields = {nrow*ncol} glyphs")
     print("  " + ", ".join(f"{k}: {v}" for k, v in sorted(counts.items())))
     print("  no aggregate score is computed or drawn, by design")
 

@@ -563,12 +563,12 @@ C7 Raghuraman & N & T & Event-driven CNN, in-memory chip & Arrhythmia, MIT-BIH; 
 \end{table*}
 This section reviews implemented systems, with the illustrative comparison anchored in the primary studies of Table~\ref{tab:evidence}. Studies are grouped by task. Numbers are interpreted within each paper, distinguishing matched baselines from ablations, instrument references, and published values obtained under potentially different protocols; ``n/r'' (not reported) and unfavorable results are kept apart, since an unreported comparison is missing evidence while an unfavorable one is evidence. The studies were published between 2016 and 2026 and span dietary, diabetes, depression and cardiac work together with the wearable, ambient and camera-based studies sampled from the rule-positive pool. Two patterns cut across the groups. First, the unit of analysis is not uniform within a domain: diabetes and depression each contain individual-level sensing studies and population-level surveillance studies, which should not be pooled. Second, deployment characteristics are almost never reported. Eleven of the twenty-two draw on data captured by a body-worn, ambient or consumer device. We keep what each study \emph{reports} about cost and where inference runs separate from the placement \emph{we} infer: the resource column of Table~\ref{tab:evidence} is reported, while the placements of Fig.~\ref{fig:taxonomy} and Section~\ref{sec:constrainedselection} are our reading and not evidence of deployment. Of the twenty-two, five state anything about model cost or latency~\cite{5,Li2020GluNet,verbiest2023gaitstride,lin2024smapen,li2026edgeischemia}, with three reporting a figure on the class of device the work implies---a phone, a microcontroller or a portable board---although the microcontroller figure for latency is a toolchain estimate and only its memory footprint was measured~\cite{Li2020GluNet,verbiest2023gaitstride,lin2024smapen}. None reports sustained data rate, bandwidth, connectivity assumptions or an update strategy, and none evaluates a deployed end-to-end connected service; we do not generalize beyond the set, whose provenance we state.
 
-\begin{figure*}[tp]
+\begin{figure}[tp]
 \centering
-\includegraphics[width=\textwidth]{fig_quality.pdf}
+\includegraphics[width=\linewidth]{fig_quality.pdf}
 \caption{Per-study evidence quality. Filled: the study reports the field, including an explicit absence such as a single cohort; open: not reported; crossed: the source leaves it unclear; dashed: assessed from the abstract only (E21). Calibration is shown separately from interval reporting, and data availability separately from code, giving twelve fields from the ten extracted columns. Glyphs are derived from audit files A05--A07 by the rule in \texttt{figures/make\_fig\_quality.py}; no aggregate score is computed, because the weaknesses are different ones. No study implements and evaluates a privacy protection: the field is unreported for twenty-one, and the remaining record states its method has none.}
 \label{fig:quality}
-\end{figure*}
+\end{figure}
 
 \subsection{Validation Levels and Leakage}
 \label{sec:quality}
