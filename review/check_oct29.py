@@ -296,10 +296,15 @@ task("reference list final page balanced", "manual",
 
 # The delivery gate.
 log = os.path.join(ROOT, "review", "sent_pdfs.json")
+gate = os.path.join(ROOT, "review", "record_sent_pdf.py")
 if not os.path.exists(log):
-    task("delivery gate: no PDF sent twice", "pending",
-         "review/sent_pdfs.json absent; the 10-29 review's first finding was that the attachment "
-         "was byte-identical to the previous one")
+    task("delivery gate: no PDF sent twice",
+         "pending" if os.path.exists(gate) else "fail",
+         "record_sent_pdf.py is in place and refuses a repeat send; no send has been recorded yet, "
+         "so run it on the PDF before attaching it"
+         if os.path.exists(gate) else
+         "no gate at all; the 10-29 review's first finding was that the attachment was "
+         "byte-identical to the previous one")
 else:
     sent = json.load(io.open(log, encoding="utf-8"))
     hashes = [e.get("sha256") for e in sent]

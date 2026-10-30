@@ -39,3 +39,4 @@ Assembled 2026-10-22 by review/build_audit.py. There is no supplementary documen
 | A14_code_and_query_logs/update_20261022_reconstruct_pubmed_snapshot.py | Code or dated query/count log. | cc47eebedd5f09be |
 | A14_code_and_query_logs/update_20261022_update_analysis.py | Code or dated query/count log. | d6f969a4033eaf92 |
 | A14_code_and_query_logs/update_20261022_update_summary.json | Code or dated query/count log. | 068bf67e5ddc8ca5 |
+| A16_selection_ledger.csv | Dated selection ledger for all 29 records: the pool each came from, the date it was added, who decided, the reason, and whether the decision can be replayed from a retained record. The original twelve are marked as a legacy purposive set with no dated search record; the ten sampled from the 363 are only partly replayable, because the candidate ordering behind the saturation stop was not retained. | a3b9dfab1cc5b8c1 |
