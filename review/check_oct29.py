@@ -17,7 +17,12 @@ import argparse, csv, io, json, os, re, subprocess, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEX = os.path.join(ROOT, "expand25", "STmodel.tex")
 AUDIT = os.path.join(ROOT, "expand25", "audit")
-TAG = "audit-2026-10-29"
+# The tag is read out of the manuscript, so the two cannot drift apart: whatever release the
+# article cites is the release this check verifies.
+_m = re.search(r"tagged \\texttt\{(audit-[0-9.\-]+)\}",
+               io.open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                                    "expand25", "STmodel.tex"), encoding="utf-8").read())
+TAG = _m.group(1) if _m else "audit-unnamed"
 
 tex = io.open(TEX, encoding="utf-8").read()
 tasks = []
