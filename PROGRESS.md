@@ -121,10 +121,25 @@ coded values leaks into it.
 
 ## Open
 
-1. **Publisher access for C1--C7 and E21.** The 10-29 review requires the seven complement records
-   to be assessed in full text with the same fields as the main studies, and E21's inherited dataset
-   descriptors to be verified or relabelled. All seven are IEEE or Elsevier; this machine's browser
-   has no institutional access. Nothing in the manuscript can close these without it.
+1. **Publisher access for C1--C7, E21 and E01.** The 10-29 review requires the seven complement
+   records to be assessed in full text with the same fields as the main studies, and E21's inherited
+   dataset descriptors to be verified or relabelled. All seven are IEEE or Elsevier; this machine's
+   browser has no institutional access. Nothing in the manuscript can close these without it.
+
+   **E01 is the first one to pull, and it is not on the review's list.** The manuscript says one
+   record only -- E21 -- was assessed from its abstract, which asserts a full-text read for the
+   other twenty-one. The retained evidence does not support that for E01 (GluNet): the 2026-09-23
+   access check recorded `pmcid=None, oa=False`, the file saved for it is a 5.8 kB Cloudflare
+   challenge page rather than the paper, and the values the table carries -- RMSE 19.28 mg/dL on
+   OhioT1DM, ARX 21.54, 6 ms on an Android phone -- are provably not in the PubMed abstract, whose
+   RMSE figures render as "[Formula: see text]" and which never names OhioT1DM or the phone timing.
+   The values may well have been read from the full text at the time without the file being kept,
+   but the audit package cannot show that, and these are the GluNet numbers the 10-22 round already
+   examined. Pull the paper and either confirm the three values or mark them unverified.
+
+   The same gap is wider than E01: `review/fulltext/` retains real full texts for ten of the
+   twenty-two studies. For the other twelve the package evidences no full-text read either way.
+   Whether the manuscript's claim should be narrowed is an author's call, not a tooling one.
 2. **A second reader.** `review/independent_check/` is ready -- blinded worksheets for 29 records and
    15 compared reviews, the codebook, and `score_independent.py`, which produces the agreement
    figures and the adjudication worksheet. Nobel has been asked; he has no publisher access either,
