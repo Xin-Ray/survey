@@ -1,5 +1,5 @@
 ﻿Study,Privacy or security method,Latency,Energy,Bandwidth or data rate,Inference placement (ours),Principal methodological limitation,BibTeX key
-Kyritsis et al.,n/r,n/r,n/r,n/r,wrist device,"Twelve subjects, staged meals; no free-living data",[Kyritsis2019EatingBehavior]
+Kyritsis et al.,n/r,"n/r on a device; the second reader records an offline processing time per meal on a server GPU (A17), which is not a per-inference or on-device figure",n/r,n/r,wrist device,"Twelve subjects, staged meals; no free-living data",[Kyritsis2019EatingBehavior]
 Liu et al.,n/r,n/r,n/r,n/r,server,"Split by sample, so a subject can appear on both sides",[2]
 Thaipisutikul et al.,n/r,n/r,n/r,n/r,server,Seventy monthly aggregates; no individual-level data,[3]
 Kong et al.,n/r,n/r,n/r,n/r,server,Each site evaluated on its own; no cross-site result,[4]
@@ -13,7 +13,7 @@ Nitski et al.,Anonymized registry records; no privacy mechanism in the method,n/
 Glaser et al.,n/r,n/r,n/r,n/r,"server, per visit",One cohort; calibration of the displayed risk not reported,[glaser2022deep]
 Liu et al.,n/r,n/r,n/r,n/r,wearable,"Reference blood pressure comes from a laboratory Finapres, not ambulatory use",[liu2024cignn]
 Li et al.,n/r,"4.7 ms per cycle, on a desktop CPU, not on an edge board",n/r,n/r,edge,Edge claim not validated on a device; a faster 1D-CNN reaches a similar AUC,[li2026edgeischemia]
-Verbiest et al.,n/r,Toolchain estimate; no measured figure,n/r,n/r,device,Fifteen healthy adults; nothing shown for pathological gait,[verbiest2023gaitstride]
+Verbiest et al.,n/r,"Toolchain estimate; no measured figure. Memory footprint is also a toolchain estimate (adjudicated, A17)",n/r,n/r,device,Fifteen healthy adults; nothing shown for pathological gait,[verbiest2023gaitstride]
 Herath et al.,n/r,n/r,n/r,n/r,wrist or trunk device,"One cohort; the pretrained encoder is a fixed feature extractor, not a calibrated model",[herath2026parkinson]
 Liu et al.,n/r,n/r,n/r,n/r,bedside gateway,Sample-level split with 30 subjects; accuracy is likely optimistic,[liu2025sleepposture]
 Chan et al.,n/r,n/r,n/r,n/r,smartphone,"One sagittal view at a fixed distance, which a home setting would not guarantee",[chan2026sitstand]

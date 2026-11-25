@@ -62,17 +62,23 @@ def classify(cell, part):
         # the clause about calibration itself, not about intervals
         if "calibration n/r" in low or "calibration not" in low:
             return NOT_REPORTED
-        if "brier" in low or "calibration" in low:
+        # a Brier score mixes discrimination and calibration and is not a calibration assessment
+        if "calibration curve" in low or "calibration slope" in low or "reliability diagram" in low:
             return REPORTED
         return NOT_REPORTED
     if part == "interval":
-        if re.search(r"\d+\s*%\s*(interval|bound|ci)|interval|bootstrap|posterior|credible|sd\b", low):
-            return REPORTED
+        # negative statements first: "no interval reported" contains the word interval
         if "no interval" in low or low.startswith("n/r"):
             return NOT_REPORTED
+        # a standard deviation or a significance test is not an interval
+        if re.search(r"interval|\bbounds?\b|bootstrap|posterior|credible", low):
+            return REPORTED
         return NOT_REPORTED
     if part == "data":
-        if re.search(r"data(set)?\s+(public|on request|private|available)|public dataset|simulator licensed", low):
+        if re.search(r"data\s+n/r", low):
+            return NOT_REPORTED
+        if re.search(r"data(sets?)?\s+(public|on request|private|available|not public|partly public)"
+                     r"|public data(sets?)?|data on request|simulator licensed", low):
             return REPORTED
         return NOT_REPORTED if low.startswith("n/r") else UNCLEAR
     if part == "code":
@@ -85,7 +91,7 @@ def classify(cell, part):
     # single-construct fields
     if low in ("n/r", "n/a", "not reported", "-", "--"):
         return NOT_REPORTED
-    if re.search(r"\?|unclear|not stated|cannot be determined", low):
+    if re.search(r"\?|unclear|unknown|not stated|cannot be determined", low):
         return UNCLEAR
     if low.startswith("n/r"):
         # "n/r; the authors note ..." -- the field itself is still not reported
