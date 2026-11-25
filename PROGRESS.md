@@ -197,3 +197,26 @@ success while the artifact behind the claim was wrong or absent.
 | 2026-10-26 | The hand-check audit file A11 held a blank worksheet, not the labels behind the published 62%/18%. Recovering the real record showed the labelling sheet had displayed a machine-generated suggestion and reason for every record, which the author accepted on 58 of 59 — so the manuscript's "blind to the rule's verdict" was wrong | Nothing recomputed the published statistics from the deposited file, and no check asked how the labels were produced |
 | 2026-10-29 | The manuscript cited an audit release that no longer held the package it described: A16 was added after the tag was cut | The check hardcoded the tag name, so it verified a release the article did not necessarily cite. It now reads the name out of the manuscript |
 | 2026-10-29 | E19's validation cell held the literal code `0`, which the legend never defined; A05 records no predictive hold-out at all | Nothing compared the codes used in the table against the codes the legend defines. `check_oct29.py` now requires the two sets to be equal in both directions |
+
+### 2026-11-25 (later) -- verification closed
+
+The second reader replied on 11-25 that the update is fine and that authorship is his acknowledgement.
+He is a co-author, so the text no longer says "not an author".
+
+| Item | State |
+|---|---|
+| Table I (15 reviews) | Scored: 109 of 135 marks agree, 26 differ by one step, his marks adopted (A17) |
+| Resource basis E03, E05, C4, C5 | Settled with his category. E03 now prints 3.2 s/meal (checked in the source); E05 and C4 say estimated |
+| Comparators | Compared by hand. C1 now prints the tabulated 97.0% (the source text says 98%). C4 now prints the strongest comparator, 95.5%, which is above the proposed 95.34% |
+| Validation code | C (additional cohort, pooled or refitted) replaces the second meaning of A for E04, E14, E20, E21 |
+| Fig. 6 | Rule fixed (negatives first, Brier is not calibration, SD is not an interval), A05-A07 aligned, regenerated; `fig_quality_pdf.py` renders the PDF |
+| M7 | Worked example added after the selection aid |
+| Audit tag | `audit-2026-11-25` |
+| Overleaf | Text, figure and audit files synced; 26 pages, no errors or warnings |
+
+Still open: E21 is still presented as abstract-only. Its full text is open access and the comparator
+row was checked on 11-25 (recorded in A17), but the marked dataset descriptors were not, so the
+abstract-only label, the dashed glyphs and the section signs stay until someone reads the whole paper.
+Page count is 26 against a target of 25. The branch is not merged into main. No reply to the PI has
+been sent, and the delivery gate has not been run.
+
