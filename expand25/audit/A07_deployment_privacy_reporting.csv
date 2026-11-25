@@ -1,5 +1,5 @@
 ﻿Study,Privacy or security method,Latency,Energy,Bandwidth or data rate,Inference placement (ours),Principal methodological limitation,BibTeX key
-Kyritsis et al.,n/r,"n/r on a device; the second reader records an offline processing time per meal on a server GPU (A17), which is not a per-inference or on-device figure",n/r,n/r,wrist device,"Twelve subjects, staged meals; no free-living data",[Kyritsis2019EatingBehavior]
+Kyritsis et al.,n/r,"3.243 s average processing time per meal (preprocessing through postprocessing), offline on an Intel Xeon E5-2650 with an NVIDIA Tesla K40; not on the watch, which the authors say cannot yet run it",n/r,n/r,wrist device,"Twelve subjects, staged meals; no free-living data",[Kyritsis2019EatingBehavior]
 Liu et al.,n/r,n/r,n/r,n/r,server,"Split by sample, so a subject can appear on both sides",[2]
 Thaipisutikul et al.,n/r,n/r,n/r,n/r,server,Seventy monthly aggregates; no individual-level data,[3]
 Kong et al.,n/r,n/r,n/r,n/r,server,Each site evaluated on its own; no cross-site result,[4]
