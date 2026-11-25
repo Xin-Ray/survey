@@ -4,7 +4,7 @@ State of the IEEE IoT-J revision, and what each review round asked for. Rounds a
 review documents are internal correspondence and are not reproduced, so each item is stated as
 the requirement it placed on the manuscript, not as a quotation, and no reviewer is named.
 
-Last updated 2026-10-29. Overleaf is the source of truth:
+Last updated 2026-11-25. Overleaf is the source of truth:
 https://www.overleaf.com/project/67d9bc605fe6221e6aadc7a4
 
 ## Which manuscript is current
@@ -118,6 +118,17 @@ and Nitski in 2026-09 turned out to be Cloudflare challenge pages, so those two 
 The independent verification needs a second reader: `review/independent_check/` holds the blinded
 worksheets, the codebook and the scorer, and the generator refuses to write a sheet if any of our
 coded values leaks into it.
+
+### 2026-11-24/25 — complement full text, independent verification, consistency pass
+
+| | Requirement | Where it landed |
+|---|---|---|
+| M1 | Full-text assessment of C1--C7 | All seven read in full (C2--C7 from interlibrary-loan PDFs, C1 from the open-access HTML). A15 records hardware, runtime, window and the boundary of each latency and energy figure; Section II-F and the seven table rows rewritten |
+| M5 | C7 chip figures | The full text does not resolve the pair: the chip is taken from prior work, no measurement is described, 5 us is the in-memory stage only. Coded estimated; both readers reached this independently |
+| M3 | Independent verification | Second reader returned all 29 records on 11-24. Agreement 26/29 IoT class, 25/29 spatial code, 22/29 split, 25/29 resource basis. The 14 differing cells on the first three fields adopt his code (A17). He would exclude 14 of 29 records; they are kept and listed in the new Section "Independent Verification" |
+| -- | Consistency pass | Counts that depended on the recoded cells corrected: spatial 2/5/2 = nine explicit, eight multichannel, five temporal; IoT 10/4/8; split 11 subject-disjoint, 2 record-level, 4 unstated; datasets-table Sp. for E03, E05, E07; heat-map caption |
+
+Not done, and known: (1) `fig_quality` was not regenerated. A05/A07 still describe the E12, E15 and E17 splits as before adjudication, and `make_fig_quality.py` tests its positive "interval" pattern before "no interval", so eleven Uncertainty glyphs are filled that the table says are not reported. (2) The Val. code A is used both for across-time splits and for additional-cohort evaluations. (3) The four resource-basis differences (E03, E05, C4, C5) and the comparator values are not adjudicated. (4) Table I (15 reviews) was not scored against the returned survey sheet. (5) Pre-existing: "only nine" device-sourced rows against ten N studies; "ten quality fields" lists nine; 44 inserted records against 961 + 289 - 1,209 = 41; legend codes Abs., CrI and Brier undefined. (6) The cited tag predates A15 and A17.
 
 ## Open
 

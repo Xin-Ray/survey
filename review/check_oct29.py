@@ -86,7 +86,21 @@ else:
 
 # C7's arithmetic: the review derived 20-30 W from 100-150 uJ over 5 us.
 c7 = " ".join(ROWS.get("C7", []))
-if re.search(r"5\s*\\,?\$?\\mu\$?s", c7) or "5\\,$\\mu$s" in tex:
+_a15 = {r.get("id"): r for r in audit_csv("A15_complement_fulltext.csv")} if os.path.exists(a15) else {}
+if "C7" in _a15:
+    # The full text has been read (2026-11-24). It does not resolve the pair, so the requirement
+    # is no longer a label: the audit row must code the figures as not measured, and the
+    # manuscript's row and prose must say the same thing the audit row says.
+    basis = (_a15["C7"].get("resource_basis") or "").strip().lower()
+    row_ok = "not measured" in c7.lower()
+    prose_ok = "is not measured hardware evidence" in tex
+    ok = basis.startswith("estimated") and row_ok and prose_ok
+    task("M5 C7 energy/latency qualified", "pass" if ok else "fail",
+         "full text read: A15 codes C7 as estimated, and the table row and Section II-F both say "
+         "the figures are not measured"
+         if ok else
+         f"A15 basis={basis!r}, table row says not measured={row_ok}, prose says so={prose_ok}")
+elif re.search(r"5\s*\\,?\$?\\mu\$?s", c7) or "5\\,$\\mu$s" in tex:
     labelled = "abstract-reported" in tex or "abstract-level" in c7
     task("M5 C7 energy/latency qualified", "pass" if labelled else "fail",
          "the 5 us / 100--150 uJ pair is marked as abstract-reported"

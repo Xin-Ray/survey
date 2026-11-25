@@ -1,6 +1,6 @@
 # Audit package: Spatiotemporal Deep Learning for IoT-Enabled Digital Health
 
-Assembled 2026-10-22 by review/build_audit.py. There is no supplementary document: every table is in the article. These files hold record-level detail only. File prefixes A01-A14 are audit-file numbers and never refer to table numbers. This package is published at https://github.com/Xin-Ray/survey under `expand25/audit/`; run `python3 review/verify_audit.py` from the repository root to check every file against the checksums below. Study identifiers E01-E22 (illustrative set) and C1-C7 (IoT-engineering complement, abstract-level) match Tables III and V; see A08.
+Assembled 2026-10-22 by review/build_audit.py. There is no supplementary document: every table is in the article. These files hold record-level detail only. File prefixes A01-A17 are audit-file numbers and never refer to table numbers. This package is published at https://github.com/Xin-Ray/survey under `expand25/audit/`; run `python3 review/verify_audit.py` from the repository root to check every file against the checksums below. Study identifiers E01-E22 (illustrative set) and C1-C7 (IoT-engineering complement, assessed in full text; see A15) match Tables III and V; see A08.
 
 | File | Content | SHA-256 (first 16) |
 |---|---|---|
@@ -11,11 +11,11 @@ Assembled 2026-10-22 by review/build_audit.py. There is no supplementary documen
 | A05_quality_split_leakage_missing_external.csv | Quality fields: split, leakage, missing data, external validation. | 2a3d3991e53df141 |
 | A06_quality_calibration_subgroups_comparators.csv | Quality fields: calibration and uncertainty, subgroups, comparators, reproducibility. | 1a56e1d3622faf1d |
 | A07_deployment_privacy_reporting.csv | Deployment, cost and privacy reporting. | e0c16088777e7cb1 |
-| A08_study_id_crosswalk.csv | Crosswalk: stable identifier -> BibTeX key, Table V (evidence) row, Table III (datasets) row, audit files. | e466480e53983798 |
+| A08_study_id_crosswalk.csv | Crosswalk: stable identifier -> BibTeX key, Table V (evidence) row, Table III (datasets) row, audit files. | 6116f47ff2f03777 |
 | A09_pubmed_snapshot_20260911_decisions.csv | Record-level replay (run 2026-10-22) of the 11 Sept 2026 PubMed screen: Entrez date <= 2026-09-11, item-type exclusion, rules (i)-(iii); column in_published_363 marks the original pool. Replay summary in A14. | 946350c7408fc1b9 |
 | A10_xplore_decisions_20261022.csv | Record-level IEEE Xplore decisions of the 22 Oct 2026 re-run (both arms), with insertion dates, duplicate and PubMed matches, and membership of the 1 Oct 2026 Xplore-only list. | d0d5f27738005fdd |
 | A11_handcheck_60.csv | Single-reviewer hand check of 60 PubMed records against the rule verdict, 23 September 2026. Carries the per-record rule flags, the author's decision, and the machine-generated suggestion and reason that the labelling sheet displayed, so the dependence of the check on that suggestion can be assessed (accepted on 58 of the 59 logged records). | 1aca361b1dff46a2 |
-| A12_iot_complement_screen.csv | IoT-engineering complement screen (22 Oct 2026): 230 Xplore-only and 307 IoT-term records, E1/E2 rules, AI-assisted abstract assessment with a reason per candidate; retained records C1-C6. | b16d2de653c8d27a |
+| A12_iot_complement_screen.csv | IoT-engineering complement screen (22 Oct 2026): 230 Xplore-only and 307 IoT-term records, E1/E2 rules, AI-assisted abstract assessment with a reason per candidate; retained records C1-C6 (C7 was added by the search update, A13). | b16d2de653c8d27a |
 | A13_search_update_20261022.csv | Search update through 22 Oct 2026: PubMed records by Entrez date 12 Sept-22 Oct, Xplore records inserted after 22 Sept, and the PubMed side of the cross-database overlaps; C7 retained. | e57ce2c7e7ce155f |
 | A14_code_and_query_logs/FINDINGS.md | Code or dated query/count log. | c5c77af765273b13 |
 | A14_code_and_query_logs/citation_chase.json | Code or dated query/count log. | 9d557af9f7435b47 |
@@ -39,4 +39,6 @@ Assembled 2026-10-22 by review/build_audit.py. There is no supplementary documen
 | A14_code_and_query_logs/update_20261022_reconstruct_pubmed_snapshot.py | Code or dated query/count log. | cc47eebedd5f09be |
 | A14_code_and_query_logs/update_20261022_update_analysis.py | Code or dated query/count log. | d6f969a4033eaf92 |
 | A14_code_and_query_logs/update_20261022_update_summary.json | Code or dated query/count log. | 068bf67e5ddc8ca5 |
+| A15_complement_fulltext.csv | Full-text assessment of the complement records C1-C7 (2026-11-24): source read, hardware, runtime and precision, input window, latency and energy each with the boundary the paper states, memory, networking, split, comparator as printed, calibration, external validation and resource basis. C7 is coded estimated, not measured. | 4f53f467888552ac |
 | A16_selection_ledger.csv | Dated selection ledger for all 29 records: the pool each came from, the date it was added, who decided, the reason, and whether the decision can be replayed from a retained record. The original twelve are marked as a legacy purposive set with no dated search record; the ten sampled from the 363 are only partly replayable, because the candidate ordering behind the saturation stop was not retained. | a3b9dfab1cc5b8c1 |
+| A17_independent_verification.csv | Independent verification by a second reader (returned 2026-11-24): every field where the returned sheet differs from the manuscript's coding, the reader's reason, the adjudication and whether a table cell changed. Inclusion: the reader would exclude 14 of 29 records. | 94a9c2fe54541dbc |
